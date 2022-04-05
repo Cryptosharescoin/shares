@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="ic_piv"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient943">
+      <stop
+         style="stop-color:#008000;stop-opacity:1;"
+         offset="0"
+         id="stop939" />
+      <stop
+         style="stop-color:#008000;stop-opacity:0;"
+         offset="1"
+         id="stop941" />
+    </linearGradient>
+    <style
+       type="text/css"
+       id="style2">
+            .cls-1{fill:#5c4b7d}.cls-2{fill:none}
+        </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipEmfPath1">
+      <path
+         d="  M 145.66667,0.33333333   L 0.33333333,0.33333333   L 0.33333333,189.66667   L 145.66667,189.66667   L 145.66667,0.33333333 "
+         id="path842" />
+    </clipPath>
+    <pattern
+       id="EMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipEmfPath1-0">
+      <path
+         d="  M 145.66667,0.33333333   L 0.33333333,0.33333333   L 0.33333333,189.66667   L 145.66667,189.66667   L 145.66667,0.33333333 "
+         id="path863" />
+    </clipPath>
+    <pattern
+       id="EMFhbasepattern-8"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <pattern
+       id="EMFhbasepattern-7"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <pattern
+       id="EMFhbasepattern-75"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <pattern
+       id="EMFhbasepattern-79"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <pattern
+       id="EMFhbasepattern-6"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <pattern
+       id="EMFhbasepattern-0"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient943"
+       id="linearGradient945"
+       x1="1.4839208"
+       y1="12.00804"
+       x2="22.5"
+       y2="12.00804"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="Group_8935"
+     data-name="Group 8935"
+     style="fill:#4498ef;fill-opacity:1;stroke:#4498ef;stroke-opacity:1">
+    <g
+       id="Group_8934"
+       data-name="Group 8934"
+       style="stroke:#4498ef;stroke-opacity:1;fill:#4498ef;fill-opacity:1">
+      <path
+         id="Path_18928"
+         d="M 12,2 A 10,10 0 1 0 22,12 10,10 0 0 0 12,2 Z m 0,19.25 A 9.25,9.25 0 1 1 21.25,12 9.25,9.25 0 0 1 12,21.25 Z"
+         class="cls-1"
+         data-name="Path 18928"
+         style="stroke:#4498ef;stroke-opacity:1;fill:#4498ef;fill-opacity:1" />
+    </g>
+  </g>
+  <path
+     id="Rectangle_4543"
+     d="M0 0h24v24H0z"
+     class="cls-2"
+     data-name="Rectangle 4543" />
+  <g
+     id="g857"
+     transform="matrix(0.52186001,0,0,0.53525425,-14.075868,-15.042621)"
+     style="fill:#4498ef;fill-opacity:1">
+    <path
+       class="st2"
+       d="m 45.2,45.3 h -1.9 l -4.7,4.8 10.7,9.6 c 0,0 0,0 0,0 L 42,50.2"
+       id="path17"
+       style="fill:#4498ef;fill-opacity:1" />
+    <path
+       class="st2"
+       d="m 55.9,45.8 1.9,0.1 4.3,4.7 -11.2,7.9 c 0,0 0,0 0,0 l 7.9,-8.1"
+       id="path19"
+       style="fill:#4498ef;fill-opacity:1" />
+    <path
+       class="st2"
+       d="m 44.8,51 -1.3,-1.5 -0.1,-7.1 13.7,2 c 0,0 0,0 0,0 l -11.2,0.7"
+       id="path21"
+       style="fill:#4498ef;fill-opacity:1" />
+    <g
+       id="g27"
+       style="fill:#4498ef;fill-opacity:1">
+      <path
+         class="st2"
+         d="m 51,47.6 h -2.2 l -0.2,1.3 h 2 c 1,0 1.3,0.4 1.3,1.2 0,0.4 -0.1,1 -0.2,1.2 -0.2,0.5 -0.5,1.2 -1.6,1.2 H 48.2 L 48,53.8 h 2.2 c 0.8,0 1.1,-0.1 1.5,-0.3 0.8,-0.4 1.2,-1.4 1.4,-2.6 0.2,-2 -0.1,-3.3 -2.1,-3.3"
+         id="path23"
+         style="fill:#4498ef;fill-opacity:1" />
+      <path
+         class="st2"
+         d="m 47.9,50.1 c -0.6,0 -0.7,0.5 -0.7,0.7 -0.1,0.4 -0.1,0.5 -0.1,0.5 h 2.3 c 0.6,0 0.7,-0.5 0.7,-0.7 0.1,-0.4 0.1,-0.5 0.1,-0.5 z"
+         id="path25"
+         style="fill:#4498ef;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

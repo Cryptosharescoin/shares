@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=CRYPTOSHARES
+Comment= SHARES P2P Cryptocurrency
+Comment[fr]= SHARES, monnaie virtuelle cryptographique pair à pair
+Comment[tr]= SHARES, eşten eşe kriptografik sanal para birimi
+Exec=cryptoshares-qt %u
+Terminal=false
+Type=Application
+Icon=pivx128
+MimeType=x-scheme-handler/pivx;
+Categories=Office;Finance;
+StartupWMClass=CRYPTOSHARES-qt
