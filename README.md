@@ -6,7 +6,7 @@ Converting cryptocurrency Usecase development into financial and Tradeable digit
 <p> CRYPTOSHARES is a digital crypto currency based on blockchain technology to assess and convert coin projects usecases into funded and tradeable equity.<p>
 <p> Cryptoshares utilizes a Proof of Stake (PoS) consensus system algorithm, allowing all owners of SHARES to participate in earning block rewards while securing as well as to run Masternodes thereby generating passive income.<p>
 
-<br> More information at:www.cryptosharescoin.com <br>
+<br> More information at: www.cryptosharescoin.com <br>
   
   
 <h2><strong>Specification:</strong></h2>
@@ -51,7 +51,7 @@ Converting cryptocurrency Usecase development into financial and Tradeable digit
 <tr>
 <td class="xl65" style="width: 120px; text-align: center;"><strong>Block Start</strong></td>
 <td class="xl65" style="width: 120px; text-align: center;"><strong>Block End</strong></td>
-<td class="xl65" style="width: 180px; text-align: center;"><strong>Pre-Mine</strong></td>
+<td class="xl65" style="width: 180px; text-align: center;"><strong>PoW Reward</strong></td>
 </tr>
 <tr>
 <td class="xl65" style="width: 120px; text-align: center;">0</td>
@@ -61,7 +61,7 @@ Converting cryptocurrency Usecase development into financial and Tradeable digit
 <tr>
 <td class="xl65" style="width: 120px; text-align: center;">0</td>
 <td class="xl65" style="width: 120px; text-align: center;">2000</td>
-<td class="xl65" style="width: 180px; text-align: center;">5000</td>
+<td class="xl65" style="width: 180px; text-align: center;">5000 [PoW]</td>
 </tr>
 </table>
 <br>
