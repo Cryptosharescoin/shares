@@ -28,7 +28,7 @@ Drag CRYPTOSHARES-Qt to your applications folder, and then run CRYPTOSHARES-Qt.
 
 * See the documentation at the [CRYPTOSHARES Wiki](https://github.com/cryptoshares/SHARES.git)
 for help and more information.
-* Join our Discord server [Discord Server](https://discord.gg/UXGTjfsBFe)
+* Join our Discord server [Discord Server](https://discord.gg/T3CYMwTfjJ)
 
 Building
 ---------------------
@@ -56,7 +56,7 @@ The CRYPTOSHARES repo's [root README](/README.md) contains relevant information 
 
 ### Resources
 * Discuss on the [CRYPTOSHARES Homepage]https://cryptosharescoin.io/).
-* Join the [CRYPTOSHARES Discord](https://discord.gg/UXGTjfsBFe).
+* Join the [CRYPTOSHARES Discord](https://discord.gg/T3CYMwTfjJ).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

@@ -1615,9 +1615,9 @@ NODES</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-        https://discord.gg/UXGTjfsBFe</source>
+        https://discord.gg/T3CYMwTfjJ</source>
         <translation>Sprache fehlt oder ist unvollständig? Helfe mit und trage zur Übersetzung bei unter:
-        https://discord.gg/UXGTjfsBFe</translation>
+        https://discord.gg/T3CYMwTfjJ</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3593,14 +3593,14 @@ SHARES nutzt einen PoS Konsensalgorithmus, der es den Besitzern von SHARES erlau
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
                            We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.gg/UXGTjfsBFe'&gt;
+                           &lt;a style='color: #b088ff' href='https://discord.gg/T3CYMwTfjJ'&gt;
                            #support in our Discord&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
 Wir haben Support-Kanäle in den meisten unserer offiziellen Chatgruppen, z.B.
-&lt;a style='color: #b088ff' href='https://discord.gg/UXGTjfsBFe'&gt;
+&lt;a style='color: #b088ff' href='https://discord.gg/T3CYMwTfjJ'&gt;
 #support in Discord&lt;/a&gt;
 &lt;/a&gt;
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
