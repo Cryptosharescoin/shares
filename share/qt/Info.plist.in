@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.pivx.PivxPayment</string>
+      <string>io.cryptoshares.CryptosharesPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>pivx</string>
+        <string>cryptoshares</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.pivx.paymentrequest</string>
+      <string>io.cryptoshares.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Pivx payment request</string>
+      <string>Cryptoshares payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-pivx-payment-request</string>
+        <string>application/x-cryptoshares-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>pivxpaymentrequest</string>
+          <string>cryptosharespaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.pivx.paymentrequest</string>
+        <string>io.cryptoshares.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

@@ -13,7 +13,7 @@
 
 class CScheduler;
 class CWallet;
-class CzPIVWallet;
+class CzSHARESWallet;
 
 namespace boost
 {

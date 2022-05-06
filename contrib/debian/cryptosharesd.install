@@ -1,0 +1,3 @@
+usr/local/bin/cryptosharesd usr/bin
+usr/local/bin/cryptoshares-cli usr/bin
+debian/examples/cryptoshares.conf etc/cryptoshares

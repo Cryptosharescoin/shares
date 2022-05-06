@@ -11,7 +11,7 @@
 #include "base58.h"
 #include "timedata.h"
 #include "wallet/wallet.h"
-#include "zpivchain.h"
+#include "zshareschain.h"
 #include "main.h"
 
 #include <algorithm>
@@ -35,10 +35,10 @@ bool TransactionRecord::decomposeCoinStake(const CWallet* wallet, const CWalletT
     const uint256& hash = wtx.GetHash();
     TransactionRecord sub(hash, wtx.GetTxTime(), wtx.GetTotalSize());
 
-    if (wtx.HasZerocoinSpendInputs() && (fZSpendFromMe || wallet->zpivTracker->HasMintTx(hash))) {
+    if (wtx.HasZerocoinSpendInputs() && (fZSpendFromMe || wallet->zsharesTracker->HasMintTx(hash))) {
         //zSHARES stake reward
         sub.involvesWatchAddress = false;
-        sub.type = TransactionRecord::StakeZPIV;
+        sub.type = TransactionRecord::StakeZSHARES;
         sub.address = getValueOrReturnEmpty(wtx.mapValue, "zerocoinmint");
         sub.credit = 0;
         for (const CTxOut& out : wtx.vout) {
@@ -110,7 +110,7 @@ bool TransactionRecord::decomposeZcSpendTx(const CWallet* wallet, const CWalletT
             isminetype mine = wallet->IsMine(txout);
             TransactionRecord sub(hash, nTime, wtx.GetTotalSize());
             sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-            sub.type = TransactionRecord::ZerocoinSpend_Change_zPiv;
+            sub.type = TransactionRecord::ZerocoinSpend_Change_zShares;
             sub.address = getValueOrReturnEmpty(wtx.mapValue, "zerocoinmint");
             if (!fFeeAssigned) {
                 sub.debit -= (wtx.GetZerocoinSpent() - wtx.GetValueOut());
@@ -292,7 +292,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
     bool fZSpendFromMe = false;
 
     if (wtx.HasZerocoinSpendInputs()) {
-        libzerocoin::CoinSpend zcspend = wtx.HasZerocoinPublicSpendInputs() ? ZPIVModule::parseCoinSpend(wtx.vin[0]) : TxInToZerocoinSpend(wtx.vin[0]);
+        libzerocoin::CoinSpend zcspend = wtx.HasZerocoinPublicSpendInputs() ? ZSHARESModule::parseCoinSpend(wtx.vin[0]) : TxInToZerocoinSpend(wtx.vin[0]);
         fZSpendFromMe = wallet->IsMyZerocoinSpend(zcspend.getCoinSerialNumber());
     }
 
@@ -372,14 +372,14 @@ bool TransactionRecord::ExtractAddress(const CScript& scriptPubKey, std::string&
     }
 }
 
-bool IsZPIVType(TransactionRecord::Type type)
+bool IsZSHARESType(TransactionRecord::Type type)
 {
     switch (type) {
-        case TransactionRecord::StakeZPIV:
+        case TransactionRecord::StakeZSHARES:
         case TransactionRecord::ZerocoinMint:
         case TransactionRecord::ZerocoinSpend:
         case TransactionRecord::RecvFromZerocoinSpend:
-        case TransactionRecord::ZerocoinSpend_Change_zPiv:
+        case TransactionRecord::ZerocoinSpend_Change_zShares:
         case TransactionRecord::ZerocoinSpend_FromMe:
             return true;
         default:
@@ -432,7 +432,7 @@ void TransactionRecord::updateStatus(const CWalletTx& wtx)
     // For generated transactions, determine maturity
     else if (type == TransactionRecord::Generated ||
             type == TransactionRecord::StakeMint ||
-            type == TransactionRecord::StakeZPIV ||
+            type == TransactionRecord::StakeZSHARES ||
             type == TransactionRecord::MNReward ||
             type == TransactionRecord::DevReward) {
 
@@ -478,7 +478,7 @@ int TransactionRecord::getOutputIndex() const
 
 bool TransactionRecord::isCoinStake() const
 {
-    return (type == TransactionRecord::StakeMint || type == TransactionRecord::Generated || type == TransactionRecord::StakeZPIV);
+    return (type == TransactionRecord::StakeMint || type == TransactionRecord::Generated || type == TransactionRecord::StakeZSHARES);
 }
 
 bool TransactionRecord::isNull() const

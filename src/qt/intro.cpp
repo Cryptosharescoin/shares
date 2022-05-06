@@ -12,7 +12,7 @@
 #include "guiutil.h"
 
 #include "util.h"
-#include "qt/pivx/qtutils.h"
+#include "qt/cryptoshares/qtutils.h"
 
 #include <QFileDialog>
 #include <QMessageBox>

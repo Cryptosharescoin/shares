@@ -14,14 +14,14 @@
   transactions are still available, but that the unconfirmed transaction has
   been zapped.
 """
-from test_framework.test_framework import PivxTestFramework
+from test_framework.test_framework import CryptosharesTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
     sync_mempools,
 )
 
-class ZapWalletTXesTest (PivxTestFramework):
+class ZapWalletTXesTest (CryptosharesTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

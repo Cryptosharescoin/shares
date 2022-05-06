@@ -21,13 +21,13 @@
 #include "utilmoneystr.h"
 #include "wallet.h"
 #include "walletdb.h"
-#include "zpivchain.h"
+#include "zshareschain.h"
 
 #include <stdint.h>
 
 #include "libzerocoin/Coin.h"
 #include "spork.h"
-#include "zpiv/deterministicmint.h"
+#include "zshares/deterministicmint.h"
 #include <boost/assign/list_of.hpp>
 #include <boost/thread/thread.hpp>
 
@@ -3233,7 +3233,7 @@ UniValue listmintedzerocoins(const JSONRPCRequest& request)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    std::set<CMintMeta> setMints = pwalletMain->zpivTracker->ListMints(true, fMatureOnly, true);
+    std::set<CMintMeta> setMints = pwalletMain->zsharesTracker->ListMints(true, fMatureOnly, true);
 
     int nBestHeight = chainActive.Height();
 
@@ -3256,7 +3256,7 @@ UniValue listmintedzerocoins(const JSONRPCRequest& request)
                     uint256 hashStake = mint.GetSerialNumber().getuint256();
                     hashStake = Hash(hashStake.begin(), hashStake.end());
                     m.hashStake = hashStake;
-                    pwalletMain->zpivTracker->UpdateState(m);
+                    pwalletMain->zsharesTracker->UpdateState(m);
                 }
             }
             objMint.push_back(Pair("hash stake", m.hashStake.GetHex()));    // hashStake
@@ -3297,7 +3297,7 @@ UniValue listzerocoinamounts(const JSONRPCRequest& request)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    std::set<CMintMeta> setMints = pwalletMain->zpivTracker->ListMints(true, true, true);
+    std::set<CMintMeta> setMints = pwalletMain->zsharesTracker->ListMints(true, true, true);
 
     std::map<libzerocoin::CoinDenomination, CAmount> spread;
     for (const auto& denom : libzerocoin::zerocoinDenomList)
@@ -3515,7 +3515,7 @@ UniValue spendzerocoin(const JSONRPCRequest& request)
     const std::string address_str = (request.params.size() > 1 ? request.params[1].get_str() : "");
 
     std::vector<CZerocoinMint> vMintsSelected;
-    return DoZpivSpend(nAmount, vMintsSelected, address_str);
+    return DoZsharesSpend(nAmount, vMintsSelected, address_str);
 }
 
 
@@ -3591,11 +3591,11 @@ UniValue spendzerocoinmints(const JSONRPCRequest& request)
         nAmount += mint.GetDenominationAsAmount();
     }
 
-    return DoZpivSpend(nAmount, vMintsSelected, address_str);
+    return DoZsharesSpend(nAmount, vMintsSelected, address_str);
 }
 
 
-extern UniValue DoZpivSpend(const CAmount nAmount, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str)
+extern UniValue DoZsharesSpend(const CAmount nAmount, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str)
 {
     int64_t nTimeStart = GetTimeMillis();
     CTxDestination address{CNoDestination()}; // Optional sending address. Dummy initialization here.
@@ -3690,8 +3690,8 @@ UniValue resetmintzerocoin(const JSONRPCRequest& request)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
-    std::set<CMintMeta> setMints = zpivTracker->ListMints(false, false, true);
+    CzSHARESTracker* zsharesTracker = pwalletMain->zsharesTracker.get();
+    std::set<CMintMeta> setMints = zsharesTracker->ListMints(false, false, true);
     std::vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
     std::vector<CMintMeta> vMintsMissing;
     std::vector<CMintMeta> vMintsToUpdate;
@@ -3702,14 +3702,14 @@ UniValue resetmintzerocoin(const JSONRPCRequest& request)
     // update the meta data of mints that were marked for updating
     UniValue arrUpdated(UniValue::VARR);
     for (CMintMeta meta : vMintsToUpdate) {
-        zpivTracker->UpdateState(meta);
+        zsharesTracker->UpdateState(meta);
         arrUpdated.push_back(meta.hashPubcoin.GetHex());
     }
 
     // delete any mints that were unable to be located on the blockchain
     UniValue arrDeleted(UniValue::VARR);
     for (CMintMeta mint : vMintsMissing) {
-        zpivTracker->Archive(mint);
+        zsharesTracker->Archive(mint);
         arrDeleted.push_back(mint.hashPubcoin.GetHex());
     }
 
@@ -3743,8 +3743,8 @@ UniValue resetspentzerocoin(const JSONRPCRequest& request)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
-    std::set<CMintMeta> setMints = zpivTracker->ListMints(false, false, false);
+    CzSHARESTracker* zsharesTracker = pwalletMain->zsharesTracker.get();
+    std::set<CMintMeta> setMints = zsharesTracker->ListMints(false, false, false);
     std::list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
     std::list<CZerocoinSpend> listUnconfirmedSpends;
 
@@ -3766,7 +3766,7 @@ UniValue resetspentzerocoin(const JSONRPCRequest& request)
     for (CZerocoinSpend spend : listUnconfirmedSpends) {
         for (auto& meta : setMints) {
             if (meta.hashSerial == GetSerialHash(spend.GetSerial())) {
-                zpivTracker->SetPubcoinNotUsed(meta.hashPubcoin);
+                zsharesTracker->SetPubcoinNotUsed(meta.hashPubcoin);
                 walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
                 RemoveSerialFromDB(spend.GetSerial());
                 UniValue obj(UniValue::VOBJ);
@@ -3881,8 +3881,8 @@ UniValue exportzerocoins(const JSONRPCRequest& request)
     if (request.params.size() == 2)
         denomination = libzerocoin::IntToZerocoinDenomination(request.params[1].get_int());
 
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
-    std::set<CMintMeta> setMints = zpivTracker->ListMints(!fIncludeSpent, false, false);
+    CzSHARESTracker* zsharesTracker = pwalletMain->zsharesTracker.get();
+    std::set<CMintMeta> setMints = zsharesTracker->ListMints(!fIncludeSpent, false, false);
 
     UniValue jsonList(UniValue::VARR);
     for (const CMintMeta& meta : setMints) {
@@ -3993,7 +3993,7 @@ UniValue importzerocoins(const JSONRPCRequest& request)
         CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed, nVersion, &privkey);
         mint.SetTxHash(txid);
         mint.SetHeight(nHeight);
-        pwalletMain->zpivTracker->Add(mint, true);
+        pwalletMain->zsharesTracker->Add(mint, true);
         count++;
         nValue += libzerocoin::ZerocoinDenominationToAmount(denom);
     }
@@ -4055,7 +4055,7 @@ UniValue reconsiderzerocoins(const JSONRPCRequest& request)
     return arrRet;
 }
 
-UniValue setzpivseed(const JSONRPCRequest& request)
+UniValue setzsharesseed(const JSONRPCRequest& request)
 {
     if(request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
@@ -4078,7 +4078,7 @@ UniValue setzpivseed(const JSONRPCRequest& request)
     uint256 seed;
     seed.SetHex(request.params[0].get_str());
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CzSHARESWallet* zwallet = pwalletMain->getZWallet();
     bool fSuccess = zwallet->SetMasterSeed(seed, true);
     if (fSuccess)
         zwallet->SyncWithChain();
@@ -4089,7 +4089,7 @@ UniValue setzpivseed(const JSONRPCRequest& request)
     return ret;
 }
 
-UniValue getzpivseed(const JSONRPCRequest& request)
+UniValue getzsharesseed(const JSONRPCRequest& request)
 {
     if(request.fHelp || !request.params.empty())
         throw std::runtime_error(
@@ -4105,7 +4105,7 @@ UniValue getzpivseed(const JSONRPCRequest& request)
 
     EnsureWalletIsUnlocked();
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CzSHARESWallet* zwallet = pwalletMain->getZWallet();
     uint256 seed = zwallet->GetMasterSeed();
 
     UniValue ret(UniValue::VOBJ);
@@ -4144,7 +4144,7 @@ UniValue generatemintlist(const JSONRPCRequest& request)
 
     int nCount = request.params[0].get_int();
     int nRange = request.params[1].get_int();
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CzSHARESWallet* zwallet = pwalletMain->getZWallet();
 
     UniValue arrRet(UniValue::VARR);
     for (int i = nCount; i < nCount + nRange; i++) {
@@ -4163,7 +4163,7 @@ UniValue generatemintlist(const JSONRPCRequest& request)
     return arrRet;
 }
 
-UniValue dzpivstate(const JSONRPCRequest& request) {
+UniValue dzsharesstate(const JSONRPCRequest& request) {
     if (request.fHelp || request.params.size() != 0)
         throw std::runtime_error(
                 "dzSHARESstate\n"
@@ -4173,7 +4173,7 @@ UniValue dzpivstate(const JSONRPCRequest& request) {
                         "\nExamples\n" +
                 HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CzSHARESWallet* zwallet = pwalletMain->getZWallet();
     UniValue obj(UniValue::VOBJ);
     int nCount, nCountLastUsed;
     zwallet->GetState(nCount, nCountLastUsed);
@@ -4184,7 +4184,7 @@ UniValue dzpivstate(const JSONRPCRequest& request) {
 }
 
 
-void static SearchThread(CzPIVWallet* zwallet, int nCountStart, int nCountEnd)
+void static SearchThread(CzSHARESWallet* zwallet, int nCountStart, int nCountEnd)
 {
     LogPrintf("%s: start=%d end=%d\n", __func__, nCountStart, nCountEnd);
     CWalletDB walletDB(pwalletMain->strWalletFile);
@@ -4201,7 +4201,7 @@ void static SearchThread(CzPIVWallet* zwallet, int nCountStart, int nCountEnd)
             CBigNum bnSerial;
             CBigNum bnRandomness;
             CKey key;
-            zwallet->SeedToZPIV(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
+            zwallet->SeedToZSHARES(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
 
             uint256 hashPubcoin = GetPubCoinHash(bnValue);
             zwallet->AddToMintPool(std::make_pair(hashPubcoin, i), true);
@@ -4214,7 +4214,7 @@ void static SearchThread(CzPIVWallet* zwallet, int nCountStart, int nCountEnd)
     }
 }
 
-UniValue searchdzpiv(const JSONRPCRequest& request)
+UniValue searchdzshares(const JSONRPCRequest& request)
 {
     if(request.fHelp || request.params.size() != 3)
         throw std::runtime_error(
@@ -4242,9 +4242,9 @@ UniValue searchdzpiv(const JSONRPCRequest& request)
 
     int nThreads = request.params[2].get_int();
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CzSHARESWallet* zwallet = pwalletMain->getZWallet();
 
-    boost::thread_group* dzpivThreads = new boost::thread_group();
+    boost::thread_group* dzsharesThreads = new boost::thread_group();
     int nRangePerThread = nRange / nThreads;
 
     int nPrevThreadEnd = nCount - 1;
@@ -4252,12 +4252,12 @@ UniValue searchdzpiv(const JSONRPCRequest& request)
         int nStart = nPrevThreadEnd + 1;;
         int nEnd = nStart + nRangePerThread;
         nPrevThreadEnd = nEnd;
-        dzpivThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
+        dzsharesThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
     }
 
-    dzpivThreads->join_all();
+    dzsharesThreads->join_all();
 
-    zwallet->RemoveMintsFromPool(pwalletMain->zpivTracker->GetSerialHashes());
+    zwallet->RemoveMintsFromPool(pwalletMain->zsharesTracker->GetSerialHashes());
     zwallet->SyncWithChain(false);
 
     //todo: better response
@@ -4355,7 +4355,7 @@ UniValue spendrawzerocoin(const JSONRPCRequest& request)
     }
 
     std::vector<CZerocoinMint> vMintsSelected = {mint};
-    return DoZpivSpend(mint.GetDenominationAsAmount(), vMintsSelected, address_str);
+    return DoZsharesSpend(mint.GetDenominationAsAmount(), vMintsSelected, address_str);
 }
 
 extern UniValue dumpprivkey(const JSONRPCRequest& request); // in rpcdump.cpp

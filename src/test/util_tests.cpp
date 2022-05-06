@@ -12,7 +12,7 @@
 #include "sync.h"
 #include "utilstrencodings.h"
 #include "utilmoneystr.h"
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 
 #include <stdint.h>
 #include <vector>

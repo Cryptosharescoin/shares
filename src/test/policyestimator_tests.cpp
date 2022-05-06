@@ -8,7 +8,7 @@
 #include "uint256.h"
 #include "util.h"
 
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 
 #include <boost/test/unit_test.hpp>
 

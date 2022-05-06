@@ -8,7 +8,7 @@
 
 #include "guiutil.h"
 #include "walletmodel.h"
-#include "qt/pivx/qtutils.h"
+#include "qt/cryptoshares/qtutils.h"
 
 #include <QUrl>
 #include <QFile>

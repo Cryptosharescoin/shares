@@ -7,7 +7,7 @@
 #define BITCOIN_NETADDRESS_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/cryptoshares-config.h"
 #endif
 
 #include "compat.h"

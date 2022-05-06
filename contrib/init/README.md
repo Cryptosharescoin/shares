@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: pivxd.service
-Upstart: pivxd.conf
-OpenRC:  pivxd.openrc
-         pivxd.openrcconf
-CentOS:  pivxd.init
-macOS:    org.pivx.pivxd.plist
+SystemD: cryptosharesd.service
+Upstart: cryptosharesd.conf
+OpenRC:  cryptosharesd.openrc
+         cryptosharesd.openrcconf
+CentOS:  cryptosharesd.init
+macOS:    org.cryptoshares.cryptosharesd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

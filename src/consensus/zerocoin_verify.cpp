@@ -59,7 +59,7 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
             }
             libzerocoin::ZerocoinParams* params = consensus.Zerocoin_Params(false);
             PublicCoinSpend publicSpend(params);
-            if (!ZPIVModule::parseCoinSpend(txin, tx, prevOut, publicSpend)){
+            if (!ZSHARESModule::parseCoinSpend(txin, tx, prevOut, publicSpend)){
                 return state.DoS(100, error("CheckZerocoinSpend(): public zerocoin spend parse failed"));
             }
             newSpend = publicSpend;
@@ -82,7 +82,7 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
         if (isPublicSpend) {
             libzerocoin::ZerocoinParams* params = consensus.Zerocoin_Params(false);
             PublicCoinSpend ret(params);
-            if (!ZPIVModule::validateInput(txin, prevOut, tx, ret)){
+            if (!ZSHARESModule::validateInput(txin, prevOut, tx, ret)){
                 return state.DoS(100, error("CheckZerocoinSpend(): public zerocoin spend did not verify"));
             }
         }
@@ -192,7 +192,7 @@ bool ContextualCheckZerocoinSpendNoSerialCheck(const CTransaction& tx, const lib
     return true;
 }
 
-bool RecalculatePIVSupply(int nHeightStart, bool fSkipZpiv)
+bool RecalculateSHARESSupply(int nHeightStart, bool fSkipZshares)
 {
     AssertLockHeld(cs_main);
 
@@ -205,7 +205,7 @@ bool RecalculatePIVSupply(int nHeightStart, bool fSkipZpiv)
     if (IsActivationHeight(nHeightStart, consensus, Consensus::UPGRADE_ZC))
         nMoneySupply = CAmount(5449796547496199);
 
-    if (!fSkipZpiv) {
+    if (!fSkipZshares) {
         // initialize supply to 0
         mapZerocoinSupply.clear();
         for (auto& denom : libzerocoin::zerocoinDenomList) mapZerocoinSupply.insert(std::make_pair(denom, 0));
@@ -253,8 +253,8 @@ bool RecalculatePIVSupply(int nHeightStart, bool fSkipZpiv)
         nMoneySupply += (nValueOut - nValueIn);
 
         // Rewrite zSHARES supply too
-        if (!fSkipZpiv && consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC)) {
-            UpdateZPIVSupplyConnect(block, pindex, true);
+        if (!fSkipZshares && consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC)) {
+            UpdateZSHARESSupplyConnect(block, pindex, true);
         }
 
         // Add fraudulent funds to the supply and remove any recovered funds.

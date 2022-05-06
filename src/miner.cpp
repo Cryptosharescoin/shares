@@ -34,7 +34,7 @@
 #include "spork.h"
 #include "invalid.h"
 #include "policy/policy.h"
-#include "zpivchain.h"
+#include "zshareschain.h"
 
 
 #include <boost/thread.hpp>
@@ -121,7 +121,7 @@ bool CheckForDuplicatedSerials(const CTransaction& tx, const Consensus::Params& 
                     libzerocoin::ZerocoinParams* params = consensus.Zerocoin_Params(false);
                     PublicCoinSpend publicSpend(params);
                     CValidationState state;
-                    if (!ZPIVModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
+                    if (!ZSHARESModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
                         throw std::runtime_error("Invalid public spend parse");
                     }
                     spend = &publicSpend;
@@ -584,7 +584,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
     LogPrintf("Miner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    util::ThreadRename("pivx-miner");
+    util::ThreadRename("cryptoshares-miner");
     const Consensus::Params& consensus = Params().GetConsensus();
     const int64_t nSpacingMillis = consensus.nTargetSpacing * 1000;
 

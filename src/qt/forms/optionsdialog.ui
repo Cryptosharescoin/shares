@@ -131,8 +131,8 @@
         </spacer>
        </item>
        <item>
-        <widget class="QWidget" name="verticalZpivOptionsWidget" native="true">
-         <layout class="QVBoxLayout" name="verticalZpivOptionsLayout">
+        <widget class="QWidget" name="verticalZsharesOptionsWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalZsharesOptionsLayout">
           <property name="margin">
            <number>0</number>
           </property>
@@ -561,8 +561,8 @@ https://discord.gg/T3CYMwTfjJ</string>
         </layout>
        </item>
        <item>
-        <widget class="QWidget" name="verticalZpivDisplayWidget" native="true">
-         <layout class="QVBoxLayout" name="verticalZpivDisplayLayout">
+        <widget class="QWidget" name="verticalZsharesDisplayWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalZsharesDisplayLayout">
           <property name="margin">
            <number>0</number>
           </property>

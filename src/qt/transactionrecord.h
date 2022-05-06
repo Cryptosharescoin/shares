@@ -75,7 +75,7 @@ public:
         Other,
         Generated,
         StakeMint,
-        StakeZPIV,
+        StakeZSHARES,
         SendToAddress,
         SendToOther,
         RecvWithAddress,
@@ -86,7 +86,7 @@ public:
         ZerocoinMint,
         ZerocoinSpend,
         RecvFromZerocoinSpend,
-        ZerocoinSpend_Change_zPiv,
+        ZerocoinSpend_Change_zShares,
         ZerocoinSpend_FromMe,
     };
 

@@ -1,0 +1,8 @@
+/usr/bin/cryptoshares-cli		--	gen_context(system_u:object_r:cryptoshares_exec_t,s0)
+/usr/sbin/cryptosharesd		--	gen_context(system_u:object_r:cryptoshares_exec_t,s0)
+/usr/lib(64)?/cryptoshares/cryptosharesd		--	gen_context(system_u:object_r:cryptoshares_exec_t,s0)
+
+/etc/cryptoshares(/.*)?		gen_context(system_u:object_r:cryptoshares_conf_t,s0)
+/var/lib/cryptoshares(/.*)?		gen_context(system_u:object_r:cryptoshares_var_lib_t,s0)
+
+(/var)?/run/cryptosharesd(/.*)?   gen_context(system_u:object_r:cryptoshares_var_run_t,s0)

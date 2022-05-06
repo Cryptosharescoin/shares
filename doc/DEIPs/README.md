@@ -4,7 +4,7 @@ CRYPTOSHARES projects need a way how to document their technical decisions and f
 
 DEIP stands for CRYPTOSHARES Improvement Proposal. Similar to Bitcoin's BIPs, and Dash's DIPs, a DEIP is a design document providing: information to the CRYPTOSHARES community, or a description of a new feature for the CRYPTOSHARES Standard Wallet (DSW), or a description of its processes or environment. Each DEIP should provide a concise technical specification of the feature and a rationale for the feature.
 
-Because DSW is forked from the PIVX codebase, that is also forked from Dash codebase, that is also forked from Bitcoin codebase, many of the BIPs and DIPs can be applied to DSW as well. 
+Because DSW is forked from the CRYPTOSHARES codebase, that is also forked from Dash codebase, that is also forked from Bitcoin codebase, many of the BIPs and DIPs can be applied to DSW as well. 
 
 ## Contributions
 

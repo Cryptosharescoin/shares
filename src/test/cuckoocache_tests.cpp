@@ -5,7 +5,7 @@
 #include <boost/test/unit_test.hpp>
 #include "cuckoocache.h"
 #include "script/sigcache.h"
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 #include "random.h"
 #include <thread>
 #include <boost/thread.hpp>

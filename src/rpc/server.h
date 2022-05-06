@@ -10,7 +10,7 @@
 #define BITCOIN_RPCSERVER_H
 
 #include "amount.h"
-#include "zpiv/zerocoin.h"
+#include "zshares/zerocoin.h"
 #include "rpc/protocol.h"
 #include "uint256.h"
 
@@ -190,7 +190,7 @@ extern std::string HelpExampleRpc(std::string methodname, std::string args);
 extern void EnsureWalletIsUnlocked(bool fAllowAnonOnly = false);
 // Ensure the wallet's existence.
 extern void EnsureWallet();
-extern UniValue DoZpivSpend(const CAmount nAmount, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str);
+extern UniValue DoZsharesSpend(const CAmount nAmount, std::vector<CZerocoinMint>& vMintsSelected, std::string address_str);
 
 extern UniValue getconnectioncount(const JSONRPCRequest& request); // in rpc/net.cpp
 extern UniValue getpeerinfo(const JSONRPCRequest& request);
@@ -236,11 +236,11 @@ extern UniValue importzerocoins(const JSONRPCRequest& request);
 extern UniValue exportzerocoins(const JSONRPCRequest& request);
 extern UniValue reconsiderzerocoins(const JSONRPCRequest& request);
 extern UniValue getspentzerocoinamount(const JSONRPCRequest& request);
-extern UniValue setzpivseed(const JSONRPCRequest& request);
-extern UniValue getzpivseed(const JSONRPCRequest& request);
+extern UniValue setzsharesseed(const JSONRPCRequest& request);
+extern UniValue getzsharesseed(const JSONRPCRequest& request);
 extern UniValue generatemintlist(const JSONRPCRequest& request);
-extern UniValue searchdzpiv(const JSONRPCRequest& request);
-extern UniValue dzpivstate(const JSONRPCRequest& request);
+extern UniValue searchdzshares(const JSONRPCRequest& request);
+extern UniValue dzsharesstate(const JSONRPCRequest& request);
 
 extern UniValue getrawtransaction(const JSONRPCRequest& request); // in rpc/rawtransaction.cpp
 extern UniValue createrawtransaction(const JSONRPCRequest& request);

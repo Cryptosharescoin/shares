@@ -10,7 +10,7 @@
 #include "script/script.h"
 #include "script/standard.h"
 #include "uint256.h"
-#include "test_pivx.h"
+#include "test_cryptoshares.h"
 
 #include <vector>
 

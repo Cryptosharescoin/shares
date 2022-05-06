@@ -8,7 +8,7 @@
 #include "consensus/zerocoin_verify.h"
 #include "libzerocoin/CoinSpend.h"
 #include "wallet/wallet.h"
-#include "zpivchain.h"
+#include "zshareschain.h"
 
 bool AcceptToMemoryPoolZerocoin(const CTransaction& tx, CAmount& nValueIn, int chainHeight, CValidationState& state, const Consensus::Params& consensus)
 {
@@ -28,7 +28,7 @@ bool AcceptToMemoryPoolZerocoin(const CTransaction& tx, CAmount& nValueIn, int c
 
         libzerocoin::ZerocoinParams* params = consensus.Zerocoin_Params(false);
         PublicCoinSpend publicSpend(params);
-        if (!ZPIVModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
+        if (!ZSHARESModule::ParseZerocoinPublicSpend(txIn, tx, state, publicSpend)){
             return false;
         }
         if (!ContextualCheckZerocoinSpend(tx, &publicSpend, chainHeight, UINT256_ZERO))
@@ -60,7 +60,7 @@ bool DisconnectZerocoinTx(const CTransaction& tx, CAmount& nValueIn, CZerocoinDB
                     if (isPublicSpend) {
                         PublicCoinSpend publicSpend(params);
                         CValidationState state;
-                        if (!ZPIVModule::ParseZerocoinPublicSpend(txin, tx, state, publicSpend)) {
+                        if (!ZSHARESModule::ParseZerocoinPublicSpend(txin, tx, state, publicSpend)) {
                             return error("Failed to parse public spend");
                         }
                         serial = publicSpend.getCoinSerialNumber();

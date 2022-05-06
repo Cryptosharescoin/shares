@@ -10,7 +10,7 @@
 #include "uint256.h"
 #include "undo.h"
 #include "utilstrencodings.h"
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 
 #include <vector>
 #include <map>
@@ -711,7 +711,7 @@ BOOST_AUTO_TEST_CASE(ccoins_add)
      * entry in the cache after the modification. Verify behavior with the
      * with the ModifyNewCoin coinbase argument set to false, and to true.
      *
-     * PIVX: Remove Coinbase argument (ref: https://github.com/PIVX-Project/PIVX/pull/1775)
+     * CRYPTOSHARES: Remove Coinbase argument (ref: https://github.com/CRYPTOSHARES-Project/CRYPTOSHARES/pull/1775)
      *
      *           Cache   Write   Result  Cache        Result
      *           Value   Value   Value   Flags        Flags

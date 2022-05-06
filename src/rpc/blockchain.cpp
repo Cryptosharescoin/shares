@@ -23,8 +23,8 @@
 #include "utilstrencodings.h"
 #include "hash.h"
 #include "wallet/wallet.h"
-#include "zpiv/zpivmodule.h"
-#include "zpivchain.h"
+#include "zshares/zsharesmodule.h"
+#include "zshareschain.h"
 
 #include <stdint.h>
 #include <fstream>
@@ -1428,7 +1428,7 @@ UniValue getserials(const JSONRPCRequest& request) {
                         }
                         libzerocoin::ZerocoinParams *params = Params().GetConsensus().Zerocoin_Params(false);
                         PublicCoinSpend publicSpend(params);
-                        if (!ZPIVModule::parseCoinSpend(txin, tx, prevOut, publicSpend)) {
+                        if (!ZSHARESModule::parseCoinSpend(txin, tx, prevOut, publicSpend)) {
                             throw JSONRPCError(RPC_INTERNAL_ERROR, "public zerocoin spend parse failed");
                         }
                         serial_str = publicSpend.getCoinSerialNumber().ToString(16);

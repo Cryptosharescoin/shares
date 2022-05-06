@@ -6,7 +6,7 @@
 #include "util.h"
 
 #include "allocators.h"
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 
 #include <boost/test/unit_test.hpp>
 

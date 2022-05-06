@@ -8,7 +8,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/cryptoshares-config.h"
 #endif
 
 #include "util.h"
@@ -85,9 +85,9 @@
 #include <openssl/crypto.h>
 #include <openssl/rand.h>
 
-const char * const PIVX_CONF_FILENAME = "cryptoshares.conf";
-const char * const PIVX_PID_FILENAME = "cryptoshares.pid";
-const char * const PIVX_MASTERNODE_CONF_FILENAME = "masternode.conf";
+const char * const CRYPTOSHARES_CONF_FILENAME = "cryptoshares.conf";
+const char * const CRYPTOSHARES_PID_FILENAME = "cryptoshares.pid";
+const char * const CRYPTOSHARES_MASTERNODE_CONF_FILENAME = "masternode.conf";
 
 
 // CRYPTOSHARES only features
@@ -411,13 +411,13 @@ void ClearDatadirCache()
 
 fs::path GetConfigFile()
 {
-    fs::path pathConfigFile(GetArg("-conf", PIVX_CONF_FILENAME));
+    fs::path pathConfigFile(GetArg("-conf", CRYPTOSHARES_CONF_FILENAME));
     return AbsPathForConfigVal(pathConfigFile, false);
 }
 
 fs::path GetMasternodeConfigFile()
 {
-    fs::path pathConfigFile(GetArg("-mnconf", PIVX_MASTERNODE_CONF_FILENAME));
+    fs::path pathConfigFile(GetArg("-mnconf", CRYPTOSHARES_MASTERNODE_CONF_FILENAME));
     return AbsPathForConfigVal(pathConfigFile);
 }
 
@@ -460,7 +460,7 @@ fs::path AbsPathForConfigVal(const fs::path& path, bool net_specific)
 #ifndef WIN32
 fs::path GetPidFile()
 {
-    fs::path pathPidFile(GetArg("-pid", PIVX_PID_FILENAME));
+    fs::path pathPidFile(GetArg("-pid", CRYPTOSHARES_PID_FILENAME));
     return AbsPathForConfigVal(pathPidFile);
 }
 

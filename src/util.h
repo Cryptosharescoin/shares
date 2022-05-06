@@ -15,7 +15,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/cryptoshares-config.h"
 #endif
 
 #include "fs.h"
@@ -35,9 +35,9 @@
 #include <boost/thread/exceptions.hpp>
 #include <boost/thread/condition_variable.hpp> // for boost::thread_interrupted
 
-extern const char * const PIVX_CONF_FILENAME;
-extern const char * const PIVX_PID_FILENAME;
-extern const char * const PIVX_MASTERNODE_CONF_FILENAME;
+extern const char * const CRYPTOSHARES_CONF_FILENAME;
+extern const char * const CRYPTOSHARES_PID_FILENAME;
+extern const char * const CRYPTOSHARES_MASTERNODE_CONF_FILENAME;
 extern const char * const DEFAULT_DEBUGLOGFILE;
 
 //SHARES only features

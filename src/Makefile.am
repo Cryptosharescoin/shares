@@ -208,14 +208,14 @@ BITCOIN_CORE_H = \
   wallet/scriptpubkeyman.h \
   wallet/wallet.h \
   wallet/walletdb.h \
-  zpivchain.h \
-  zpiv/deterministicmint.h \
-  zpiv/mintpool.h \
-  zpiv/zerocoin.h \
-  zpiv/zpivtracker.h \
-  zpiv/zpivwallet.h \
-  zpiv/zpivmodule.h \
-  zpiv/zpos.h \
+  zshareschain.h \
+  zshares/deterministicmint.h \
+  zshares/mintpool.h \
+  zshares/zerocoin.h \
+  zshares/zsharestracker.h \
+  zshares/zshareswallet.h \
+  zshares/zsharesmodule.h \
+  zshares/zpos.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -270,7 +270,7 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   validationinterface.cpp \
-  zpivchain.cpp \
+  zshareschain.cpp \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
@@ -311,14 +311,14 @@ libbitcoin_wallet_a_SOURCES = \
   wallet/wallet.cpp \
   wallet/wallet_zerocoin.cpp \
   wallet/walletdb.cpp \
-  zpiv/deterministicmint.cpp \
-  zpiv/zerocoin.cpp \
-  zpiv/mintpool.cpp \
-  zpiv/zpivwallet.cpp \
-  zpiv/zpivtracker.cpp \
+  zshares/deterministicmint.cpp \
+  zshares/zerocoin.cpp \
+  zshares/mintpool.cpp \
+  zshares/zshareswallet.cpp \
+  zshares/zsharestracker.cpp \
   stakeinput.cpp \
-  zpiv/zpivmodule.cpp \
-  zpiv/zpos.cpp \
+  zshares/zsharesmodule.cpp \
+  zshares/zpos.cpp \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
@@ -426,9 +426,9 @@ libbitcoin_common_a_SOURCES = \
   compressor.cpp \
   consensus/merkle.cpp \
   primitives/block.cpp \
-  zpiv/deterministicmint.cpp \
+  zshares/deterministicmint.cpp \
   primitives/transaction.cpp \
-  zpiv/zerocoin.cpp \
+  zshares/zerocoin.cpp \
   core_read.cpp \
   core_write.cpp \
   hash.cpp \
@@ -498,13 +498,13 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # cryptosharesd binary #
-cryptosharesd_SOURCES = pivxd.cpp
+cryptosharesd_SOURCES = cryptosharesd.cpp
 cryptosharesd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 cryptosharesd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 cryptosharesd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-cryptosharesd_SOURCES += pivxd-res.rc
+cryptosharesd_SOURCES += cryptosharesd-res.rc
 endif
 cryptosharesd_LDADD = \
   $(LIBBITCOIN_SERVER) \
@@ -523,13 +523,13 @@ cryptosharesd_LDADD = \
 cryptosharesd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # cryptoshares-cli binary #
-cryptoshares_cli_SOURCES = pivx-cli.cpp
+cryptoshares_cli_SOURCES = cryptoshares-cli.cpp
 cryptoshares_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 cryptoshares_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 cryptoshares_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-cryptoshares_cli_SOURCES += pivx-cli-res.rc
+cryptoshares_cli_SOURCES += cryptoshares-cli-res.rc
 endif
 
 cryptoshares_cli_LDADD = \
@@ -542,13 +542,13 @@ cryptoshares_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # cryptoshares-tx binary #
-cryptoshares_tx_SOURCES = pivx-tx.cpp
+cryptoshares_tx_SOURCES = cryptoshares-tx.cpp
 cryptoshares_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 cryptoshares_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 cryptoshares_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-cryptoshares_tx_SOURCES += pivx-tx-res.rc
+cryptoshares_tx_SOURCES += cryptoshares-tx-res.rc
 endif
 
 cryptoshares_tx_LDADD = \
@@ -611,7 +611,7 @@ CLEANFILES += univalue/*.gcda univalue/*.gcno
 CLEANFILES += wallet/*.gcda wallet/*.gcno
 CLEANFILES += wallet/test/*.gcda wallet/test/*.gcno
 CLEANFILES += zmq/*.gcda zmq/*.gcno
-CLEANFILES += zpiv/*.gcda zpiv/*.gcno
+CLEANFILES += zshares/*.gcda zshares/*.gcno
 CLEANFILES += obj/build.h
 
 CTAES_DIST =  crypto/ctaes/bench.c
@@ -623,12 +623,12 @@ CTAES_DIST += crypto/ctaes/test.c
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/pivx-config.h: config/stamp-h1
+config/cryptoshares-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/pivx-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/cryptoshares-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/pivx-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/pivx-config.h.in
+$(top_srcdir)/$(subdir)/config/cryptoshares-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/cryptoshares-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

@@ -38,9 +38,9 @@ OSX_PLIST=$(top_builddir)/share/qt/Info.plist #not installed
 OSX_QT_TRANSLATIONS = da,de,es,hu,ru,uk,zh_CN,zh_TW
 
 DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
-DIST_CONTRIB = $(top_srcdir)/contrib/pivx-cli.bash-completion \
-	       $(top_srcdir)/contrib/pivx-tx.bash-completion \
-	       $(top_srcdir)/contrib/pivxd.bash-completion \
+DIST_CONTRIB = $(top_srcdir)/contrib/cryptoshares-cli.bash-completion \
+	       $(top_srcdir)/contrib/cryptoshares-tx.bash-completion \
+	       $(top_srcdir)/contrib/cryptosharesd.bash-completion \
            $(top_srcdir)/contrib/init \
            $(top_srcdir)/contrib/install_db4.sh
 
@@ -51,14 +51,14 @@ DIST_SHARE = \
 BIN_CHECKS=$(top_srcdir)/contrib/devtools/symbol-check.py \
            $(top_srcdir)/contrib/devtools/security-check.py
 
-WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/pivx.ico \
+WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/cryptoshares.ico \
   $(top_srcdir)/share/pixmaps/nsis-header.bmp \
   $(top_srcdir)/share/pixmaps/nsis-wizard.bmp \
   $(top_srcdir)/doc/README_windows.txt
 
-LINUX_PACKAGING = $(top_srcdir)/share/pixmaps/pivx16.xpm \
-  $(top_srcdir)/share/pixmaps/pivx32.xpm \
-  $(top_srcdir)/share/pixmaps/pivx128.png
+LINUX_PACKAGING = $(top_srcdir)/share/pixmaps/cryptoshares16.xpm \
+  $(top_srcdir)/share/pixmaps/cryptoshares32.xpm \
+  $(top_srcdir)/share/pixmaps/cryptoshares128.png
 
 OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/$(OSX_BACKGROUND_SVG) \

@@ -19,7 +19,7 @@
 #include "spork.h"
 #include "util.h"
 #include "utilmoneystr.h"
-#include "zpivchain.h"
+#include "zshareschain.h"
 
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/thread.hpp>
@@ -1419,9 +1419,9 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate, b
 {
     int ret = 0;
     int64_t nNow = GetTime();
-    bool fCheckZPIV = GetBoolArg("-zapwallettxes", false);
-    if (fCheckZPIV)
-        zpivTracker->Init();
+    bool fCheckZSHARES = GetBoolArg("-zapwallettxes", false);
+    if (fCheckZSHARES)
+        zsharesTracker->Init();
 
     const Consensus::Params& consensus = Params().GetConsensus();
 
@@ -1456,7 +1456,7 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate, b
             }
 
             // Will try to rescan it if zSHARES upgrade is active.
-            doZPivRescan(pindex, block, setAddedToWallet, consensus, fCheckZPIV);
+            doZSharesRescan(pindex, block, setAddedToWallet, consensus, fCheckZSHARES);
 
             pindex = chainActive.Next(pindex);
             if (GetTime() >= nNow + 60) {
@@ -2531,7 +2531,7 @@ bool CWallet::CreateCoinStake(
     bool fKernelFound = false;
     int nAttempts = 0;
     for (const COutput &out : *availableCoins) {
-        CPivStake stakeInput;
+        CSharesStake stakeInput;
         stakeInput.SetPrevout((CTransaction) *out.tx, out.i);
 
         //new block came in, move on
@@ -2541,7 +2541,7 @@ bool CWallet::CreateCoinStake(
         if (IsLocked() || ShutdownRequested()) return false;
 
         // This should never happen
-        if (stakeInput.IsZPIV()) {
+        if (stakeInput.IsZSHARES()) {
             LogPrintf("%s: ERROR - zPOS is disabled\n", __func__);
             continue;
         }
@@ -3595,7 +3595,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
     // Forced upgrade
     const bool fLegacyWallet = GetBoolArg("-legacywallet", false);
     if (GetBoolArg("-upgradewallet", fFirstRun && !fLegacyWallet)) {
-        if (prev_version <= FEATURE_PRE_PIVX && walletInstance->IsLocked()) {
+        if (prev_version <= FEATURE_PRE_CRYPTOSHARES && walletInstance->IsLocked()) {
             // Cannot upgrade a locked wallet
             UIError("Cannot upgrade a locked wallet.");
             return nullptr;
@@ -3644,7 +3644,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
             }
             // Create legacy wallet
             LogPrintf("Creating Pre-HD Wallet\n");
-            walletInstance->SetMaxVersion(FEATURE_PRE_PIVX);
+            walletInstance->SetMaxVersion(FEATURE_PRE_CRYPTOSHARES);
         }
 
         // Top up the keypool
@@ -3667,7 +3667,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
 
     LogPrintf("Wallet completed loading in %15dms\n", GetTimeMillis() - nStart);
 
-    CzPIVWallet* zwalletInstance = new CzPIVWallet(walletInstance);
+    CzSHARESWallet* zwalletInstance = new CzSHARESWallet(walletInstance);
     walletInstance->setZWallet(zwalletInstance);
 
     RegisterValidationInterface(walletInstance);
@@ -3723,7 +3723,7 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
         uiInterface.InitMessage(_("Syncing zSHARES wallet..."));
 
         //Load zerocoin mint hashes to memory
-        walletInstance->zpivTracker->Init();
+        walletInstance->zsharesTracker->Init();
         zwalletInstance->LoadMintPoolFromDB();
         zwalletInstance->SyncWithChain();
     }

@@ -9,10 +9,10 @@
 #include "chain.h"
 #include "main.h"
 #include "txdb.h"
-#include "zpiv/deterministicmint.h"
+#include "zshares/deterministicmint.h"
 #include "wallet/wallet.h"
 
-bool CPivStake::InitFromTxIn(const CTxIn& txin)
+bool CSharesStake::InitFromTxIn(const CTxIn& txin)
 {
     if (txin.IsZerocoinSpend())
         return error("%s: unable to initialize CSHARESStake from zerocoin spend", __func__);
@@ -37,14 +37,14 @@ bool CPivStake::InitFromTxIn(const CTxIn& txin)
     return true;
 }
 
-bool CPivStake::SetPrevout(CTransaction txPrev, unsigned int n)
+bool CSharesStake::SetPrevout(CTransaction txPrev, unsigned int n)
 {
     this->txFrom = txPrev;
     this->nPosition = n;
     return true;
 }
 
-bool CPivStake::GetTxFrom(CTransaction& tx) const
+bool CSharesStake::GetTxFrom(CTransaction& tx) const
 {
     if (txFrom.IsNull())
         return false;
@@ -52,7 +52,7 @@ bool CPivStake::GetTxFrom(CTransaction& tx) const
     return true;
 }
 
-bool CPivStake::GetTxOutFrom(CTxOut& out) const
+bool CSharesStake::GetTxOutFrom(CTxOut& out) const
 {
     if (txFrom.IsNull() || nPosition >= txFrom.vout.size())
         return false;
@@ -60,18 +60,18 @@ bool CPivStake::GetTxOutFrom(CTxOut& out) const
     return true;
 }
 
-bool CPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CSharesStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     txIn = CTxIn(txFrom.GetHash(), nPosition);
     return true;
 }
 
-CAmount CPivStake::GetValue() const
+CAmount CSharesStake::GetValue() const
 {
     return txFrom.vout[nPosition].nValue;
 }
 
-bool CPivStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal, const bool onlyP2PK)
+bool CSharesStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal, const bool onlyP2PK)
 {
     std::vector<valtype> vSolutions;
     txnouttype whichType;
@@ -120,7 +120,7 @@ bool CPivStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmoun
     return true;
 }
 
-CDataStream CPivStake::GetUniqueness() const
+CDataStream CSharesStake::GetUniqueness() const
 {
     //The unique identifier for a SHARES stake is the outpoint
     CDataStream ss(SER_NETWORK, 0);
@@ -129,7 +129,7 @@ CDataStream CPivStake::GetUniqueness() const
 }
 
 //The block that the UTXO was added to the chain
-CBlockIndex* CPivStake::GetIndexFrom()
+CBlockIndex* CSharesStake::GetIndexFrom()
 {
     if (pindexFrom)
         return pindexFrom;
@@ -150,7 +150,7 @@ CBlockIndex* CPivStake::GetIndexFrom()
 }
 
 // Verify stake contextual checks
-bool CPivStake::ContextCheck(int nHeight, uint32_t nTime)
+bool CSharesStake::ContextCheck(int nHeight, uint32_t nTime)
 {
     const Consensus::Params& consensus = Params().GetConsensus();
     // Get Stake input block time/height

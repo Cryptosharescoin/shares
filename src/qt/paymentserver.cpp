@@ -44,14 +44,14 @@
 
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("pivx:");
+const QString BITCOIN_IPC_PREFIX("cryptoshares:");
 // BIP70 payment protocol messages
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/pivx-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/pivx-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/pivx-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/cryptoshares-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/cryptoshares-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/cryptoshares-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 

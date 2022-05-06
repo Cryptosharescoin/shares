@@ -70,10 +70,10 @@ TEST_EXIT_PASSED = 0
 TEST_EXIT_FAILED = 1
 TEST_EXIT_SKIPPED = 77
 
-TMPDIR_PREFIX = "pivx_func_test_"
+TMPDIR_PREFIX = "cryptoshares_func_test_"
 
 
-class PivxTestFramework():
+class CryptosharesTestFramework():
     """Base class for a cryptoshares test script.
 
     Individual cryptoshares test scripts should subclass this class and override the set_test_params() and run_test() methods.
@@ -1097,7 +1097,7 @@ class PivxTestFramework():
 
 ### ------------------------------------------------------
 
-class ComparisonTestFramework(PivxTestFramework):
+class ComparisonTestFramework(CryptosharesTestFramework):
     """Test framework for doing p2p comparison testing
 
     Sets up some cryptosharesd binaries:

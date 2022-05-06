@@ -274,7 +274,7 @@ public:
 
 /** Used to marshal pointers into hashes for db storage. */
 
-// New serialization introduced on PIVX
+// New serialization introduced on CRYPTOSHARES
 static const int DBI_OLD_SER_VERSION = 0;
 static const int DBI_SER_VERSION_NO_ZC = 0;   // removes mapZerocoinSupply, nMoneySupply
 

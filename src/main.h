@@ -14,7 +14,7 @@
 #define BITCOIN_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/cryptoshares-config.h"
 #endif
 
 #include "amount.h"
@@ -26,8 +26,8 @@
 #include "pow.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "zpiv/zerocoin.h"
-#include "zpiv/zpivmodule.h"
+#include "zshares/zerocoin.h"
+#include "zshares/zsharesmodule.h"
 #include "script/script.h"
 #include "script/sigcache.h"
 #include "script/standard.h"

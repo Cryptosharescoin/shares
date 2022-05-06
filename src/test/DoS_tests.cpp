@@ -18,7 +18,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_pivx.h"
+#include "test/test_cryptoshares.h"
 
 #include <stdint.h>
 

@@ -10,7 +10,7 @@
 #include "main.h"
 #include "primitives/transaction.h"
 #include "script/sign.h"
-#include "test_pivx.h"
+#include "test_cryptoshares.h"
 #include <boost/test/unit_test.hpp>
 #include "masternode.h"
 

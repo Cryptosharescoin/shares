@@ -4,7 +4,7 @@ BENCH_BINARY = bench/bench_cryptoshares$(EXEEXT)
 
 
 bench_bench_cryptoshares_SOURCES = \
-  bench/bench_pivx.cpp \
+  bench/bench_cryptoshares.cpp \
   bench/bench.cpp \
   bench/bench.h \
   bench/Examples.cpp \
