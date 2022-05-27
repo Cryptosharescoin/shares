@@ -75,12 +75,16 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (2500, uint256S("bb9d69455a7c811c461b240ce3419ac147a25d7e3158670b91e35f69b87fcdde"))
     (3000, uint256S("9b460351402b7715432b194a18aff970393eb561a56903e48ed3d618f26e733c"))
     (47242, uint256S("3bcb8d7d297d3df2342738c97b768e14020ab6d3e1e4427a1e36308c13c5b44c"))
+    (54809, uint256S("2316d93ae617e69c5e2bd5b5ab05c5aa88454dca9ea15c5ac232b2ee791dd3dd"))
+    (67134, uint256S("b28af3edc595eb3764d35e982acd864286e9bc167eb4cbadbcb8b3eaf0670273"))
+    (78106, uint256S("d6a12ecfbba11428ba68e48c3bacf27dc92d8ded69782aba0c4677445b2a041f"))
+		
 ; 
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1651746225, // * UNIX timestamp of last checkpoint block
-    909630,          // * total number of transactions between genesis and last checkpoint
+    1653643695, // * UNIX timestamp of last checkpoint block
+    161605,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     2824        // * estimated number of transactions per day after checkpoint
 };
@@ -144,7 +148,7 @@ public:
         consensus.nTime_RejectOldSporkKey = 0;
 
         // dev address
-        consensus.devAddress = "SXARDKdzEHXUwKYCGESQji79EYNvPicono";
+        consensus.devAddress = "SQ4S6yLpofjUSVo35AG3gbxDHa8nCj6bV7";
 
         // burn addresses
         consensus.mBurnAddresses = {
