@@ -18,7 +18,7 @@
 #include "coincontroldialog.h"
 #include "qt/cryptoshares/tooltipmenu.h"
 
-static const int MAX_SEND_POPUP_ENTRIES = 8;
+static const int MAX_SEND_POPUP_ENTRIES = 100;
 
 class CRYPTOSHARESGUI;
 class ClientModel;

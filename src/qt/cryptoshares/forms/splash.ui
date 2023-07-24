@@ -86,8 +86,8 @@
       								name="imgLogo">
 								<property name="minimumSize">
 									<size>
-										<width>395</width>
-										<height>348</height>
+										<width>595</width>
+										<height>548</height>
 									</size>
 								</property>
 								<property name="focusPolicy">

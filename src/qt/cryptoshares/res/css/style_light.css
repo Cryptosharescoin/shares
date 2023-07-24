@@ -1593,8 +1593,9 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 *[cssClass="img-splash-logo"] {
   qproperty-icon: url("://img-logo-cryptoshares-png");
-  qproperty-iconSize: 395px 348px;
+  qproperty-iconSize: 640px 500px;
   border: 0;
+  margin-bottom: 100px;
   background-color: transparent;
 }
 
