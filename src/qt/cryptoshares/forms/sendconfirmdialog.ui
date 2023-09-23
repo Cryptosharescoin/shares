@@ -18,12 +18,12 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>574</width>
+    <width>580</width>
     <height>500</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">N/A</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -181,7 +181,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>0</height>
+          <height>450</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -219,7 +219,7 @@ background:transparent;
               <x>0</x>
               <y>0</y>
               <width>586</width>
-              <height>644</height>
+              <height>700</height>
              </rect>
             </property>
             <property name="autoFillBackground">
@@ -596,7 +596,7 @@ background:transparent;
                   </layout>
                  </widget>
                 </item>
-                <item>
+                <item alignment="Qt::AlignTop">
                  <widget class="QFrame" name="gridInputs">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
@@ -607,7 +607,7 @@ background:transparent;
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>90</height>
+                    <height>40</height>
                    </size>
                   </property>
                   <property name="lineWidth">
@@ -799,7 +799,7 @@ background:transparent;
                    <item>
                     <widget class="QLabel" name="textChange">
                      <property name="text">
-                      <string>D7VFR83SQbie…BhjcWJtcfip5krte2Z </string>
+                      <string notr="true">N/A</string>
                      </property>
                     </widget>
                    </item>
@@ -902,7 +902,7 @@ background:transparent;
                    <item row="1" column="0">
                     <widget class="QLabel" name="textDate">
                      <property name="text">
-                      <string>May 25, 2017</string>
+                      <string notr="true">N/A</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -914,6 +914,119 @@ background:transparent;
                 </item>
                 <item>
                  <widget class="QLabel" name="labelDividerConfs">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>1</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:#bababa;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="contentMemo" native="true">
+                  <layout class="QVBoxLayout" name="contentMemo_layout">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_2">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="labelMemo">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>Memo</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushCopyMemo">
+                       <property name="minimumSize">
+                        <size>
+                         <width>34</width>
+                         <height>34</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>34</width>
+                         <height>34</height>
+                        </size>
+                       </property>
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>18</width>
+                         <height>18</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QPlainTextEdit" name="textMemo">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="verticalScrollBarPolicy">
+                      <enum>Qt::ScrollBarAsNeeded</enum>
+                     </property>
+                     <property name="horizontalScrollBarPolicy">
+                      <enum>Qt::ScrollBarAlwaysOff</enum>
+                     </property>
+                     <property name="sizeAdjustPolicy">
+                      <enum>QAbstractScrollArea::AdjustToContents</enum>
+                     </property>
+                     <property name="undoRedoEnabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="labelDividerMemo">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -947,7 +1060,7 @@ background:transparent;
                 <item>
                  <widget class="QLabel" name="labelWarning">
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string notr="true">N/A</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>

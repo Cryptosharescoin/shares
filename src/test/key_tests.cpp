@@ -1,15 +1,15 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "key.h"
 
 #include "base58.h"
-#include "script/script.h"
+#include "key_io.h"
 #include "uint256.h"
-#include "util.h"
+#include "util/system.h"
 #include "utilstrencodings.h"
 #include "test_cryptoshares.h"
 
@@ -32,42 +32,19 @@ static const std::string addr2C = "DNBVSAoc2whPFjZVAZ1pQbXPJk1LRrDC8Q";
 static const std::string strAddressBad ="Xta1praZQjyELweyMByXyiREw1ZRsjXzVP";
 
 
-#ifdef KEY_TESTS_DUMPINFO
-void dumpKeyInfo(uint256 privkey)
-{
-    CKey key;
-    key.resize(32);
-    memcpy(&secret[0], &privkey, 32);
-    std::vector<unsigned char> sec;
-    sec.resize(32);
-    memcpy(&sec[0], &secret[0], 32);
-    printf("  * secret (hex): %s\n", HexStr(sec).c_str());
-
-    for (int nCompressed=0; nCompressed<2; nCompressed++)
-    {
-        printf("    * secret (base58): %s\n", EncodeSecret(secret));
-        CKey key;
-        key.SetSecret(secret, fCompressed);
-        std::vector<unsigned char> vchPubKey = key.GetPubKey();
-        printf("    * pubkey (hex): %s\n", HexStr(vchPubKey).c_str());
-        printf("    * address (base58): %s\n", EncodeDestination(vchPubKey).c_str());
-    }
-}
-#endif
-
 BOOST_FIXTURE_TEST_SUITE(key_tests, TestingSetup)
 
 BOOST_AUTO_TEST_CASE(key_test1)
 {
-    CKey key1  = DecodeSecret(strSecret1);
+    CKey key1  = KeyIO::DecodeSecret(strSecret1);
     BOOST_CHECK(key1.IsValid() && !key1.IsCompressed());
-    CKey key2  = DecodeSecret(strSecret2);
+    CKey key2  = KeyIO::DecodeSecret(strSecret2);
     BOOST_CHECK(key2.IsValid() && !key2.IsCompressed());
-    CKey key1C = DecodeSecret(strSecret1C);
+    CKey key1C = KeyIO::DecodeSecret(strSecret1C);
     BOOST_CHECK(key1C.IsValid() && key1C.IsCompressed());
-    CKey key2C = DecodeSecret(strSecret2C);
+    CKey key2C = KeyIO::DecodeSecret(strSecret2C);
     BOOST_CHECK(key2C.IsValid() && key2C.IsCompressed());
-    CKey bad_key = DecodeSecret(strAddressBad);
+    CKey bad_key = KeyIO::DecodeSecret(strAddressBad);
     BOOST_CHECK(!bad_key.IsValid());
 
     CPubKey pubkey1  = key1. GetPubKey();

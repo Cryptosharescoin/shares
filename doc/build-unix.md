@@ -1,10 +1,10 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build CRYPTOSHARES Core in Unix.
+Some notes on how to build CRYPTOSHARES in Unix.
 
 Note
 ---------------------
-Always use absolute paths to configure and compile CRYPTOSHARES Core and the dependencies,
+Always use absolute paths to configure and compile CRYPTOSHARES and the dependencies,
 For example, when specifying the path of the dependency:
 
 	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
@@ -31,7 +31,6 @@ These dependencies are required:
 
  Library     | Purpose            | Description
  ------------|--------------------|----------------------
- libssl      | Crypto             | Random Number Generation, Elliptic Curve Cryptography
  libboost    | Utility            | Library for threading, data structures, etc
  libevent    | Networking         | OS independent asynchronous networking
  libgmp      | Bignum Arithmetic  | Precision arithmetic
@@ -42,9 +41,9 @@ Optional dependencies:
  Library     | Purpose          | Description
  ------------|------------------|----------------------
  miniupnpc   | UPnP Support     | Firewall-jumping support
+ libnatpmp   | NAT-PMP Support  | Firewall-jumping support
  libdb4.8    | Berkeley DB      | Wallet storage (only needed when wallet enabled)
  qt          | GUI              | GUI toolkit (only needed when GUI enabled)
- protobuf    | Payments in GUI  | Data interchange format used for payment protocol (only needed when GUI enabled)
  univalue    | Utility          | JSON parsing and encoding (bundled version will be used unless --with-system-univalue passed to configure)
  libzmq3     | ZMQ notification | Optional, allows generating ZMQ notifications (requires ZMQ version >= 4.0.0)
 
@@ -54,7 +53,7 @@ Memory Requirements
 --------------------
 
 C++ compilers are memory-hungry. It is recommended to have at least 1.5 GB of
-memory available when compiling CRYPTOSHARES Core. On systems with less, gcc can be
+memory available when compiling CRYPTOSHARES. On systems with less, gcc can be
 tuned to conserve memory with additional CXXFLAGS:
 
 
@@ -73,15 +72,15 @@ Build requirements:
 
 Now, you can either build from self-compiled [depends](/depends/README.md) or install the required dependencies:
 
-    sudo apt-get install libssl-dev libgmp-dev libevent-dev libboost-all-dev libsodium-dev cargo
+    sudo apt-get install libgmp-dev libevent-dev libboost-all-dev libsodium-dev cargo
 
 BerkeleyDB is required for the wallet.
 
- **For Ubuntu only:** db4.8 packages are available [here](https://launchpad.net/~cryptoshares/+archive/cryptoshares).
+ **For Ubuntu only:** db4.8 packages are available [here](https://launchpad.net/~cryptoshares/+archive/Cryptoshares).
  You can add the repository using the following command:
 
     sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:cryptoshares/cryptoshares
+    sudo add-apt-repository ppa:Cryptoshares/Cryptoshares
     sudo apt-get update
     sudo apt-get install libdb4.8-dev libdb4.8++-dev
 
@@ -92,12 +91,12 @@ pass `--with-incompatible-bdb` to configure.
 
 Otherwise, you can build from self-compiled `depends` (see above).
 
-To build CRYPTOSHARES Core without wallet, see [*Disable-wallet mode*](/doc/build-unix.md#disable-wallet-mode)
+To build CRYPTOSHARES without wallet, see [*Disable-wallet mode*](/doc/build-unix.md#disable-wallet-mode)
 
 
-Optional (see --with-miniupnpc and --enable-upnp-default):
+Optional port mapping libraries (see: `--with-miniupnpc`, and `--enable-upnp-default`, `--with-natpmp`, `--enable-natpmp-default`):
 
-    sudo apt-get install libminiupnpc-dev
+    sudo apt install libminiupnpc-dev libnatpmp-dev
 
 ZMQ dependencies (provides ZMQ API):
 
@@ -111,7 +110,7 @@ To build without GUI pass `--without-gui`.
 
 To build with Qt 5 you need the following:
 
-    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 libqt5svg5-dev libqt5charts5-dev qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev
+    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 libqt5svg5-dev libqt5charts5-dev qttools5-dev qttools5-dev-tools libqrencode-dev
 
 **Note:** Ubuntu versions prior to Bionic (18.04), and Debian version prior to Buster, do not have the `libqt5charts5-dev` package. If you are compiling on one of these older versions, you will need to omit `libqt5charts5-dev` from the above command.
 
@@ -125,15 +124,15 @@ built by default.
 
 Build requirements:
 
-    sudo dnf install which gcc-c++ libtool make autoconf automake compat-openssl10-devel libevent-devel boost-devel libdb4-devel libdb4-cxx-devel gmp-devel libsodium-devel cargo python3
+    sudo dnf install which gcc-c++ libtool make autoconf automake libevent-devel boost-devel libdb4-devel libdb4-cxx-devel gmp-devel libsodium-devel cargo python3
 
 Optional:
 
-    sudo dnf install miniupnpc-devel zeromq-devel
+    sudo dnf install miniupnpc-devel libnatpmp-devel zeromq-devel
 
 To build with Qt 5 you need the following:
 
-    sudo dnf install qt5-qttools-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtcharts-devel protobuf-devel qrencode-devel
+    sudo dnf install qt5-qttools-devel qt5-qtbase-devel qt5-qtsvg-devel qt5-qtcharts-devel qrencode-devel
 
 Notes
 -----
@@ -146,11 +145,22 @@ miniupnpc
 
 [miniupnpc](http://miniupnp.free.fr/) may be used for UPnP port mapping.  It can be downloaded from [here](
 http://miniupnp.tuxfamily.org/files/).  UPnP support is compiled in and
-turned off by default.  See the configure options for upnp behavior desired:
+turned off by default.  See the configure options for UPnp behavior desired:
 
-	--without-miniupnpc      No UPnP support miniupnp not required
+	--without-miniupnpc      No UPnP support, miniupnp not required
 	--disable-upnp-default   (the default) UPnP support turned off by default at runtime
 	--enable-upnp-default    UPnP support turned on by default at runtime
+
+libnatpmp
+---------
+
+[libnatpmp](https://miniupnp.tuxfamily.org/libnatpmp.html) may be used for NAT-PMP port mapping. It can be downloaded
+from [here](https://miniupnp.tuxfamily.org/files/). NAT-PMP support is compiled in and
+turned off by default. See the configure options for NAT-PMP behavior desired:
+
+	--without-natpmp          No NAT-PMP support, libnatpmp not required
+	--disable-natpmp-default  (the default) NAT-PMP support turned off by default at runtime
+	--enable-natpmp-default   NAT-PMP support turned on by default at runtime
 
 To build:
 
@@ -186,7 +196,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your CRYPTOSHARES Core installation more secure by making certain attacks impossible to
+To help make your CRYPTOSHARES installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
@@ -216,7 +226,7 @@ Hardening enables the following features:
     ET_DYN
 
 * _Non-executable Stack_: If the stack is executable then trivial stack-based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, CRYPTOSHARES Core should be built with a non-executable stack
+    vulnerable buffers are found. By default, CRYPTOSHARES should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
@@ -234,7 +244,7 @@ Disable-wallet mode
 --------------------
 **Note:** This functionality is not yet completely implemented, and compilation using the below option will currently fail.
 
-When the intention is to run only a P2P node without a wallet, CRYPTOSHARES Core may be compiled in
+When the intention is to run only a P2P node without a wallet, CRYPTOSHARES may be compiled in
 disable-wallet mode with:
 
     ./configure --disable-wallet

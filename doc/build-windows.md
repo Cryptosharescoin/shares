@@ -1,12 +1,12 @@
 WINDOWS BUILD NOTES
 ====================
 
-Below are some notes on how to build Cryptoshares Core for Windows.
+Below are some notes on how to build Cryptoshares for Windows.
 
-The options known to work for building Cryptoshares Core on Windows are:
+The options known to work for building Cryptoshares on Windows are:
 
 * On Linux, using the [Mingw-w64](https://mingw-w64.org/doku.php) cross compiler tool chain. Ubuntu Bionic 18.04 is required
-and is the platform used to build the Cryptoshares Core Windows release binaries.
+and is the platform used to build the Cryptoshares Windows release binaries.
 * On Windows, using [Windows
 Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/about) and the Mingw-w64 cross compiler tool chain.
 
@@ -62,8 +62,7 @@ First, install the general dependencies:
     sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git
 
 A host toolchain (`build-essential`) is necessary because some dependency
-packages (such as `protobuf`) need to build host utilities that are used in the
-build process.
+packages need to build host utilities that are used in the build process.
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
@@ -88,19 +87,26 @@ Ubuntu Bionic 18.04 <sup>[1](#footnote1)</sup>:
 
 Once the toolchain is installed the build steps are common:
 
-Note that for WSL the Cryptoshares Core source path MUST be somewhere in the default mount file system, for
+Note that for WSL the Cryptoshares source path MUST be somewhere in the default mount file system, for
 example /usr/src/cryptoshares, AND not under /mnt/d/. If this is not the case the dependency autoconf scripts will fail.
 This means you cannot use a directory that is located directly on the host Windows file system to perform the build.
+
+Additional WSL Note: WSL support for [launching Win32 applications](https://docs.microsoft.com/en-us/archive/blogs/wsl/windows-and-ubuntu-interoperability#launching-win32-applications-from-within-wsl)
+results in `Autoconf` configure scripts being able to execute Windows Portable Executable files. This can cause
+unexpected behaviour during the build, such as Win32 error dialogs for missing libraries. The recommended approach
+is to temporarily disable WSL support for Win32 applications.
 
 Build using:
 
     PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
+    sudo bash -c "echo 0 > /proc/sys/fs/binfmt_misc/status" # Disable WSL support for Win32 applications.
     cd depends
     make HOST=x86_64-w64-mingw32
     cd ..
     ./autogen.sh # not required when building from tarball
-    CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+    CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-online-rust
     make
+    sudo bash -c "echo 1 > /proc/sys/fs/binfmt_misc/status" # Enable WSL support for Win32 applications.
 
 ## Depends system
 
@@ -127,5 +133,5 @@ Footnotes
 compiler options to allow a choice between either posix or win32 threads. The default option is win32 threads which is the more
 efficient since it will result in binary code that links directly with the Windows kernel32.lib. Unfortunately, the headers
 required to support win32 threads conflict with some of the classes in the C++11 standard library, in particular std::mutex.
-It's not possible to build the Cryptoshares Core code using the win32 version of the Mingw-w64 cross compilers (at least not without
-modifying headers in the Cryptoshares Core source code).
+It's not possible to build the Cryptoshares code using the win32 version of the Mingw-w64 cross compilers (at least not without
+modifying headers in the Cryptoshares source code).

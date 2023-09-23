@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,13 +8,11 @@
 
 #include "qt/cryptoshares/pwidget.h"
 #include "addresstablemodel.h"
-#include "qt/cryptoshares/tooltipmenu.h"
 #include "furabstractlistitemdelegate.h"
-#include "qt/cryptoshares/addressfilterproxymodel.h"
 
 #include <QWidget>
 
-class AddressViewDelegate;
+class AddressFilterProxyModel;
 class TooltipMenu;
 class CRYPTOSHARESGUI;
 class WalletModel;
@@ -37,7 +34,6 @@ public:
     ~AddressesWidget();
 
     void loadWalletModel() override;
-    void onNewContactClicked();
 
 private Q_SLOTS:
     void handleAddressClicked(const QModelIndex &index);
@@ -57,7 +53,6 @@ private:
     AddressTableModel* addressTablemodel = nullptr;
     AddressFilterProxyModel *filter = nullptr;
 
-    bool isOnMyAddresses = true;
     TooltipMenu* menu = nullptr;
 
     // Cached index

@@ -1,8 +1,7 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+// file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/cryptoshares/topbar.h"
 #include "askpassphrasedialog.h"
@@ -11,27 +10,51 @@
 #include "qt/cryptoshares/lockunlock.h"
 #include "qt/cryptoshares/qtutils.h"
 #include "qt/cryptoshares/receivedialog.h"
+#include "validation.h"
 
 #include "addresstablemodel.h"
 #include "bitcoinunits.h"
 #include "clientmodel.h"
-#include "guiinterface.h"
 #include "optionsmodel.h"
-#include "qt/guiconstants.h"
+#include "qt/cryptoshares/balancebubble.h"
 #include "qt/guiutil.h"
 #include "qt/platformstyle.h"
 #include "walletmodel.h"
 
 #include "masternode-sync.h"
+#include "masternode.h"
 #include "masternodeman.h"
+#include "masternodeconfig.h"
 #include "wallet/wallet.h"
 
 #include <QPixmap>
 
 #define REQUEST_UPGRADE_WALLET 1
 
+class ButtonHoverWatcher : public QObject
+{
+public:
+    explicit ButtonHoverWatcher(QObject* parent = nullptr) : QObject(parent) {}
+    bool eventFilter(QObject* watched, QEvent* event) override
+    {
+        QPushButton* button = qobject_cast<QPushButton*>(watched);
+        if (!button) return false;
+
+        if (event->type() == QEvent::Enter) {
+            button->setIcon(QIcon("://ic-information-hover"));
+            return true;
+        }
+
+        if (event->type() == QEvent::Leave) {
+            button->setIcon(QIcon("://ic-information"));
+            return true;
+        }
+        return false;
+    }
+};
+
 TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWindow, parent),
-                                                        ui(new Ui::TopBar)
+                                                                ui(new Ui::TopBar)
 {
     ui->setupUi(this);
 
@@ -39,25 +62,29 @@ TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWin
     this->setStyleSheet(_mainWindow->styleSheet());
     /* Containers */
     ui->containerTop->setContentsMargins(10, 4, 10, 10);
+#ifdef Q_OS_MAC
+    ui->containerTop->load("://bg-dashboard-banner");
+    setCssProperty(ui->containerTop, "container-topbar-no-image");
+#else
     ui->containerTop->setProperty("cssClass", "container-top");
+#endif
 
-    setCssProperty({ui->labelTitle1, ui->labelTitle3, ui->labelTitle4, ui->labelTitle5,
-                       ui->labelTitle6, ui->labelMasternodesTitle, ui->labelTitle8,
-                       ui->labelNextMasternodesTitle, ui->labelTitle9},
-        "text-title-topbar");
+    std::initializer_list<QWidget*> lblTitles = {ui->labelTitle1, ui->labelTitle3, ui->labelTitle4, ui->labelTitle5, ui->labelShield, ui->labelTitle6,
+        ui->labelMasternodesTitle, ui->labelTitle8, ui->labelMNReward, ui->labelStakingReward, ui->labelTrans};
+    setCssProperty(lblTitles, "text-title-topbar");
+    QFont font;
+    font.setWeight(QFont::Light);
+    for (QWidget* w : lblTitles) {
+        w->setFont(font);
+    }
 
     // Amount information top
     ui->widgetTopAmount->setVisible(false);
-    ui->widgetAmount->setVisible(true);
-    setCssProperty({ui->labelAmountTopShares}, "amount-small-topbar");
-    setCssProperty({ui->labelAmountShares}, "amount-topbar");
-    setCssProperty({ui->labelPendingShares, ui->labelImmatureShares, ui->labelAvailableShares,
-                       ui->labelLockedShares, ui->labelMasternodeCount, ui->labelCollateralShares,
-                       ui->labelNextCollateralBlocks, ui->labelNextCollateralValue},
+    setCssProperty({ui->labelAmountTopShieldedshares}, "amount-small-topbar");
+    setCssProperty({ui->labelAmountShares}, "amount-small-topbar");
+    setCssProperty({ui->labelPendingShares, ui->labelImmatureShares, ui->labelAvailableShares, ui->labelLockedShares, ui->labelCollateralShares, ui->labelMasternodeCount,
+                       ui->labelMNRewardvalue, ui->labelStakingRewardvalue},
         "amount-small-topbar");
-
-    // Next masternode collateral
-    ui->widgetNextCollateral->setVisible(false);
 
     // Progress Sync
     progressBar = new QProgressBar(ui->layoutSync);
@@ -84,25 +111,23 @@ TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWin
     ui->pushButtonTor->setButtonClassStyle("cssClass", "btn-check-tor-inactive");
     ui->pushButtonTor->setButtonText(tr("Tor Disabled"));
     ui->pushButtonTor->setChecked(false);
-    ui->pushButtonTor->setVisible(false);
 
     ui->pushButtonStack->setButtonClassStyle("cssClass", "btn-check-stack-inactive");
     ui->pushButtonStack->setButtonText(tr("Staking Disabled"));
 
-    ui->pushButtonConf->setButtonClassStyle("cssClass", "btn-check-conf");
-    ui->pushButtonConf->setButtonText("cryptoshares.conf");
-    ui->pushButtonConf->setChecked(false);
+    ui->pushButtonColdStaking->setButtonClassStyle("cssClass", "btn-check-cold-staking-inactive");
+    ui->pushButtonColdStaking->setButtonText(tr("Cold Staking Disabled"));
+
+    ui->pushButtonSync->setButtonClassStyle("cssClass", "btn-check-sync");
+    ui->pushButtonSync->setButtonText(tr(" %54 Synchronizing.."));
 
     ui->pushButtonMasternodes->setButtonClassStyle("cssClass", "btn-check-masternodes");
     ui->pushButtonMasternodes->setButtonText("masternode.conf");
     ui->pushButtonMasternodes->setChecked(false);
 
-    ui->pushButtonConsole->setButtonClassStyle("cssClass", "btn-check-console");
-    ui->pushButtonConsole->setButtonText("Debug Console");
-    ui->pushButtonConsole->setChecked(false);
-
-    ui->pushButtonSync->setButtonClassStyle("cssClass", "btn-check-sync");
-    ui->pushButtonSync->setButtonText(tr(" %54 Synchronizing.."));
+    ui->pushButtonConf->setButtonClassStyle("cssClass", "btn-check-conf");
+    ui->pushButtonConf->setButtonText("shares.conf");
+    ui->pushButtonConf->setChecked(false);
 
     ui->pushButtonLock->setButtonClassStyle("cssClass", "btn-check-lock");
 
@@ -116,6 +141,9 @@ TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWin
 
     setCssProperty(ui->qrContainer, "container-qr");
     setCssProperty(ui->pushButtonQR, "btn-qr");
+    //setCssProperty(ui->pushButtonBalanceInfo, "btn-info");
+    ButtonHoverWatcher* watcher = new ButtonHoverWatcher(this);
+    //ui->pushButtonBalanceInfo->installEventFilter(watcher);
 
     // QR image
     QPixmap pixmap("://img-qr-test");
@@ -131,16 +159,17 @@ TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWin
 
     connect(ui->pushButtonQR, &QPushButton::clicked, this, &TopBar::onBtnReceiveClicked);
     connect(ui->btnQr, &QPushButton::clicked, this, &TopBar::onBtnReceiveClicked);
+    //connect(ui->pushButtonBalanceInfo, &QPushButton::clicked, this, &TopBar::onBtnBalanceInfoClicked);
     connect(ui->pushButtonLock, &ExpandableButton::Mouse_Pressed, this, &TopBar::onBtnLockClicked);
     connect(ui->pushButtonTheme, &ExpandableButton::Mouse_Pressed, this, &TopBar::onThemeClicked);
-    connect(ui->pushButtonFAQ, &ExpandableButton::Mouse_Pressed, [this]() { window->openFAQ(); });
-    connect(ui->pushButtonConf, &ExpandableButton::Mouse_Pressed, this, &TopBar::onBtnConfClicked);
     connect(ui->pushButtonMasternodes, &ExpandableButton::Mouse_Pressed, this, &TopBar::onBtnMasternodesClicked);
+    connect(ui->pushButtonConf, &ExpandableButton::Mouse_Pressed, this, &TopBar::onBtnConfClicked);
+    connect(ui->pushButtonFAQ, &ExpandableButton::Mouse_Pressed, [this]() { window->openFAQ(); });
+    connect(ui->pushButtonColdStaking, &ExpandableButton::Mouse_Pressed, this, &TopBar::onColdStakingClicked);
     connect(ui->pushButtonSync, &ExpandableButton::Mouse_HoverLeave, this, &TopBar::refreshProgressBarSize);
     connect(ui->pushButtonSync, &ExpandableButton::Mouse_Hover, this, &TopBar::refreshProgressBarSize);
     connect(ui->pushButtonSync, &ExpandableButton::Mouse_Pressed, [this]() { window->goToSettingsInfo(); });
-    connect(ui->pushButtonConsole, &ExpandableButton::Mouse_Pressed, [this]() { window->goToDebugConsole(); });
-    connect(ui->pushButtonConnection, &ExpandableButton::Mouse_Pressed, [this]() { window->showPeers(); });
+    connect(ui->pushButtonConnection, &ExpandableButton::Mouse_Pressed, [this]() { window->openNetworkMonitor(); });
 
     refreshStatus();
 }
@@ -328,23 +357,12 @@ void TopBar::onBtnReceiveClicked()
     }
 }
 
-void TopBar::showTop()
+void TopBar::onBtnMasternodesClicked()
 {
-    if (ui->bottom_container->isVisible()) {
-        ui->bottom_container->setVisible(false);
-        ui->widgetTopAmount->setVisible(true);
-        ui->widgetAmount->setVisible(false);
-        this->setFixedHeight(75);
-    }
-}
+    ui->pushButtonMasternodes->setChecked(false);
 
-void TopBar::showBottom()
-{
-    ui->widgetTopAmount->setVisible(false);
-    ui->widgetAmount->setVisible(true);
-    ui->bottom_container->setVisible(true);
-    this->setFixedHeight(200);
-    this->adjustSize();
+    if (!GUIUtil::openMNConfigfile())
+        inform(tr("Unable to open masternode.conf with default application"));
 }
 
 void TopBar::onBtnConfClicked()
@@ -352,15 +370,75 @@ void TopBar::onBtnConfClicked()
     ui->pushButtonConf->setChecked(false);
 
     if (!GUIUtil::openConfigfile())
-        inform(tr("Unable to open cryptoshares.conf with default application"));
+        inform(tr("Unable to open shares.conf with default application"));
 }
 
-void TopBar::onBtnMasternodesClicked()
+void TopBar::onBtnBalanceInfoClicked()
 {
-    ui->pushButtonMasternodes->setChecked(false);
+    if (!walletModel) return;
+    if (balanceBubble) {
+        if (balanceBubble->isVisible()) {
+            balanceBubble->hide();
+            return;
+        }
+    } else
+        balanceBubble = new BalanceBubble(this);
 
-    if (!GUIUtil::openMNConfigfile())
-        inform(tr("Unable to open masternode.conf with default application"));
+    const auto& balances = walletModel->GetWalletBalances();
+    balanceBubble->updateValues(balances.balance - balances.shielded_balance, balances.shielded_balance, nDisplayUnit);
+    QPoint pos = this->pos();
+    pos.setX(pos.x() + (ui->labelTitle1->width()) + 60);
+    pos.setY(pos.y() + 20);
+    balanceBubble->move(pos);
+    balanceBubble->show();
+}
+
+void TopBar::showTop()
+{
+    if (ui->bottom_container->isVisible()) {
+        if (balanceBubble && balanceBubble->isVisible()) balanceBubble->hide();
+        ui->bottom_container->setVisible(false);
+        ui->widgetTopAmount->setVisible(true);
+        ui->labelTitle1->setVisible(false);
+        this->setFixedHeight(75);
+    }
+}
+
+void TopBar::showBottom()
+{
+    ui->widgetTopAmount->setVisible(false);
+    ui->bottom_container->setVisible(true);
+    ui->labelTitle1->setVisible(true);
+    this->setFixedHeight(200);
+    this->adjustSize();
+}
+
+void TopBar::onColdStakingClicked()
+{
+    bool isColdStakingEnabled = walletModel->isColdStaking();
+    ui->pushButtonColdStaking->setChecked(isColdStakingEnabled);
+
+    bool show = (isInitializing) ? walletModel->getOptionsModel()->isColdStakingScreenEnabled() :
+                                   walletModel->getOptionsModel()->invertColdStakingScreenStatus();
+    QString className;
+    QString text;
+
+    if (isColdStakingEnabled) {
+        text = "Cold Staking Active";
+        className = (show) ? "btn-check-cold-staking-checked" : "btn-check-cold-staking-unchecked";
+    } else if (show) {
+        className = "btn-check-cold-staking";
+        text = "Cold Staking Enabled";
+    } else {
+        className = "btn-check-cold-staking-inactive";
+        text = "Cold Staking Disabled";
+    }
+
+    ui->pushButtonColdStaking->setButtonClassStyle("cssClass", className, true);
+    ui->pushButtonColdStaking->setButtonText(text);
+    updateStyle(ui->pushButtonColdStaking);
+
+    Q_EMIT onShowHideColdStakingChanged(show);
 }
 
 TopBar::~TopBar()
@@ -398,12 +476,13 @@ void TopBar::setStakingStatusActive(bool fActive)
 }
 void TopBar::updateStakingStatus()
 {
-    setStakingStatusActive(walletModel &&
-                           !walletModel->isWalletLocked() &&
-                           walletModel->isStakingStatusActive());
+    if (walletModel && !walletModel->isShutdownRequested()) {
+        setStakingStatusActive(!walletModel->isWalletLocked() &&
+                               walletModel->isStakingStatusActive());
 
-    // Taking advantage of this timer to update Tor status if needed.
-    updateTorIcon();
+        // Taking advantage of this timer to update Tor status if needed.
+        updateTorIcon();
+    }
 }
 
 void TopBar::setNumConnections(int count)
@@ -428,28 +507,9 @@ void TopBar::setNumBlocks(int count)
     if (!clientModel)
         return;
 
-    // Acquire current block source
-    enum BlockSource blockSource = clientModel->getBlockSource();
-    std::string text = "";
-    switch (blockSource) {
-    case BLOCK_SOURCE_NETWORK:
-        text = "Synchronizing..";
-        break;
-    case BLOCK_SOURCE_DISK:
-        text = "Importing blocks from disk..";
-        break;
-    case BLOCK_SOURCE_REINDEX:
-        text = "Reindexing blocks on disk..";
-        break;
-    case BLOCK_SOURCE_NONE:
-        // Case: not Importing, not Reindexing and no network connection
-        text = "No block source available..";
-        ui->pushButtonSync->setChecked(false);
-        break;
-    }
-
+    std::string text;
     bool needState = true;
-    if (masternodeSync.IsBlockchainSynced()) {
+    if (masternodeSync.IsBlockchainSyncedReadOnly()) {
         // chain synced
         Q_EMIT walletSynced(true);
         if (masternodeSync.IsSynced()) {
@@ -457,6 +517,7 @@ void TopBar::setNumBlocks(int count)
             ui->pushButtonSync->setButtonText(tr("Synchronized - Block: %1").arg(QString::number(count)));
             progressBar->setRange(0, 100);
             progressBar->setValue(100);
+            Q_EMIT tierTwoSynced(true);
             refreshStatus();
             return;
         } else {
@@ -477,7 +538,7 @@ void TopBar::setNumBlocks(int count)
         Q_EMIT walletSynced(false);
     }
 
-    if (needState) {
+    if (needState && clientModel->isTipCached()) {
         // Represent time from last generated block in human readable text
         QDateTime lastBlockDate = clientModel->getLastBlockDate();
         QDateTime currentDate = QDateTime::currentDateTime();
@@ -514,13 +575,11 @@ void TopBar::setNumBlocks(int count)
     ui->pushButtonSync->setButtonText(tr(text.data()));
 }
 
-void TopBar::showUpgradeDialog()
+void TopBar::showUpgradeDialog(const QString& message)
 {
     QString title = tr("Wallet Upgrade");
-    if (ask(title,
-            tr("Upgrading to HD wallet will improve\nthe wallet's reliability and security.\n\n\n"
-               "NOTE: after the upgrade, a new\nbackup will be created.\n"))) {
-        std::unique_ptr<WalletModel::UnlockContext> pctx = MakeUnique<WalletModel::UnlockContext>(walletModel->requestUnlock());
+    if (ask(title, message)) {
+        std::unique_ptr<WalletModel::UnlockContext> pctx = std::make_unique<WalletModel::UnlockContext>(walletModel->requestUnlock());
         if (!pctx->isValid()) {
             warn(tr("Upgrade Wallet"), tr("Wallet unlock cancelled"));
             return;
@@ -529,54 +588,6 @@ void TopBar::showUpgradeDialog()
         LoadingDialog* dialog = new LoadingDialog(window);
         dialog->execute(this, REQUEST_UPGRADE_WALLET, std::move(pctx));
         openDialogWithOpaqueBackgroundFullScreen(dialog, window);
-    }
-}
-
-void TopBar::loadWalletModel()
-{
-    // Upgrade wallet.
-    if (walletModel->isHDEnabled()) {
-        ui->pushButtonHDUpgrade->setVisible(false);
-    } else {
-        connect(ui->pushButtonHDUpgrade, &ExpandableButton::Mouse_Pressed, this, &TopBar::showUpgradeDialog);
-
-        // Upgrade wallet timer, only once. launched 4 seconds after the wallet started.
-        QTimer::singleShot(4000, [this]() {
-            showUpgradeDialog();
-        });
-    }
-
-    connect(walletModel, &WalletModel::balanceChanged, this, &TopBar::updateBalances);
-    connect(walletModel->getOptionsModel(), &OptionsModel::displayUnitChanged, this, &TopBar::updateDisplayUnit);
-    connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
-    // Ask for passphrase if needed
-    connect(walletModel, &WalletModel::requireUnlock, this, &TopBar::unlockWallet);
-    // update the display unit, to not use the default ("SHARES")
-    updateDisplayUnit();
-
-    refreshStatus();
-
-    isInitializing = false;
-}
-
-void TopBar::updateTorIcon()
-{
-    std::string ip_port;
-    bool torEnabled = clientModel->getTorInfo(ip_port);
-
-    if (torEnabled) {
-        if (!ui->pushButtonTor->isChecked()) {
-            ui->pushButtonTor->setChecked(true);
-            ui->pushButtonTor->setButtonClassStyle("cssClass", "btn-check-tor", true);
-        }
-        QString ip_port_q = QString::fromStdString(ip_port);
-        ui->pushButtonTor->setButtonText(tr("Tor Active: %1").arg(ip_port_q));
-    } else {
-        if (ui->pushButtonTor->isChecked()) {
-            ui->pushButtonTor->setChecked(false);
-            ui->pushButtonTor->setButtonClassStyle("cssClass", "btn-check-tor-inactive", true);
-            ui->pushButtonTor->setButtonText(tr("Tor Disabled"));
-        }
     }
 }
 
@@ -595,13 +606,16 @@ void TopBar::refreshMasternodeStatus()
             if (!mne.castOutputIndex(nIndex))
                 continue;
 
-            uint256 txHash(mne.getTxHash());
+            uint256 txHash = uint256S(mne.getTxHash());
             CTxIn txIn(txHash, uint32_t(nIndex));
+
+            /*uint256 txHash(mne.getTxHash());
+            ctxin txIn(txHash, uint32_t(nIndex));*/
             auto pmn = mnodeman.Find(txIn);
 
             if (!pmn) continue;
 
-            int activeState = pmn->activeState;
+            int activeState = pmn->GetActiveState();
 
             if (activeState == CMasternode::MASTERNODE_PRE_ENABLED || activeState == CMasternode::MASTERNODE_ENABLED) {
                 nMNActive++;
@@ -609,16 +623,69 @@ void TopBar::refreshMasternodeStatus()
         }
     }
 
-    ui->labelMasternodeCount->setText(tr("%1/%2").arg(isSynced ? std::to_string(nMNActive).c_str() : "--").arg(nMNCount));
+    ui->labelMasternodeCount->setText(tr("%1/0").arg(isSynced ? std::to_string(nMNActive).c_str() : "--"));
     ui->labelMasternodesTitle->setText(tr("Masternodes%1").arg(isSynced ? "" : " (Syncing)"));
+}
 
-    if(chainActive.Tip()) {
-        auto p = CMasternode::GetNextMasternodeCollateral(chainActive.Tip()->nHeight);
+void TopBar::loadWalletModel()
+{
+    // Upgrade wallet.
+    if (walletModel->isHDEnabled()) {
+        if (walletModel->isSaplingWalletEnabled()) {
+            // hide upgrade
+            ui->pushButtonHDUpgrade->setVisible(false);
+        } else {
+            // show upgrade to Sapling
+            ui->pushButtonHDUpgrade->setButtonText(tr("Upgrade to Sapling Wallet"));
+            ui->pushButtonHDUpgrade->setNoIconText("SHIELD UPGRADE");
+            connectUpgradeBtnAndDialogTimer(tr("Upgrading to Sapling wallet will enable\nall of the privacy features!\n\n\n"
+                                               "NOTE: after the upgrade, a new\nbackup will be created.\n"));
+        }
+    } else {
+        connectUpgradeBtnAndDialogTimer(tr("Upgrading to HD wallet will improve\nthe wallet's reliability and security.\n\n\n"
+                                           "NOTE: after the upgrade, a new\nbackup will be created.\n"));
+    }
 
-        ui->widgetNextCollateral->setVisible(p.first > 0);
-        if(p.first > 0) {
-            ui->labelNextCollateralValue->setText(GUIUtil::formatBalance(p.second, nDisplayUnit));
-            ui->labelNextCollateralBlocks->setText(tr("%1 Blocks").arg(p.first));
+    connect(walletModel, &WalletModel::balanceChanged, this, &TopBar::updateBalances);
+    connect(walletModel->getOptionsModel(), &OptionsModel::displayUnitChanged, this, &TopBar::updateDisplayUnit);
+    connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
+    // Ask for passphrase if needed
+    connect(walletModel, &WalletModel::requireUnlock, this, &TopBar::unlockWallet);
+    // update the display unit, to not use the default ("CRYPTOSHARES")
+    updateDisplayUnit();
+
+    refreshStatus();
+    onColdStakingClicked();
+
+    isInitializing = false;
+}
+
+void TopBar::connectUpgradeBtnAndDialogTimer(const QString& message)
+{
+    const auto& func = [this, message]() { showUpgradeDialog(message); };
+    connect(ui->pushButtonHDUpgrade, &ExpandableButton::Mouse_Pressed, func);
+
+    // Upgrade wallet timer, only once. launched 4 seconds after the wallet started.
+    QTimer::singleShot(4000, func);
+}
+
+void TopBar::updateTorIcon()
+{
+    std::string ip_port;
+    bool torEnabled = clientModel->getTorInfo(ip_port);
+
+    if (torEnabled) {
+        if (!ui->pushButtonTor->isChecked()) {
+            ui->pushButtonTor->setChecked(true);
+            ui->pushButtonTor->setButtonClassStyle("cssClass", "btn-check-tor", true);
+        }
+        ui->pushButtonTor->setButtonText(tr("Tor Active"));
+        ui->pushButtonTor->setToolTip("Address: " + QString::fromStdString(ip_port));
+    } else {
+        if (ui->pushButtonTor->isChecked()) {
+            ui->pushButtonTor->setChecked(false);
+            ui->pushButtonTor->setButtonClassStyle("cssClass", "btn-check-tor-inactive", true);
+            ui->pushButtonTor->setButtonText(tr("Tor Disabled"));
         }
     }
 }
@@ -628,7 +695,7 @@ void TopBar::refreshStatus()
     refreshMasternodeStatus();
 
     // Check lock status
-    if (!this->walletModel)
+    if (!walletModel || !walletModel->hasWallet())
         return;
 
     WalletModel::EncryptionStatus encStatus = walletModel->getEncryptionStatus();
@@ -654,7 +721,15 @@ void TopBar::refreshStatus()
     updateStyle(ui->pushButtonLock);
 
     // Collateral
-    ui->labelCollateralShares->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeNodeCollateral(chainActive.Tip()->nHeight), nDisplayUnit));
+    ui->labelCollateralShares->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeCollateral(chainActive.Tip()->nHeight), nDisplayUnit));
+    ui->labelStakingRewardvalue->setText(GUIUtil::formatBalance(CMasternode::GetStakingReward(chainActive.Tip()->nHeight), nDisplayUnit));
+    ui->labelMNRewardvalue->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeReward(chainActive.Tip()->nHeight), nDisplayUnit));
+
+    /*CAmount Blockvalue = GetBlockValue(chainActive.Tip()->nHeight);
+    CAmount MNReward = Blockvalue * 0.90;
+
+    ui->labelMNRewardvalue->setText(GUIUtil::formatBalance(MNReward));
+    ui->labelStakingRewardvalue->setText(GUIUtil::formatBalance(Blockvalue - MNReward));*/
 }
 
 void TopBar::updateDisplayUnit()
@@ -676,10 +751,12 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
     }
 
     CAmount nAvailableBalance = newBalance.balance - nLockedBalance;
+    QString totalShielded = GUIUtil::formatBalance(newBalance.shielded_balance);
 
-    // SHARES
+    ui->labelAmountTopShieldedshares->setText(totalShielded);
+
     // Top
-    ui->labelAmountTopShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
+    // ui->labelAmountTopShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     // Expanded
     ui->labelAmountShares->setText(GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance, nDisplayUnit));
     ui->labelAvailableShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
@@ -688,9 +765,6 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
     ui->labelLockedShares->setText(GUIUtil::formatBalance(nLockedBalance, nDisplayUnit));
 
     refreshMasternodeStatus();
-
-    // Collateral
-    ui->labelCollateralShares->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeNodeCollateral(chainActive.Tip()->nHeight), nDisplayUnit));
 }
 
 void TopBar::resizeEvent(QResizeEvent* event)
@@ -713,7 +787,7 @@ void TopBar::expandSync()
     }
 }
 
-void TopBar::updateHDState(const bool& upgraded, const QString& upgradeError)
+void TopBar::updateHDState(const bool upgraded, const QString& upgradeError)
 {
     if (upgraded) {
         ui->pushButtonHDUpgrade->setVisible(false);

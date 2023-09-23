@@ -1,106 +1,112 @@
 // Copyright (c) 2017-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+// file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
 #include "stakeinput.h"
 
 #include "chain.h"
-#include "main.h"
 #include "txdb.h"
-#include "zshares/deterministicmint.h"
 #include "wallet/wallet.h"
 
-bool CSharesStake::InitFromTxIn(const CTxIn& txin)
+static bool HasStakeMinAgeOrDepth(int nHeight, uint32_t nTime, const CBlockIndex* pindex)
 {
-    if (txin.IsZerocoinSpend())
-        return error("%s: unable to initialize CSHARESStake from zerocoin spend", __func__);
+    const Consensus::Params& consensus = Params().GetConsensus();
+    if (!consensus.HasStakeMinAgeOrDepth(nHeight, nTime, pindex->nHeight, pindex->nTime)) {
+        return error("%s : min age violation - height=%d - time=%d, nHeightBlockFrom=%d, nTimeBlockFrom=%d",
+                     __func__, nHeight, nTime, pindex->nHeight, pindex->nTime);
+    }
+    return true;
+}
 
-    // Find the previous transaction in database
+CSharesStake* CSharesStake::NewSharesStake(const CTxIn& txin, int nHeight, uint32_t nTime)
+{
+    // Look for the stake input in the coins cache first
+    const Coin& coin = pcoinsTip->AccessCoin(txin.prevout);
+    if (!coin.IsSpent()) {
+        const CBlockIndex* pindexFrom = mapBlockIndex.at(chainActive[coin.nHeight]->GetBlockHash());
+        // Check that the stake has the required depth/age
+        if (!HasStakeMinAgeOrDepth(nHeight, nTime, pindexFrom)) {
+            return nullptr;
+        }
+
+        if (nHeight > 200 && coin.out.nValue < 10 * COIN) {
+            return nullptr;
+        } else if (nHeight > 100000 && coin.out.nValue < 100 * COIN) {
+            return nullptr;
+        }
+
+        // All good
+        return new CSharesStake(coin.out, txin.prevout, pindexFrom);
+    }
+
+    // Otherwise find the previous transaction in database
     uint256 hashBlock;
-    CTransaction txPrev;
-    if (!GetTransaction(txin.prevout.hash, txPrev, hashBlock, true))
-        return error("%s : INFO: read txPrev failed, tx id prev: %s", __func__, txin.prevout.hash.GetHex());
-    SetPrevout(txPrev, txin.prevout.n);
-
-    // Find the index of the block of the previous transaction
+    CTransactionRef txPrev;
+    if (!GetTransaction(txin.prevout.hash, txPrev, hashBlock, true)) {
+        error("%s : INFO: read txPrev failed, tx id prev: %s", __func__, txin.prevout.hash.GetHex());
+        return nullptr;
+    }
+    const CBlockIndex* pindexFrom = nullptr;
     if (mapBlockIndex.count(hashBlock)) {
         CBlockIndex* pindex = mapBlockIndex.at(hashBlock);
         if (chainActive.Contains(pindex)) pindexFrom = pindex;
     }
     // Check that the input is in the active chain
-    if (!pindexFrom)
-        return error("%s : Failed to find the block index for stake origin", __func__);
+    if (!pindexFrom) {
+        error("%s : Failed to find the block index for stake origin", __func__);
+        return nullptr;
+    }
+    // Check that the stake has the required depth/age
+    if (!HasStakeMinAgeOrDepth(nHeight, nTime, pindexFrom)) {
+        return nullptr;
+    }
+
+    if (nHeight > 200 && txPrev->vout[txin.prevout.n].nValue < 10 * COIN) {
+        return nullptr;
+    } else if (nHeight > 100000 && txPrev->vout[txin.prevout.n].nValue < 100 * COIN) {
+        return nullptr;
+    }
 
     // All good
-    return true;
-}
-
-bool CSharesStake::SetPrevout(CTransaction txPrev, unsigned int n)
-{
-    this->txFrom = txPrev;
-    this->nPosition = n;
-    return true;
-}
-
-bool CSharesStake::GetTxFrom(CTransaction& tx) const
-{
-    if (txFrom.IsNull())
-        return false;
-    tx = txFrom;
-    return true;
+    return new CSharesStake(txPrev->vout[txin.prevout.n], txin.prevout, pindexFrom);
 }
 
 bool CSharesStake::GetTxOutFrom(CTxOut& out) const
 {
-    if (txFrom.IsNull() || nPosition >= txFrom.vout.size())
-        return false;
-    out = txFrom.vout[nPosition];
+    out = outputFrom;
     return true;
 }
 
-bool CSharesStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+CTxIn CSharesStake::GetTxIn() const
 {
-    txIn = CTxIn(txFrom.GetHash(), nPosition);
-    return true;
+    return CTxIn(outpointFrom.hash, outpointFrom.n);
 }
 
 CAmount CSharesStake::GetValue() const
 {
-    return txFrom.vout[nPosition].nValue;
+    return outputFrom.nValue;
 }
 
-bool CSharesStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal, const bool onlyP2PK)
+bool CSharesStake::CreateTxOuts(const CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal) const
 {
     std::vector<valtype> vSolutions;
     txnouttype whichType;
-    CScript scriptPubKeyKernel = txFrom.vout[nPosition].scriptPubKey;
+    CScript scriptPubKeyKernel = outputFrom.scriptPubKey;
     if (!Solver(scriptPubKeyKernel, whichType, vSolutions))
         return error("%s: failed to parse kernel", __func__);
 
-    if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH)
+    if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH && whichType != TX_COLDSTAKE)
         return error("%s: type=%d (%s) not supported for scriptPubKeyKernel", __func__, whichType, GetTxnOutputType(whichType));
 
-    CScript scriptPubKey;
     CKey key;
-    if (whichType == TX_PUBKEYHASH) {
-        // if P2PKH check that we have the input private key
+    if (whichType == TX_PUBKEYHASH || whichType == TX_COLDSTAKE) {
+        // if P2PKH or P2CS check that we have the input private key
         if (!pwallet->GetKey(CKeyID(uint160(vSolutions[0])), key))
             return error("%s: Unable to get staking private key", __func__);
     }
 
-    // Consensus check: P2PKH block signatures were not accepted before v5 update.
-    // This can be removed after v5.0 enforcement
-    if (whichType == TX_PUBKEYHASH && onlyP2PK) {
-        // convert to P2PK inputs
-        scriptPubKey << key.GetPubKey() << OP_CHECKSIG;
-    } else {
-        // keep the same script
-        scriptPubKey = scriptPubKeyKernel;
-    }
-
-    vout.emplace_back(CTxOut(0, scriptPubKey));
+    vout.emplace_back(0, scriptPubKeyKernel);
 
     // Calculate if we need to split the output
     if (pwallet->nStakeSplitThreshold > 0) {
@@ -112,7 +118,7 @@ bool CSharesStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAm
                 nSplit = txSizeMax;
             for (int i = nSplit; i > 1; i--) {
                 LogPrintf("%s: StakeSplit: nTotal = %d; adding output %d of %d\n", __func__, nTotal, (nSplit-i)+2, nSplit);
-                vout.emplace_back(CTxOut(0, scriptPubKey));
+                vout.emplace_back(0, scriptPubKeyKernel);
             }
         }
     }
@@ -124,49 +130,15 @@ CDataStream CSharesStake::GetUniqueness() const
 {
     //The unique identifier for a SHARES stake is the outpoint
     CDataStream ss(SER_NETWORK, 0);
-    ss << nPosition << txFrom.GetHash();
+    ss << outpointFrom.n << outpointFrom.hash;
     return ss;
 }
 
 //The block that the UTXO was added to the chain
-CBlockIndex* CSharesStake::GetIndexFrom()
+const CBlockIndex* CSharesStake::GetIndexFrom() const
 {
-    if (pindexFrom)
-        return pindexFrom;
-    uint256 hashBlock = UINT256_ZERO;
-    CTransaction tx;
-    if (GetTransaction(txFrom.GetHash(), tx, hashBlock, true)) {
-        // If the index is in the chain, then set it as the "index from"
-        if (mapBlockIndex.count(hashBlock)) {
-            CBlockIndex* pindex = mapBlockIndex.at(hashBlock);
-            if (chainActive.Contains(pindex))
-                pindexFrom = pindex;
-        }
-    } else {
-        LogPrintf("%s : failed to find tx %s\n", __func__, txFrom.GetHash().GetHex());
-    }
-
+    // Sanity check, pindexFrom is set on the constructor.
+    if (!pindexFrom) throw std::runtime_error("CSharesStake: uninitialized pindexFrom");
     return pindexFrom;
-}
-
-// Verify stake contextual checks
-bool CSharesStake::ContextCheck(int nHeight, uint32_t nTime)
-{
-    const Consensus::Params& consensus = Params().GetConsensus();
-    // Get Stake input block time/height
-    CBlockIndex* pindexFrom = GetIndexFrom();
-    if (!pindexFrom)
-        return error("%s: unable to get previous index for stake input", __func__);
-    const int nHeightBlockFrom = pindexFrom->nHeight;
-    const uint32_t nTimeBlockFrom = pindexFrom->nTime;
-
-    // Check that the stake has the required depth/age
-    if (!consensus.HasStakeMinAgeOrDepth(nHeight, nTime, nHeightBlockFrom, nTimeBlockFrom)) {
-        return error("%s : min age violation - height=%d - time=%d, nHeightBlockFrom=%d, nTimeBlockFrom=%d",
-                         __func__, nHeight, nTime, nHeightBlockFrom, nTimeBlockFrom);
-    }
-    
-    // All good
-    return true;
 }
 

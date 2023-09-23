@@ -1,16 +1,15 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef CRYPTOSHARES_KEY_H
 #define CRYPTOSHARES_KEY_H
 
-#include "allocators.h"
 #include "serialize.h"
+#include "support/allocators/secure.h"
 #include "uint256.h"
 #include "pubkey.h"
 
@@ -22,7 +21,6 @@ class CPubKey;
 struct CExtPubKey;
 
 /**
- * secure_allocator is defined in allocators.h
  * CPrivKey is a serialized private key, with all parameters included
  * (PRIVATE_KEY_SIZE bytes)
  */
@@ -100,16 +98,13 @@ public:
     //! Check whether the public key corresponding to this private key is (to be) compressed.
     bool IsCompressed() const { return fCompressed; }
 
-    //! Initialize from a CPrivKey (serialized OpenSSL private key data).
-    bool SetPrivKey(const CPrivKey& vchPrivKey, bool fCompressed);
-
     //! Generate a new private key using a cryptographic PRNG.
     void MakeNewKey(bool fCompressed);
 
     uint256 GetPrivKey_256();
 
     /**
-     * Convert the private key to a CPrivKey (serialized OpenSSL private key data).
+     * Convert the private key to a CPrivKey (serialized secp256k1 private key data).
      * This is expensive.
      */
     CPrivKey GetPrivKey() const;

@@ -21,10 +21,10 @@ Summary:	Peer to Peer Cryptographic Currency
 Group:		Applications/System
 License:	MIT
 URL:		https://cryptoshares.org/
-Source0:	https://cryptoshares.org/bin/cryptoshares-core-%{version}/cryptoshares-%{version}.tar.gz
+Source0:	https://cryptoshares.org/bin/cryptoshares-%{version}/cryptoshares-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
-Source10:	https://raw.githubusercontent.com/cryptoshares-project/cryptoshares/v%{version}/contrib/debian/examples/cryptoshares.conf
+Source10:	https://raw.githubusercontent.com/cryptoshares-project/cryptoshares/v%{version}/contrib/debian/examples/shares.conf
 
 #man pages
 Source20:	https://raw.githubusercontent.com/cryptoshares-project/cryptoshares/v%{version}/doc/man/cryptosharesd.1
@@ -124,13 +124,13 @@ BuildRequires:	checkpolicy
 BuildRequires:	%{_datadir}/selinux/devel/Makefile
 
 %description server
-This package provides a stand-alone cryptoshares-core daemon. For most users, this
+This package provides a stand-alone cryptoshares daemon. For most users, this
 package is only needed if they need a full-node without the graphical client.
 
 Some third party wallet software will want this package to provide the actual
-cryptoshares-core node they use to connect to the network.
+cryptoshares node they use to connect to the network.
 
-If you use the graphical cryptoshares-core client then you almost certainly do not
+If you use the graphical cryptoshares client then you almost certainly do not
 need this package.
 
 %package utils
@@ -139,7 +139,7 @@ Group:		Applications/System
 
 %description utils
 This package provides several command line utilities for interacting with a
-cryptoshares-core daemon.
+cryptoshares daemon.
 
 The cryptoshares-cli utility allows you to communicate and control a cryptoshares daemon
 over RPC, the cryptoshares-tx utility allows you to create a custom transaction, and
@@ -151,7 +151,7 @@ This package contains utilities needed by the cryptoshares-server package.
 %prep
 %setup -q
 %patch0 -p1 -b .libressl
-cp -p %{SOURCE10} ./cryptoshares.conf.example
+cp -p %{SOURCE10} ./shares.conf.example
 tar -zxf %{SOURCE1}
 cp -p db-%{bdbv}.NC/LICENSE ./db-%{bdbv}.NC-LICENSE
 mkdir db4 SELinux
@@ -186,10 +186,10 @@ mv %{buildroot}%{_bindir}/cryptosharesd %{buildroot}%{_sbindir}/cryptosharesd
 
 # systemd stuff
 mkdir -p %{buildroot}%{_tmpfilesdir}
-cat <<EOF > %{buildroot}%{_tmpfilesdir}/cryptoshares.conf
+cat <<EOF > %{buildroot}%{_tmpfilesdir}/shares.conf
 d /run/cryptosharesd 0750 cryptoshares cryptoshares -
 EOF
-touch -a -m -t 201504280000 %{buildroot}%{_tmpfilesdir}/cryptoshares.conf
+touch -a -m -t 201504280000 %{buildroot}%{_tmpfilesdir}/shares.conf
 
 mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
 cat <<EOF > %{buildroot}%{_sysconfdir}/sysconfig/cryptoshares
@@ -200,7 +200,7 @@ OPTIONS=""
 
 # System service defaults.
 # Don't change these unless you know what you're doing.
-CONFIG_FILE="%{_sysconfdir}/cryptoshares/cryptoshares.conf"
+CONFIG_FILE="%{_sysconfdir}/cryptoshares/shares.conf"
 DATA_DIR="%{_localstatedir}/lib/cryptoshares"
 PID_FILE="/run/cryptosharesd/cryptosharesd.pid"
 EOF
@@ -262,7 +262,7 @@ touch %{buildroot}%{_datadir}/pixmaps/*.xpm -r %{SOURCE100}
 
 # Desktop File - change the touch timestamp if modifying
 mkdir -p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/cryptoshares-core.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/cryptoshares.desktop
 [Desktop Entry]
 Encoding=UTF-8
 Name=Bitcoin
@@ -277,12 +277,12 @@ MimeType=x-scheme-handler/cryptoshares;
 Categories=Office;Finance;
 EOF
 # change touch date when modifying desktop
-touch -a -m -t 201511100546 %{buildroot}%{_datadir}/applications/cryptoshares-core.desktop
-%{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/cryptoshares-core.desktop
+touch -a -m -t 201511100546 %{buildroot}%{_datadir}/applications/cryptoshares.desktop
+%{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/cryptoshares.desktop
 
 # KDE protocol - change the touch timestamp if modifying
 mkdir -p %{buildroot}%{_datadir}/kde4/services
-cat <<EOF > %{buildroot}%{_datadir}/kde4/services/cryptoshares-core.protocol
+cat <<EOF > %{buildroot}%{_datadir}/kde4/services/cryptoshares.protocol
 [Protocol]
 exec=cryptoshares-qt '%u'
 protocol=cryptoshares
@@ -296,7 +296,7 @@ makedir=false
 deleting=false
 EOF
 # change touch date when modifying protocol
-touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/cryptoshares-core.protocol
+touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/cryptoshares.protocol
 %endif
 
 # man pages
@@ -375,10 +375,10 @@ rm -rf %{buildroot}
 %files core
 %defattr(-,root,root,-)
 %license COPYING db-%{bdbv}.NC-LICENSE
-%doc COPYING cryptoshares.conf.example doc/README.md doc/bips.md doc/files.md doc/multiwallet-qt.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
+%doc COPYING shares.conf.example doc/README.md doc/bips.md doc/files.md doc/multiwallet-qt.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
 %attr(0755,root,root) %{_bindir}/cryptoshares-qt
-%attr(0644,root,root) %{_datadir}/applications/cryptoshares-core.desktop
-%attr(0644,root,root) %{_datadir}/kde4/services/cryptoshares-core.protocol
+%attr(0644,root,root) %{_datadir}/applications/cryptoshares.desktop
+%attr(0644,root,root) %{_datadir}/kde4/services/cryptoshares.protocol
 %attr(0644,root,root) %{_datadir}/pixmaps/*.ico
 %attr(0644,root,root) %{_datadir}/pixmaps/*.bmp
 %attr(0644,root,root) %{_datadir}/pixmaps/*.svg
@@ -406,9 +406,9 @@ rm -rf %{buildroot}
 %files server
 %defattr(-,root,root,-)
 %license COPYING db-%{bdbv}.NC-LICENSE
-%doc COPYING cryptoshares.conf.example doc/README.md doc/REST-interface.md doc/bips.md doc/dnsseed-policy.md doc/files.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
+%doc COPYING shares.conf.example doc/README.md doc/REST-interface.md doc/bips.md doc/dnsseed-policy.md doc/files.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
 %attr(0755,root,root) %{_sbindir}/cryptosharesd
-%attr(0644,root,root) %{_tmpfilesdir}/cryptoshares.conf
+%attr(0644,root,root) %{_tmpfilesdir}/shares.conf
 %attr(0644,root,root) %{_unitdir}/cryptoshares.service
 %dir %attr(0750,cryptoshares,cryptoshares) %{_sysconfdir}/cryptoshares
 %dir %attr(0750,cryptoshares,cryptoshares) %{_localstatedir}/lib/cryptoshares
@@ -419,7 +419,7 @@ rm -rf %{buildroot}
 %files utils
 %defattr(-,root,root,-)
 %license COPYING
-%doc COPYING cryptoshares.conf.example doc/README.md
+%doc COPYING shares.conf.example doc/README.md
 %attr(0755,root,root) %{_bindir}/cryptoshares-cli
 %attr(0755,root,root) %{_bindir}/cryptoshares-tx
 %attr(0755,root,root) %{_bindir}/bench_cryptoshares
@@ -429,7 +429,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Fri Feb 26 2016 Alice Wonder <buildmaster@librelamp.com> - 0.12.0-2
-- Rename Qt package from cryptoshares to cryptoshares-core
+- Rename Qt package from cryptoshares to cryptoshares
 - Make building of the Qt package optional
 - When building the Qt package, default to Qt5 but allow building
 -  against Qt4

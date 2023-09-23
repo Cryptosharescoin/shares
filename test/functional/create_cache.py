@@ -15,8 +15,7 @@ class CreateCache(CryptosharesTestFramework):
     # Test network and test nodes are not required:
     def setup_chain(self):
         self.log.info("Initializing test directory " + self.options.tmpdir)
-        # Initialize PoS chain (it will automatically generate PoW chain too)
-        self._initialize_chain(toPosPhase=True)
+        self._initialize_chain()
 
     def set_test_params(self):
         self.num_nodes = 0

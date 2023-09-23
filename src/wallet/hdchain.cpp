@@ -1,15 +1,14 @@
 // Copyright (c) 2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "wallet/hdchain.h"
 
-#include "base58.h"
 #include "chainparams.h"
+#include "key_io.h"
 #include "tinyformat.h"
-#include "util.h"
+#include "util/system.h"
 #include "utilstrencodings.h"
 
 bool CHDChain::SetNull()
@@ -18,7 +17,7 @@ bool CHDChain::SetNull()
     seed_id = CKeyID();
     nExternalChainCounter = 0;
     nInternalChainCounter = 0;
-    nECommerceChainCounter = 0;
+    nStakingChainCounter = 0;
     return IsNull();
 }
 

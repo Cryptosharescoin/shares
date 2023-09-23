@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,24 +38,29 @@ SettingsExportCSV::SettingsExportCSV(CRYPTOSHARESGUI* _window, QWidget *parent) 
     setShadow(ui->pushButtonAddressDocuments);
     ui->labelDivider->setProperty("cssClass", "container-divider");
 
-    setSortTx(ui->comboBoxSort);
+    SortEdit* lineEdit = new SortEdit(ui->comboBoxSort);
+    connect(lineEdit, &SortEdit::Mouse_Pressed, [this](){ui->comboBoxSort->showPopup();});
+    setSortTx(ui->comboBoxSort, lineEdit);
 
-    setSortTxTypeFilter(ui->comboBoxSortType);
+    SortEdit* lineEditType = new SortEdit(ui->comboBoxSortType);
+    connect(lineEditType, &SortEdit::Mouse_Pressed, [this](){ui->comboBoxSortType->showPopup();});
+    setSortTxTypeFilter(ui->comboBoxSortType, lineEditType);
     ui->comboBoxSortType->setCurrentIndex(0);
 
-    setFilterAddressBook(ui->comboBoxSortAddressType);
+    SortEdit* lineEditAddressBook = new SortEdit(ui->comboBoxSortAddressType);
+    connect(lineEditAddressBook, &SortEdit::Mouse_Pressed, [this](){ui->comboBoxSortAddressType->showPopup();});
+    setFilterAddressBook(ui->comboBoxSortAddressType, lineEditAddressBook);
     ui->comboBoxSortAddressType->setCurrentIndex(0);
 
     connect(ui->pushButtonDocuments, &QPushButton::clicked, [this](){selectFileOutput(true);});
     connect(ui->pushButtonAddressDocuments, &QPushButton::clicked, [this](){selectFileOutput(false);});
 }
 
-void SettingsExportCSV::selectFileOutput(const bool& isTxExport)
+void SettingsExportCSV::selectFileOutput(const bool isTxExport)
 {
     QString filename = GUIUtil::getSaveFileName(this,
-                                        isTxExport ? tr("Export CSV") : tr("Export Address List"), QString(),
-                                        isTxExport ? tr("CRYPTOSHARES_tx_csv_export(*.csv)") : tr("CRYPTOSHARES_addresses_csv_export(*.csv)"),
-                                        nullptr);
+                                        isTxExport ? tr("Export Transaction History") : tr("Export Address Book"), QString(),
+                                        tr("Comma separated file (*.csv)"), nullptr);
 
     if (isTxExport) {
         if (!filename.isEmpty()) {
@@ -136,7 +140,7 @@ void SettingsExportCSV::exportTxes(const QString& filename)
         writer.addColumn(tr("Label"), 0, TransactionTableModel::LabelRole);
         writer.addColumn(tr("Address"), 0, TransactionTableModel::AddressRole);
         writer.addColumn(BitcoinUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit()), 0, TransactionTableModel::FormattedAmountRole);
-        writer.addColumn(tr("ID"), 0, TransactionTableModel::TxIDRole);
+        writer.addColumn(tr("ID"), 0, TransactionTableModel::TxHashRole);
         fExport = writer.write();
     }
 

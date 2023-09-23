@@ -1,13 +1,12 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/cryptoshares/addresseswidget.h"
 #include "qt/cryptoshares/forms/ui_addresseswidget.h"
+#include "qt/cryptoshares/addressfilterproxymodel.h"
 #include "qt/cryptoshares/addresslabelrow.h"
-#include "qt/cryptoshares/addnewaddressdialog.h"
 #include "qt/cryptoshares/tooltipmenu.h"
 
 #include "qt/cryptoshares/addnewcontactdialog.h"
@@ -25,11 +24,10 @@
 class ContactsHolder : public FurListRow<QWidget*>
 {
 public:
-    ContactsHolder();
-
     explicit ContactsHolder(bool _isLightTheme) : FurListRow(), isLightTheme(_isLightTheme){}
 
-    AddressLabelRow* createHolder(int pos) override{
+    AddressLabelRow* createHolder(int pos) override
+    {
         if (!cachedRow) cachedRow = new AddressLabelRow();
         cachedRow->init(isLightTheme, false);
         return cachedRow;
@@ -37,11 +35,14 @@ public:
 
     void init(QWidget* holder,const QModelIndex &index, bool isHovered, bool isSelected) const override
     {
-        AddressLabelRow* row = static_cast<AddressLabelRow*>(holder);
+        AddressLabelRow* row = dynamic_cast<AddressLabelRow*>(holder);
 
         row->updateState(isLightTheme, isHovered, isSelected);
 
         QString address = index.data(Qt::DisplayRole).toString();
+        if (index.data(AddressTableModel::TypeRole).toString() == AddressTableModel::ShieldedSend) {
+            address = address.left(26) + "..." + address.right(26);
+        }
         QModelIndex sibling = index.sibling(index.row(), AddressTableModel::Label);
         QString label = sibling.data(Qt::DisplayRole).toString();
 
@@ -99,9 +100,13 @@ AddressesWidget::AddressesWidget(CRYPTOSHARESGUI* parent) :
     ui->listAddresses->setUniformItemSizes(true);
 
     // Sort Controls
+    SortEdit* lineEdit = new SortEdit(ui->comboBoxSort);
+    connect(lineEdit, &SortEdit::Mouse_Pressed, [this](){ui->comboBoxSort->showPopup();});
     connect(ui->comboBoxSort, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &AddressesWidget::onSortChanged);
+    SortEdit* lineEditOrder = new SortEdit(ui->comboBoxSortOrder);
+    connect(lineEditOrder, &SortEdit::Mouse_Pressed, [this](){ui->comboBoxSortOrder->showPopup();});
     connect(ui->comboBoxSortOrder, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &AddressesWidget::onSortOrderChanged);
-    fillAddressSortControls(ui->comboBoxSort, ui->comboBoxSortOrder);
+    fillAddressSortControls(lineEdit, lineEditOrder, ui->comboBoxSort, ui->comboBoxSortOrder);
 
     //Empty List
     ui->emptyContainer->setVisible(false);
@@ -128,15 +133,15 @@ AddressesWidget::AddressesWidget(CRYPTOSHARESGUI* parent) :
     connect(ui->btnAddContact, &OptionButton::clicked, this, &AddressesWidget::onAddContactShowHideClicked);
 }
 
-void AddressesWidget::handleAddressClicked(const QModelIndex &index)
+void AddressesWidget::handleAddressClicked(const QModelIndex& _index)
 {
-    ui->listAddresses->setCurrentIndex(index);
-    QRect rect = ui->listAddresses->visualRect(index);
+    ui->listAddresses->setCurrentIndex(_index);
+    QRect rect = ui->listAddresses->visualRect(_index);
     QPoint pos = rect.topRight();
     pos.setX(pos.x() - (DECORATION_SIZE * 2));
     pos.setY(pos.y() + (DECORATION_SIZE));
 
-    QModelIndex rIndex = filter->mapToSource(index);
+    QModelIndex rIndex = filter->mapToSource(_index);
 
     if (!this->menu) {
         this->menu = new TooltipMenu(window, this);
@@ -147,7 +152,7 @@ void AddressesWidget::handleAddressClicked(const QModelIndex &index)
     } else {
         this->menu->hide();
     }
-    this->index = rIndex;
+    index = rIndex;
     menu->move(pos);
     menu->show();
 }
@@ -156,7 +161,9 @@ void AddressesWidget::loadWalletModel()
 {
     if (walletModel) {
         addressTablemodel = walletModel->getAddressTableModel();
-        this->filter = new AddressFilterProxyModel(QStringList({AddressTableModel::Send}), this);
+        this->filter = new AddressFilterProxyModel(
+                QStringList({AddressTableModel::Send, AddressTableModel::ColdStakingSend, AddressTableModel::ShieldedSend}),
+                this);
         this->filter->setSourceModel(addressTablemodel);
         this->filter->sort(sortType, sortOrder);
         ui->listAddresses->setModel(this->filter);
@@ -168,7 +175,7 @@ void AddressesWidget::loadWalletModel()
 
 void AddressesWidget::updateListView()
 {
-    bool empty = addressTablemodel->sizeSend() == 0;
+    bool empty = addressTablemodel->sizeSendAll() == 0;
     ui->emptyContainer->setVisible(empty);
     ui->listAddresses->setVisible(!empty);
 }
@@ -179,13 +186,15 @@ void AddressesWidget::onStoreContactClicked()
         QString label = ui->lineEditName->text();
         QString address = ui->lineEditAddress->text();
 
-        if (!walletModel->validateAddress(address)) {
+        bool isStakingAddress = false;
+        auto sharesAdd = Standard::DecodeDestination(address.toUtf8().constData(), isStakingAddress);
+
+        if (!Standard::IsValidDestination(sharesAdd)) {
             setCssEditLine(ui->lineEditAddress, false, true);
             inform(tr("Invalid Contact Address"));
             return;
         }
 
-        CTxDestination sharesAdd = DecodeDestination(address.toUtf8().constData());
         if (walletModel->isMine(sharesAdd)) {
             setCssEditLine(ui->lineEditAddress, false, true);
             inform(tr("Cannot store your own address as contact"));
@@ -199,9 +208,11 @@ void AddressesWidget::onStoreContactClicked()
             return;
         }
 
-        if (walletModel->updateAddressBookLabels(
-            sharesAdd, label.toUtf8().constData(),AddressBook::AddressBookPurpose::SEND
-        )) {
+        bool isShielded = walletModel->IsShieldedDestination(sharesAdd);
+        if (walletModel->updateAddressBookLabels(sharesAdd, label.toUtf8().constData(),
+                         isShielded ? AddressBook::AddressBookPurpose::SHIELDED_SEND :
+                         isStakingAddress ? AddressBook::AddressBookPurpose::COLD_STAKING_SEND : AddressBook::AddressBookPurpose::SEND)
+                ) {
             ui->lineEditAddress->setText("");
             ui->lineEditName->setText("");
             setCssEditLine(ui->lineEditAddress, true, true);
@@ -227,7 +238,7 @@ void AddressesWidget::onEditClicked()
     dialog->setData(address, currentLabel);
     if (openDialogWithOpaqueBackground(dialog, window)) {
         if (walletModel->updateAddressBookLabels(
-                DecodeDestination(address.toStdString()), dialog->getLabel().toStdString(), addressTablemodel->purposeForAddress(address.toStdString()))){
+                Standard::DecodeDestination(address.toStdString()), dialog->getLabel().toStdString(), addressTablemodel->purposeForAddress(address.toStdString()))){
             inform(tr("Contact edited"));
         } else {
             inform(tr("Contact edit failed"));
@@ -239,8 +250,9 @@ void AddressesWidget::onEditClicked()
 void AddressesWidget::onDeleteClicked()
 {
     if (walletModel) {
-        if (ask(tr("Delete Contact"), tr("You are just about to remove the contact:\n\n%1\n\nAre you sure?").arg(index.data(Qt::DisplayRole).toString().toUtf8().constData()))
-        ) {
+        if (ask(tr("Delete Contact"),
+                tr("You are just about to remove the contact:\n\n%1\n\nAre you sure?")
+                .arg(index.data(Qt::DisplayRole).toString().toUtf8().constData()))) {
             if (this->walletModel->getAddressTableModel()->removeRows(index.row(), 1, index)) {
                 updateListView();
                 inform(tr("Contact Deleted"));
@@ -288,7 +300,7 @@ void AddressesWidget::sortAddresses()
 
 void AddressesWidget::changeTheme(bool isLightTheme, QString& theme)
 {
-    static_cast<ContactsHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;
+    dynamic_cast<ContactsHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;
 }
 
 AddressesWidget::~AddressesWidget()

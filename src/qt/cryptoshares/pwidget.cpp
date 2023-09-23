@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -110,6 +109,8 @@ bool PWidget::execute(int type, std::unique_ptr<WalletModel::UnlockContext> pctx
             WalletWorker* _worker = static_cast<WalletWorker*>(task->worker.data());
             _worker->setContext(std::move(pctx));
         }
+        // Update type
+        task->worker->setType(type);
     }
     QThreadPool::globalInstance()->start(task.data());
     return true;

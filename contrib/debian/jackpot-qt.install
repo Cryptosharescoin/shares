@@ -1,6 +1,0 @@
-usr/local/bin/cryptoshares-qt usr/bin
-share/pixmaps/cryptoshares32.xpm usr/share/pixmaps
-share/pixmaps/cryptoshares16.xpm usr/share/pixmaps
-share/pixmaps/cryptoshares128.png usr/share/pixmaps
-debian/cryptoshares-qt.desktop usr/share/applications
-debian/cryptoshares-qt.protocol usr/share/kde4/services/

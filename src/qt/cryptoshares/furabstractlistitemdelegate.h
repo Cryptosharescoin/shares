@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,13 +9,12 @@
 #include "qt/cryptoshares/furlistrow.h"
 
 #include <QAbstractItemDelegate>
-#include <QPainter>
-#include <QObject>
-#include <QWidget>
 #include <QColor>
 #include <QModelIndex>
 #include <QObject>
 #include <QPaintEngine>
+#include <QPainter>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QModelIndex;

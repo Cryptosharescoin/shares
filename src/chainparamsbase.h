@@ -1,72 +1,67 @@
-// Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2017-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2014-2021 The Bitcoin developers
+// Copyright (c) 2017-2021 The PIVX developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAINPARAMSBASE_H
-#define BITCOIN_CHAINPARAMSBASE_H
+#ifndef CRYPTOSHARES_CHAINPARAMSBASE_H
+#define CRYPTOSHARES_CHAINPARAMSBASE_H
 
+#include <memory>
 #include <string>
 #include <vector>
 
 /**
  * CBaseChainParams defines the base parameters (shared between cryptoshares-cli and cryptosharesd)
- * of a given instance of the cryptoshares system.
+ * of a given instance of the Cryptoshares system.
  */
 class CBaseChainParams
 {
 public:
-    enum Network {
-        MAIN,
-        TESTNET,
-        REGTEST,
-
-        MAX_NETWORK_TYPES
-    };
+    ///@{
+    /** Chain name strings */
+    static const std::string MAIN;
+    static const std::string TESTNET;
+    static const std::string REGTEST;
+    ///@}
 
     const std::string& DataDir() const { return strDataDir; }
     int RPCPort() const { return nRPCPort; }
 
-protected:
-    CBaseChainParams() {}
+    CBaseChainParams() = delete;
+    CBaseChainParams(const std::string& data_dir, int rpc_port) : nRPCPort(rpc_port), strDataDir(data_dir) {}
 
+private:
     int nRPCPort;
     std::string strDataDir;
-    Network networkID;
 };
 
 /**
+ * Creates and returns a std::unique_ptr<CBaseChainParams> of the chosen chain.
+ * @returns a CBaseChainParams* of the chosen chain.
+ * @throws a std::runtime_error if the chain is not supported.
+ */
+std::unique_ptr<CBaseChainParams> CreateBaseChainParams(const std::string& chain);
+
+/**
+ * Append the help messages for the chainparams options to the
+ * parameter string.
+ */
+void AppendParamsHelpMessages(std::string& strUsage, bool debugHelp=true);
+
+/**
  * Return the currently selected parameters. This won't change after app startup
- * outside of the unit tests.
+ * startup, except for unit tests.
  */
 const CBaseChainParams& BaseParams();
 
-/**
- * Return parameters for the given network.
- */
-CBaseChainParams& BaseParams(CBaseChainParams::Network network);
-
 /** Sets the params returned by Params() to those for the given network. */
-void SelectBaseParams(CBaseChainParams::Network network);
+void SelectBaseParams(const std::string& chain);
 
 /**
- * Looks for -regtest or -testnet and returns the appropriate Network ID.
- * Returns MAX_NETWORK_TYPES if an invalid combination is given.
+ * Returns the appropriate chain name from the program arguments.
+ * @return CBaseChainParams::MAX_NETWORK_TYPES if an invalid combination is given. CBaseChainParams::MAIN by default.
  */
-CBaseChainParams::Network NetworkIdFromCommandLine();
+std::string ChainNameFromCommandLine();
 
-/**
- * Calls NetworkIdFromCommandLine() and then calls SelectParams as appropriate.
- * Returns false if an invalid combination is given.
- */
-bool SelectBaseParamsFromCommandLine();
-
-/**
- * Return true if SelectBaseParamsFromCommandLine() has been called to select
- * a network.
- */
-bool AreBaseParamsConfigured();
-
-#endif // BITCOIN_CHAINPARAMSBASE_H
+#endif // CRYPTOSHARES_CHAINPARAMSBASE_H

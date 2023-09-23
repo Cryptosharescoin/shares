@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,6 +28,7 @@ public:
     ~RequestDialog();
 
     void setWalletModel(WalletModel *model);
+    void setPaymentRequest(bool isPaymentRequest);
     void showEvent(QShowEvent *event) override;
     int res = -1;
 
@@ -37,17 +38,16 @@ private Q_SLOTS:
     void onCopyUriClicked();
 
 private:
-    Ui::RequestDialog *ui;
+    Ui::RequestDialog *ui{nullptr};
     int pos = 0;
-    WalletModel *walletModel;
-    SnackBar *snackBar = nullptr;
+    bool isPaymentRequest = true;
+    WalletModel *walletModel{nullptr};
+    SnackBar *snackBar{nullptr};
     // Cached last address
-    SendCoinsRecipient *info = nullptr;
+    SendCoinsRecipient *info{nullptr};
 
-    QPixmap *qrImage = nullptr;
-
-    void updateQr(QString str);
-    void inform(QString text);
+    void updateQr(const QString& str);
+    void inform(const QString& text);
 };
 
 #endif // REQUESTDIALOG_H

@@ -1,25 +1,26 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#if defined(HAVE_CONFIG_H)
+#include "config/cryptoshares-config.h"
+#endif
 
 #include "utilitydialog.h"
 
 #include "ui_helpmessagedialog.h"
 
 #include "clientmodel.h"
+#include "clientversion.h"
 #include "guiconstants.h"
+#include "init.h"
 #include "intro.h"
 #include "guiutil.h"
-
-#include "qt/cryptoshares/qtutils.cpp"
-
-#include "clientversion.h"
-#include "init.h"
-#include "util.h"
+#include "qt/cryptoshares/qtutils.h"
+#include "util/system.h"
 
 #include <stdio.h>
 
@@ -60,7 +61,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         // Make URLs clickable
         QRegExp uri("<(.*)>", Qt::CaseSensitive, QRegExp::RegExp2);
         uri.setMinimal(true); // use non-greedy matching
-        licenseInfoHTML.replace(uri, "<a style='color: #b088ff;text-decoration:none'  href=\"\\1\">\\1</a>");
+        licenseInfoHTML.replace(uri, "<a style='color: #87C6FF;text-decoration:none'  href=\"\\1\">\\1</a>");
         // Replace newlines with HTML breaks
         licenseInfoHTML.replace("\n\n", "<br><br>");
 
@@ -72,8 +73,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         ui->helpMessage->setVisible(false);
     } else {
         setWindowTitle(tr("Command-line options"));
-        QString header = tr("Usage:") + "\n" +
-                         "  cryptoshares-qt [" + tr("command-line options") + "]                     " + "\n";
+        QString header = "Usage:  cryptoshares-qt [command-line options]                     \n";
         QTextCursor cursor(ui->helpMessage->document());
         cursor.insertText(version);
         cursor.insertBlock();
@@ -81,15 +81,14 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         cursor.insertBlock();
 
         std::string strUsage = HelpMessage(HMM_BITCOIN_QT);
-        strUsage += HelpMessageGroup(tr("UI Options:").toStdString());
-        strUsage += HelpMessageOpt("-choosedatadir", strprintf(tr("Choose data directory on startup (default: %u)").toStdString(), DEFAULT_CHOOSE_DATADIR));
-        strUsage += HelpMessageOpt("-lang=<lang>", tr("Set language, for example \"de_DE\" (default: system locale)").toStdString());
-        strUsage += HelpMessageOpt("-min", tr("Start minimized").toStdString());
-        strUsage += HelpMessageOpt("-rootcertificates=<file>", tr("Set SSL root certificates for payment request (default: -system-)").toStdString());
-        strUsage += HelpMessageOpt("-splash", strprintf(tr("Show splash screen on startup (default: %u)").toStdString(), DEFAULT_SPLASHSCREEN));
-        strUsage += HelpMessageOpt("-hidecharts", strprintf(tr("Hide QT staking charts on startup (default: %u)").toStdString(), false));
+        strUsage += HelpMessageGroup("UI Options:");
+        strUsage += HelpMessageOpt("-choosedatadir", strprintf("Choose data directory on startup (default: %u)", DEFAULT_CHOOSE_DATADIR));
+        strUsage += HelpMessageOpt("-lang=<lang>", "Set language, for example \"de_DE\" (default: system locale)");
+        strUsage += HelpMessageOpt("-min", "Start minimized");
+        strUsage += HelpMessageOpt("-splash", strprintf("Show splash screen on startup (default: %u)", DEFAULT_SPLASHSCREEN));
+        strUsage += HelpMessageOpt("-hidecharts", strprintf("Hide QT staking charts on startup (default: %u)", false));
         QString coreOptions = QString::fromStdString(strUsage);
-        text = version + "\n" + header + "\n" + coreOptions;
+        text = version + "\n\n" + header + "\n" + coreOptions;
 
         QTextTableFormat tf;
         tf.setBorderStyle(QTextFrameFormat::BorderStyle_None);
@@ -102,7 +101,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         QTextCharFormat bold;
         bold.setFontWeight(QFont::Bold);
 
-        Q_FOREACH (const QString &line, coreOptions.split("\n")) {
+        for (const QString &line : coreOptions.split("\n")) {
             if (line.startsWith("  -"))
             {
                 cursor.currentTable()->appendRows(1);

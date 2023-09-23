@@ -1,9 +1,13 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#if defined(HAVE_CONFIG_H)
+#include "config/cryptoshares-config.h"
+#endif
 
 #include "intro.h"
 #include "ui_intro.h"
@@ -11,16 +15,20 @@
 #include "fs.h"
 #include "guiutil.h"
 
-#include "util.h"
+#include "util/system.h"
 #include "qt/cryptoshares/qtutils.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QSettings>
 
-/* Minimum free space (in bytes) needed for data directory */
 static const uint64_t GB_BYTES = 1000000000LL;
-static const uint64_t BLOCK_CHAIN_SIZE = 1LL * GB_BYTES;
+/* Minimum free space (in GB) needed for mainnet data directory */
+static const uint64_t BLOCK_CHAIN_SIZE = 25;
+/* Minimum free space (in GB) needed for testnet data directory */
+static const uint64_t TESTNET_BLOCK_CHAIN_SIZE = 1;
+/* Total required space (in GB) depending on network */
+static uint64_t requiredSpace;
 
 /* Check free space asynchronously to prevent hanging the UI thread.
 
@@ -114,8 +122,8 @@ Intro::Intro(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::W
     setCssProperty(ui->frame, "container-welcome-step2");
     setCssProperty(ui->container, "container-welcome-stack");
     setCssProperty(ui->frame_2, "container-welcome");
-    setCssProperty(ui->label_2, "text-title-welcome");
-    setCssProperty(ui->label_4, "text-intro-white");
+    setCssProperty(ui->welcomeLabel, "text-title-welcome");
+    setCssProperty(ui->storageLabel, "text-intro-white");
     setCssProperty(ui->sizeWarningLabel, "text-intro-white");
     setCssProperty(ui->freeSpace, "text-intro-white");
     setCssProperty(ui->errorMessage, "text-intro-white");
@@ -130,7 +138,9 @@ Intro::Intro(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::W
     connect(ui->pushButtonOk, &QPushButton::clicked, this, &Intro::accept);
     connect(ui->pushButtonCancel, &QPushButton::clicked, this, &Intro::close);
 
-    ui->sizeWarningLabel->setText(ui->sizeWarningLabel->text().arg(BLOCK_CHAIN_SIZE / GB_BYTES));
+    ui->welcomeLabel->setText(ui->welcomeLabel->text().arg(PACKAGE_NAME));
+    ui->storageLabel->setText(ui->storageLabel->text().arg(PACKAGE_NAME));
+    ui->sizeWarningLabel->setText(ui->sizeWarningLabel->text().arg(PACKAGE_NAME).arg(requiredSpace));
     startThread();
 }
 
@@ -173,7 +183,7 @@ bool Intro::pickDataDirectory()
     QSettings settings;
     /* If data directory provided on command line, no need to look at settings
        or show a picking dialog */
-    if (!GetArg("-datadir", "").empty())
+    if (!gArgs.GetArg("-datadir", "").empty())
         return true;
     /* 1) Default data directory for operating system */
     QString dataDir = getDefaultDataDirectory();
@@ -181,8 +191,15 @@ bool Intro::pickDataDirectory()
     dataDir = settings.value("strDataDir", dataDir).toString();
 
 
-    if (!fs::exists(GUIUtil::qstringToBoostPath(dataDir)) || GetBoolArg("-choosedatadir", DEFAULT_CHOOSE_DATADIR)) {
+    if (!fs::exists(GUIUtil::qstringToBoostPath(dataDir)) || gArgs.GetBoolArg("-choosedatadir", DEFAULT_CHOOSE_DATADIR)) {
         // If current default data directory does not exist, let the user choose one
+        if (gArgs.GetBoolArg("-testnet", false)) {
+            requiredSpace = TESTNET_BLOCK_CHAIN_SIZE;
+        } else if (gArgs.GetBoolArg("-regtest", false)) {
+            requiredSpace = 0;
+        } else {
+            requiredSpace = BLOCK_CHAIN_SIZE;
+        }
         Intro intro;
         intro.setDataDirectory(dataDir);
         intro.setWindowIcon(QIcon(":icons/bitcoin"));
@@ -194,10 +211,13 @@ bool Intro::pickDataDirectory()
             }
             dataDir = intro.getDataDirectory();
             try {
-                TryCreateDirectory(GUIUtil::qstringToBoostPath(dataDir));
+                if (TryCreateDirectories(GUIUtil::qstringToBoostPath(dataDir))) {
+                    // If a new data directory has been created, make wallets subdirectory too
+                    TryCreateDirectories(GUIUtil::qstringToBoostPath(dataDir) / "wallets");
+                }
                 break;
             } catch (const fs::filesystem_error& e) {
-                QMessageBox::critical(0, tr("CRYPTOSHARES"),
+                QMessageBox::critical(nullptr, PACKAGE_NAME,
                     tr("Error: Specified data directory \"%1\" cannot be created.").arg(dataDir));
                 // fall through, back to choosing screen
             }
@@ -207,12 +227,12 @@ bool Intro::pickDataDirectory()
     }
 
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the cryptoshares.conf file in the default data directory
+     * override -datadir in the shares.conf file in the default data directory
      * (to be consistent with cryptosharesd behavior)
      */
 
     if (dataDir != getDefaultDataDirectory())
-        SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting
+        gArgs.SoftSetArg("-datadir", GUIUtil::qstringToBoostPath(dataDir).string()); // use OS locale for path setting
     return true;
 }
 
@@ -233,8 +253,8 @@ void Intro::setStatus(int status, const QString& message, quint64 bytesAvailable
         ui->freeSpace->setText("");
     } else {
         QString freeString = tr("%1 GB of free space available").arg(bytesAvailable / GB_BYTES);
-        if (bytesAvailable < BLOCK_CHAIN_SIZE) {
-            freeString += " " + tr("(of %1 GB needed)").arg(BLOCK_CHAIN_SIZE / GB_BYTES);
+        if (bytesAvailable < requiredSpace * GB_BYTES) {
+            freeString += " " + tr("(of %1 GB needed)").arg(requiredSpace);
             ui->freeSpace->setStyleSheet("QLabel { color: #800000 }");
         } else {
             ui->freeSpace->setStyleSheet("");

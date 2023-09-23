@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,14 +34,6 @@ public:
 
     void loadClientModel() override;
     void showEvent(QShowEvent *event) override;
-
-    enum MessageClass {
-        MC_ERROR,
-        MC_DEBUG,
-        CMD_REQUEST,
-        CMD_REPLY,
-        CMD_ERROR
-    };
 
 public Q_SLOTS:
     void clear(bool clearHistory = true);

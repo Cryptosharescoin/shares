@@ -1,20 +1,20 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/cryptoshares/settings/settingssignmessagewidgets.h"
+
+#include "key_io.h"
+#include "messagesigner.h"
+#include "qt/askpassphrasedialog.h"
+#include "qt/addressbookpage.h"
 #include "qt/cryptoshares/settings/forms/ui_settingssignmessagewidgets.h"
 #include "qt/cryptoshares/qtutils.h"
-#include "guiutil.h"
-#include "walletmodel.h"
+#include "qt/walletmodel.h"
+#include "util/validation.h"
 
-#include "base58.h"
-#include "init.h"
-#include "wallet/wallet.h"
-#include "askpassphrasedialog.h"
-#include "addressbookpage.h"
+#include "messagesigner.h"
 
 #include <string>
 #include <vector>
@@ -183,18 +183,16 @@ void SettingsSignMessageWidgets::onSignMessageButtonSMClicked()
     }
 
     CKey key;
-    if (!pwalletMain->GetKey(*keyID, key)) {
+    if (!walletModel->getKey(*keyID, key)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("Private key for the entered address is not available."));
         return;
     }
 
-    CDataStream ss(SER_GETHASH, 0);
-    ss << strMessageMagic;
-    ss << ui->messageIn_SM->document()->toPlainText().toStdString();
+    const std::string& message = ui->messageIn_SM->document()->toPlainText().toStdString();
 
     std::vector<unsigned char> vchSig;
-    if (!key.SignCompact(Hash(ss.begin(), ss.end()), vchSig)) {
+    if (!CMessageSigner::SignMessage(message, vchSig, key)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(QString("<nobr>") + tr("Message signing failed.") + QString("</nobr>"));
         return;
@@ -202,8 +200,7 @@ void SettingsSignMessageWidgets::onSignMessageButtonSMClicked()
 
     ui->statusLabel_SM->setStyleSheet("QLabel { color: green; }");
     ui->statusLabel_SM->setText(QString("<nobr>") + tr("Message signed.") + QString("</nobr>"));
-
-    ui->signatureOut_SM->setText(QString::fromStdString(EncodeBase64(&vchSig[0], vchSig.size())));
+    ui->signatureOut_SM->setText(QString::fromStdString(EncodeBase64(vchSig)));
 }
 
 void SettingsSignMessageWidgets::onVerifyMessage()
@@ -239,19 +236,10 @@ void SettingsSignMessageWidgets::onVerifyMessage()
         return;
     }
 
-    CDataStream ss(SER_GETHASH, 0);
-    ss << strMessageMagic;
-    ss << ui->messageIn_SM->document()->toPlainText().toStdString();
+    const std::string& message = ui->messageIn_SM->document()->toPlainText().toStdString();
 
-    CPubKey pubkey;
-    if (!pubkey.RecoverCompact(Hash(ss.begin(), ss.end()), vchSig)) {
-        //ui->signatureOut_SM->setValid(false);
-        ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel_SM->setText(tr("The signature did not match the message digest.") + QString(" ") + tr("Please check the signature and try again."));
-        return;
-    }
-
-    if (!(pubkey.GetID() == *keyID)) {
+    std::string err_log;
+    if (!CMessageSigner::VerifyMessage(*keyID, vchSig, message, err_log)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(QString("<nobr>") + tr("Message verification failed.") + QString("</nobr>"));
         return;
@@ -278,7 +266,7 @@ void SettingsSignMessageWidgets::onAddressesClicked()
                 height,
                 this
         );
-        menuContacts->setWalletModel(walletModel, AddressTableModel::Receive);
+        menuContacts->setWalletModel(walletModel, {AddressTableModel::Receive});
         connect(menuContacts, &ContactsDropdown::contactSelected, [this](QString address, QString label){
             setAddress_SM(address);
         });

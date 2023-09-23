@@ -1,13 +1,11 @@
 // Copyright (c) 2009-2017 The Bitcoin developers
 // Copyright (c) 2017-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "key.h"
 
-#include "uint256.h"
 #include "crypto/common.h"
 #include "crypto/hmac_sha512.h"
 #include "random.h"
@@ -167,21 +165,10 @@ void CKey::MakeNewKey(bool fCompressedIn)
     fCompressed = fCompressedIn;
 }
 
-bool CKey::SetPrivKey(const CPrivKey& privkey, bool fCompressedIn)
-{
-    if (!ec_privkey_import_der(secp256k1_context_sign, (unsigned char*)begin(), &privkey[0], privkey.size()))
-        return false;
-    fCompressed = fCompressedIn;
-    fValid = true;
-    return true;
-}
-
 uint256 CKey::GetPrivKey_256()
 {
     void* key = keydata.data();
-    uint256* key_256 = (uint256*)key;
-
-    return *key_256;
+    return *(uint256*)key;
 }
 
 CPrivKey CKey::GetPrivKey() const
@@ -191,7 +178,7 @@ CPrivKey CKey::GetPrivKey() const
     size_t privkeylen;
     privkey.resize(PRIVATE_KEY_SIZE);
     privkeylen = PRIVATE_KEY_SIZE;
-    int ret = ec_privkey_export_der(secp256k1_context_sign, (unsigned char*)&privkey[0], &privkeylen, begin(), fCompressed ? SECP256K1_EC_COMPRESSED : SECP256K1_EC_UNCOMPRESSED);
+    int ret = ec_privkey_export_der(secp256k1_context_sign, (unsigned char*)privkey.data(), &privkeylen, begin(), fCompressed ? SECP256K1_EC_COMPRESSED : SECP256K1_EC_UNCOMPRESSED);
     assert(ret);
     privkey.resize(privkeylen);
     return privkey;
@@ -201,8 +188,8 @@ CPubKey CKey::GetPubKey() const
 {
     assert(fValid);
     secp256k1_pubkey pubkey;
+    size_t clen = CPubKey::PUBLIC_KEY_SIZE;
     CPubKey result;
-    size_t clen = 65;
     int ret = secp256k1_ec_pubkey_create(secp256k1_context_sign, &pubkey, begin());
     assert(ret);
     secp256k1_ec_pubkey_serialize(secp256k1_context_sign, (unsigned char*)result.begin(), &clen, &pubkey, fCompressed ? SECP256K1_EC_COMPRESSED : SECP256K1_EC_UNCOMPRESSED);
@@ -292,13 +279,13 @@ bool CKey::Derive(CKey& keyChild, ChainCode &ccChild, unsigned int nChild, const
     return ret;
 }
 
-bool CExtKey::Derive(CExtKey& out, unsigned int nChild) const
+bool CExtKey::Derive(CExtKey& out, unsigned int _nChild) const
 {
     out.nDepth = nDepth + 1;
     CKeyID id = key.GetPubKey().GetID();
     memcpy(&out.vchFingerprint[0], &id, 4);
-    out.nChild = nChild;
-    return key.Derive(out.key, out.chaincode, nChild, chaincode);
+    out.nChild = _nChild;
+    return key.Derive(out.key, out.chaincode, _nChild, chaincode);
 }
 
 void CExtKey::SetSeed(const unsigned char* seed, unsigned int nSeedLen)
@@ -308,7 +295,6 @@ void CExtKey::SetSeed(const unsigned char* seed, unsigned int nSeedLen)
     CHMAC_SHA512(hashkey, sizeof(hashkey)).Write(seed, nSeedLen).Finalize(vout.data());
     key.Set(vout.data(), vout.data() + 32, true);
     memcpy(chaincode.begin(), vout.data() + 32, 32);
-
     nDepth = 0;
     nChild = 0;
     memset(vchFingerprint, 0, sizeof(vchFingerprint));

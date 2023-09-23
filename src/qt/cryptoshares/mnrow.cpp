@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,9 +18,10 @@ MNRow::MNRow(QWidget *parent) :
     ui->lblDivisory->setStyleSheet("background-color:#bababa;");
 }
 
-void MNRow::updateView(QString address, QString label, QString status, bool wasCollateralAccepted)
+void MNRow::updateView(QString address, const QString& label, QString status, bool wasCollateralAccepted)
 {
     ui->labelName->setText(label);
+    address = address.size() < 40 ? address : address.left(20) + "..." + address.right(20);
     ui->labelAddress->setText(address);
     if (!wasCollateralAccepted) status = tr("Collateral tx not found");
     ui->labelDate->setText(tr("Status: %1").arg(status));

@@ -1,5 +1,4 @@
 // Copyright 2014 BitPay Inc.
-// Copyright (c) 2021 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,8 +11,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "univalue.h"
-
-using namespace std;
 
 static bool initEscapes;
 static std::string escapes[256];

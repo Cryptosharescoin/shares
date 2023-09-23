@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,6 +26,7 @@ public:
         runnable = nullptr;
     }
     virtual void clean() {};
+    void setType(int _type) { type = _type; }
 public Q_SLOTS:
     void process();
 Q_SIGNALS:
@@ -66,7 +66,7 @@ class LoadingDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoadingDialog(QWidget *parent = nullptr);
+    explicit LoadingDialog(QWidget *parent = nullptr, QString loadingMsg = "");
     ~LoadingDialog();
 
     void execute(Runnable *runnable, int type, std::unique_ptr<WalletModel::UnlockContext> pctx = nullptr);

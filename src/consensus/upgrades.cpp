@@ -1,7 +1,6 @@
 // Copyright (c) 2018 The Zcash developers
 // Copyright (c) 2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,40 +27,32 @@ const struct NUInfo NetworkUpgradeInfo[Consensus::MAX_NETWORK_UPGRADES] = {
                 /*.strInfo =*/ "New selection for stake modifier",
         },
         {
-                /*.strName =*/ "Zerocoin",
-                /*.strInfo =*/ "ZeroCoin protocol activation - start block v4",
-        },
-        {
-                /*.strName =*/ "Zerocoin_v2",
-                /*.strInfo =*/ "new zerocoin serials and zPOS start",
-        },
-        {
                 /*.strName =*/ "BIP65",
                 /*.strInfo =*/ "CLTV (BIP65) activation - start block v5",
         },
         {
-                /*.strName =*/ "Zerocoin_Public",
-                /*.strInfo =*/ "activation of zerocoin public spends (spend v3)",
+                /*.strName =*/ "CRYPTOSHARES_v3.4",
+                /*.strInfo =*/ "New 256-bit stake modifier - start block v6",
         },
         {
-                /*.strName =*/ "stake_modifier_v2",
-                /*.strInfo =*/ "new 256-bit stake modifier - start block v6",
+                /*.strName =*/ "CRYPTOSHARES_v4.0",
+                /*.strInfo =*/ "New message sigs - start block v7 - time protocol - zc spend v4",
         },
         {
-                /*.strName =*/ "time_protocol_v2",
-                /*.strInfo =*/ "new message sigs - start block v7 - time protocol - zc spend v4",
+                /*.strName =*/ "v5_shield",
+                /*.strInfo =*/ "Sapling Shield - start block v8 - start transaction v3",
         },
         {
-                /*.strName =*/ "p2pkh_block_signatures",
-                /*.strInfo =*/ "activation of p2pkh block signatures",
+                /*.strName =*/ "CRYPTOSHARES_v5.2",
+                /*.strInfo =*/ "New cold-staking rules",
         },
         {
-                /*.strName =*/ "Stake_min_depth_v2",
-                /*.strInfo =*/ "Increases the stake min depth",
+                /*.strName =*/ "CRYPTOSHARES_v5.3",
+                /*.strInfo =*/ "New staking rules",
         },
         {
-                /*.strName =*/ "masternode_rank_v2",
-                /*.strInfo =*/ "new masternode ranking system",
+                /*.strName =*/ "v6_evo",
+                /*.strInfo =*/ "Deterministic Masternodes",
         },
         {
                 /*.strName =*/ "Test_dummy",

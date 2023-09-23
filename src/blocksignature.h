@@ -1,5 +1,5 @@
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,6 +12,6 @@
 
 bool SignBlockWithKey(CBlock& block, const CKey& key);
 bool SignBlock(CBlock& block, const CKeyStore& keystore);
-bool CheckBlockSignature(const CBlock& block, const bool enableP2PKH);
+bool CheckBlockSignature(const CBlock& block);
 
 #endif //CRYPTOSHARES_BLOCKSIGNATURE_H

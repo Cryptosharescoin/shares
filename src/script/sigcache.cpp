@@ -1,20 +1,19 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2018-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "sigcache.h"
 
+#include "cuckoocache.h"
 #include "memusage.h"
 #include "pubkey.h"
 #include "random.h"
 #include "uint256.h"
-#include "util.h"
+#include "util/system.h"
 
-#include "cuckoocache.h"
-#include <boost/thread.hpp>
+#include <boost/thread/thread.hpp>
 
 namespace {
 /**
@@ -40,7 +39,7 @@ public:
     void
     ComputeEntry(uint256& entry, const uint256 &hash, const std::vector<unsigned char>& vchSig, const CPubKey& pubkey)
     {
-        CSHA256().Write(nonce.begin(), 32).Write(hash.begin(), 32).Write(&pubkey[0], pubkey.size()).Write(&vchSig[0], vchSig.size()).Finalize(entry.begin());
+        CSHA256().Write(nonce.begin(), 32).Write(hash.begin(), 32).Write(pubkey.data(), pubkey.size()).Write(vchSig.data(), vchSig.size()).Finalize(entry.begin());
     }
 
     bool
@@ -76,7 +75,7 @@ void InitSignatureCache()
 {
     // nMaxCacheSize is unsigned. If -maxsigcachesize is set to zero,
     // setup_bytes creates the minimum possible cache (2 elements).
-    size_t nMaxCacheSize = std::min(std::max((int64_t)0, GetArg("-maxsigcachesize", DEFAULT_MAX_SIG_CACHE_SIZE)), MAX_MAX_SIG_CACHE_SIZE) * ((size_t) 1 << 20);
+    size_t nMaxCacheSize = std::min(std::max((int64_t)0, gArgs.GetArg("-maxsigcachesize", DEFAULT_MAX_SIG_CACHE_SIZE)), MAX_MAX_SIG_CACHE_SIZE) * ((size_t) 1 << 20);
     size_t nElems = signatureCache.setup_bytes(nMaxCacheSize);
     LogPrintf("Using %zu MiB out of %zu requested for signature cache, able to store %zu elements\n",
             (nElems*sizeof(uint256)) >>20, nMaxCacheSize>>20, nElems);

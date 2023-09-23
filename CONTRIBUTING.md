@@ -1,7 +1,7 @@
-Contributing to CRYPTOSHARES Core
+Contributing to CRYPTOSHARES
 ============================
 
-The CRYPTOSHARES Core project operates an open contributor model where anyone is
+The CRYPTOSHARES project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -64,7 +64,7 @@ the pull request affects. Valid areas as:
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST* for changes to the RPC or REST APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the CRYPTOSHARES Coreunit tests or QA tests
+  - *Tests* for changes to the cryptoshares unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -203,10 +203,10 @@ workload on reviewing.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the CRYPTOSHARES Core project, and is not to be
+The following applies to code changes to the CRYPTOSHARES project, and is not to be
 confused with overall CRYPTOSHARES Network Protocol consensus changes.
 
-Whether a pull request is merged into CRYPTOSHARES Core rests with the project merge
+Whether a pull request is merged into CRYPTOSHARES rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -303,7 +303,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each CRYPTOSHARES Core release.
+The project leader is the release manager for each CRYPTOSHARES release.
 
 Copyright
 ---------

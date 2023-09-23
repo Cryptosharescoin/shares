@@ -1,10 +1,9 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "compressor.h"
-#include "util.h"
+#include "util/system.h"
 #include "test/test_cryptoshares.h"
 
 #include <stdint.h>
@@ -26,16 +25,16 @@
 BOOST_FIXTURE_TEST_SUITE(compress_tests, BasicTestingSetup)
 
 bool static TestEncode(uint64_t in) {
-    return in == CTxOutCompressor::DecompressAmount(CTxOutCompressor::CompressAmount(in));
+    return in == DecompressAmount(CompressAmount(in));
 }
 
 bool static TestDecode(uint64_t in) {
-    return in == CTxOutCompressor::CompressAmount(CTxOutCompressor::DecompressAmount(in));
+    return in == CompressAmount(DecompressAmount(in));
 }
 
 bool static TestPair(uint64_t dec, uint64_t enc) {
-    return CTxOutCompressor::CompressAmount(dec) == enc &&
-           CTxOutCompressor::DecompressAmount(enc) == dec;
+    return CompressAmount(dec) == enc &&
+           DecompressAmount(enc) == dec;
 }
 
 BOOST_AUTO_TEST_CASE(compress_amounts)

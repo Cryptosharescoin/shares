@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +12,6 @@
 #include <QFile>
 #include <QGraphicsDropShadowEffect>
 #include <QListView>
-#include <QStyle>
 
 Qt::Modifier SHORT_KEY
 #ifdef Q_OS_MAC
@@ -59,7 +57,7 @@ void openDialogFullScreen(QWidget* parent, QWidget* dialog)
     dialog->resize(parent->width(), parent->height());
 }
 
-bool openDialogWithOpaqueBackgroundY(QDialog* widget, CRYPTOSHARESGUI* gui, double posX, int posY)
+bool openDialogWithOpaqueBackgroundY(QDialog* widget, CRYPTOSHARESGUI* gui, double posX, int posY, bool hideOpaqueBackground)
 {
     widget->setWindowFlags(Qt::CustomizeWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground, true);
@@ -72,7 +70,7 @@ bool openDialogWithOpaqueBackgroundY(QDialog* widget, CRYPTOSHARESGUI* gui, doub
     animation->start(QAbstractAnimation::DeleteWhenStopped);
     widget->activateWindow();
     bool res = widget->exec();
-    gui->showHide(false);
+    if (hideOpaqueBackground) gui->showHide(false);
     return res;
 }
 
@@ -102,7 +100,7 @@ bool openDialogWithOpaqueBackgroundFullScreen(QDialog* widget, CRYPTOSHARESGUI* 
     return res;
 }
 
-QPixmap encodeToQr(QString str, QString& errorStr, QColor qrColor)
+QPixmap encodeToQr(const QString& str, QString& errorStr, const QColor& qrColor)
 {
     if (!str.isEmpty()) {
         // limit URI length
@@ -115,12 +113,12 @@ QPixmap encodeToQr(QString str, QString& errorStr, QColor qrColor)
                 errorStr = "Error encoding URI into QR Code.";
                 return QPixmap();
             }
-            QImage myImage = QImage(code->width + 8, code->width + 8, QImage::Format_RGB32);
+            QImage myImage = QImage(code->width + 2, code->width + 2, QImage::Format_RGB32);
             myImage.fill(0xffffff);
             unsigned char* p = code->data;
             for (int y = 0; y < code->width; y++) {
                 for (int x = 0; x < code->width; x++) {
-                    myImage.setPixel(x + 4, y + 4, ((*p & 1) ? qrColor.rgb() : 0xffffff));
+                    myImage.setPixel(x + 1, y + 1, ((*p & 1) ? qrColor.rgb() : 0xffffff));
                     p++;
                 }
             }
@@ -131,40 +129,67 @@ QPixmap encodeToQr(QString str, QString& errorStr, QColor qrColor)
     return QPixmap();
 }
 
-void setFilterAddressBook(QComboBox* filter)
+void setFilterAddressBook(QComboBox* filter, SortEdit* lineEdit)
 {
-    initComboBox(filter);
+    initComboBox(filter, lineEdit);
     filter->addItem(QObject::tr("All"), "");
     filter->addItem(QObject::tr("Receiving"), AddressTableModel::Receive);
     filter->addItem(QObject::tr("Contacts"), AddressTableModel::Send);
+    filter->addItem(QObject::tr("Cold Staking"), AddressTableModel::ColdStaking);
+    filter->addItem(QObject::tr("Delegator"), AddressTableModel::Delegator);
+    filter->addItem(QObject::tr("Delegable"), AddressTableModel::Delegable);
+    filter->addItem(QObject::tr("Staking Contacts"), AddressTableModel::ColdStakingSend);
+    filter->addItem(QObject::tr("Shielded Recv"), AddressTableModel::ShieldedReceive);
+    filter->addItem(QObject::tr("Shielded Contact"), AddressTableModel::ShieldedSend);
 }
 
-void setSortTx(QComboBox* filter)
+void setSortTx(QComboBox* filter, SortEdit* lineEdit)
 {
     // Sort Transactions
-    initComboBox(filter);
+    initComboBox(filter, lineEdit);
     filter->addItem(QObject::tr("Date desc"), SortTx::DATE_DESC);
     filter->addItem(QObject::tr("Date asc"), SortTx::DATE_ASC);
     filter->addItem(QObject::tr("Amount desc"), SortTx::AMOUNT_ASC);
     filter->addItem(QObject::tr("Amount asc"), SortTx::AMOUNT_DESC);
 }
 
-void setSortTxTypeFilter(QComboBox* filter)
+void setSortTxTypeFilter(QComboBox* filter, SortEdit* lineEditType)
 {
-    initComboBox(filter);
+    initComboBox(filter, lineEditType);
     filter->addItem(QObject::tr("All"), TransactionFilterProxy::ALL_TYPES);
-    filter->addItem(QObject::tr("Received"), TransactionFilterProxy::TYPE(TransactionRecord::RecvWithAddress) | TransactionFilterProxy::TYPE(TransactionRecord::RecvFromOther));
-    filter->addItem(QObject::tr("Sent"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) | TransactionFilterProxy::TYPE(TransactionRecord::SendToOther));
+    filter->addItem(QObject::tr("Received"),
+                    TransactionFilterProxy::TYPE(TransactionRecord::RecvWithAddress) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::RecvFromOther) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::RecvWithShieldedAddress));
+    filter->addItem(QObject::tr("Sent"),
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToOther) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToShielded) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToNobody));
+    filter->addItem(QObject::tr("Shield"),
+                    TransactionFilterProxy::TYPE(TransactionRecord::RecvWithShieldedAddress) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToShielded) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldToShieldChangeAddress) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldToTransparent) |
+                    TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldedAddress));
     filter->addItem(QObject::tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     filter->addItem(QObject::tr("Minted"), TransactionFilterProxy::TYPE(TransactionRecord::StakeMint));
     filter->addItem(QObject::tr("MN reward"), TransactionFilterProxy::TYPE(TransactionRecord::MNReward));
-    filter->addItem(QObject::tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
+    filter->addItem(QObject::tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf) |
+                                            TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldedAddress) |
+                                            TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldToShieldChangeAddress) |
+                                            TransactionFilterProxy::TYPE(TransactionRecord::SendToSelfShieldToTransparent));
+    filter->addItem(QObject::tr("Cold stakes"), TransactionFilterProxy::TYPE(TransactionRecord::StakeDelegated));
+    filter->addItem(QObject::tr("Hot stakes"), TransactionFilterProxy::TYPE(TransactionRecord::StakeHot));
+    filter->addItem(QObject::tr("Delegated"), TransactionFilterProxy::TYPE(TransactionRecord::P2CSDelegationSent) | TransactionFilterProxy::TYPE(TransactionRecord::P2CSDelegationSentOwner));
+    filter->addItem(QObject::tr("Delegations"), TransactionFilterProxy::TYPE(TransactionRecord::P2CSDelegation));
+    filter->addItem(QObject::tr("DAO payment"), TransactionFilterProxy::TYPE(TransactionRecord::BudgetPayment));
 }
 
 void setupSettings(QSettings* settings)
 {
     if (!settings->contains("lightTheme")) {
-        setTheme(false);
+        settings->setValue("lightTheme", true);
     }
 }
 
@@ -206,41 +231,38 @@ void updateStyle(QWidget* widget)
 
 QColor getRowColor(bool isLightTheme, bool isHovered, bool isSelected)
 {
-    if (isLightTheme) {
-        if (isSelected) {
-            return QColor("#f9f9f9");
-        } else if (isHovered) {
-            return QColor("#f9f9f9");
-        } else {
-            return QColor("#ffffff");
-        }
+    if (isSelected) {
+        return QColor("#2586C4FC");
+    } else if (isHovered) {
+        return QColor("#25bababa");
     } else {
-        if (isSelected) {
-            return QColor("#212121");
-        } else if (isHovered) {
-            return QColor("#212121");
-        } else {
-            return QColor("#191e0b");
-        }
+        return isLightTheme ? QColor("#ffffff") : QColor("#0B1117");
     }
 }
 
-void initComboBox(QComboBox* combo, QString cssClass)
+void initComboBox(QComboBox* combo, QLineEdit* lineEdit, QString cssClass, bool setView)
 {
-    setCssProperty(combo, cssClass);
-    combo->setView(new QListView());
+    setCssProperty(combo, std::move(cssClass));
+    combo->setEditable(true);
+    if (lineEdit) {
+        lineEdit->setReadOnly(true);
+        lineEdit->setAlignment(Qt::AlignRight);
+        combo->setLineEdit(lineEdit);
+    }
+    combo->setStyleSheet("selection-background-color:transparent;");
+    if (setView) combo->setView(new QListView());
 }
 
-void fillAddressSortControls(QComboBox* boxType, QComboBox* boxOrder)
+void fillAddressSortControls(SortEdit* seType, SortEdit* seOrder, QComboBox* boxType, QComboBox* boxOrder)
 {
     // Sort Type
-    initComboBox(boxType, "btn-combo-small");
+    initComboBox(boxType, seType, "btn-combo-small");
     boxType->addItem(QObject::tr("by Label"), AddressTableModel::Label);
     boxType->addItem(QObject::tr("by Address"), AddressTableModel::Address);
     boxType->addItem(QObject::tr("by Date"), AddressTableModel::Date);
     boxType->setCurrentIndex(0);
     // Sort Order
-    initComboBox(boxOrder, "btn-combo-small");
+    initComboBox(boxOrder, seOrder, "btn-combo-small");
     boxOrder->addItem("asc", Qt::AscendingOrder);
     boxOrder->addItem("desc", Qt::DescendingOrder);
     boxOrder->setCurrentIndex(0);
@@ -253,7 +275,7 @@ void initCssEditLine(QLineEdit* edit, bool isDialog)
     else
         setCssEditLine(edit, true, false);
     setShadow(edit);
-    edit->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    edit->setAttribute(Qt::WA_MacShowFocusRect, false);
 }
 
 void setCssEditLine(QLineEdit* edit, bool isValid, bool forceUpdate)
@@ -288,7 +310,7 @@ void setCssBtnSecondary(QPushButton* btn, bool forceUpdate)
 
 void setCssTextBodyDialog(std::initializer_list<QWidget*> args)
 {
-    Q_FOREACH (QWidget* w, args) {
+    for (QWidget* w : args) {
         setCssTextBodyDialog(w);
     }
 }
@@ -308,15 +330,16 @@ void setCssSubtitleScreen(QWidget* wid)
     setCssProperty(wid, "text-subtitle", false);
 }
 
-void setCssProperty(std::initializer_list<QWidget*> args, QString value)
+void setCssProperty(std::initializer_list<QWidget*> args, const QString& value)
 {
-    Q_FOREACH (QWidget* w, args) {
+    for (QWidget* w : args) {
         setCssProperty(w, value);
     }
 }
 
-void setCssProperty(QWidget* wid, QString value, bool forceUpdate)
+void setCssProperty(QWidget* wid, const QString& value, bool forceUpdate)
 {
+    if (wid->property("cssClass") == value) return;
     wid->setProperty("cssClass", value);
     forceUpdateStyle(wid, forceUpdate);
 }
@@ -329,7 +352,7 @@ void forceUpdateStyle(QWidget* widget, bool forceUpdate)
 
 void forceUpdateStyle(std::initializer_list<QWidget*> args)
 {
-    Q_FOREACH (QWidget* w, args) {
+    for (QWidget* w : args) {
         forceUpdateStyle(w, true);
     }
 }

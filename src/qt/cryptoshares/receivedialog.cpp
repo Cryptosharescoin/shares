@@ -1,13 +1,14 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/cryptoshares/receivedialog.h"
 #include "qt/cryptoshares/forms/ui_receivedialog.h"
 #include "qt/cryptoshares/qtutils.h"
-#include "walletmodel.h"
-#include <QFile>
+#include "qt/walletmodel.h"
+
+#include <QPixmap>
 
 ReceiveDialog::ReceiveDialog(QWidget *parent) :
     FocusedDialog(parent),
@@ -46,7 +47,7 @@ ReceiveDialog::ReceiveDialog(QWidget *parent) :
     connect(ui->btnSave, &QPushButton::clicked, this, &ReceiveDialog::onCopy);
 }
 
-void ReceiveDialog::updateQr(QString address)
+void ReceiveDialog::updateQr(const QString& address)
 {
     if (!info) info = new SendCoinsRecipient();
     info->address = address;
@@ -56,8 +57,7 @@ void ReceiveDialog::updateQr(QString address)
     QString error;
     QPixmap pixmap = encodeToQr(uri, error);
     if (!pixmap.isNull()) {
-        qrImage = &pixmap;
-        ui->labelQrImg->setPixmap(qrImage->scaled(ui->labelQrImg->width(), ui->labelQrImg->height()));
+        ui->labelQrImg->setPixmap(pixmap.scaled(ui->labelQrImg->width(), ui->labelQrImg->height()));
     } else {
         ui->labelQrImg->setText(!error.isEmpty() ? error : "Error encoding address");
     }

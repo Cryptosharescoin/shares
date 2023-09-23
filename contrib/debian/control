@@ -28,9 +28,9 @@ Build-Depends: debhelper,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2
-Homepage: https://cryptosharescoin.io/
-Vcs-Git: git://github.com/cryptoshares/SHARES.git
-Vcs-Browser: https://github.com/cryptoshares/SHARES
+Homepage: http://www.cryptoshares.org
+Vcs-Git: git://github.com/CRYPTOSHARES-Project/CRYPTOSHARES.git
+Vcs-Browser: http://github.com/CRYPTOSHARES-Project/CRYPTOSHARES
 
 Package: cryptosharesd
 Architecture: any
@@ -61,4 +61,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 18.5+ GB of space, slowly growing.
  .
- This package provides CRYPTOSHARES-Qt, a GUI for CRYPTOSHARES based on Qt.
+ This package provides Cryptoshares-Qt, a GUI for CRYPTOSHARES based on Qt.

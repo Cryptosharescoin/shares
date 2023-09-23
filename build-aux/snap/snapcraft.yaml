@@ -1,8 +1,8 @@
 # Copyright (c) 2018-2019 The Ion developers
 # Copyright (c) 2019 The PIVX developers
-name: cryptoshares-core
+name: cryptoshares
 base: core18
-version: 4.3.0
+version: 5.4.0
 summary:   CRYPTOSHARES (Private – Instant – Verified – Transaction)
 description: |
   CRYPTOSHARES is an MIT licensed,
@@ -14,6 +14,7 @@ description: |
   - [Download](https://cryptoshares.org/wp-content/uploads/2018/10/CRYPTOSHARES-White.pdf) CRYPTOSHARES White Paper PDF
 grade: devel
 confinement: strict
+
 apps:
   daemon:
     command: cryptosharesd
@@ -30,7 +31,7 @@ apps:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   qt:
-    command: cryptoshares-qt
+    command: desktop-launch cryptoshares-qt
     plugs: [network, network-bind, network-status, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, home, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub]
     desktop: cryptoshares-qt.desktop
     environment:
@@ -38,7 +39,7 @@ apps:
       XDG_DATA_DIRS: $SNAP_USER_DATA:$SNAP/usr/share:$XDG_DATA_DIRS
       HOME: $SNAP_USER_COMMON
   qt-testnet:
-    command: cryptoshares-qt --testnet
+    command: desktop-launch cryptoshares-qt --testnet
     plugs: [network, network-bind, network-status, unity7, desktop, desktop-legacy, wayland, x11, mir, opengl, home, gsettings, removable-media, screen-inhibit-control, pulseaudio, media-hub]
     desktop: cryptoshares-qt_testnet.desktop
     environment:
@@ -66,8 +67,45 @@ apps:
   testqt:
     command: test_cryptoshares-qt
     plugs: [home]
+
+layout:
+  /usr/share/cryptoshares/sapling-spend.params:
+    bind-file: $SNAP/share/cryptoshares/sapling-spend.params
+  /usr/share/cryptoshares/sapling-output.params:
+    bind-file: $SNAP/share/cryptoshares/sapling-output.params
+
 parts:
-  cryptoshares-core:
+
+  # Remote part for support of various desktop technologies
+  # Refer: https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml
+  desktop-qt5:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-depth: 1
+    source-subdir: qt
+
+    plugin: make
+    make-parameters: [ "FLAVOR=qt5" ]
+    build-packages:
+      - build-essential
+      - qtbase5-dev
+      - dpkg-dev
+    stage-packages:
+      - libxkbcommon0
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libqt5gui5
+      - libgdk-pixbuf2.0-0
+      - libqt5svg5 # for loading icon themes which are svg
+      - try: [ appmenu-qt5 ] # not available on core18
+      - locales-all
+      - xdg-user-dirs
+      - fcitx-frontend-qt5
+
+  cryptoshares:
     source: https://github.com/CRYPTOSHARES-Project/CRYPTOSHARES
     source-type: git
     source-tag: master
@@ -82,7 +120,6 @@ parts:
       #    default value is "false", to enable it, use your projects binary prefix
       OVERRIDEBINPREFIX="cryptoshares"
       OVERRIDEDATADIR="false"
-      PARAMSDIR=".cryptoshares-params"
       OVERRIDECONF="${OVERRIDEDATADIR}"
       COPYCONF=0    # copy example config into users data folder, 1 = enabled
       JOBS=4        # 0 means off and make will run without -j
@@ -90,7 +127,7 @@ parts:
       SPLASHPNGS=0  # patch pngs to differ visaully from those installed from self compilation or other source like deb
       FIXPPCBUILD=1 # if ppc builds fail due to failed qt, apps part will return error and build will fail, 1 = enabled
       EXTRALOG=0    # prints env and all installed files at the end of current script
-      RUNTESTS=1    # run make check after post install part
+      RUNTESTS=0    # run make check after post install part
       DEPENDS=0     # use the depends system instead of syslibs
       echo "-----------------------------------------------"
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
@@ -170,14 +207,11 @@ parts:
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
       cd ${SNAPCRAFT_PART_BUILD}
       echo "Configure and build ${BINPREF}"
-      if [ $RUNTESTS = 1 ]; then
-        mkdir -p ${SNAP_USER_COMMON}/${PARAMSDIR}
-      fi
       ./autogen.sh
       if [ $DEPENDS = 1 ]; then
-        ./configure --prefix=`pwd`/depends/${HOST} --with-params-dir=${SNAP_USER_COMMON}/${PARAMSDIR}
+        ./configure --prefix=`pwd`/depends/${HOST}
       else
-        ./configure --with-incompatible-bdb --with-params-dir=${SNAP_USER_COMMON}/${PARAMSDIR}
+        ./configure --with-incompatible-bdb
       fi
       echo "-----------------------------------------------"
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
@@ -228,11 +262,11 @@ parts:
       fi
       echo "-----------------------------------------------"
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
-      echo "CONFIG FILE" # create .cryptoshares folder and copy example config - !!!warning!!!: do not copy as cryptoshares.conf
+      echo "CONFIG FILE" # create .cryptoshares folder and copy example config - !!!warning!!!: do not copy as shares.conf
       echo "+++++++++++++++++++++++++++++++++++++++++++++++"
       mkdir -p ${SNAP_USER_COMMON}/.${DATADIR}
       if [ $COPYCONF = 1 ]; then
-        cp ${SNAPCRAFT_PART_BUILD}/contrib/debian/manpages/${CONF}.conf.5 ${SNAP_USER_COMMON}/.${DATADIR}/${CONF}-example.conf
+        cp ${SNAPCRAFT_PART_BUILD}/contrib/debian/examples/${CONF}.conf ${SNAP_USER_COMMON}/.${DATADIR}/${CONF}-example.conf
       else
         echo "COPY CONFIG FILE disabled, skipping"
       fi
@@ -243,7 +277,6 @@ parts:
       cd ${SNAPCRAFT_PART_BUILD}
       if [ ! $SNAPCRAFT_ARCH_TRIPLET = "s390x-linux-gnu" ]; then
         if [ $RUNTESTS = 1 ]; then
-          ${SNAPCRAFT_PROJECT_DIR}/util/fetch-params.sh ${SNAP_USER_COMMON}/${PARAMSDIR}
           make check
         else
           echo "RUN TESTS disabled, skipping"
@@ -278,13 +311,13 @@ parts:
       - python3
       - help2man
       - doxygen
-      - libssl-dev
       - libgmp-dev
       - libevent-dev
       - libboost-all-dev
       - libsodium-dev
       - cargo
       - libminiupnpc-dev
+      - libnatpmp-dev
       - libzmq3-dev
       - libqt5gui5
       - libqt5core5a
@@ -300,6 +333,7 @@ parts:
       - libdb++-dev
     stage-packages:
       - libxkbcommon0
+      - libxcb-xinerama0
       - ttf-ubuntu-font-family
       - dmz-cursor-theme
       - light-themes
@@ -312,7 +346,6 @@ parts:
       - ca-certificates
       - libboost-chrono1.65.1
       - libboost-filesystem1.65.1
-      - libboost-program-options1.65.1
       - libboost-system1.65.1
       - libboost-test1.65.1
       - libboost-thread1.65.1
@@ -320,10 +353,13 @@ parts:
       - libevent-2.1-6
       - libevent-pthreads-2.1-6
       - libminiupnpc10
+      - libnatpmp1
       - libnorm1
       - libpgm-5.2-0
       - libprotobuf10
       - libqrencode3
+      - libqt5core5a
+      - libqt5dbus5
       - libqt5charts5
       - libqt5test5
       - libsodium23

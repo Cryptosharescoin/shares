@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,15 +17,12 @@
 #include "clientmodel.h"
 #include "qt/cryptoshares/qtutils.h"
 
-#include "main.h" // for MAX_SCRIPTCHECK_THREADS
 #include "netbase.h"
 #include "txdb.h" // for -dbcache defaults
 
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h" // for CWallet::minTxFee
 #endif
-
-#include <boost/thread.hpp>
 
 #include <QDataWidgetMapper>
 #include <QIntValidator>
@@ -55,8 +52,13 @@ SettingsMainOptionsWidget::SettingsMainOptionsWidget(CRYPTOSHARESGUI* _window, Q
     setCssProperty({ui->labelTitleSizeDb, ui->labelTitleThreads}, "text-main-settings");
 
     // Switch
-    ui->pushSwitchStart->setText(tr("Start SHARES on system login"));
+    ui->pushSwitchStart->setText(tr("Start CRYPTOSHARES on system login").arg(PACKAGE_NAME));
     ui->pushSwitchStart->setProperty("cssClass", "btn-switch");
+
+#ifdef Q_OS_MAC
+    /* hide launch at startup option on macOS */
+    ui->pushSwitchStart->setVisible(false);
+#endif
 
     // Combobox
     ui->databaseCache->setProperty("cssClass", "btn-spin-box");

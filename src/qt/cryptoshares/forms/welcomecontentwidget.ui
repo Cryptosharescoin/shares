@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string></string>
+   <string notr="true">N/A</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -936,8 +936,7 @@
                       <string notr="true">padding:1px;</string>
                      </property>
                      <property name="text">
-                      <string>Welcome to
-CRYPTOSHARES Wallet</string>
+                      <string>Welcome to CRYPTOSHARES Wallet</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -963,7 +962,7 @@ CRYPTOSHARES Wallet</string>
                    <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="labelMessage2">
                      <property name="text">
-                      <string>SHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</string>
+                      <string>CRYPTOSHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1036,7 +1035,7 @@ CRYPTOSHARES Wallet</string>
                    </size>
                   </property>
                   <property name="text">
-                   <string>How SHARES respects your privacy?</string>
+                   <string>How CRYPTOSHARES respects your privacy?</string>
                   </property>
                  </widget>
                 </item>
@@ -1056,7 +1055,7 @@ CRYPTOSHARES Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage3">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - SHARES believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - CRYPTOSHARES believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1139,7 +1138,7 @@ CRYPTOSHARES Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage4">
                   <property name="text">
-                   <string>The masternode network is SHARES's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</string>
+                   <string>The masternode network is CRYPTOSHARES's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>

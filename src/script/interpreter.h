@@ -1,24 +1,22 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2018 The Bitcoin developers
 // Copyright (c) 2018-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_SCRIPT_INTERPRETER_H
 #define BITCOIN_SCRIPT_INTERPRETER_H
 
-#include "script_error.h"
 #include "primitives/transaction.h"
+#include "script_error.h"
+#include "uint256.h"
 
 #include <vector>
 #include <stdint.h>
 #include <string>
 
-class CPubKey;
-class CScript;
-class CTransaction;
-class uint256;
+/** Special case nIn for signing Sapling txs. */
+const unsigned int NOT_AN_INPUT = UINT_MAX;
 
 /** Signature hash types/flags */
 enum
@@ -89,15 +87,9 @@ bool CheckSignatureEncoding(const std::vector<unsigned char> &vchSig, unsigned i
 
 struct PrecomputedTransactionData
 {
-    uint256 hashPrevouts, hashSequence, hashOutputs;
+    uint256 hashPrevouts, hashSequence, hashOutputs, hashShieldedSpends, hashShieldedOutputs;
 
     PrecomputedTransactionData(const CTransaction& tx);
-};
-
-enum SigVersion
-{
-    SIGVERSION_BASE = 0,
-    SIGVERSION_WITNESS_V0 = 1,
 };
 
 uint256 SignatureHash(const CScript &scriptCode, const CTransaction& txTo, unsigned int nIn, int nHashType, const CAmount& amount, SigVersion sigversion, const PrecomputedTransactionData* cache = nullptr);
@@ -111,6 +103,11 @@ public:
     }
 
     virtual bool CheckLockTime(const CScriptNum& nLockTime) const
+    {
+         return false;
+    }
+
+    virtual bool CheckColdStake(bool fAllowLastOutputFree, const CScript& prevoutScript, std::vector<valtype>& stack, unsigned int flags, ScriptError* error) const
     {
          return false;
     }
@@ -135,6 +132,7 @@ public:
 
     bool CheckSig(const std::vector<unsigned char>& scriptSig, const std::vector<unsigned char>& vchPubKey, const CScript& scriptCode, SigVersion sigversion) const override ;
     bool CheckLockTime(const CScriptNum& nLockTime) const override;
+    bool CheckColdStake(bool fAllowLastOutputFree, const CScript& prevoutScript, std::vector<valtype>& stack, unsigned int flags, ScriptError* serror) const override;
 };
 
 class MutableTransactionSignatureChecker : public TransactionSignatureChecker
@@ -147,6 +145,6 @@ public:
 };
 
 bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& script, unsigned int flags, const BaseSignatureChecker& checker, SigVersion sigversion, ScriptError* error = NULL);
-bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigned int flags, const BaseSignatureChecker& checker, ScriptError* serror = NULL);
+bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigned int flags, const BaseSignatureChecker& checker, SigVersion sigversion, ScriptError* serror = NULL);
 
 #endif // BITCOIN_SCRIPT_INTERPRETER_H

@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,7 +22,11 @@ public:
     ~SettingsWalletOptionsWidget();
 
     void setMapper(QDataWidgetMapper *mapper);
-    void setSpinBoxStakeSplitThreshold(double val);
+
+    void discardWalletOnlyOptions();
+    bool saveWalletOnlyOptions();
+
+    void saveMapPortOptions();
 
 Q_SIGNALS:
     void saveSettings();
@@ -33,6 +37,12 @@ public Q_SLOTS:
 
 private:
     Ui::SettingsWalletOptionsWidget *ui;
+
+    void loadWalletModel() override;
+    void reloadWalletOptions();
+
+    void setSpinBoxStakeSplitThreshold(double val);
+    double getSpinBoxStakeSplitThreshold() const;
 };
 
 #endif // SETTINGSWALLETOPTIONSWIDGET_H

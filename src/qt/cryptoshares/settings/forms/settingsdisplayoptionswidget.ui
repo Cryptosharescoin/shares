@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">N/A</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -120,7 +120,7 @@
           </item>
          </layout>
         </item>
-        <item>
+          <item>
          <layout class="QHBoxLayout" name="horizontalPercentagezShares">
           <item>
            <widget class="QLabel" name="labelTitleUnit">

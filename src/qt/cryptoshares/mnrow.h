@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,7 +20,7 @@ public:
     explicit MNRow(QWidget *parent = nullptr);
     ~MNRow();
 
-    void updateView(QString address, QString label, QString status, bool wasCollateralAccepted);
+    void updateView(QString address, const QString& label, QString status, bool wasCollateralAccepted);
 
 Q_SIGNALS:
     void onMenuClicked();

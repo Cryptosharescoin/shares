@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,16 +11,15 @@
 
 #include "qt/guiutil.h"
 #include "clientmodel.h"
+#include "interfaces/handler.h"
 #include "optionsmodel.h"
 #include "networkstyle.h"
 #include "notificator.h"
 #include "guiinterface.h"
 #include "qt/cryptoshares/qtutils.h"
 #include "qt/cryptoshares/defaultdialog.h"
-#include "qt/cryptoshares/settings/settingsfaqwidget.h"
-
-#include "init.h"
-#include "util.h"
+#include "shutdown.h"
+#include "util/system.h"
 
 #include <QApplication>
 #include <QColor>
@@ -61,14 +59,14 @@ CRYPTOSHARESGUI::CRYPTOSHARESGUI(const NetworkStyle* networkStyle, QWidget* pare
 
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
-    enableWallet = !GetBoolArg("-disablewallet", false);
+    enableWallet = !gArgs.GetBoolArg("-disablewallet", DEFAULT_DISABLE_WALLET);
 #else
     enableWallet = false;
 #endif // ENABLE_WALLET
 
-    QString windowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
+    QString windowTitle = QString::fromStdString(gArgs.GetArg("-windowtitle", ""));
     if (windowTitle.isEmpty()) {
-        windowTitle = tr("CRYPTOSHARES") + " - ";
+        windowTitle = QString{PACKAGE_NAME} + " - ";
         windowTitle += ((enableWallet) ? tr("Wallet") : tr("Node"));
     }
     windowTitle += " " + networkStyle->getTitleAddText();
@@ -127,6 +125,8 @@ CRYPTOSHARESGUI::CRYPTOSHARESGUI(const NetworkStyle* networkStyle, QWidget* pare
         receiveWidget = new ReceiveWidget(this);
         addressesWidget = new AddressesWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
+        coldStakingWidget = new ColdStakingWidget(this);
+        governancewidget = new GovernanceWidget(this);
         settingsWidget = new SettingsWidget(this);
 
         // Add to parent
@@ -135,6 +135,8 @@ CRYPTOSHARESGUI::CRYPTOSHARESGUI(const NetworkStyle* networkStyle, QWidget* pare
         stackedContainer->addWidget(receiveWidget);
         stackedContainer->addWidget(addressesWidget);
         stackedContainer->addWidget(masterNodesWidget);
+        stackedContainer->addWidget(coldStakingWidget);
+        stackedContainer->addWidget(governancewidget);
         stackedContainer->addWidget(settingsWidget);
         stackedContainer->setCurrentWidget(dashboard);
 
@@ -193,12 +195,17 @@ void CRYPTOSHARESGUI::connectActions()
     });
     connect(topBar, &TopBar::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(topBar, &TopBar::themeChanged, this, &CRYPTOSHARESGUI::changeTheme);
+    connect(topBar, &TopBar::onShowHideColdStakingChanged, navMenu, &NavMenuWidget::onShowHideColdStakingChanged);
     connect(settingsWidget, &SettingsWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(sendWidget, &SendWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(receiveWidget, &ReceiveWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(addressesWidget, &AddressesWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &CRYPTOSHARESGUI::execDialog);
+    connect(coldStakingWidget, &ColdStakingWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
+    connect(coldStakingWidget, &ColdStakingWidget::execDialog, this, &CRYPTOSHARESGUI::execDialog);
+    connect(governancewidget, &GovernanceWidget::showHide, this, &CRYPTOSHARESGUI::showHide);
+    connect(governancewidget, &GovernanceWidget::execDialog, this, &CRYPTOSHARESGUI::execDialog);
     connect(settingsWidget, &SettingsWidget::execDialog, this, &CRYPTOSHARESGUI::execDialog);
 }
 
@@ -207,7 +214,7 @@ void CRYPTOSHARESGUI::createTrayIcon(const NetworkStyle* networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("CRYPTOSHARES client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("%1 client").arg(PACKAGE_NAME) + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -237,9 +244,9 @@ void CRYPTOSHARESGUI::handleRestart(QStringList args)
 }
 
 
-void CRYPTOSHARESGUI::setClientModel(ClientModel* clientModel)
+void CRYPTOSHARESGUI::setClientModel(ClientModel* _clientModel)
 {
-    this->clientModel = clientModel;
+    this->clientModel = _clientModel;
     if (this->clientModel) {
         // Create system tray menu (or setup the dock menu) that late to prevent users from calling actions,
         // while the client has not yet fully loaded
@@ -248,12 +255,19 @@ void CRYPTOSHARESGUI::setClientModel(ClientModel* clientModel)
         topBar->setClientModel(clientModel);
         dashboard->setClientModel(clientModel);
         sendWidget->setClientModel(clientModel);
+        masterNodesWidget->setClientModel(clientModel);
         settingsWidget->setClientModel(clientModel);
+        governancewidget->setClientModel(clientModel);
 
         // Receive and report messages from client model
         connect(clientModel, &ClientModel::message, this, &CRYPTOSHARESGUI::message);
+        connect(clientModel, &ClientModel::alertsChanged, [this](const QString& _alertStr) {
+            message(tr("Alert!"), _alertStr, CClientUIInterface::MSG_WARNING);
+        });
         connect(topBar, &TopBar::walletSynced, dashboard, &DashboardWidget::walletSynced);
-        
+        connect(topBar, &TopBar::walletSynced, coldStakingWidget, &ColdStakingWidget::walletSynced);
+        connect(topBar, &TopBar::tierTwoSynced, governancewidget, &GovernanceWidget::tierTwoSynced);
+
         // Get restart command-line parameters and handle restart
         connect(settingsWidget, &SettingsWidget::handleRestart, [this](QStringList arg){handleRestart(arg);});
 
@@ -330,6 +344,9 @@ void CRYPTOSHARESGUI::changeEvent(QEvent* e)
             if (!(wsevt->oldState() & Qt::WindowMinimized) && isMinimized()) {
                 QTimer::singleShot(0, this, &CRYPTOSHARESGUI::hide);
                 e->ignore();
+            } else if ((wsevt->oldState() & Qt::WindowMinimized) && !isMinimized()) {
+                QTimer::singleShot(0, this, &CRYPTOSHARESGUI::show);
+                e->ignore();
             }
         }
     }
@@ -342,10 +359,14 @@ void CRYPTOSHARESGUI::closeEvent(QCloseEvent* event)
     if (clientModel && clientModel->getOptionsModel()) {
         if (!clientModel->getOptionsModel()->getMinimizeOnClose()) {
             QApplication::quit();
+        } else {
+            QMainWindow::showMinimized();
+            event->ignore();
         }
     }
-#endif
+#else
     QMainWindow::closeEvent(event);
+#endif
 }
 
 
@@ -360,7 +381,7 @@ void CRYPTOSHARESGUI::messageInfo(const QString& text)
 
 void CRYPTOSHARESGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
 {
-    QString strTitle =  tr("CRYPTOSHARES"); // default title
+    QString strTitle = QString{PACKAGE_NAME}; // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
 
@@ -410,10 +431,10 @@ void CRYPTOSHARESGUI::message(const QString& title, const QString& message, unsi
     } else if (style & CClientUIInterface::MSG_INFORMATION_SNACK) {
         messageInfo(message);
     } else {
-        // Append title to "SHARES - "
+        // Append title to "CRYPTOSHARES - "
         if (!msgType.isEmpty())
             strTitle += " - " + msgType;
-        notificator->notify((Notificator::Class) nNotifyIcon, strTitle, message);
+        notificator->notify(static_cast<Notificator::Class>(nNotifyIcon), strTitle, message);
     }
 }
 
@@ -429,7 +450,7 @@ bool CRYPTOSHARESGUI::openStandardDialog(QString title, QString body, QString ok
     } else {
         dialog = new DefaultDialog();
         dialog->setText(title, body, okBtn);
-        dialog->setWindowTitle(tr("CRYPTOSHARES"));
+        dialog->setWindowTitle(PACKAGE_NAME);
         dialog->adjustSize();
         dialog->raise();
         dialog->exec();
@@ -488,6 +509,16 @@ void CRYPTOSHARESGUI::goToMasterNodes()
     showTop(masterNodesWidget);
 }
 
+void CRYPTOSHARESGUI::goToColdStaking()
+{
+    showTop(coldStakingWidget);
+}
+
+void CRYPTOSHARESGUI::goToGovernance()
+{
+    showTop(governancewidget);
+}
+
 void CRYPTOSHARESGUI::goToSettings(){
     showTop(settingsWidget);
 }
@@ -499,13 +530,6 @@ void CRYPTOSHARESGUI::goToSettingsInfo()
     goToSettings();
 }
 
-void CRYPTOSHARESGUI::goToDebugConsole()
-{
-    navMenu->selectSettings();
-    settingsWidget->showDebugConsole();
-    goToSettings();
-}
-
 void CRYPTOSHARESGUI::goToReceive()
 {
     showTop(receiveWidget);
@@ -514,11 +538,6 @@ void CRYPTOSHARESGUI::goToReceive()
 void CRYPTOSHARESGUI::openNetworkMonitor()
 {
     settingsWidget->openNetworkMonitor();
-}
-
-void CRYPTOSHARESGUI::showPeers()
-{
-    settingsWidget->showPeers();
 }
 
 void CRYPTOSHARESGUI::showTop(QWidget* view)
@@ -590,17 +609,30 @@ int CRYPTOSHARESGUI::getNavWidth()
     return this->navMenu->width();
 }
 
-void CRYPTOSHARESGUI::openFAQ(int section)
+void CRYPTOSHARESGUI::openFAQ(SettingsFaqWidget::Section section)
 {
     showHide(true);
-    SettingsFaqWidget* dialog = new SettingsFaqWidget(this);
-    if (section > 0) dialog->setSection(section);
+    SettingsFaqWidget* dialog = new SettingsFaqWidget(this, clientModel);
+    dialog->setSection(section);
     openDialogWithOpaqueBackgroundFullScreen(dialog, this);
     dialog->deleteLater();
 }
 
 
 #ifdef ENABLE_WALLET
+void CRYPTOSHARESGUI::setGovModel(GovernanceModel* govModel)
+{
+    if (!stackedContainer || !clientModel) return;
+    governancewidget->setGovModel(govModel);
+}
+
+void CRYPTOSHARESGUI::setMNModel(MNModel* mnModel)
+{
+    if (!stackedContainer || !clientModel) return;
+    governancewidget->setMNModel(mnModel);
+    masterNodesWidget->setMNModel(mnModel);
+}
+
 bool CRYPTOSHARESGUI::addWallet(const QString& name, WalletModel* walletModel)
 {
     // Single wallet supported for now..
@@ -615,15 +647,19 @@ bool CRYPTOSHARESGUI::addWallet(const QString& name, WalletModel* walletModel)
     sendWidget->setWalletModel(walletModel);
     addressesWidget->setWalletModel(walletModel);
     masterNodesWidget->setWalletModel(walletModel);
+    coldStakingWidget->setWalletModel(walletModel);
+    governancewidget->setWalletModel(walletModel);
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
     connect(walletModel, &WalletModel::message, this, &CRYPTOSHARESGUI::message);
     connect(masterNodesWidget, &MasterNodesWidget::message, this, &CRYPTOSHARESGUI::message);
+    connect(coldStakingWidget, &ColdStakingWidget::message, this, &CRYPTOSHARESGUI::message);
     connect(topBar, &TopBar::message, this, &CRYPTOSHARESGUI::message);
     connect(sendWidget, &SendWidget::message,this, &CRYPTOSHARESGUI::message);
     connect(receiveWidget, &ReceiveWidget::message,this, &CRYPTOSHARESGUI::message);
     connect(addressesWidget, &AddressesWidget::message,this, &CRYPTOSHARESGUI::message);
+    connect(governancewidget, &GovernanceWidget::message,this, &CRYPTOSHARESGUI::message);
     connect(settingsWidget, &SettingsWidget::message, this, &CRYPTOSHARESGUI::message);
 
     // Pass through transaction notifications
@@ -648,7 +684,7 @@ void CRYPTOSHARESGUI::incomingTransaction(const QString& date, int unit, const C
     // Only send notifications when not disabled
     if (!bdisableSystemnotifications) {
         // On new transaction, make an info balloon
-        message((amount) < 0 ? (pwalletMain->fMultiSendNotify == true ? tr("Sent MultiSend transaction") : tr("Sent transaction")) : tr("Incoming transaction"),
+        message(amount < 0 ? tr("Sent transaction") : tr("Incoming transaction"),
             tr("Date: %1\n"
                "Amount: %2\n"
                "Type: %3\n"
@@ -658,8 +694,6 @@ void CRYPTOSHARESGUI::incomingTransaction(const QString& date, int unit, const C
                 .arg(type)
                 .arg(address),
             CClientUIInterface::MSG_INFORMATION);
-
-        pwalletMain->fMultiSendNotify = false;
     }
 }
 
@@ -688,11 +722,11 @@ static bool ThreadSafeMessageBox(CRYPTOSHARESGUI* gui, const std::string& messag
 void CRYPTOSHARESGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
-    uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
+    m_handler_message_box = interfaces::MakeHandler(uiInterface.ThreadSafeMessageBox.connect(std::bind(ThreadSafeMessageBox, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3)));
 }
 
 void CRYPTOSHARESGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
-    uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
+    m_handler_message_box->disconnect();
 }

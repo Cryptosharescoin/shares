@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +15,7 @@
 #include "addresstablemodel.h"
 
 #define DECORATION_SIZE 70
-#define NUM_ITEMS 3
+#define NUM_ITEMS 2
 
 class ContViewHolder : public FurListRow<QWidget*>
 {
@@ -50,12 +49,20 @@ public:
     ContactDropdownRow* row = nullptr;
 };
 
-ContactsDropdown::ContactsDropdown(int minWidth, int minHeight, PWidget *parent) :
-   PWidget(parent)
+ContactsDropdown::ContactsDropdown(int minWidth, int minHeight, CRYPTOSHARESGUI* _window, QWidget* _parent) : PWidget(_window, _parent)
 {
+    this->setStyleSheet(_window->styleSheet());
+    init(minWidth, minHeight);
+}
 
+ContactsDropdown::ContactsDropdown(int minWidth, int minHeight, PWidget* parent) : PWidget(parent)
+{
     this->setStyleSheet(parent->styleSheet());
+    init(minWidth, minHeight);
+}
 
+void ContactsDropdown::init(int minWidth, int minHeight)
+{
     delegate = new FurAbstractListItemDelegate(
                 DECORATION_SIZE,
                 new ContViewHolder(isLightTheme()),
@@ -83,7 +90,7 @@ ContactsDropdown::ContactsDropdown(int minWidth, int minHeight, PWidget *parent)
     connect(list, &QListView::clicked, this, &ContactsDropdown::handleClick);
 }
 
-void ContactsDropdown::setWalletModel(WalletModel* _model, const QString& type){
+void ContactsDropdown::setWalletModel(WalletModel* _model, const QStringList& type){
     if (!model) {
         model = _model->getAddressTableModel();
         this->filter = new AddressFilterProxyModel(type, this);
@@ -96,7 +103,7 @@ void ContactsDropdown::setWalletModel(WalletModel* _model, const QString& type){
     }
 }
 
-void ContactsDropdown::setType(const QString& type) {
+void ContactsDropdown::setType(const QStringList& type) {
     if (filter)
         filter->setType(type);
 }

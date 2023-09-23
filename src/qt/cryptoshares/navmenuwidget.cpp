@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,9 +35,11 @@ NavMenuWidget::NavMenuWidget(CRYPTOSHARESGUI *mainWindow, QWidget *parent) :
     ui->btnAddress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnMaster->setProperty("name", "master");
     ui->btnMaster->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    ui->btnColdStaking->setProperty("name", "cold-staking");
+    ui->btnColdStaking->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnSettings->setProperty("name", "settings");
     ui->btnSettings->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnSettings};
+    btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnColdStaking, ui->btnSettings};
     onNavSelected(ui->btnDashboard, true);
 
     ui->scrollAreaNav->setWidgetResizable(true);
@@ -55,7 +56,9 @@ NavMenuWidget::NavMenuWidget(CRYPTOSHARESGUI *mainWindow, QWidget *parent) :
 }
 
 void NavMenuWidget::loadWalletModel() {
-
+    if (walletModel && walletModel->getOptionsModel()) {
+        ui->btnColdStaking->setVisible(walletModel->getOptionsModel()->isColdStakingScreenEnabled());
+    }
 }
 
 /**
@@ -68,12 +71,14 @@ void NavMenuWidget::connectActions() {
     connect(ui->btnMaster, &QPushButton::clicked, this, &NavMenuWidget::onMasterNodesClicked);
     connect(ui->btnSettings, &QPushButton::clicked, this, &NavMenuWidget::onSettingsClicked);
     connect(ui->btnReceive, &QPushButton::clicked, this, &NavMenuWidget::onReceiveClicked);
+    connect(ui->btnColdStaking, &QPushButton::clicked, this, &NavMenuWidget::onColdStakingClicked);
 
     ui->btnDashboard->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_1));
     ui->btnSend->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_2));
     ui->btnReceive->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_3));
     ui->btnAddress->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_4));
     ui->btnMaster->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_5));
+    ui->btnColdStaking->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_6));
     ui->btnSettings->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_7));
 }
 
@@ -97,6 +102,11 @@ void NavMenuWidget::onMasterNodesClicked(){
     onNavSelected(ui->btnMaster);
 }
 
+void NavMenuWidget::onColdStakingClicked() {
+    window->goToColdStaking();
+    onNavSelected(ui->btnColdStaking);
+}
+
 void NavMenuWidget::onSettingsClicked(){
     window->goToSettings();
     onNavSelected(ui->btnSettings);
@@ -109,7 +119,7 @@ void NavMenuWidget::onReceiveClicked(){
 
 void NavMenuWidget::onNavSelected(QWidget* active, bool startup) {
     QString start = "btn-nav-";
-    Q_FOREACH (QWidget* w, btns) {
+    for (QWidget* w : btns) {
         QString clazz = start + w->property("name").toString();
         if (w == active) {
             clazz += "-active";
@@ -121,6 +131,12 @@ void NavMenuWidget::onNavSelected(QWidget* active, bool startup) {
 
 void NavMenuWidget::selectSettings() {
     onSettingsClicked();
+}
+
+void NavMenuWidget::onShowHideColdStakingChanged(bool show) {
+    ui->btnColdStaking->setVisible(show);
+    if (show)
+        ui->scrollAreaNav->verticalScrollBar()->setValue(ui->btnColdStaking->y());
 }
 
 void NavMenuWidget::showEvent(QShowEvent *event) {
@@ -137,7 +153,8 @@ void NavMenuWidget::updateButtonStyles(){
          ui->btnAddress,
          ui->btnMaster,
          ui->btnSettings,
-         ui->btnReceive
+         ui->btnReceive,
+         ui->btnColdStaking,
     });
 }
 

@@ -1,5 +1,4 @@
 // Copyright (c) 2015 The Bitcoin Core developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +12,7 @@ class CBlockIndex;
 class CZMQAbstractPublishNotifier : public CZMQAbstractNotifier
 {
 private:
-    uint32_t nSequence; // upcounting per message sequence number
+    uint32_t nSequence{0}; // upcounting per message sequence number
 
 public:
 
@@ -41,12 +40,6 @@ public:
     bool NotifyTransaction(const CTransaction &transaction);
 };
 
-class CZMQPublishHashTransactionLockNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyTransactionLock(const CTransaction &transaction);
-};
-
 class CZMQPublishRawBlockNotifier : public CZMQAbstractPublishNotifier
 {
 public:
@@ -57,12 +50,6 @@ class CZMQPublishRawTransactionNotifier : public CZMQAbstractPublishNotifier
 {
 public:
     bool NotifyTransaction(const CTransaction &transaction);
-};
-
-class CZMQPublishRawTransactionLockNotifier : public CZMQAbstractPublishNotifier
-{
-public:
-    bool NotifyTransactionLock(const CTransaction &transaction);
 };
 
 #endif // BITCOIN_ZMQ_ZMQPUBLISHNOTIFIER_H

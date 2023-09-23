@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,6 +11,7 @@ from test_framework.util import (
     connect_nodes,
     set_node_times,
 )
+
 
 def connect_nodes_bi(nodes, a, b):
     connect_nodes(nodes[a], b)

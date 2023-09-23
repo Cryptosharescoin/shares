@@ -41,7 +41,7 @@ def determine_db_dir():
     return os.path.expanduser("~/.cryptoshares")
 
 def read_bitcoin_config(dbdir):
-    """Read the cryptoshares.conf file from dbdir, returns dictionary of settings"""
+    """Read the shares.conf file from dbdir, returns dictionary of settings"""
     from ConfigParser import SafeConfigParser
 
     class FakeSecHead(object):
@@ -59,7 +59,7 @@ def read_bitcoin_config(dbdir):
                 return s
 
     config_parser = SafeConfigParser()
-    config_parser.readfp(FakeSecHead(open(os.path.join(dbdir, "cryptoshares.conf"))))
+    config_parser.readfp(FakeSecHead(open(os.path.join(dbdir, "shares.conf"))))
     return dict(config_parser.items("all"))
 
 def connect_JSON(config):
@@ -67,7 +67,7 @@ def connect_JSON(config):
     testnet = config.get('testnet', '0')
     testnet = (int(testnet) > 0)  # 0/1 in config file, convert to True/False
     if not 'rpcport' in config:
-        config['rpcport'] = 46780 if testnet else 22191
+        config['rpcport'] = 51475 if testnet else 23191
     connect = "http://%s:%s@127.0.0.1:%s"%(config['rpcuser'], config['rpcpassword'], config['rpcport'])
     try:
         result = ServiceProxy(connect)
@@ -229,7 +229,7 @@ def main():
     parser.add_option("--fee", dest="fee", default="0.0",
                       help="fee to include")
     parser.add_option("--datadir", dest="datadir", default=determine_db_dir(),
-                      help="location of cryptoshares.conf file with RPC username/password (default: %default)")
+                      help="location of shares.conf file with RPC username/password (default: %default)")
     parser.add_option("--testnet", dest="testnet", default=False, action="store_true",
                       help="Use the test network")
     parser.add_option("--dry_run", dest="dry_run", default=False, action="store_true",

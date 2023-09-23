@@ -1,5 +1,4 @@
 // Copyright 2016 Wladimir J. van der Laan
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef UNIVALUE_UTFFILTER_H
@@ -14,7 +13,7 @@
 class JSONUTF8StringFilter
 {
 public:
-    JSONUTF8StringFilter(std::string &s):
+    explicit JSONUTF8StringFilter(std::string &s):
         str(s), is_valid(true), codepoint(0), state(0), surpair(0)
     {
     }

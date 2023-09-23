@@ -2,16 +2,12 @@
 <context>
     <name>AddNewAddressDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
+        <source>New Address</source>
+        <translation>Nowy adres</translation>
     </message>
     <message>
         <source>Address</source>
         <translation>Adres</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -25,10 +21,6 @@
 <context>
     <name>AddNewContactDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
     </message>
@@ -39,6 +31,10 @@
     <message>
         <source>Set a label for the selected address</source>
         <translation>Ustaw etykietę dla wybranego adresu</translation>
+    </message>
+    <message>
+        <source>Enter a label for the address (e.g. Exchange)</source>
+        <translation>Wpisz etykietę adresu (np. Exchange)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -114,12 +110,12 @@
         <translation>Adres odbiorczy</translation>
     </message>
     <message>
-        <source>These are your SHARES addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>To są twoje adresy SHARES do wysyłania płatności. Zawsze sprawdzaj kwotę i adres odbiorcy przed wysłaniem monet.</translation>
+        <source>These are your CRYPTOSHARES addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>To są twoje adresy CRYPTOSHARES do wysyłania płatności. Zawsze sprawdzaj kwotę i adres odbiorcy przed wysłaniem monet.</translation>
     </message>
     <message>
-        <source>These are your SHARES addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>To są twoje adresy SHARES do otrzymywania płatności. Zaleca się użycie nowego adresu odbiorczego dla każdej transakcji.</translation>
+        <source>These are your CRYPTOSHARES addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>To są twoje adresy CRYPTOSHARES do otrzymywania płatności. Zaleca się użycie nowego adresu odbiorczego dla każdej transakcji.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -151,21 +147,6 @@
     </message>
 </context>
 <context>
-    <name>AddressLabelRow</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>Bob Allen</source>
-        <translation>Bob Allen</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
-</context>
-<context>
     <name>AddressTableModel</name>
     <message>
         <source>Label</source>
@@ -191,10 +172,6 @@
 <context>
     <name>AddressesWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>Nazwa Kontaktu</translation>
     </message>
@@ -217,6 +194,14 @@
     <message>
         <source>SAVE</source>
         <translation>ZAPISZ</translation>
+    </message>
+    <message>
+        <source>Add new contact</source>
+        <translation>Dodaj nowy kontakt</translation>
+    </message>
+    <message>
+        <source>Generate a new address to receive tokens.</source>
+        <translation>Wygeneruj nowy adres, aby otrzymać tokeny.</translation>
     </message>
     <message>
         <source>Invalid Contact Address</source>
@@ -282,14 +267,6 @@ Jesteś pewny?</translation>
         <translation>Okno dialogowe "Passphrase"</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
-    </message>
-    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Wprowadź nowe hasło do portfela.
 Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub ośmiu lub więcej słów.</translation>
@@ -349,16 +326,28 @@ do stakingu</translation>
         <translation>ANULUJ</translation>
     </message>
     <message>
-        <source>SHARES will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SHARESs from being stolen by malware infecting your computer.</source>
-        <translation>SHARES zamknie się teraz, aby zakończyć proces szyfrowania. Pamiętaj, że zaszyfrowanie portfela nie chroni w pełni Twoich SHARES przed kradzieżą przez złośliwe oprogramowanie infekujące Twój komputer.</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Czy na pewno chcesz zaszyfrować swój portfel?</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
         <translation>Portfel zaszyfrowany</translation>
+    </message>
+    <message>
+        <source>WARNING:</source>
+        <translation>OSTRZEŻENIE:</translation>
+    </message>
+    <message>
+        <source>The caps lock key is on!</source>
+        <translation>Klawisz Caps Lock jest włączony!</translation>
+    </message>
+    <message>
+        <source>Passphrases do not match!</source>
+        <translation>Hasła nie pasują!</translation>
+    </message>
+    <message>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SHARESs from being stolen by malware infecting your computer.</source>
+        <translation>%1 zostanie teraz zamknięty, aby zakończyć proces szyfrowania. Pamiętaj, że zaszyfrowanie portfela nie może w pełni zabezpieczyć Twoich SHARES przed kradzieżą przez złośliwe oprogramowanie infekujące Twój komputer.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -381,6 +370,10 @@ do stakingu</translation>
         <translation>Podane hasła nie zgadzają się</translation>
     </message>
     <message>
+        <source>LOSE ALL OF YOUR COINS</source>
+        <translation>STRAĆ WSZYSTKIE MONETY</translation>
+    </message>
+    <message>
         <source>Wallet unlock failed</source>
         <translation>Odblokowanie portfela nieudane</translation>
     </message>
@@ -398,6 +391,17 @@ do stakingu</translation>
     </message>
 </context>
 <context>
+    <name>BalanceBubble</name>
+    <message>
+        <source>Transparent</source>
+        <translation>Transparent</translation>
+    </message>
+    <message>
+        <source>Shielded</source>
+        <translation>Shielded</translation>
+    </message>
+</context>
+<context>
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
@@ -406,6 +410,25 @@ do stakingu</translation>
     <message>
         <source>Banned Until</source>
         <translation>Zakazany do</translation>
+    </message>
+</context>
+<context>
+    <name>CSRow</name>
+    <message>
+        <source>Savings</source>
+        <translation>Oszczędności</translation>
+    </message>
+    <message>
+        <source>address</source>
+        <translation>adres</translation>
+    </message>
+    <message>
+        <source>Not Staking</source>
+        <translation>brak Stakingu</translation>
+    </message>
+    <message>
+        <source>Own delegation</source>
+        <translation>Delegacja własna</translation>
     </message>
 </context>
 <context>
@@ -464,10 +487,6 @@ do stakingu</translation>
     <message>
         <source>0.00 SHARES</source>
         <translation>0.00 SHARES</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -566,52 +585,32 @@ do stakingu</translation>
         <translation>Reszta Skopiowana</translation>
     </message>
     <message>
-        <source>highest</source>
-        <translation>najwyższy</translation>
-    </message>
-    <message>
-        <source>higher</source>
-        <translation>wyższy</translation>
-    </message>
-    <message>
-        <source>high</source>
-        <translation>wysoki</translation>
-    </message>
-    <message>
-        <source>medium-high</source>
-        <translation>średnio-wysoki</translation>
-    </message>
-    <message>
-        <source>medium</source>
-        <translation>średni</translation>
-    </message>
-    <message>
-        <source>low-medium</source>
-        <translation>średnio-niski</translation>
-    </message>
-    <message>
-        <source>low</source>
-        <translation>niski</translation>
-    </message>
-    <message>
-        <source>lower</source>
-        <translation>niższy</translation>
-    </message>
-    <message>
-        <source>lowest</source>
-        <translation>najniższy</translation>
-    </message>
-    <message>
         <source>(%1 locked)</source>
         <translation>(%1 zablokowany)</translation>
     </message>
     <message>
-        <source>none</source>
-        <translation>brak</translation>
-    </message>
-    <message>
         <source>yes</source>
         <translation>tak</translation>
+    </message>
+    <message>
+        <source>This label turns red, if recipient receives an amount smaller than %1 (transparent) / %2 (shield).</source>
+        <translation>Etykieta ta zmienia kolor na czerwony, jeżeli odbiorca otrzyma kwotę mniejszą niż %1 (transparent) / %2 (shield).</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 u%2 per input.</source>
+        <translation>Może się różnić +/- %1 u%2 na wejście.</translation>
+    </message>
+    <message>
+        <source>change in %1</source>
+        <translation>Reszta %1</translation>
+    </message>
+    <message>
+        <source>delegated to %1 for cold staking</source>
+        <translation>przekazane do %1 dla cold staking</translation>
+    </message>
+    <message>
+        <source>Delegated to %1</source>
+        <translation>Oddelegowany do %1</translation>
     </message>
     <message>
         <source>Select All</source>
@@ -622,36 +621,8 @@ do stakingu</translation>
         <translation>nie</translation>
     </message>
     <message>
-        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>Ta zakładka staję się czerwona, gdy rozmiar transakcji przekracza 1000 bajtów</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 per kB is required.</source>
-        <translation>To znaczy, że opłata co najmniej  %1 za kB jest wymagana</translation>
-    </message>
-    <message>
-        <source>Can vary +/- 1 byte per input.</source>
-        <translation>Zmienia się +/- 1 byte</translation>
-    </message>
-    <message>
-        <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation>Transakcje o wyższym priorytecie ma większe prawdopodobieństwo wdrożenia do bloku</translation>
-    </message>
-    <message>
-        <source>This label turns red, if the priority is smaller than "medium".</source>
-        <translation>Ta zakładka staje się czerwona, jeżeli priorytet jest mniejszy niż "średni"</translation>
-    </message>
-    <message>
-        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation>Ta etykieta zmienia kolor na czerwony, jeśli odbiorca otrzymuje mniej niż %1.</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(brak etykiety)</translation>
-    </message>
-    <message>
-        <source>change from %1 (%2)</source>
-        <translation>Reszta z %1 (%2)</translation>
     </message>
     <message>
         <source>(change)</source>
@@ -659,18 +630,291 @@ do stakingu</translation>
     </message>
 </context>
 <context>
-    <name>ContactDropdownRow</name>
+    <name>ColdStakingWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Owner address (optional, if empty a new address will be created)</source>
+        <translation>Adres właściciela (opcjonalnie, jeśli pusty, zostanie utworzony nowy adres)</translation>
+    </message>
+    <message>
+        <source>Total Staking:</source>
+        <translation>Razem Staking:</translation>
+    </message>
+    <message>
+        <source>Cold Staking</source>
+        <translation>Cold Staking</translation>
+    </message>
+    <message>
+        <source>Staker</source>
+        <translation>Staker</translation>
+    </message>
+    <message>
+        <source>Delegation</source>
+        <translation>Delegacja</translation>
+    </message>
+    <message>
+        <source>Delegate</source>
+        <translation>Deleguj</translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation>Filtr</translation>
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation>Wyczyść wszystko</translation>
+    </message>
+    <message>
+        <source>Delegated balance history</source>
+        <translation>Historia sald delegowanych</translation>
+    </message>
+    <message>
+        <source>No delegations yet</source>
+        <translation>Brak delegacji</translation>
+    </message>
+    <message>
+        <source>Total Staking: %1</source>
+        <translation>Total Staking: %1</translation>
+    </message>
+    <message>
+        <source>Error loading delegations: %1</source>
+        <translation>Błąd ładowania delegacji: %1</translation>
+    </message>
+    <message>
+        <source>You can delegate your SHARESs, letting a hot node (24/7 online node)
+stake on your behalf, while you keep the keys securely offline.</source>
+        <translation>Możesz delegować swoje SHARES, używając gorącego węzła (węzeł online 24/7)
+stake w Twoim imieniu, podczas gdy klucze są bezpiecznie offline.</translation>
+    </message>
+    <message>
+        <source>Enter owner address</source>
+        <translation>Wpisz adres właściciela</translation>
+    </message>
+    <message>
+        <source>Accept SHARES delegation / Delegate SHARES</source>
+        <translation>Zaakceptuj delegację SHARES / Deleguj SHARES</translation>
+    </message>
+    <message>
+        <source>Cold Staking address</source>
+        <translation>Cold Staking adres</translation>
+    </message>
+    <message>
+        <source>No receive addresses available, you can go to the receive screen and create some there!</source>
+        <translation>Brak dostępnych adresów odbioru, możesz przejść do ekranu odbioru i tam utworzyć!</translation>
+    </message>
+    <message>
+        <source>No contacts available, you can go to the contacts screen and add some there!</source>
+        <translation>Brak dostępnych kontaktów, możesz przejść do ekranu kontaktów i tam dodać!</translation>
+    </message>
+    <message>
+        <source>Cannot send delegation, wallet locked</source>
+        <translation>Nie można przekazać delegacji, portfel zablokowany</translation>
+    </message>
+    <message>
+        <source>Cold staking is networkely disabled</source>
+        <translation>Cold staking jest wyłączony przez sieć</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Kontrola monet</translation>
+    </message>
+    <message>
+        <source>Select %1 outputs to delegate.</source>
+        <translation>Wybierz nominały %1 do delegowania.</translation>
+    </message>
+    <message>
+        <source>Create Cold Staking Address</source>
+        <translation>Utwórz adres do zimnego stakowania</translation>
+    </message>
+    <message>
+        <source>Creates an address to receive delegated coins
+and stake them on their owner's behalf.</source>
+        <translation>Tworzy adres do odbioru przekazanych monet
+i postawić je w imieniu ich właściciela.</translation>
+    </message>
+    <message>
+        <source>My Cold Staking Addresses</source>
+        <translation>Moje adresy Cold Staking</translation>
+    </message>
+    <message>
+        <source>List your own cold staking addresses.</source>
+        <translation>Wypisz swoje własne adresy do zimnego stakowania.</translation>
+    </message>
+    <message>
+        <source>Invalid entry</source>
+        <translation>Niewłaściwy wpis</translation>
+    </message>
+    <message>
+        <source>Invalid entry, minimum delegable amount is </source>
+        <translation>Nieprawidłowy wpis, minimalna kwota do przekazania wynosi</translation>
+    </message>
+    <message>
+        <source>Owner address invalid</source>
+        <translation>Niepoprawny adres właściciela</translation>
+    </message>
+    <message>
+        <source>ALERT!</source>
+        <translation>ALARM!</translation>
+    </message>
+    <message>
+        <source>Delegating to an external owner address!
+
+The delegated coins will NOT be spendable by this wallet.
+Spending these coins will need to be done from the wallet or
+device containing the owner address.
+
+Do you wish to proceed?</source>
+        <translation>Delegowanie na zewnętrzny adres właściciela!
+
+Przekazywane monety NIE będą wydawane przez ten portfel.
+Wydawanie tych monet będzie musiało być wykonane z portfela lub
+urządzenie zawierające adres właściciela
+
+Czy chcesz kontynuować?</translation>
+    </message>
+    <message>
+        <source>Staking address corresponds to this wallet, change it to an external node</source>
+        <translation>Staking adres odpowiada temu portfelowi, zmień go na zewnętrzny węzeł</translation>
+    </message>
+    <message>
+        <source>Cannot create transaction.</source>
+        <translation>Nie można utworzyć transakcji.</translation>
+    </message>
+    <message>
+        <source>Coins delegated</source>
+        <translation>Monety przekazane</translation>
+    </message>
+    <message>
+        <source>You don't have any %1 to select.</source>
+        <translation>Nie masz żadnego %1 do wybrania.</translation>
+    </message>
+    <message>
+        <source>Cannot perform operation, wallet locked</source>
+        <translation>Nie można wykonać operacji, portfel zablokowany</translation>
+    </message>
+    <message>
+        <source>URI copied to clipboard</source>
+        <translation>URI skopiowany do schowka</translation>
+    </message>
+    <message>
+        <source>Address copied to clipboard</source>
+        <translation>Adres skopiowany do schowka</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>kopiuj</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>Edytuj</translation>
+    </message>
+    <message>
+        <source>Stake</source>
+        <translation>Stake</translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation>Czarna lista</translation>
+    </message>
+    <message>
+        <source>Edit Label</source>
+        <translation>Edytuj etykietę</translation>
+    </message>
+    <message>
+        <source>Copy owner
+address</source>
+        <translation>Kopiuj właściciela
+adres</translation>
+    </message>
+    <message>
+        <source>Address copied</source>
+        <translation>Adres skopiowany</translation>
+    </message>
+    <message>
+        <source>Edit Cold Address Label</source>
+        <translation>Edytuj etykietę adresu zimnego</translation>
+    </message>
+    <message>
+        <source>Whitelist failed, please check the logs</source>
+        <translation>Niepowodzenie białej listy, sprawdź dzienniki</translation>
+    </message>
+    <message>
+        <source> staking!</source>
+        <translation>staking!</translation>
+    </message>
+    <message>
+        <source>Blacklist failed, please check the logs</source>
+        <translation>Czarna lista nie powiodła się, sprawdź dzienniki</translation>
+    </message>
+    <message>
+        <source> blacklisted from staking</source>
+        <translation>na czarnej liście staking</translation>
+    </message>
+    <message>
+        <source>Owner address copied</source>
+        <translation>Adres właściciela został skopiowany</translation>
+    </message>
+    <message>
+        <source>Edit Owner Address Label</source>
+        <translation>Edytuj etykietę adresu właściciela</translation>
+    </message>
+    <message>
+        <source>Address label saved</source>
+        <translation>Etykieta adresu została zapisana</translation>
+    </message>
+    <message>
+        <source>Error storing address label</source>
+        <translation>Błąd podczas zapisywania etykiety adresu</translation>
+    </message>
+</context>
+<context>
+    <name>CreateProposalDialog</name>
+    <message>
+        <source>Name</source>
+        <translation>Nazwa</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Ilość</translation>
+    </message>
+    <message>
+        <source>Months</source>
+        <translation>Miesięcy</translation>
+    </message>
+    <message>
+        <source>CANCEL</source>
+        <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>NEXT</source>
+        <translation>KOLEJNY</translation>
+    </message>
+    <message>
+        <source>BACK</source>
+        <translation>WSTECZ</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>nieprawidłowa kwota</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Wyślij</translation>
+    </message>
+    <message>
+        <source>No contacts available, you can go to the contacts screen and add some there!</source>
+        <translation>Brak dostępnych kontaktów, możesz przejść do ekranu kontaktów i tam dodać!</translation>
     </message>
 </context>
 <context>
     <name>DashboardWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Transactions</source>
         <translation>Transakcje</translation>
@@ -682,6 +926,18 @@ do stakingu</translation>
     <message>
         <source>Staking statistics</source>
         <translation>Staking statystyka</translation>
+    </message>
+    <message>
+        <source>View your account's history</source>
+        <translation>Wyświetl historię swojego konta</translation>
+    </message>
+    <message>
+        <source>How to get SHARES</source>
+        <translation>Jak zdobyć SHARES</translation>
+    </message>
+    <message>
+        <source>Amount of staking rewards received.</source>
+        <translation>Liczba otrzymanych nagród za stakowanie.</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -702,10 +958,6 @@ do stakingu</translation>
     <message>
         <source>Filter by</source>
         <translation>Filtruj według</translation>
-    </message>
-    <message>
-        <source>Amount of SHARES and zSHARES staked.</source>
-        <translation>Ilość SHARES i zSHARES staked.</translation>
     </message>
     <message>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
@@ -749,10 +1001,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
 </context>
 <context>
     <name>DefaultDialog</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>OK</source>
         <translation>OK</translation>
@@ -801,8 +1049,8 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Edytuj adres wysyłania</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid SHARES address.</source>
-        <translation>Wprowadzony adres "%1" nie jest prawidłowym adresem SHARES.</translation>
+        <source>The entered address "%1" is not a valid CRYPTOSHARES address.</source>
+        <translation>Wprowadzony adres "%1" nie jest prawidłowym adresem CRYPTOSHARES.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -815,13 +1063,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <message>
         <source>New key generation failed.</source>
         <translation>Nie udało się wygenerować nowego klucza.</translation>
-    </message>
-</context>
-<context>
-    <name>ExpandableButton</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
     </message>
 </context>
 <context>
@@ -848,62 +1089,53 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     </message>
 </context>
 <context>
+    <name>GovernanceWidget</name>
+    <message>
+        <source>Date</source>
+        <translation>Data</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Ilość</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nazwa</translation>
+    </message>
+    <message>
+        <source>Sort by</source>
+        <translation>Sortuj</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Wszystko</translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation>Filtr</translation>
+    </message>
+    <message>
+        <source>Please wait until the node is fully synced</source>
+        <translation>Poczekaj, aż węzeł zostanie w pełni zsynchronizowany</translation>
+    </message>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
         <translation>Wersja</translation>
     </message>
     <message>
-        <source>CRYPTOSHARES</source>
-        <translation>CRYPTOSHARES</translation>
+        <source>About %1</source>
+        <translation>Około %1</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About CRYPTOSHARES</source>
-        <translation>O CRYPTOSHARES</translation>
-    </message>
-    <message>
         <source>Command-line options</source>
         <translation>Opcje wiersza poleceń</translation>
-    </message>
-    <message>
-        <source>Usage:</source>
-        <translation>Użycie:</translation>
-    </message>
-    <message>
-        <source>command-line options</source>
-        <translation>Opcje wiersza poleceń</translation>
-    </message>
-    <message>
-        <source>UI Options:</source>
-        <translation>UI opcje</translation>
-    </message>
-    <message>
-        <source>Choose data directory on startup (default: %u)</source>
-        <translation>Wybierz katalog danych podczas uruchamiania (domyślnie: %u )</translation>
-    </message>
-    <message>
-        <source>Show splash screen on startup (default: %u)</source>
-        <translation>Pokaż ekran powitalny podczas uruchamiania (domyślnie: %u )</translation>
-    </message>
-    <message>
-        <source>Hide QT staking charts on startup (default: %u)</source>
-        <translation>Ukryj wykresy staking QT przy uruchomieniu (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set language, for example "de_DE" (default: system locale)</source>
-        <translation>Ustaw język, na przykład "pl_PL" (domyślnie: ustawienia regionalne)</translation>
-    </message>
-    <message>
-        <source>Start minimized</source>
-        <translation>Start zminimalizowany</translation>
-    </message>
-    <message>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>Ustaw certyfikaty SSL dla żądania zapłaty (domyślnie: -system-)</translation>
     </message>
     <message>
         <source>OK</source>
@@ -917,16 +1149,16 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Zapraszamy</translation>
     </message>
     <message>
-        <source>Welcome to CRYPTOSHARES.</source>
-        <translation>Zapraszamy do CRYPTOSHARES</translation>
+        <source>Welcome to %1.</source>
+        <translation>Witamy w %1.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where CRYPTOSHARES will store its data.</source>
-        <translation>Ponieważ program jest uruchamiany po raz pierwszy, możesz wybrać miejsce, w którym CRYPTOSHARES będzie przechowywać swoje dane.</translation>
+        <source>As this is the first time the program is launched, you can choose where %1 will store its data.</source>
+        <translation>Ponieważ program jest uruchamiany po raz pierwszy, możesz wybrać, gdzie %1 będzie przechowywał swoje dane.</translation>
     </message>
     <message>
-        <source>CRYPTOSHARES will download and store a copy of the SHARES block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>CRYPTOSHARES pobierze i zapisze kopię łańcucha bloków SHARES. Przynajmniej %1 GB danych zostanie zapisanych w tym katalogu, a jego liczba będzie rosnąć z czasem. Portfel zostanie również zapisany w tym katalogu.</translation>
+        <source>%1 will download and store a copy of the CRYPTOSHARES block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>%1 pobierze i przechowa kopię łańcucha bloków CRYPTOSHARES. W tym katalogu będzie przechowywane co najmniej %2GB danych, które z czasem będą się powiększać. Portfel również będzie przechowywany w tym katalogu.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -943,10 +1175,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <message>
         <source>OK</source>
         <translation>OK</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES</source>
-        <translation>CRYPTOSHARES</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -968,28 +1196,12 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
 <context>
     <name>LoadingDialog</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
-    </message>
-    <message>
         <source>Loading</source>
         <translation>Ładowanie</translation>
-    </message>
-    <message>
-        <source>.</source>
-        <translation>.</translation>
     </message>
 </context>
 <context>
     <name>LockUnlock</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Unlock Wallet</source>
         <translation>Odblokuj portfel</translation>
@@ -1006,16 +1218,16 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
 <context>
     <name>MNRow</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Collateral tx not found</source>
+        <translation>Nie znaleziono Collateral tx</translation>
     </message>
-    </context>
+    <message>
+        <source>Status: %1</source>
+        <translation>Stan: %1</translation>
+    </message>
+</context>
 <context>
     <name>MasterNodeWizardDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -1045,10 +1257,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Utwórz nowy kontroler Masternode</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a SHARES Masternode you must dedicate a collateral amount of SHARES (the unit of SHARES) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aby utworzyć Masternode SHARES, musisz przeznaczyć 10.000 SHARES (jednostkę SHARES) na sieć (jednak monety te są nadal twoje i nigdy nie zmienią swojego właściciela).&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Możesz dezaktywować węzeł i odblokować monety w dowolnym momencie.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Set Masternode Name</source>
         <translation>Ustaw nazwę Masternode</translation>
     </message>
@@ -1063,10 +1271,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <message>
         <source>Make sure you have this amount of coins.</source>
         <translation>Upewnij się, że masz taką liczbę monet.</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of collateral amount will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dokonana zostanie transakcja 10 000 SHARES&lt;/p&gt;&lt;p&gt;na nowy pusty adres w portfelu.&lt;/p&gt;&lt;p&gt;Adres jest oznaczony pod nazwą węzła głównego.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1097,6 +1301,10 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Nieprawidłowy adres IP</translation>
     </message>
     <message>
+        <source>Unknown error</source>
+        <translation>Nieznany błąd</translation>
+    </message>
+    <message>
         <source>Prepare master node failed.
 
 %1
@@ -1123,6 +1331,30 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
 %1</translation>
     </message>
     <message>
+        <source>To create a CRYPTOSHARES Masternode you must dedicate %1 (the unit of CRYPTOSHARES) to the network (however, these coins are still yours and will never leave your possession).</source>
+        <translation>Aby stworzyć CRYPTOSHARES Masternode musisz przeznaczyć %1 (jednostek CRYPTOSHARES) na sieć (jednak te monety nadal są Twoje i pozostaną w twoim posiadaniu).</translation>
+    </message>
+    <message>
+        <source>You can deactivate the node and unlock the coins at any time.</source>
+        <translation>W każdej chwili możesz dezaktywować węzeł i odblokować monety.</translation>
+    </message>
+    <message>
+        <source>A transaction of %1 will be made</source>
+        <translation>Zostanie dokonana transakcja o wartości %1</translation>
+    </message>
+    <message>
+        <source>to a new empty address in your wallet.</source>
+        <translation>na nowy pusty adres w portfelu.</translation>
+    </message>
+    <message>
+        <source>The Address is labeled under the master node's name.</source>
+        <translation>Adres jest oznaczony pod nazwą węzła głównego.</translation>
+    </message>
+    <message>
+        <source>walletModel not set</source>
+        <translation>walletModel nie jest ustawiony</translation>
+    </message>
+    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Nieprawidłowy plik masternode.conf</translation>
     </message>
@@ -1137,10 +1369,6 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
 </context>
 <context>
     <name>MasterNodesWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Start All</source>
         <translation>Start All</translation>
@@ -1198,6 +1426,12 @@ i głosuj na system skarbu otrzymujący okresową nagrodę.</translation>
         <translation>Nie można edytować masternode, portfel zablokowany</translation>
     </message>
     <message>
+        <source>Cannot start masternode, the collateral transaction has not been confirmed by the network yet.
+Please wait few more minutes (masternode collaterals require %1 confirmations).</source>
+        <translation>Nie można uruchomić masternode, transakcja zabezpieczenia nie została jeszcze potwierdzona przez sieć.
+Proszę poczekać jeszcze kilka minut (zabezpieczenia masternode wymagają %1 potwierdzeń).</translation>
+    </message>
+    <message>
         <source>Background task is being executed, please wait</source>
         <translation>Zadanie w tle jest wykonywane, proszę czekać</translation>
     </message>
@@ -1238,11 +1472,23 @@ i głosuj na system skarbu otrzymujący okresową nagrodę.</translation>
         <translation>Co to jest Masternode?</translation>
     </message>
     <message>
+        <source>FAQ explaining what Masternodes are</source>
+        <translation>FAQ wyjaśniające, czym są Masternody</translation>
+    </message>
+    <message>
+        <source>What is a Controller?</source>
+        <translation>Co to jest kontroler?</translation>
+    </message>
+    <message>
+        <source>FAQ explaining what is a Masternode Controller</source>
+        <translation>FAQ wyjaśniające, czym jest kontroler Masternode</translation>
+    </message>
+    <message>
         <source>You are just about to export the required data to run a Masternode
 on a remote server to your clipboard.
 
 
-You will only have to paste the data in the cryptoshares.conf file
+You will only have to paste the data in the shares.conf file
 of your remote server and start it, then start the Masternode using
 this controller wallet (select the Masternode in the list and press "start").
 </source>
@@ -1250,7 +1496,7 @@ this controller wallet (select the Masternode in the list and press "start").
 na zdalnym serwerze do twojego schowka.
 
 
-Wystarczy wkleić dane do pliku cryptoshares.conf
+Wystarczy wkleić dane do pliku shares.conf
 zdalnego serwera i uruchom go, a następnie uruchom Masternode przy użyciu
 portfela kontrolujacego (wybierz Masternode z listy i naciśnij „start”).
 </translation>
@@ -1286,16 +1532,16 @@ Jesteś pewny?</translation>
         <translation>Nie można utworzyć kontrolera Masternode, portfel zablokowany</translation>
     </message>
     <message>
+        <source>Not enough balance to create a masternode, %1 required.</source>
+        <translation>Niewystarczające saldo do utworzenia masternode, %1 wymagane.</translation>
+    </message>
+    <message>
         <source>Error creating masternode</source>
         <translation>Błąd podczas tworzenia masternode</translation>
     </message>
 </context>
 <context>
     <name>MnInfoDialog</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Masternode Information</source>
         <translation>Informacje o Masternode</translation>
@@ -1328,23 +1574,85 @@ Jesteś pewny?</translation>
         <source>Export data to run the Masternode on a remote server</source>
         <translation>Wyeksportuj dane, aby uruchomić Masternode na zdalnym serwerze</translation>
     </message>
-    </context>
-<context>
-    <name>MyAddressRow</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Masternode public key copied</source>
+        <translation>Skopiowano klucz publiczny Masternode</translation>
+    </message>
+    <message>
+        <source>Collateral tx id copied</source>
+        <translation>Skopiowano Collateral tx</translation>
     </message>
 </context>
 <context>
-    <name>NavMenuWidget</name>
+    <name>MnSelectionDialog</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Select All</source>
+        <translation>Zaznacz wszystko</translation>
     </message>
     <message>
-        <source>V 1.0.0</source>
-        <translation>V 1.0.0</translation>
+        <source>Name</source>
+        <translation>Nazwa</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>CANCEL</source>
+        <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Tak</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Nie</translation>
+    </message>
+    </context>
+<context>
+    <name>NavMenuWidget</name>
+    <message>
+        <source>HOME
+</source>
+        <translation>DOM
+</translation>
+    </message>
+    <message>
+        <source>SEND
+</source>
+        <translation>WYSŁANIE
+</translation>
+    </message>
+    <message>
+        <source>RECEIVE
+</source>
+        <translation>OTRZYWANIE
+</translation>
+    </message>
+    <message>
+        <source>CONTACTS
+</source>
+        <translation>KONTAKTY
+</translation>
+    </message>
+    <message>
+        <source>MASTER
+NODES</source>
+        <translation>MASTER
+NODES</translation>
+    </message>
+    <message>
+        <source>COLD
+STAKING</source>
+        <translation>COLD
+STAKING</translation>
+    </message>
+    <message>
+        <source>SETTINGS
+</source>
+        <translation>USTAWIENIA
+</translation>
     </message>
     <message>
         <source>v%1</source>
@@ -1358,12 +1666,8 @@ Jesteś pewny?</translation>
         <translation>Otwórz URI</translation>
     </message>
     <message>
-        <source>Open payment request from URI or file</source>
-        <translation>Otwórz prośbę o płatność z URI lub pliku</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
+        <source>Open CRYPTOSHARES URI</source>
+        <translation>Otwórz CRYPTOSHARES URI</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1373,321 +1677,9 @@ Jesteś pewny?</translation>
         <source>OK</source>
         <translation>OK</translation>
     </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>Wybierz plik żądania płatności</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>Wybierz plik żądania płatności, aby otworzyć</translation>
-    </message>
-    <message>
-        <source>File not found</source>
-        <translation>Nie znaleziono pliku</translation>
-    </message>
-    <message>
-        <source>Parsed data too large</source>
-        <translation>Przetwarzane dane są za duże</translation>
-    </message>
-    <message>
-        <source>Invalid URI, not starting with "cryptoshares" prefix</source>
-        <translation>Nieprawidłowy identyfikator URI, nie zaczynający się od prefiksu „cryptoshares”</translation>
-    </message>
-</context>
-<context>
-    <name>OptionButton</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-</context>
-<context>
-    <name>OptionsDialog</name>
-    <message>
-        <source>Options</source>
-        <translation>Opcje</translation>
-    </message>
-    <message>
-        <source>&amp;Main</source>
-        <translation>&amp;Główne</translation>
-    </message>
-    <message>
-        <source>Size of &amp;database cache</source>
-        <translation>&amp;Rozmiar bazy danych cache</translation>
-    </message>
-    <message>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
-        <source>Number of script &amp;verification threads</source>
-        <translation>Liczba wątków skryptowych i weryfikacyjnych</translation>
-    </message>
-    <message>
-        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0 = auto, &lt;0 = zostaw za darmo)</translation>
-    </message>
-    <message>
-        <source>W&amp;allet</source>
-        <translation>&amp;Portfel</translation>
-    </message>
-    <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
-        <translation>Jeśli wyłączysz wydawanie niepotwierdzonych reszt, reszta z transakcji nie może być użyta, dopóki transakcja nie uzyska co najmniej jednego potwierdzenia. Ma to również wpływ na sposób obliczania salda.</translation>
-    </message>
-    <message>
-        <source>Automatically open the SHARES client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatycznie otwórz port klienta SHARES na routerze. Działa to tylko wtedy, gdy twój router obsługuje UPnP i jest włączony.</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside</source>
-        <translation>Akceptuj połączenia z zewnątrz</translation>
-    </message>
-    <message>
-        <source>Allow incoming connections</source>
-        <translation>Zezwól na przychodzące połączenia</translation>
-    </message>
-    <message>
-        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>&amp;Połącz przez serwer proxy SOCKS5 (domyślne proxy):</translation>
-    </message>
-    <message>
-        <source>Expert</source>
-        <translation>Ekspert</translation>
-    </message>
-    <message>
-        <source>Automatically start SHARES after logging in to the system.</source>
-        <translation>Automatycznie uruchom SHARES po zalogowaniu do systemu</translation>
-    </message>
-    <message>
-        <source>&amp;Start SHARES on system login</source>
-        <translation>&amp;Uruchom SHARES podczas logowania do systemu</translation>
-    </message>
-    <message>
-        <source>Whether to show coin control features or not.</source>
-        <translation>Czy pokazać cechy kontroli monety czy nie</translation>
-    </message>
-    <message>
-        <source>Enable coin &amp;control features</source>
-        <translation>Włącz cechy kontroli monety</translation>
-    </message>
-    <message>
-        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
-        <translation>Pokaż dodatkową tabelę wszystkich twoich masternodów w pierwszej szpalcie&lt;br/&gt; i wszystkich masternodów w sieci w drugiej</translation>
-    </message>
-    <message>
-        <source>Show Masternodes Tab</source>
-        <translation>Pokaż Masternode Tab</translation>
-    </message>
-    <message>
-        <source>&amp;Spend unconfirmed change</source>
-        <translation>&amp;Wydaj niepotwierdzoną resztę</translation>
-    </message>
-    <message>
-        <source>&amp;Network</source>
-        <translation>&amp;Sieć</translation>
-    </message>
-    <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting SHARES.</source>
-        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie SHARES</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-        https://discord.gg/T3CYMwTfjJ</source>
-        <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-        https://discord.gg/T3CYMwTfjJ</translation>
-    </message>
-    <message>
-        <source>Map port using &amp;UPnP</source>
-        <translation>Mapuj port za pomocą &amp;UPnP</translation>
-    </message>
-    <message>
-        <source>Enable automatic minting of SHARES units to zSHARES</source>
-        <translation>Włącz automatyczny minting SHARES do zSHARES</translation>
-    </message>
-    <message>
-        <source>Enable zSHARES Automint</source>
-        <translation>Włącz zSHARES Automint</translation>
-    </message>
-    <message>
-        <source>Enable automatic zSHARES minting from specific addresses</source>
-        <translation>Włącz automatyczne wybijanie zSHARES-ów z określonych adresów</translation>
-    </message>
-    <message>
-        <source>Enable Automint Addresses</source>
-        <translation>Włącz adresy Automint</translation>
-    </message>
-    <message>
-        <source>Percentage of incoming SHARES which get automatically converted to zSHARES via Zerocoin Protocol (min: 10%)</source>
-        <translation>Procent SHARES, które są automatycznie konwertowane na zSHARES za pomocą protokołu Zerocoin (min: 10%)</translation>
-    </message>
-    <message>
-        <source>Percentage of autominted zSHARES</source>
-        <translation>Procent automint zSHARES</translation>
-    </message>
-    <message>
-        <source>Wait with automatic conversion to Zerocoin until enough SHARES for this denomination is available</source>
-        <translation>Zaczekaj z automatyczną konwersją na Zerocoin, aż będzie dostępna wystarczająca wartość SHARES dla tego nominału</translation>
-    </message>
-    <message>
-        <source>Preferred Automint zSHARES Denomination</source>
-        <translation>Preferowane nominały Automint zSHARES</translation>
-    </message>
-    <message>
-        <source>Stake split threshold:</source>
-        <translation>Próg podziału stawki 'stake' :</translation>
-    </message>
-    <message>
-        <source>Connect to the SHARES network through a SOCKS5 proxy.</source>
-        <translation>Połącz z siecią SHARES poprzez SOCKS5 proxy.</translation>
-    </message>
-    <message>
-        <source>Proxy &amp;IP:</source>
-        <translation>Proxy &amp;IP</translation>
-    </message>
-    <message>
-        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation>Adres IP proxy (np. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
-    </message>
-    <message>
-        <source>&amp;Port:</source>
-        <translation>&amp;Port</translation>
-    </message>
-    <message>
-        <source>Port of the proxy (e.g. 9050)</source>
-        <translation>Port proxy (np. 9050)</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
-    </message>
-    <message>
-        <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Pokaż tylko ikonkę po zminimalizowaniu okna.</translation>
-    </message>
-    <message>
-        <source>&amp;Minimize to the tray instead of the taskbar</source>
-        <translation>&amp;Zminimalizuj do tray zamiast do paska zadań</translation>
-    </message>
-    <message>
-        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Zminimalizuj zamiast wychodzić z aplikacji, gdy okno jest zamknięte. Po włączeniu tej opcji aplikacja zostanie zamknięta dopiero po wybraniu opcji Zakończ w menu.</translation>
-    </message>
-    <message>
-        <source>M&amp;inimize on close</source>
-        <translation>&amp;Zminimalizuj przy zamknięciu</translation>
-    </message>
-    <message>
-        <source>&amp;Display</source>
-        <translation>&amp;Pokaż</translation>
-    </message>
-    <message>
-        <source>User Interface &amp;language:</source>
-        <translation>Interfejs użytkownika &amp;Język.</translation>
-    </message>
-    <message>
-        <source>User Interface Theme:</source>
-        <translation>Motyw interfejsu użytkownika:</translation>
-    </message>
-    <message>
-        <source>Unit to show amounts in:</source>
-        <translation>Jednostka pokazująca kwoty:</translation>
-    </message>
-    <message>
-        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Nagrody ze stakingu lub masternode, które nie są jeszcze dojrzałe</translation>
-    </message>
-    <message>
-        <source>Decimal digits</source>
-        <translation>Liczby dziesiętne</translation>
-    </message>
-    <message>
-        <source>Hide empty balances</source>
-        <translation>Ukryj puste saldo</translation>
-    </message>
-    <message>
-        <source>Hide orphan stakes in transaction lists</source>
-        <translation>Ukryj osierocone stakes w liście tranzakcji</translation>
-    </message>
-    <message>
-        <source>Hide orphan stakes</source>
-        <translation>Ukryj osierocone stakes</translation>
-    </message>
-    <message>
-        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Zewnętrzne adresy URL (np. Eksplorator bloków), które pojawiają się na karcie transakcji jako elementy menu kontekstowego. %s w adresie URL jest zastąpione hashem transakcji. Wielokrotne URL są oddzielone pionową linią |.</translation>
-    </message>
-    <message>
-        <source>Third party transaction URLs</source>
-        <translation>Adresy URL transakcji stron trzecich</translation>
-    </message>
-    <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Aktywne opcje wiersza polecenia, które zastępują powyższe opcje:</translation>
-    </message>
-    <message>
-        <source>Reset all client options to default.</source>
-        <translation>Zresetuj wszystkie ustawienia by przywrócić ustawienia domyślne</translation>
-    </message>
-    <message>
-        <source>&amp;Reset Options</source>
-        <translation>&amp;Opcje resetowania</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Anuluj</translation>
-    </message>
-    <message>
-        <source>Any</source>
-        <translation>Jakikolwiek</translation>
-    </message>
-    <message>
-        <source>default</source>
-        <translation>domyślny</translation>
-    </message>
-    <message>
-        <source>none</source>
-        <translation>brak</translation>
-    </message>
-    <message>
-        <source>Confirm options reset</source>
-        <translation>Zatwierdź resetowanie opcji</translation>
-    </message>
-    <message>
-        <source>Client restart required to activate changes.</source>
-        <translation>Wymagany restart programu do aktywowania zmian.</translation>
-    </message>
-    <message>
-        <source>Client will be shutdown, do you want to proceed?</source>
-        <translation>Program zostanie zamknięty, czy chcesz kontynuować?</translation>
-    </message>
-    <message>
-        <source>This change would require a client restart.</source>
-        <translation>Ta zmiana będzie wymagała restartu programu.</translation>
-    </message>
-    <message>
-        <source>The supplied proxy address is invalid.</source>
-        <translation>Podany adres proxy jest nieprawidłowy</translation>
-    </message>
-    <message>
-        <source>The supplied proxy port is invalid.</source>
-        <translation>Podany port proxy jest nieprawidłowy.</translation>
-    </message>
-    <message>
-        <source>The supplied proxy settings are invalid.</source>
-        <translation>Podane ustawienia proxy są nieprawidłowe.</translation>
-    </message>
 </context>
 <context>
     <name>CRYPTOSHARESGUI</name>
-    <message>
-        <source>CRYPTOSHARES</source>
-        <translation>CRYPTOSHARES</translation>
-    </message>
     <message>
         <source>Wallet</source>
         <translation>Portfel</translation>
@@ -1713,8 +1705,12 @@ Jesteś pewny?</translation>
         <translation>Wyjdź z aplikacji</translation>
     </message>
     <message>
-        <source>CRYPTOSHARES client</source>
-        <translation>CRYPTOSHARES klient</translation>
+        <source>%1 client</source>
+        <translation>%1 klient</translation>
+    </message>
+    <message>
+        <source>Alert!</source>
+        <translation>Alarm!</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1731,10 +1727,6 @@ Jesteś pewny?</translation>
     <message>
         <source>System Message</source>
         <translation>Wiadomość systemowa</translation>
-    </message>
-    <message>
-        <source>Sent MultiSend transaction</source>
-        <translation>Wysłane transakcje MultiWysyłki</translation>
     </message>
     <message>
         <source>Sent transaction</source>
@@ -1768,14 +1760,6 @@ Adres: %4
         <translation>Obsługa URI</translation>
     </message>
     <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>Adres URL żądania zapłaty jest nieprawidłowy: %1</translation>
-    </message>
-    <message>
-        <source>Payment request file handling</source>
-        <translation>Obsługa plików żądań płatności</translation>
-    </message>
-    <message>
         <source>Invalid payment address %1</source>
         <translation>Nieprawidłowy adres płatności %1</translation>
     </message>
@@ -1784,68 +1768,8 @@ Adres: %4
         <translation>Nie można uruchomić cryptoshares: click-to-pay handler</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid SHARES address or malformed URI parameters.</source>
-        <translation>Nie można przeanalizować identyfikatora URI! Może to być spowodowane nieprawidłowym adresem SHARES lub nieprawidłowymi parametrami URI.</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>Plik żądania płatności nie może zostać odczytany! Przyczyną może być niepoprawny plik żądania płatności.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>Żądanie płatności odrzucone</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>Sieć żądań płatności nie jest zgodna z siecią klienta.</translation>
-    </message>
-    <message>
-        <source>Payment request has expired.</source>
-        <translation>Żadanie płatności straciło ważność</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>Żądanie płatności nie zainicjowane</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Niezweryfikowane żądania płatności dotyczące niestandardowych skryptów płatności są nieobsługiwane.</translation>
-    </message>
-    <message>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Żądana kwota płatności %1 jest za mała (za pył).</translation>
-    </message>
-    <message>
-        <source>Refund from %1</source>
-        <translation>Zwrot %1</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Żądanie płatności %1 jest za duże ( %2 bajty, dozwolone %3 bajty).</translation>
-    </message>
-    <message>
-        <source>Payment request DoS protection</source>
-        <translation>Wniosek o płatność Ochrona DoS</translation>
-    </message>
-    <message>
-        <source>Error communicating with %1: %2</source>
-        <translation>Błąd komunikacji z %1: %2</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>Żądania płatności nie można przeanalizować!</translation>
-    </message>
-    <message>
-        <source>Bad response from server %1</source>
-        <translation>Zła odpowiedź z serwera %1</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>Błąd żądania sieci</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>Płatność potwierdzona</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid CRYPTOSHARES address or malformed URI parameters.</source>
+        <translation>Nie można przeanalizować identyfikatora URI! Może to być spowodowane nieprawidłowym adresem CRYPTOSHARES lub nieprawidłowymi parametrami URI.</translation>
     </message>
 </context>
 <context>
@@ -1862,6 +1786,36 @@ Adres: %4
         <source>Ping Time</source>
         <translation>Czas Pingu</translation>
     </message>
+    <message>
+        <source>NodeID</source>
+        <translation>ID węzła </translation>
+    </message>
+</context>
+<context>
+    <name>ProposalCard</name>
+    <message>
+        <source>No</source>
+        <translation>Nie</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Tak</translation>
+    </message>
+    </context>
+<context>
+    <name>ProposalInfoDialog</name>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Ilość</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
     </context>
 <context>
     <name>QObject</name>
@@ -1870,8 +1824,8 @@ Adres: %4
         <translation>Ilość</translation>
     </message>
     <message>
-        <source>Enter SHARES address (e.g. %1)</source>
-        <translation>Wpisz adres SHARES (np. %1)</translation>
+        <source>Enter CRYPTOSHARES address (e.g. %1)</source>
+        <translation>Wpisz adres CRYPTOSHARES (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1914,12 +1868,8 @@ Adres: %4
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>A fatal error occurred. SHARES can no longer continue safely and will quit.</source>
-        <translation>Wystąpił błąd krytyczny. SHARES nie może już działać bezpiecznie i zakończy działanie.</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES</source>
-        <translation>CRYPTOSHARES</translation>
+        <source>A fatal error occurred. CRYPTOSHARES can no longer continue safely and will quit.</source>
+        <translation>Wystąpił błąd krytyczny. CRYPTOSHARES nie może już działać bezpiecznie i zakończy działanie.</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -1930,16 +1880,16 @@ Adres: %4
         <translation>Błąd: Nie można przeanalizować pliku konfiguracyjnego: %1. Używaj tylko składni klucz=wartość.</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Błąd: nieprawidłowa kombinacja -regtest i -testnet.</translation>
+        <source>Error: %1</source>
+        <translation>Błąd: %1</translation>
+    </message>
+    <message>
+        <source>%1 didn't yet exit safely...</source>
+        <translation>%1 nie zakończył jeszcze bezpiecznie swojej działalności...</translation>
     </message>
     <message>
         <source>Error reading masternode configuration file: %1</source>
         <translation>Błąd odczytu pliku konfiguracyjnego masternode: %1</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES didn't yet exit safely...</source>
-        <translation>CRYPTOSHARES nie zamkną się jeszcze bezpiecznie ...</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -1948,6 +1898,30 @@ Adres: %4
     <message>
         <source>Receiving</source>
         <translation>Odbieranie</translation>
+    </message>
+    <message>
+        <source>Delegator</source>
+        <translation>Delegator</translation>
+    </message>
+    <message>
+        <source>Delegable</source>
+        <translation>Możliwość delegowania</translation>
+    </message>
+    <message>
+        <source>Cold Staking</source>
+        <translation>Cold Staking</translation>
+    </message>
+    <message>
+        <source>Cold Staking Contact</source>
+        <translation>Cold Staking Kontakt</translation>
+    </message>
+    <message>
+        <source>Receiving Shielded</source>
+        <translation>Odbieranie Shielded</translation>
+    </message>
+    <message>
+        <source>Contact Shielded</source>
+        <translation>Kontakty Shielded</translation>
     </message>
     <message>
         <source>Hidden</source>
@@ -1968,6 +1942,14 @@ Adres: %4
     <message>
         <source>Staking Contacts</source>
         <translation>Kontakty Staking</translation>
+    </message>
+    <message>
+        <source>Shielded Recv</source>
+        <translation>Odbiór Shielded</translation>
+    </message>
+    <message>
+        <source>Shielded Contact</source>
+        <translation>Kontakt Shielded</translation>
     </message>
     <message>
         <source>Date desc</source>
@@ -1994,6 +1976,10 @@ Adres: %4
         <translation>Wysłano</translation>
     </message>
     <message>
+        <source>Shield</source>
+        <translation>Shield</translation>
+    </message>
+    <message>
         <source>Mined</source>
         <translation>wydobyty</translation>
     </message>
@@ -2010,8 +1996,20 @@ Adres: %4
         <translation>Dla siebie</translation>
     </message>
     <message>
+        <source>Cold stakes</source>
+        <translation>Cold stakes</translation>
+    </message>
+    <message>
         <source>Hot stakes</source>
         <translation>Hot stakes</translation>
+    </message>
+    <message>
+        <source>Delegated</source>
+        <translation>Delegowany</translation>
+    </message>
+    <message>
+        <source>Delegations</source>
+        <translation>Delegacje</translation>
     </message>
     <message>
         <source>by Label</source>
@@ -2025,7 +2023,59 @@ Adres: %4
         <source>by Date</source>
         <translation>według daty</translation>
     </message>
-    </context>
+    <message>
+        <source>Jan</source>
+        <translation>Sty</translation>
+    </message>
+    <message>
+        <source>Feb</source>
+        <translation>Lut</translation>
+    </message>
+    <message>
+        <source>Mar</source>
+        <translation>Mar</translation>
+    </message>
+    <message>
+        <source>Apr</source>
+        <translation>Kwi</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>Mai</translation>
+    </message>
+    <message>
+        <source>Jun</source>
+        <translation>Cze</translation>
+    </message>
+    <message>
+        <source>Jul</source>
+        <translation>Lip</translation>
+    </message>
+    <message>
+        <source>Aug</source>
+        <translation>Sie</translation>
+    </message>
+    <message>
+        <source>Sep</source>
+        <translation>Wrz</translation>
+    </message>
+    <message>
+        <source>Oct</source>
+        <translation>Paz</translation>
+    </message>
+    <message>
+        <source>Nov</source>
+        <translation>Lis</translation>
+    </message>
+    <message>
+        <source>Dec</source>
+        <translation>Gru</translation>
+    </message>
+    <message>
+        <source>Address with no label</source>
+        <translation>Adres bez etykiety</translation>
+    </message>
+</context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -2047,10 +2097,6 @@ Adres: %4
     <message>
         <source>Client name</source>
         <translation>Nazwa klienta</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
     </message>
     <message>
         <source>Number of connections</source>
@@ -2077,10 +2123,6 @@ Adres: %4
         <translation>Debuguj plik log</translation>
     </message>
     <message>
-        <source>Build date</source>
-        <translation>Data zbudowania</translation>
-    </message>
-    <message>
         <source>Current number of blocks</source>
         <translation>Bieżąca liczba bloków</translation>
     </message>
@@ -2097,8 +2139,8 @@ Adres: %4
         <translation>Łańcuch bloków</translation>
     </message>
     <message>
-        <source>Open the SHARES debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Otwórz plik dziennika debugowania SHARES z bieżącego katalogu danych. Może to potrwać kilka sekund w przypadku dużych plików dziennika.</translation>
+        <source>Open the CRYPTOSHARES debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Otwórz plik dziennika debugowania CRYPTOSHARES z bieżącego katalogu danych. Może to potrwać kilka sekund w przypadku dużych plików dziennika.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -2237,18 +2279,6 @@ Adres: %4
         <translation>Przesuniecie Czasu</translation>
     </message>
     <message>
-        <source>Custom Backup Path:</source>
-        <translation>Standardowa ścieżka kopii zapasowej:</translation>
-    </message>
-    <message>
-        <source>Custom zSHARES Backup Path:</source>
-        <translation>standardowa ścieżka kopii zapasowej zSHARES:</translation>
-    </message>
-    <message>
-        <source>Custom Backups Threshold:</source>
-        <translation>Próg standardowych kopii zapasowych:</translation>
-    </message>
-    <message>
         <source>Salvage wallet</source>
         <translation>Odzyskaj portfel</translation>
     </message>
@@ -2289,10 +2319,6 @@ Adres: %4
         <translation>Przebuduj indeks łańcucha bloków z bieżących plików blk000??.dat</translation>
     </message>
     <message>
-        <source>-resync:</source>
-        <translation>-resync:</translation>
-    </message>
-    <message>
         <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
         <translation>Usuwa wszystkie lokalne foldery blockchain, aby portfel synchronizował się od początku.</translation>
     </message>
@@ -2321,8 +2347,8 @@ Adres: %4
         <translation>Z</translation>
     </message>
     <message>
-        <source>Welcome to the SHARES RPC console.</source>
-        <translation>Witamy w konsoli SHARES RPC.</translation>
+        <source>Welcome to the CRYPTOSHARES RPC console.</source>
+        <translation>Witamy w konsoli CRYPTOSHARES RPC.</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -2377,8 +2403,12 @@ Adres: %4
         <translation>Użyj strzałek w górę iw dół, aby poruszać się po historii, a %1, aby wyczyścić ekran.</translation>
     </message>
     <message>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Wpisz &lt;b&gt;help&lt;/b&gt;, aby uzyskać przegląd dostępnych poleceń.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation>Wpisz %1, aby uzyskać przegląd dostępnych poleceń.</translation>
+    </message>
+    <message>
+        <source>For more information on using this console type %1.</source>
+        <translation>Aby uzyskać więcej informacji na temat korzystania z tej konsoli, wpisz %1.</translation>
     </message>
     <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
@@ -2436,12 +2466,12 @@ Adres: %4
 <context>
     <name>ReceiveDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
-    <message>
         <source>My Address</source>
         <translation>Mój adres</translation>
+    </message>
+    <message>
+        <source>COPY</source>
+        <translation>KOPIUJ</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -2451,12 +2481,20 @@ Adres: %4
 <context>
     <name>ReceiveWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Scan the QR code or copy the address to receive SHARES</source>
+        <translation>Zeskanuj kod QR lub skopiuj adres, aby otrzymać SHARES</translation>
     </message>
     <message>
-        <source>No address</source>
-        <translation>Brak adresu</translation>
+        <source>Transparent</source>
+        <translation>Transparent</translation>
+    </message>
+    <message>
+        <source>Shielded</source>
+        <translation>Shielded</translation>
+    </message>
+    <message>
+        <source>Accept transparent or shielded SHARES</source>
+        <translation>Zaakceptuj transparent albo shielded SHARES</translation>
     </message>
     <message>
         <source>Add Label</source>
@@ -2471,12 +2509,34 @@ Adres: %4
         <translation>kopiuj</translation>
     </message>
     <message>
+        <source>Filter</source>
+        <translation>Filtr</translation>
+    </message>
+    <message>
         <source>Receive</source>
         <translation>Otrzymaj</translation>
     </message>
     <message>
-        <source>No available address, try unlocking the wallet</source>
-        <translation>Brak dostępnego adresu, spróbuj odblokować portfel</translation>
+        <source>My Addresses</source>
+        <translation>Moje adresy</translation>
+    </message>
+    <message>
+        <source>List your own addresses</source>
+        <translation>Podaj własne adresy</translation>
+    </message>
+    <message>
+        <source>Create Request</source>
+        <translation>Utwórz żądanie</translation>
+    </message>
+    <message>
+        <source>Request payment with a fixed amount</source>
+        <translation>Poproś o płatność ustaloną kwotą</translation>
+    </message>
+    <message>
+        <source>No available address
+try unlocking the wallet</source>
+        <translation>Brak dostępnego adresu
+spróbuj odblokować portfel</translation>
     </message>
     <message>
         <source>Error generating address</source>
@@ -2561,20 +2621,12 @@ Adres: %4
 <context>
     <name>RequestDialog</name>
     <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Ilość</translation>
     </message>
     <message>
-        <source>SHARES</source>
-        <translation>SHARES</translation>
-    </message>
-    <message>
-        <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
+        <source>Instead of sharing only a CRYPTOSHARES address, you can create a payment request, bundling up more information</source>
+        <translation>Zamiast udostępniać tylko adres CRYPTOSHARES, możesz utworzyć żądanie zapłaty, łącząc więcej informacji</translation>
     </message>
     <message>
         <source>COPY ADDRESS</source>
@@ -2617,30 +2669,46 @@ Adres: %4
         <translation>WYGENERUJ</translation>
     </message>
     <message>
+        <source>Creates an address to receive coin delegations and be able to stake them.</source>
+        <translation>Tworzy adres, na który mają być wysyłane delegowane monety do stake.</translation>
+    </message>
+    <message>
+        <source>New Cold Staking Address</source>
+        <translation>Nowy adres do Cold Staking</translation>
+    </message>
+    <message>
         <source>Amount (optional)</source>
         <translation>Kwota (opcjonalnie)</translation>
+    </message>
+    <message>
+        <source>Address label cannot be empty</source>
+        <translation>Etykieta adresu nie może być pusta</translation>
     </message>
     <message>
         <source>Invalid amount</source>
         <translation>nieprawidłowa kwota</translation>
     </message>
-    </context>
+    <message>
+        <source>Request for </source>
+        <translation>Wniosek o</translation>
+    </message>
+    <message>
+        <source>Cold Staking Address Generated</source>
+        <translation>Wygenerowano adres Cold Staking</translation>
+    </message>
+</context>
 <context>
     <name>SendChangeAddressDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
     <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
-        <translation>Niestandardowa adresu reszty</translation>
+        <translation>Standardowy adres reszty</translation>
     </message>
     <message>
-        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" SHARES address</source>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" CRYPTOSHARES address</source>
         <translation>Pozostała wartość wynikająca z wpłat i wypłat trafia na adresu „reszty”</translation>
     </message>
     <message>
@@ -2655,24 +2723,20 @@ Adres: %4
         <source>Invalid address</source>
         <translation>Nieprawidłowy adres</translation>
     </message>
-    </context>
+    <message>
+        <source>Cannot use cold staking addresses for change</source>
+        <translation>Nie można użyć adresów cold staking jako adresu reszty</translation>
+    </message>
+</context>
 <context>
     <name>SendCustomFeeDialog</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Recommended</source>
         <translation>Zalecane</translation>
     </message>
     <message>
-        <source>SHARES/kilobyte</source>
-        <translation>SHARES/kilobyte</translation>
-    </message>
-    <message>
-        <source>0.00 KB</source>
-        <translation>0.00 KB</translation>
+        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain</source>
+        <translation>Dostosuj opłatę transakcyjną, w zależności od wartości opłaty, Twoja transakcja może zostać szybciej uwzględniona w łańcuchu bloków</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2712,18 +2776,57 @@ Adres: %4
     </message>
 </context>
 <context>
-    <name>SendMultiRow</name>
+    <name>SendMemoDialog</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>Private message only visible for the recipient(s)</source>
+        <translation>Wiadomość prywatna widoczna tylko dla adresatów()</translation>
     </message>
+    <message>
+        <source>SAVE</source>
+        <translation>ZAPISZ</translation>
+    </message>
+    <message>
+        <source>RESET</source>
+        <translation>RESET</translation>
+    </message>
+    <message>
+        <source>CANCEL</source>
+        <translation>ANULUJ</translation>
+    </message>
+</context>
+<context>
+    <name>SendMultiRow</name>
     <message>
         <source>Enter address</source>
         <translation>Podaj adres</translation>
     </message>
     <message>
+        <source>Address label (optional)</source>
+        <translation>Etykieta adresowa (opcjonalnie)</translation>
+    </message>
+    <message>
         <source>Enter label</source>
         <translation>Wpisz etykietę</translation>
+    </message>
+    <message>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less SHARES than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Opłata zostanie odliczona od wysyłanej kwoty. Odbiorca otrzyma mniej SHARES niż wpisałeś w polu kwoty. Jeśli wybrano kilku odbiorców, opłata zostanie podzielona po równo.</translation>
+    </message>
+    <message>
+        <source>Subtract fee from amount</source>
+        <translation>Odejmij opłatę od kwoty</translation>
+    </message>
+    <message>
+        <source>Update memo</source>
+        <translation>Zaktualizuj notatkę</translation>
+    </message>
+    <message>
+        <source>Add encrypted memo</source>
+        <translation>Dodaj zaszyfrowaną notatkę</translation>
+    </message>
+    <message>
+        <source>Memo field reset</source>
+        <translation>Resetuj pole notatki</translation>
     </message>
 </context>
 <context>
@@ -2753,8 +2856,16 @@ Czy chcesz kontynuować?</translation>
         <translation>Osiągnięto maksymalną liczbę wyjść</translation>
     </message>
     <message>
+        <source>Parse a CRYPTOSHARES URI</source>
+        <translation>Parsowanie CRYPTOSHARES URI</translation>
+    </message>
+    <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Nieprawidłowy wpis, poprzednie wpisy muszą być ważne przed dodaniem nowego</translation>
+    </message>
+    <message>
+        <source>Possibly spend coins delegated for cold-staking (currently available: %1</source>
+        <translation>Maksymalna kwota delegowania do cold-staking (obecnie dostępne: %1</translation>
     </message>
     <message>
         <source>Invalid entry</source>
@@ -2769,8 +2880,12 @@ Czy chcesz kontynuować?</translation>
         <translation>Nie można wysłać, portfel zablokowany</translation>
     </message>
     <message>
-        <source>Cannot create transaction.</source>
-        <translation>Nie można utworzyć transakcji.</translation>
+        <source>WARNING:
+Transaction spends a cold-stake delegation, voiding it.
+These coins will no longer be cold-staked.</source>
+        <translation>OSTRZEŻENIE:
+Transakcja wydaje cold-stake, unieważniając ją.
+Monety te nie będą już cold-staked.</translation>
     </message>
     <message>
         <source>Transaction sent</source>
@@ -2789,6 +2904,10 @@ Czy chcesz kontynuować?</translation>
         <translation>Nieprawidłowy adres w URI</translation>
     </message>
     <message>
+        <source>Memo</source>
+        <translation>Notatka</translation>
+    </message>
+    <message>
         <source>Custom Fee %1</source>
         <translation>Ustawiona Opłata %1</translation>
     </message>
@@ -2797,12 +2916,84 @@ Czy chcesz kontynuować?</translation>
         <translation>Kontrola monet</translation>
     </message>
     <message>
+        <source>Select the source of the coins</source>
+        <translation>Wybierz źródło monet</translation>
+    </message>
+    <message>
+        <source>Change Address</source>
+        <translation>Adres Reszty</translation>
+    </message>
+    <message>
+        <source>Customize the change address</source>
+        <translation>Dostosuj adres reszty</translation>
+    </message>
+    <message>
         <source>Open URI</source>
         <translation>Otwórz URI</translation>
     </message>
     <message>
+        <source>Shield Coins</source>
+        <translation>Shield Coins</translation>
+    </message>
+    <message>
+        <source>Convert all transparent coins into shielded coins</source>
+        <translation>Zamień wszystkie transparentne monety na monety shielded</translation>
+    </message>
+    <message>
+        <source>Unlocked remaining</source>
+        <translation>Pozostałe odblokowane</translation>
+    </message>
+    <message>
+        <source>Cannot send memo to address
+%1
+
+Encrypted memo messages are available only for shielded recipients.
+
+Do you wish to proceed without memo?
+</source>
+        <translation>Nie można wysłać notatki na adres
+%1
+
+Zaszyfrowane wiadomości memo są dostępne tylko dla  odbiorców .shielded.
+
+Czy chce Pan/Pani kontynuować bez notatki?
+</translation>
+    </message>
+    <message>
+        <source>Sapling Protocol temporarily in maintenance. Shielded transactions disabled (SPORK 20)</source>
+        <translation>Protokół Sapling tymczasowo w konserwacji. Transakcje Shielded wyłączone (SPORK 20)</translation>
+    </message>
+    <message>
+        <source>On going process being executed, please wait until it's finished to create a new transaction</source>
+        <translation>Trwający proces, proszę poczekać do jego zakończenia, aby utworzyć nową transakcję</translation>
+    </message>
+    <message>
+        <source>Preparing transaction</source>
+        <translation>Przygotowanie transakcji</translation>
+    </message>
+    <message>
+        <source>Processing full, refreshing amounts later</source>
+        <translation>Przetwarzanie pełnych, odświeżających ilości później</translation>
+    </message>
+    <message>
+        <source>You don't have any %1 to select.</source>
+        <translation>Nie masz żadnego %1 do wybrania.</translation>
+    </message>
+    <message>
+        <source>Error generating address to shield SHARESs</source>
+        <translation>Błąd podczas generowania adresu dla shield SHARES</translation>
+    </message>
+    <message>
+        <source>You don't have any transparent SHARESs to shield.</source>
+        <translation>Nie masz żadnych transparentnych SHARESs do shield.</translation>
+    </message>
+    <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
         <translation>Brak dostępnych kontaktów, możesz przejść do ekranu kontaktów i tam dodać!</translation>
+    </message>
+    <message>
+        <source>Add Memo</source>
+        <translation>Dodaj notatkę</translation>
     </message>
     <message>
         <source>Save contact</source>
@@ -2839,10 +3030,6 @@ Czy chcesz kontynuować?</translation>
 </context>
 <context>
     <name>SettingsBackupWallet</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Change Wallet Passphrase</source>
         <translation>Zmień hasło portfela</translation>
@@ -2882,10 +3069,6 @@ Czy chcesz kontynuować?</translation>
 </context>
 <context>
     <name>SettingsBitToolWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Import Address</source>
         <translation>Adres importu</translation>
@@ -2927,8 +3110,8 @@ Czy chcesz kontynuować?</translation>
         <translation>KLUCZ DESZYFRUJĄCY</translation>
     </message>
     <message>
-        <source>SHARES address</source>
-        <translation>Adres SHARES</translation>
+        <source>CRYPTOSHARES address</source>
+        <translation>Adres CRYPTOSHARES</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -2949,6 +3132,10 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>CLEAR ALL</source>
         <translation>WYCZYŚĆ WSZYSTKO</translation>
+    </message>
+    <message>
+        <source>Enter a passphrase</source>
+        <translation>Wpisz hasło</translation>
     </message>
     <message>
         <source>CLEAR</source>
@@ -3026,10 +3213,6 @@ Czy chcesz kontynuować?</translation>
 <context>
     <name>SettingsConsoleWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Console</source>
         <translation>Konsola</translation>
     </message>
@@ -3042,6 +3225,10 @@ Czy chcesz kontynuować?</translation>
         <translation>Otwórz plik debugowania</translation>
     </message>
     <message>
+        <source>Command Line Options</source>
+        <translation>Opcje wiersza poleceń</translation>
+    </message>
+    <message>
         <source>Clear history</source>
         <translation>Wyczyść historię</translation>
     </message>
@@ -3052,16 +3239,20 @@ Verify that you have installed a predetermined text editor.</source>
 Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
     </message>
     <message>
-        <source>Welcome to the SHARES RPC console.</source>
-        <translation>Witamy w konsoli SHARES RPC.</translation>
+        <source>Welcome to the CRYPTOSHARES RPC console.</source>
+        <translation>Witamy w konsoli CRYPTOSHARES RPC.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
         <translation>Użyj strzałek w górę iw dół, aby poruszać się po historii, a %1, aby wyczyścić ekran.</translation>
     </message>
     <message>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Wpisz &lt;b&gt;help&lt;/b&gt;, aby uzyskać przegląd dostępnych poleceń.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation>Wpisz %1, aby uzyskać przegląd dostępnych poleceń.</translation>
+    </message>
+    <message>
+        <source>For more information on using this console type %1.</source>
+        <translation>Aby uzyskać więcej informacji na temat korzystania z tej konsoli, wpisz %1.</translation>
     </message>
     <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
@@ -3070,10 +3261,6 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
 </context>
 <context>
     <name>SettingsDisplayOptionsWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
         <translation>Ukryj wykresy stake na pulpicie</translation>
@@ -3130,10 +3317,6 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
 <context>
     <name>SettingsExportCSV</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Export Accounting</source>
         <translation>Wyeksportuj Księgowość</translation>
     </message>
@@ -3142,8 +3325,8 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
         <translation>Wyeksportuj Księgowość portfela do pliku csv.</translation>
     </message>
     <message>
-        <source>Where</source>
-        <translation>Gdzie</translation>
+        <source>Export Transaction History</source>
+        <translation>Eksportuj historię transakcji</translation>
     </message>
     <message>
         <source>Select folder...</source>
@@ -3154,20 +3337,8 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
         <translation>Eksportuj książkę adresową</translation>
     </message>
     <message>
-        <source>Export CSV</source>
-        <translation>Eksportuj CSV</translation>
-    </message>
-    <message>
-        <source>Export Address List</source>
-        <translation>Eksportuj listę adresów</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES_tx_csv_export(*.csv)</source>
-        <translation>CRYPTOSHARES_tx_csv_export(*.csv)</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES_addresses_csv_export(*.csv)</source>
-        <translation>CRYPTOSHARES_addresses_csv_export(*.csv)</translation>
+        <source>Comma separated file (*.csv)</source>
+        <translation>Plik rozdzielony przecinkami (* .csv)</translation>
     </message>
     <message>
         <source>Please select a folder to export the csv file first.</source>
@@ -3233,12 +3404,8 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
 <context>
     <name>SettingsFaqWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>1) What is SHARES?</source>
-        <translation>1) Co to jest SHARES?</translation>
+        <source>1) What is CRYPTOSHARES?</source>
+        <translation>1) Co to jest CRYPTOSHARES?</translation>
     </message>
     <message>
         <source>2) Why are my SHARES unspendable?</source>
@@ -3249,8 +3416,8 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <translation>1</translation>
     </message>
     <message>
-        <source>What is SHARES?</source>
-        <translation>Co to jest SHARES?</translation>
+        <source>What is CRYPTOSHARES?</source>
+        <translation>Co to jest CRYPTOSHARES?</translation>
     </message>
     <message>
         <source>2</source>
@@ -3263,6 +3430,10 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <message>
         <source>3</source>
         <translation>3</translation>
+    </message>
+    <message>
+        <source>How do I stake SHARES?</source>
+        <translation>Jak stake-ować SHARES?</translation>
     </message>
     <message>
         <source>4</source>
@@ -3293,20 +3464,76 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <translation>Często Zadawane Pytania</translation>
     </message>
     <message>
+        <source>Close FAQ</source>
+        <translation>Zamknij FAQ</translation>
+    </message>
+    <message>
         <source>You can read more here</source>
         <translation>Możesz przeczytać więcej tutaj</translation>
     </message>
     <message>
-        <source>Exit</source>
-        <translation>Wyjście</translation>
+        <source>CRYPTOSHARES is a form of digital online money using blockchain technology that can be easily transferred globally, instantly, and with near zero fees. CRYPTOSHARES incorporates market leading security &amp; privacy and is also the first PoS (Proof of Stake) Cryptocurrency to implement Sapling(SHIELD), a zk-SNARKs based privacy protocol.</source>
+        <translation>CRYPTOSHARES to forma cyfrowych pieniędzy online wykorzystująca technologię blockchain, które można łatwo przekazywać globalnie, natychmiastowo i z niemal zerowymi opłatami. CRYPTOSHARES oferuje wiodące na rynku zabezpieczenia i ochronę prywatności, a także jest pierwszą kryptowalutą PoS (Proof of Stake), która wdrożyła Sapling(SHIELD), protokół ochrony prywatności oparty na zk-SNARKs.</translation>
     </message>
-</context>
+    <message>
+        <source>CRYPTOSHARES utilizes a Proof of Stake (PoS) consensus system algorithm, allowing all owners of CRYPTOSHARES to participate in earning block rewards while securing the network with full node wallets, as well as to run Masternodes to create and vote on proposals.</source>
+        <translation>CRYPTOSHARES wykorzystuje algorytm systemu konsensusu Proof of Stake (PoS), pozwalając wszystkim właścicielom CRYPTOSHARES na udział w zdobywaniu nagród za bloki, zabezpieczając sieć pełnymi portfelami węzłów, jak również na uruchamianie Masternodów w celu tworzenia propozycji i głosowania nad propozycjami.</translation>
+    </message>
+    <message>
+        <source>Newly received CRYPTOSHARES requires 6 confirmations on the network to become eligible for spending which can take ~6 minutes.</source>
+        <translation>Nowo otrzymany CRYPTOSHARES wymaga 6 potwierdzeń w sieci, aby kwalifikować się do wydania środków, co może zająć ~6 minut.</translation>
+    </message>
+    <message>
+        <source>Your CRYPTOSHARES wallet also needs to be completely synchronized to see and spend balances on the network.</source>
+        <translation>Twój portfel CRYPTOSHARES musi być również w pełni zsynchronizowany, aby widzieć i wydawać środki w sieci.</translation>
+    </message>
+    <message>
+        <source>Make sure your wallet is completely synchronized and you are using the latest release.</source>
+        <translation>Upewnij się, że Twój portfel jest całkowicie zsynchronizowany i używasz najnowszej wersji.</translation>
+    </message>
+    <message>
+        <source>You must have a balance of CRYPTOSHARES with a minimum of 600 confirmations.</source>
+        <translation>Musisz mieć saldo CRYPTOSHARES z minimum 600 potwierdzeń.</translation>
+    </message>
+    <message>
+        <source>Your wallet must stay online and be unlocked for staking purposes.</source>
+        <translation>Twój portfel musi pozostać w trybie online i być odblokowany dla celów stakingowych.</translation>
+    </message>
+    <message>
+        <source>Once all those steps are followed staking should be enabled.</source>
+        <translation>Gdy wszystkie te kroki zostaną wykonane, stakowanie powinno być aktywne.</translation>
+    </message>
+    <message>
+        <source>You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. The package will be lit up and will state "Staking Enabled" to indicate it is staking. Using the command line interface (%1); the command %2 will confirm that staking is active.</source>
+        <translation>Możesz zobaczyć status stakowania w portfelu poprzez przesunięcie myszką nad ikonę pakietu w rzędzie na górze po lewej stronie interfejsu portfela. Pakiet zostanie podświetlony i będzie miał napis "Staking Enabled", aby wskazać, że jest to stakowanie. Używając interfejsu wiersza poleceń (%1); polecenie %2 potwierdzi, że staking jest aktywne.</translation>
+    </message>
+    <message>
+        <source>We have support channels in most of our official chat groups, for example %1</source>
+        <translation>Mamy kanały wsparcia w większości naszych oficjalnych grup czatowych, na przykład %1</translation>
+    </message>
+    <message>
+        <source>#support in our Discord</source>
+        <translation>#wsparcie na naszym Discordzie</translation>
+    </message>
+    <message>
+        <source>%1 per single Masternode instance</source>
+        <translation>%1 na pojedynczą instancję Masternode</translation>
+    </message>
+    <message>
+        <source>A Masternode Controller wallet is where the %1 collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online.</source>
+        <translation>Portfel Kontrolera Węzła Masternode jest miejscem, gdzie %1 zabezpieczenia może przebywać podczas konfiguracji Kontroler-Remote masternode. Jest to portfel, który może aktywować portfel(e) zdalnego masternode i pozwala na utrzymanie monet zabezpieczenia w trybie offline, podczas gdy zdalny masternode pozostaje online.</translation>
+    </message>
+    <message>
+        <source>A decentralized governance (Proposal Voting)</source>
+        <translation>Zarządzanie zdecentralizowane (głosowanie nad wnioskiem)</translation>
+    </message>
+    <message>
+        <source>A masternode is a computer running a full node %1 wallet with a requirement of %2 secured collateral to provide extra services to the network and in return, receive a portion of the block reward regularly. These services include:</source>
+        <translation>Masternode to komputer z pełnym portfelem węzła %1 z wymogiem %2 zabezpieczonego zabezpieczenia, aby zapewnić dodatkowe usługi dla sieci i w zamian regularnie otrzymywać część nagrody za blok. Usługi te obejmują:</translation>
+    </message>
+    </context>
 <context>
     <name>SettingsInformationWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Network Monitor</source>
         <translation>Monitor sieci</translation>
@@ -3400,8 +3627,8 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <translation>Nie można otworzyć folderu kopii zapasowych</translation>
     </message>
     <message>
-        <source>Unable to open cryptoshares.conf with default application</source>
-        <translation>Nie można otworzyć pliku cryptoshares.conf w domyślnej aplikacji</translation>
+        <source>Unable to open shares.conf with default application</source>
+        <translation>Nie można otworzyć pliku shares.conf w domyślnej aplikacji</translation>
     </message>
     <message>
         <source>In:</source>
@@ -3411,13 +3638,13 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <source>Out:</source>
         <translation>Z</translation>
     </message>
+    <message>
+        <source>No available data</source>
+        <translation>Brak dostępnych danych</translation>
+    </message>
 </context>
 <context>
     <name>SettingsMainOptionsWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Window</source>
         <translation>Okno</translation>
@@ -3443,16 +3670,16 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <translation>Główny</translation>
     </message>
     <message>
+        <source>Customize the main application options</source>
+        <translation>Dostosuj główne opcje aplikacji</translation>
+    </message>
+    <message>
         <source>Size of database cache</source>
         <translation>Rozmiar pamięci podręcznej bazy danych</translation>
     </message>
     <message>
         <source>Number of script verification threads</source>
         <translation>Liczba wątków weryfikujących skrypt</translation>
-    </message>
-    <message>
-        <source>Start SHARES on system login</source>
-        <translation>Uruchom SHARES przy logowaniu do systemu</translation>
     </message>
     <message>
         <source>Minimize to the tray instead of the taskbar</source>
@@ -3482,165 +3709,7 @@ Jesteś pewny?
     </message>
 </context>
 <context>
-    <name>SettingsMultisendDialog</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Szczegóły Transakcji</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>ANULUJ</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>ZAPISZ</translation>
-    </message>
-    <message>
-        <source>New recipient for multisend</source>
-        <translation>Nowy odbiorca multisend</translation>
-    </message>
-    <message>
-        <source>Address Label (optional)</source>
-        <translation>Etykieta adresu (opcjonalnie)</translation>
-    </message>
-    <message>
-        <source>Enter label to be saved with this address</source>
-        <translation>Wprowadź etykietę, która ma zostać zapisana z tym adresem</translation>
-    </message>
-    <message>
-        <source>Percentage</source>
-        <translation>Odsetek</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsMultisendWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>CheckBox</translation>
-    </message>
-    <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other SHARES addresses after it matures.</source>
-        <translation>MultiSend pozwala automatycznie wysyłać do 100% stake lub nagrody masternode na listę innych adresów SHARES po ich dojrzaniu.</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <translation>Aktywny</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Wyłącz</translation>
-    </message>
-    <message>
-        <source>No active recipient yet</source>
-        <translation>Nie ma jeszcze aktywnego odbiorcy</translation>
-    </message>
-    <message>
-        <source>Send stakes</source>
-        <translation>Wyślij stakes</translation>
-    </message>
-    <message>
-        <source>Send masternode rewards</source>
-        <translation>Wyślij nagrody masternode</translation>
-    </message>
-    <message>
-        <source>ADD RECIPIENT</source>
-        <translation>DODAJ ODBIORCĘ</translation>
-    </message>
-    <message>
-        <source>CLEAR ALL</source>
-        <translation>WYCZYŚĆ WSZYSTKO</translation>
-    </message>
-    <message>
-        <source>Cannot perform operation, wallet locked</source>
-        <translation>Nie można wykonać operacji, portfel zablokowany</translation>
-    </message>
-    <message>
-        <source>Clear succeed</source>
-        <translation>Czyszczenie wykonane</translation>
-    </message>
-    <message>
-        <source>Clear all failed, could not locate address in wallet file</source>
-        <translation>Wyczyść wszystko nie powiodło się, nie można zlokalizować adresu w pliku portfela</translation>
-    </message>
-    <message>
-        <source>Cannot add multisend recipient, wallet locked</source>
-        <translation>Nie można dodać odbiorcy multisend, portfel zablokowany</translation>
-    </message>
-    <message>
-        <source>The entered address: %1 is invalid.
-Please check the address and try again.</source>
-        <translation>Wprowadzony adres: %1 jest nieprawidłowy.
-Sprawdź adres i spróbuj ponownie.</translation>
-    </message>
-    <message>
-        <source>Invalid percentage, please enter values from 1 to 100.</source>
-        <translation>Nieprawidłowy procent, wprowadź wartości od 1 do 100.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
-        <translation>Łączna kwota Twojego wektora MultiSend to ponad 100% nagrody za stake</translation>
-    </message>
-    <message>
-        <source>Error saving  MultiSend, failed saving properties to the database.</source>
-        <translation>Błąd podczas zapisywania MultiSend, nie powiodło się zapisywanie właściwości do bazy danych.</translation>
-    </message>
-    <message>
-        <source>Unable to activate MultiSend, no available recipients</source>
-        <translation>Nie można aktywować MultiSend, brak dostępnych odbiorców</translation>
-    </message>
-    <message>
-        <source>Unable to activate MultiSend
-Check one or both of the check boxes to send on stake and/or masternode rewards</source>
-        <translation>Nie można aktywować MultiSend
-Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode</translation>
-    </message>
-    <message>
-        <source>MultiSend activated but writing settings to DB failed</source>
-        <translation>Aktywowano funkcję MultiSend, ale zapisanie ustawień do bazy danych nie powiodło się</translation>
-    </message>
-    <message>
-        <source>MultiSend activated</source>
-        <translation>Aktywowano funkcję MultiSend</translation>
-    </message>
-    <message>
-        <source>First multiSend address invalid</source>
-        <translation>Pierwszy adres MultiSend jest nieprawidłowy</translation>
-    </message>
-    <message>
-        <source>MultiSend deactivated but writing settings to DB failed</source>
-        <translation>Funkcja MultiSend została wyłączona, ale zapisywanie ustawień do bazy danych nie powiodło się</translation>
-    </message>
-    <message>
-        <source>MultiSend deactivated</source>
-        <translation>Funkcja MultiSend została wyłączona</translation>
-    </message>
-</context>
-<context>
     <name>SettingsSignMessageWidgets</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Sign/Verify Message</source>
         <translation>Podpisz / zweryfikuj wiadomość</translation>
@@ -3654,6 +3723,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Zweryfikuj</translation>
     </message>
     <message>
+        <source>Write message here...</source>
+        <translation>Napisz wiadomość tutaj ...</translation>
+    </message>
+    <message>
         <source>Select mode</source>
         <translation>Wybierz tryb</translation>
     </message>
@@ -3662,8 +3735,8 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Wiadomość</translation>
     </message>
     <message>
-        <source>SHARES address or contact label</source>
-        <translation>Adres SHARES lub etykieta kontaktowa</translation>
+        <source>CRYPTOSHARES address or contact label</source>
+        <translation>Adres CRYPTOSHARES lub etykieta kontaktowa</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -3730,10 +3803,6 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Sprawdź podpis i spróbuj ponownie.</translation>
     </message>
     <message>
-        <source>The signature did not match the message digest.</source>
-        <translation>Podpis nie pasuje do skrótu wiadomości.</translation>
-    </message>
-    <message>
         <source>Message verification failed.</source>
         <translation>Weryfikacja wiadomości nieudana.</translation>
     </message>
@@ -3748,10 +3817,6 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
 </context>
 <context>
     <name>SettingsWalletOptionsWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Reset to default</source>
         <translation>Przywróć ustawienia domyślne</translation>
@@ -3769,6 +3834,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Dostosuj wewnętrzne opcje portfela</translation>
     </message>
     <message>
+        <source>Stake split threshold</source>
+        <translation>Próg podziału Stake</translation>
+    </message>
+    <message>
         <source>Spend unconfirmed change</source>
         <translation>Wydaj niepotwierdzoną resztę</translation>
     </message>
@@ -3779,6 +3848,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <message>
         <source>Customize the node network options</source>
         <translation>Dostosuj opcje sieciowe węzła</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy (default proxy)</source>
+        <translation>Połącz przez serwer proxy SOCKS5 (domyślny serwer proxy)</translation>
     </message>
     <message>
         <source>Enter port</source>
@@ -3804,13 +3877,9 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <source>Options reset succeed</source>
         <translation>Opcje resetowania powiodły się</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SettingsWalletRepairWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Wallet Repair</source>
         <translation>Naprawa portfela</translation>
@@ -3848,6 +3917,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Przebuduj indeks</translation>
     </message>
     <message>
+        <source>Delete local blockchain</source>
+        <translation>Usuń lokalny łańcuch bloków</translation>
+    </message>
+    <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
         <translation>Spowoduje to usunięcie lokalnych folderów blockchain, a portfel zsynchronizuje kompletny Blockchain od zera.&lt;br /&gt;&lt;br /&gt;</translation>
     </message>
@@ -3871,20 +3944,12 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
 <context>
     <name>SettingsWidget</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Wallet Data</source>
         <translation>Dane portfela</translation>
     </message>
     <message>
         <source>Wallet</source>
         <translation>Portfel</translation>
-    </message>
-    <message>
-        <source>Multisend</source>
-        <translation>Multisend</translation>
     </message>
     <message>
         <source>Export Accounting</source>
@@ -3939,8 +4004,8 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>FAQ</translation>
     </message>
     <message>
-        <source>About SHARES</source>
-        <translation>o SHARES</translation>
+        <source>About CRYPTOSHARES</source>
+        <translation>o CRYPTOSHARES</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -4006,38 +4071,15 @@ Jesteś pewny?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>CRYPTOSHARES is shutting down...</source>
-        <translation>CRYPTOSHARES się wyłącza ...</translation>
-    </message>
-    <message>
         <source>Do not shut down the computer until this window disappears.</source>
         <translation>Nie wyłączaj komputera, dopóki to okno nie zniknie.</translation>
     </message>
 </context>
 <context>
-    <name>SnackBar</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
-        <source>Contact Stored</source>
-        <translation>Kontakt zapisany</translation>
-    </message>
-</context>
-<context>
     <name>Splash</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Loading…</source>
         <translation>Ładowanie…</translation>
-    </message>
-    <message>
-        <source>CRYPTOSHARES</source>
-        <translation>CRYPTOSHARES</translation>
     </message>
 </context>
 <context>
@@ -4049,10 +4091,6 @@ Jesteś pewny?
 </context>
 <context>
     <name>TooltipMenu</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Copy</source>
         <translation>kopiuj</translation>
@@ -4072,10 +4110,6 @@ Jesteś pewny?
 </context>
 <context>
     <name>TopBar</name>
-    <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
     <message>
         <source>Available</source>
         <translation>Dostępny</translation>
@@ -4145,10 +4179,6 @@ kopia zapasowa zostanie utworzona.
         <translation>Anulowanie odblokowania portfela</translation>
     </message>
     <message>
-        <source>Tor Active: %1</source>
-        <translation>Tor Aktywny: %1</translation>
-    </message>
-    <message>
         <source>Tor Disabled</source>
         <translation>Tor Nieaktywny</translation>
     </message>
@@ -4157,8 +4187,40 @@ kopia zapasowa zostanie utworzona.
         <translation>FAQ</translation>
     </message>
     <message>
+        <source>Upgrade to HD Wallet</source>
+        <translation>Uaktualnij do portfela HD</translation>
+    </message>
+    <message>
+        <source>No Connection</source>
+        <translation>Brak połączenia</translation>
+    </message>
+    <message>
+        <source>Staking Disabled</source>
+        <translation>Staking wyłączony</translation>
+    </message>
+    <message>
+        <source>Cold Staking Disabled</source>
+        <translation>Cold Staking wyłączony</translation>
+    </message>
+    <message>
+        <source> %54 Synchronizing..</source>
+        <translation>%54 Synchronizacja...</translation>
+    </message>
+    <message>
+        <source>Wallet Locked </source>
+        <translation>Portfel zablokowany</translation>
+    </message>
+    <message>
         <source>Wallet Locked</source>
         <translation>Portfel zablokowany</translation>
+    </message>
+    <message>
+        <source>Wallet Unlocked</source>
+        <translation>Portfel odblokowany</translation>
+    </message>
+    <message>
+        <source>Wallet Unencrypted</source>
+        <translation>Portfel niezaszyfrowany</translation>
     </message>
     <message>
         <source>Available (Locked included)</source>
@@ -4199,6 +4261,10 @@ kopia zapasowa zostanie utworzona.
     <message>
         <source>Wallet upgraded successfully, but no backup created.</source>
         <translation>Portfel został uaktualniony pomyślnie, ale nie utworzono kopii zapasowej.</translation>
+    </message>
+    <message>
+        <source>WARNING: remember to make a copy of your wallet file!</source>
+        <translation>UWAGA: pamiętaj o zrobieniu kopii pliku portfela!</translation>
     </message>
     <message>
         <source>Upgrade Wallet Error</source>
@@ -4263,6 +4329,10 @@ kopia zapasowa zostanie utworzona.
         <translation>Otrzymane od</translation>
     </message>
     <message>
+        <source>Stake delegation</source>
+        <translation>Delegacja Stake</translation>
+    </message>
+    <message>
         <source>Sent to</source>
         <translation>Wyślij do</translation>
     </message>
@@ -4275,8 +4345,20 @@ kopia zapasowa zostanie utworzona.
         <translation>Zapłata dla siebie</translation>
     </message>
     <message>
+        <source>Shielded change, transfer between own shielded addresses</source>
+        <translation>Zmiana adresu Shield, transfer między własnymi adresami Shield</translation>
+    </message>
+    <message>
+        <source>Stake delegation spent by</source>
+        <translation>Delegacja Stake wydana przez</translation>
+    </message>
+    <message>
         <source>Mined</source>
         <translation>wydobyty</translation>
+    </message>
+    <message>
+        <source>Converted z%1 to %1</source>
+        <translation>Przekonwertowano z %1 na %1</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -4322,10 +4404,6 @@ kopia zapasowa zostanie utworzona.
 <context>
     <name>TxDetailDialog</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Transaction Details</source>
         <translation>Szczegóły Transakcji</translation>
     </message>
@@ -4340,14 +4418,6 @@ kopia zapasowa zostanie utworzona.
     <message>
         <source>Output Index</source>
         <translation>Indeks wyjściowy</translation>
-    </message>
-    <message>
-        <source>D7VFR83SQbie…BhjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbie…BhjcWJtcfip5krte2Z </translation>
-    </message>
-    <message>
-        <source>May 25, 2017</source>
-        <translation>Maj 25, 2017</translation>
     </message>
     <message>
         <source>ID</source>
@@ -4371,7 +4441,7 @@ kopia zapasowa zostanie utworzona.
     </message>
     <message>
         <source>Change address</source>
-        <translation>Zmiana adresu</translation>
+        <translation>Adres Reszty</translation>
     </message>
     <message>
         <source>Spendable</source>
@@ -4390,8 +4460,8 @@ kopia zapasowa zostanie utworzona.
         <translation>Data</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstZakładka</translation>
+        <source>Memo</source>
+        <translation>Notatka</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -4414,24 +4484,52 @@ kopia zapasowa zostanie utworzona.
         <translation>ID skopiowane</translation>
     </message>
     <message>
+        <source>Memo copied</source>
+        <translation>Notatka została skopiowana</translation>
+    </message>
+    <message>
+        <source>Delegating to</source>
+        <translation>Delegowanie do</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>Nieznane</translation>
     </message>
 </context>
 <context>
-    <name>TxRow</name>
+    <name>VoteDialog</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
+        <source>CANCEL</source>
+        <translation>ANULUJ</translation>
     </message>
-</context>
+    <message>
+        <source>No</source>
+        <translation>Nie</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Tak</translation>
+    </message>
+    </context>
 <context>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
         <translation>Wyślij monety</translation>
     </message>
-    </context>
+    <message>
+        <source>Transaction creation failed!
+%1</source>
+        <translation>Tworzenie transakcji nie powiodło się!
+%1</translation>
+    </message>
+    <message>
+        <source>The size of the transaction is too big.
+Select fewer inputs with coin control.</source>
+        <translation>Wielkość transakcji jest zbyt duża.
+Wybierz mniej nominałów kontrolą monet.</translation>
+    </message>
+</context>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
@@ -4471,22 +4569,16 @@ kopia zapasowa zostanie utworzona.
         <translation>Wybierz swój język</translation>
     </message>
     <message>
-        <source>Welcome to
-CRYPTOSHARES Wallet</source>
-        <translation>Witamy
-Portfel CRYPTOSHARES</translation>
+        <source>CRYPTOSHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
+        <translation>CRYPTOSHARES to najbardziej innowacyjna na świecie technologia oparta na blockchain Proof of Stake. Opracowany przez zespół wysoce doświadczonych programistów i kryptografów.</translation>
     </message>
     <message>
-        <source>SHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
-        <translation>SHARES to najbardziej innowacyjna na świecie technologia oparta na blockchain Proof of Stake. Opracowany przez zespół wysoce doświadczonych programistów i kryptografów.</translation>
+        <source>The masternode network is CRYPTOSHARES's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
+        <translation>Sieć masternode jest siecią drugiej warstwy CRYPTOSHARES na szczycie blockchain, która umożliwia naszemu DAO zapewnienie zdecentralizowanego zarządzania i skarbca.</translation>
     </message>
     <message>
-        <source>The masternode network is SHARES's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
-        <translation>Sieć masternode jest siecią drugiej warstwy SHARES na szczycie blockchain, która umożliwia naszemu DAO zapewnienie zdecentralizowanego zarządzania i skarbca.</translation>
-    </message>
-    <message>
-        <source>How SHARES respects your privacy?</source>
-        <translation>Jak SHARES szanuje twoją prywatność?</translation>
+        <source>How CRYPTOSHARES respects your privacy?</source>
+        <translation>Jak CRYPTOSHARES szanuje twoją prywatność?</translation>
     </message>
     <message>
         <source>What is a Masternode?</source>
@@ -4498,206 +4590,25 @@ Portfel CRYPTOSHARES</translation>
     </message>
 </context>
 <context>
-    <name>cryptoshares-core</name>
+    <name>governancewidget</name>
     <message>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation>(1 = zachowaj tx meta dane np. Właściciel konta i informacje o żądaniu płatności, 2 = porzuć tx meta dane)</translation>
+        <source>Available</source>
+        <translation>Dostępny</translation>
     </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation>Zezwalaj na połączenia JSON-RPC z określonego źródła. Ważny dla &lt;ip&gt; są pojedynczym IP (na przykład 1.2.3.4), siecią / maską sieci (np. 1.2.3.4/255.255.255.0) lub siecią / CIDR (na przykład 1.2.3.4/24). Ta opcja może być określona wiele razy</translation>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Zwiąż się z podanym adresem i zawsze go słuchaj. Użyj [host]:port dla IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation>Powiąż z podanym adresem i połączeniami whitelist. Użyj [host]:port dla IPv6</translation>
-    </message>
-    <message>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation>Powiąż z podanym adresem, aby odsłuchać połączenia JSON-RPC. Użyj [host]:port dla IPv6. Ta opcja może być określona wiele razy (domyślnie: powiązanie ze wszystkimi interfejsami)</translation>
-    </message>
-    <message>
-        <source>Cannot obtain a lock on data directory %s. CRYPTOSHARES is probably already running.</source>
-        <translation>Nie można uzyskać dostępu do katalogu danych %s. CRYPTOSHARES prawdopodobnie już działa.</translation>
-    </message>
-    <message>
-        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
-        <translation>Zmień zachowanie automatycznego głosowania w budżecie finalizowanym. mode=auto: Głosuj tylko na dokładne sfinalizowane dopasowanie budżetu do mojego wygenerowanego budżetu. (ciąg, domyślny: auto)</translation>
-    </message>
-    <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
-        <translation>Limit bezpłatnych transakcji do &lt;n&gt;* 1000 bajtów na minutę (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation>Twórz nowe pliki z domyślnymi uprawnieniami systemowymi zamiast umask 077 (skuteczne tylko przy wyłączonej funkcji portfela)</translation>
-    </message>
-    <message>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation>Usuń wszystkie transakcje portfela i odzyskaj tylko część łańcucha blokowego -reskan przy uruchomieniu</translation>
-    </message>
-    <message>
-        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
-        <translation>Usuń wszystkie wydane zerocoin i mint, które zostały zapisane w bazie danych blockchain i ponownie je zindeksuj (0-1, domyślnie: %u)</translation>
-    </message>
+    </context>
+<context>
+    <name>cryptoshares</name>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>Dystrybuowane w ramach licencji oprogramowania MIT, patrz plik towarzyszący COPYING lub &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
-        <source>Enable spork administration functionality with the appropriate private key.</source>
-        <translation>Włącz funkcję zarządzania sporkami za pomocą odpowiedniego klucza prywatnego.</translation>
-    </message>
-    <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
-        <translation>Wejdź w tryb testu regresyjnego, który wykorzystuje specjalny łańcuch, w którym bloki można natychmiast rozwiązać.</translation>
     </message>
     <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>Błąd: Odsłuchiwanie przychodzących połączeń nie powiodło się (zwrócony błąd %s)</translation>
     </message>
     <message>
-        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
-        <translation>Błąd: transakcja jest większa niż maksymalny dozwolony rozmiar transakcji!</translation>
-    </message>
-    <message>
-        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation>Błąd: Znaleziono nieobsługiwany argument -socks. Ustawienie wersji SOCKS nie jest już możliwe, obsługiwane są tylko serwery proxy SOCKS5.</translation>
-    </message>
-    <message>
-        <source>Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories.</source>
-        <translation>Wyklucz informacje debugowania dla kategorii. Może być używany w połączeniu z opcją -debug=1, aby wyświetlać dzienniki debugowania dla wszystkich kategorii oprócz jednej lub więcej określonych kategorii.</translation>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Wykonaj polecenie, gdy otrzymasz odpowiednie powiadomienie lub zobaczysz naprawdę długi fork ( %s w cmd zostanie zastąpiony przez komunikat)</translation>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Wykonaj polecenie, gdy zmieni się transakcja ( %s w cmd jest zastąpione przez TxID)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Wykonaj polecenie, gdy najlepszy blok zostanie zmieniony ( %s w cmd zostanie zastąpione hash blokiem)</translation>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
-        <translation>Opróżniaj dziennik z pamięci dysku co &lt;n&gt; megabajtów (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation>Jeśli paytxfee nie jest ustawiony, należy ustawić odpowiednią opłatę, aby transakcje zaczęły potwierdzać średnio w n blokach (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
-        <translation>W tym trybie -genproclimit kontroluje, ile bloków jest generowanych natychmiast.</translation>
-    </message>
-    <message>
-        <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
-        <translation>Niewystarczające lub niewystarczająco potwierdzone fundusze, może trzeba poczekać kilka minut i spróbować ponownie.</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation>Nieprawidłowa kwota dla -maxtxfee=&lt;amount&gt;: „%s” (musi być co najmniej minimalną opłatą %s, aby zapobiec zablokowanym transakcjom)</translation>
-    </message>
-    <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
-        <translation>Loguj priorytet transakcji i opłatę za kB, gdy kopiesz bloki (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation>Utrzymuj pełny indeks transakcji, używany przez wywołanie getrawtransaction rpc (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>Maximum average size of an index occurrence in the block spam filter (default: %u)</source>
-        <translation>Maksymalny średni rozmiar wystąpienia indeksu w filtrze blokującym spam (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation>Maksymalny rozmiar danych w transakcjach nośników danych przekazywany i kopany (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum size of the list of indexes in the block spam filter (default: %u)</source>
-        <translation>Maksymalny rozmiar listy indeksów w blokowym filtrze spamu (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
-        <translation>Maksymalna łączna opłata za pojedynczą transakcję , ustawienie zbyt niskiej opłaty może przerwać duże transakcje (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation>Liczba sekund, po których nastąpi ponowne łączenie się  (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation>Informacje o debugowaniu wyjścia (domyślnie: %u, dostarczanie &lt;category&gt; jest opcjonalne)</translation>
-    </message>
-    <message>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation>Losuj dane uwierzytelniające dla każdego połączenia proxy. To umożliwia izolację strumienia Tora (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
-        <translation>Wymagaj wysokiego priorytetu przy przekazywaniu transakcji bezpłatnych lub o niskich opłatach (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Send trace/debug info to console instead of debug.log file (default: %u)</source>
-        <translation>Wyślij informacje śledzenia/debugowania do konsoli zamiast pliku debug.log (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>Ustaw maksymalny rozmiar transakcji o wysokim priorytecie / niskich opłatach w bajtach (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation>Ustaw liczbę wątków weryfikujących skrypty (%u do %d, 0 = auto, &lt;0 = pozostaw tyle rdzeni wolnych, domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
-        <translation>Ustaw liczbę wątków do generowania monet, jeśli jest włączona (-1 = wszystkie rdzenie, domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
-        <translation>Pokaż N potwierdzeń dla pomyślnie zablokowanej transakcji (0-9999, domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>Obsługa filtrowania bloków i transakcji za pomocą filtrów bloom (domyślnie: %u)</translation>
-    </message>
-    <message>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer's date and time being set incorrectly. Only rebuild the block database if you are sure that your computer's date and time are correct</source>
         <translation>Baza danych bloków zawiera blok, który wydaje się pochodzić z przyszłości. Może to być spowodowane niepoprawnym ustawieniem daty i godziny w komputerze. Przebuduj blokową bazę danych tylko wtedy, gdy masz pewność, że data i godzina komputera są prawidłowe</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation>Ten produkt zawiera oprogramowanie opracowane przez OpenSSL Project używane w OpenSSL Toolkit &lt;https://www.openssl.org/&gt; oraz oprogramowanie kryptograficzne napisane przez Erica Younga i oprogramowanie UPnP napisane przez Thomasa Bernarda.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation>Całkowita długość string wersji sieciowej (%i) przekracza maksymalną długość (%i). Zmniejsz liczbę lub rozmiar uacomments.</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. CRYPTOSHARES is probably already running.</source>
-        <translation>Nie można podłączyć %s na tym komputerze. CRYPTOSHARES prawdopodobnie już działa.</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation>Oddzielne użycie proxy SOCKS5, aby dotrzeć do peerów za pośrednictwem ukrytych usług Tora (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation>Ostrzeżenie: -maxtxfee jest ustawiony bardzo wysoko! Opłatą tak dużą można by zapłacić za pojedynczą transakcję.</translation>
-    </message>
-    <message>
-        <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation>Ostrzeżenie: -paytxfee jest ustawione bardzo wysoko! Jest to opłata transakcyjna, którą zapłacisz, jeśli wyślesz transakcję.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong CRYPTOSHARES will not work properly.</source>
-        <translation>Ostrzeżenie: sprawdź, czy data i godzina komputera są poprawne! Jeśli zegar jest nieprawidłowy, CRYPTOSHARES nie będzie działać poprawnie.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -4708,72 +4619,12 @@ Portfel CRYPTOSHARES</translation>
         <translation>Ostrzeżenie: Wydaje się, że nie zgadzamy się całkowicie z naszymi peer-ami! Może zajść potrzeba aktualizacji lub inne węzły mogą wymagać aktualizacji.</translation>
     </message>
     <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation>Biała lista peerów łączących się z podanej maski sieciowej lub adresu IP. Można podać wiele razy.</translation>
-    </message>
-    <message>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>Peery na białej liście nie mogą być zbanowane przez DoS, a ich transakcje są zawsze przekazywane, nawet jeśli są już w pamięci, przydatne np. na gatewaya</translation>
-    </message>
-    <message>
-        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation>Musisz określić masternodeprivkey w konfiguracji. Aby uzyskać pomoc, zapoznaj się z dokumentacją.</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation>(domyślnie:  %s)</translation>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation>Zaakceptuj polecenia linii poleceń i JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation>Akceptuj publiczne żądania REST (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Dodaj węzeł do połączenia i spróbuj je utrzymać otwarte</translation>
-    </message>
-    <message>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation>Zawsze sprawdzaj adresy peer za pomocą wyszukiwania DNS (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Append comment to the user agent string</source>
-        <translation>Dołącz komentarz do ciągu agenta użytkownika</translation>
-    </message>
-    <message>
-        <source>Automatically create Tor hidden service (default: %d)</source>
-        <translation>Automatycznie utwórz usługę ukrytą Tora (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation>Opcje tworzenia bloku:</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation>Połącz przez serwer proxy SOCKS5</translation>
-    </message>
-    <message>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Połącz się z węzłem, aby pobrać adresy równorzędne, i rozłącz się</translation>
-    </message>
-    <message>
-        <source>Connection options:</source>
-        <translation>Opcje połączenia:</translation>
-    </message>
-    <message>
         <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Copyright (C) 2009-%i The Bitcoin Core Developers</translation>
     </message>
     <message>
         <source>Copyright (C) 2014-%i The Dash Core Developers</source>
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
-        <translation>Copyright (C) 2015-%i The PIVX Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -4784,36 +4635,12 @@ Portfel CRYPTOSHARES</translation>
         <translation>Nie można przetworzyć pliku masternode.conf</translation>
     </message>
     <message>
-        <source>Debugging/Testing options:</source>
-        <translation>Opcje debugowania/testowania:</translation>
-    </message>
-    <message>
-        <source>Delete blockchain folders and resync from scratch</source>
-        <translation>Usuń foldery blockchain i zsynchronizuj ponownie od podstaw</translation>
-    </message>
-    <message>
-        <source>Disable OS notifications for incoming transactions (default: %u)</source>
-        <translation>Wyłącz powiadomienia systemu operacyjnego dla transakcji przychodzących (domyślnie:%u)</translation>
-    </message>
-    <message>
-        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation>Odkryj własny adres IP (domyślnie: 1 podczas słuchania i bez -externalip)</translation>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Nie ładuj portfela i nie wyłączaj wywołań RPC portfela</translation>
-    </message>
-    <message>
         <source>Do you want to rebuild the block database now?</source>
         <translation>Czy chcesz teraz odbudować block database danych?</translation>
     </message>
     <message>
         <source>Done loading</source>
         <translation>Ładowanie ukończone</translation>
-    </message>
-    <message>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation>Włącz klienta, aby działał jako masternode (0-1, domyślnie: %u)</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
@@ -4836,10 +4663,6 @@ Portfel CRYPTOSHARES</translation>
         <translation>Błąd odczytu z bazy danych, wyłączenie.</translation>
     </message>
     <message>
-        <source>Error writing zerocoinDB to disk</source>
-        <translation>Błąd podczas zapisywania zerocoinDB na dysku</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -4852,48 +4675,12 @@ Portfel CRYPTOSHARES</translation>
         <translation>Błąd: Mało miejsca na dysku!</translation>
     </message>
     <message>
-        <source>Error: Unsupported argument -tor found, use -onion.</source>
-        <translation>Błąd: Nieobsługiwany argument -tor, użyj -onion.</translation>
-    </message>
-    <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Błąd: Portfel zablokowany, nie można utworzyć transakcji!</translation>
-    </message>
-    <message>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation>Nie można nasłuchiwać na żadnym porcie. Użyj -listen=0, jeśli chcesz tego.</translation>
-    </message>
-    <message>
         <source>Failed to parse host:port string</source>
         <translation>Nie można przeanalizować host:port string</translation>
     </message>
     <message>
-        <source>Force safe mode (default: %u)</source>
-        <translation>Wymuś tryb bezpieczny (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: %u)</source>
-        <translation>Wygeneruj monety (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation>Ile bloków należy sprawdzić przy starcie (domyślnie: %u, 0 = wszystko)</translation>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation>Jeśli &lt;category&gt; nie jest podana, wyślij wszystkie informacje debugowania.</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>Importuję ...</translation>
-    </message>
-    <message>
-        <source>Imports blocks from external blk000??.dat file</source>
-        <translation>Importuje bloki z zewnętrznego pliku blk000??.dat</translation>
-    </message>
-    <message>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation>Włącz adresy IP do wyników debugowania (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
@@ -4904,164 +4691,34 @@ Portfel CRYPTOSHARES</translation>
         <translation>Informacje</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. CRYPTOSHARES is shutting down.</source>
-        <translation>Sprawdzenie poprawności inicjalizacji nie powiodło się. CRYPTOSHARES zamyka się.</translation>
-    </message>
-    <message>
-        <source>Insufficient funds</source>
-        <translation>Niewystarczające środki</translation>
-    </message>
-    <message>
         <source>Insufficient funds.</source>
         <translation>Niewystarczające środki.</translation>
-    </message>
-    <message>
-        <source>Invalid -onion address or hostname: '%s'</source>
-        <translation>Nieprawidłowy adres -onion lub nazwa hosta: „%s”</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
-        <translation>Nieprawidłowa kwota dla -paytxfee= &lt;amount&gt; : '%s' (musi być przynajmniej %s)</translation>
-    </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>nieprawidłowa kwota</translation>
-    </message>
-    <message>
-        <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation>Nieprawidłowy masternodeprivkey. Zobacz dokumentację.</translation>
-    </message>
-    <message>
-        <source>Invalid netmask specified in -whitelist: '%s'</source>
-        <translation>Nieprawidłowa netmask podana w -whitelist: '%s'</translation>
-    </message>
-    <message>
-        <source>Recalculating SHARES supply...</source>
-        <translation>Przeliczanie podaży SHARES ...</translation>
-    </message>
-    <message>
-        <source>Reindexing zerocoin database...</source>
-        <translation>Ponowne indeksowanie bazy danych zerocoin ...</translation>
-    </message>
-    <message>
-        <source>Reindexing zerocoin failed</source>
-        <translation>Ponowne indeksowanie zerocoin nie powiodło się</translation>
-    </message>
-    <message>
-        <source>Selected coins value is less than payment target</source>
-        <translation>Wybrana wartość monet jest mniejsza niż docelowa</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation>Jest to wersja testowa pre-release - korzystaj z niej na własne ryzyko - nie używaj do staking lub prawdziwych transakcji!</translation>
     </message>
     <message>
-        <source>Disable all SHARES specific functionality (Masternodes, Zerocoin, Budgeting) (0-1, default: %u)</source>
-        <translation>Wyłącz wszystkie funkcje specyficzne dla SHARES (Masternodes, Zerocoin, Budgeting) (0-1, domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
-        <translation>Błąd: Znaleziono nieobsługiwany argument -checklevel. Checklevel musi być poziomem 4.</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
-        <translation>Wykonaj polecenie, gdy najlepszy blok się zmieni, a jego rozmiar się skończy ( %s w cmd jest zastąpiony skrótem bloku, %d rozmiarem bloku)</translation>
-    </message>
-    <message>
-        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
-        <translation>Nie udało się znaleźć zestawu monet i innych monet o wartości mniejszej niż maksymalna liczba wydatków</translation>
-    </message>
-    <message>
-        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
-        <translation>W rzadkich przypadkach należy wydać 7 lub więcej monet z naszym maksymalnym dopuszczalnym rozmiarem transakcji, spróbuj ponownie wydać 6 lub mniej monet</translation>
-    </message>
-    <message>
-        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
-        <translation>Określ ścieżkę kopii zapasowej, aby dodać kopię zapasową portfela. Jeśli ustawione jako katalog, każda kopia zapasowa generuje plik ze znacznikiem czasu. Jeśli jest ustawiony jako plik, przepisuje do tego pliku każdą kopię zapasową.</translation>
-    </message>
-    <message>
-        <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt;może być:</translation>
-    </message>
-    <message>
-        <source>Attempt to force blockchain corruption recovery</source>
-        <translation>Spróbuj wymusić blockchain corruption recovery</translation>
-    </message>
-    <message>
-        <source>Cannot create public spend input</source>
-        <translation>Nie można utworzyć publicznego wpisu wydatków</translation>
-    </message>
-    <message>
-        <source>Display the stake modifier calculations in the debug.log file.</source>
-        <translation>Wyświetl obliczenia modyfikatora stake w pliku debug.log.</translation>
-    </message>
-    <message>
-        <source>Display verbose coin stake messages in the debug.log file.</source>
-        <translation>Wyświetlaj szczegółowe komunikaty o staking w pliku debug.log.</translation>
-    </message>
-    <message>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>Włącz publiczny hash block w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>Włącz publish hash transaction w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>Włącz publish raw block w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>Włącz publish raw transaction w &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable staking functionality (0-1, default: %u)</source>
-        <translation>Włącz funkcję staking (0-1, domyślnie: %u)</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Błąd: Wystąpił krytyczny błąd wewnętrzny, zobacz szczegóły w pliku debug.log</translation>
     </message>
     <message>
-        <source>Error: No valid utxo!</source>
-        <translation>Błąd: brak prawidłowego utxo!</translation>
+        <source>Error loading %s
+</source>
+        <translation>Błąd podczas ładowania %s
+</translation>
     </message>
     <message>
-        <source>Failed to parse public spend</source>
-        <translation>Nie udało się przeanalizować wydatków publicznych</translation>
-    </message>
-    <message>
-        <source>Failed to select a zerocoin</source>
-        <translation>Nie udało się wybrać zerocoin</translation>
-    </message>
-    <message>
-        <source>Failed to wipe zerocoinDB</source>
-        <translation>Nie można wyczyścić zerocoinDB</translation>
-    </message>
-    <message>
-        <source>Failed to write coin serial number into wallet</source>
-        <translation>Nie udało się zapisać numeru seryjnego monety w portfelu</translation>
+        <source>Error upgrading chainstate database</source>
+        <translation>Błąd podczas uaktualniania bazy danych stanu łańcucha</translation>
     </message>
     <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
         <translation>Nieprawidłowa kwota dla -%s= &lt;amount&gt; : '%s'</translation>
     </message>
     <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>Zachowaj &lt;n&gt; najczęściej używanych transakcji w pamięci (domyślnie: %u)</translation>
-    </message>
-    <message>
         <source>Line: %d</source>
         <translation>Linia: %d</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Nasłuchuj połączeń JSON-RPC na &lt;port&gt;(domyślnie: %u lub testnet: %u) </translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation>Nasłuchuj włączone połączenia &lt;port&gt; (domyślnie: %u lub testnet: %u)</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
@@ -5096,260 +4753,60 @@ Portfel CRYPTOSHARES</translation>
         <translation>Ładowanie portfela ...</translation>
     </message>
     <message>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation>Lokalizacja auth cookie (domyślnie: data dir)</translation>
-    </message>
-    <message>
-        <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation>Zablokuj masternody z pliku konfiguracyjnego (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
-        <translation>Lookup (): Niepoprawny -proxy adres lub nazwa hosta: '%s'</translation>
-    </message>
-    <message>
         <source>MNs synchronization pending...</source>
         <translation>Trwa synchronizacja MN ...</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation>Utrzymuj co najwyżej &lt;n&gt; połączeń z peerami (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Masternode options:</source>
-        <translation>Opcje Masternode:</translation>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Maksymalny bufor odbioru na połączenie, &lt;n&gt;* 1000 bajtów (domyślnie: %u) </translation>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation>Maksymalny bufor wysyłania na połączenie, &lt;n&gt;* 1000 bajtów (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Mint did not make it into blockchain</source>
-        <translation>Mint nie przeszło do blockchain</translation>
-    </message>
-    <message>
-        <source>Need to specify a port with -whitebind: '%s'</source>
-        <translation>Musisz określić port za pomocą -whitebind: '%s'</translation>
-    </message>
-    <message>
-        <source>Node relay options:</source>
-        <translation>Opcje przekazywania węzłów:</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>Za mało dostępnych deskryptorów plików.</translation>
     </message>
     <message>
-        <source>Number of custom location backups to retain (default: %d)</source>
-        <translation>Liczba lokalizacji kopii zapasowych do zachowania (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>On first run, create a legacy wallet instead of a HD wallet</source>
-        <translation>Przy pierwszym uruchomieniu utwórz starszy portfel zamiast portfela HD</translation>
-    </message>
-    <message>
-        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
-        <translation>Akceptuj tylko wbudowane punkty kontrolne łańcucha bloków (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation>Połącz tylko z węzłami w sieci (ipv4, ipv6 lub onion)</translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>Opcje:</translation>
-    </message>
-    <message>
-        <source>Password for JSON-RPC connections</source>
-        <translation>Hasło dla połączeń JSON-RPC</translation>
-    </message>
-    <message>
         <source>Peers are being disconnected due time differences.</source>
         <translation>Peers są rozłączani z powodu różnic czasowych.</translation>
     </message>
     <message>
-        <source>Unable to find transaction containing mint %s</source>
-        <translation>Nie można znaleźć transakcji zawierającej mint %s</translation>
-    </message>
-    <message>
-        <source>Unable to find transaction containing mint, txHash: %s</source>
-        <translation>Nie można znaleźć transakcji zawierającej mint, txHash: %s</translation>
-    </message>
-    <message>
-        <source>Use block spam filter (default: %u)</source>
-        <translation>Użyj block spam filter (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
-        <translation>isValid (): Niepoprawny -proxy adres lub nazwa hosta: '%s'</translation>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation>Portfel %s znajduje się poza katalogiem danych %s</translation>
     </message>
     <message>
         <source>Preparing for resync...</source>
         <translation>Przygotowanie do ponownej synchronizacji ...</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong CRYPTOSHARES will not work properly.</source>
-        <translation>Sprawdź, czy data i godzina komputera są poprawne! Jeśli zegar jest nieprawidłowy, CRYPTOSHARES nie będzie działać poprawnie.</translation>
+        <source>Active Masternode not initialized.</source>
+        <translation>Aktywny Masternode nie został zainicjowany.</translation>
     </message>
     <message>
-        <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
-        <translation>Określ lokalizację pliku dziennika debugowania: może to być ścieżka bezwzględna lub ścieżka względem katalogu danych (domyślnie: %s)</translation>
+        <source>Can't generate a change-address key. Please call keypoolrefill first.</source>
+        <translation>Nie można wygenerować klucza adresu reszty. Najpierw zobacz do keypoolrefill.</translation>
     </message>
     <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>Nie można odwzorować adresu -%s: '%s'</translation>
     </message>
     <message>
-        <source>Need destination or change address because change is not exact</source>
-        <translation>Potrzebujesz miejsca docelowego lub adresu reszty, ponieważ reszta nie jest dokładna</translation>
+        <source>Change index out of range</source>
+        <translation>Zmień indeks poza zakres</translation>
     </message>
     <message>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation>Przygotuj wyjście debugowania ze znacznikiem czasu (domyślnie: %u)</translation>
+        <source>Invalid status error.</source>
+        <translation>Nieprawidłowy stan - błąd.</translation>
     </message>
     <message>
-        <source>Print version and exit</source>
-        <translation>Wydrukuj wersję i zakończ</translation>
-    </message>
-    <message>
-        <source>Pubcoin not found in mint tx</source>
-        <translation>Pubcoin nie znaleziono w mint tx</translation>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation>Opcje serwera RPC:</translation>
-    </message>
-    <message>
-        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
-        <translation>Losowo upuść 1 na każdą&lt;n&gt; wiadomość sieciową</translation>
-    </message>
-    <message>
-        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
-        <translation>Losowo fuzz 1 każdej &lt;n&gt; wiadomości sieciowe</translation>
-    </message>
-    <message>
-        <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation>Przebuduj indeks łańcucha bloków z bieżących plików blk000??.dat</translation>
-    </message>
-    <message>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation>Przekazywanie i kopanie transakcji na nośnikach danych (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation>Przekazywanie non-P2SH multisig  (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Ponownie zeskanuj łańcuch bloków w poszukiwaniu brakujących transakcji portfela</translation>
+        <source>No error</source>
+        <translation>Żaden błąd</translation>
     </message>
     <message>
         <source>Rescanning...</source>
         <translation>Ponowne skanowanie ...</translation>
     </message>
     <message>
-        <source>Run a thread to flush wallet periodically (default: %u)</source>
-        <translation>Od czasu do czasu uruchom wątek, aby spłukać portfel (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation>Uruchom w tle jako demon i przyjmuj polecenia</translation>
-    </message>
-    <message>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation>Wysyłaj transakcje jako transakcje bez opłat, jeśli to możliwe (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Ustaw rozmiar pamięci podręcznej bazy danych w megabajtach (%d do %d, domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Set external address:port to get to this masternode (example: %s)</source>
-        <translation>Ustaw zewnętrzny adres:port, aby dostać się do tego masternode (przykład: %s)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation>Ustaw key pool size na (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Ustaw maksymalny rozmiar bloku w bajtach (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Set minimum block size in bytes (default: %u)</source>
-        <translation>Ustaw minimalny rozmiar bloku w bajtach (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set the Maximum reorg depth (default: %u)</source>
-        <translation>Ustaw maksymalną głębokość reorg (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Set the masternode private key</source>
-        <translation>Ustaw klucz prywatny masternode</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation>Ustaw liczbę wątków do obsługi wywołań RPC (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
-        <translation>Ustawia flagę DB_PRIVATE w środowisku db portfela (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation>Pokaż wszystkie opcje debugowania (użycie: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Zmniejsz plik debug.log podczas uruchamiania klienta (domyślnie: 1, gdy nie ma -debug)</translation>
+        <source>Shutdown requested over the txs scan. Exiting.</source>
+        <translation>Zażądano wyłączenia podczas skanowania txs. Wychodzę.</translation>
     </message>
     <message>
         <source>Signing transaction failed</source>
         <translation>Podpisanie transakcji nie powiodło się</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: %s)</source>
-        <translation>Określ plik konfiguracyjny (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation>Określ limit czasu połączenia w milisekundach (minimum: 1, domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Specify data directory</source>
-        <translation>Określ katalog danych</translation>
-    </message>
-    <message>
-        <source>Specify masternode configuration file (default: %s)</source>
-        <translation>Określ plik konfiguracyjny masternode (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: %s)</source>
-        <translation>Określ plik pid (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation>Określ plik portfela (w katalogu danych)</translation>
-    </message>
-    <message>
-        <source>Specify your own public address</source>
-        <translation>Podaj swój własny adres publiczny</translation>
-    </message>
-    <message>
-        <source>Spend Valid</source>
-        <translation>Spend Valid</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation>Wydaj niepotwierdzoną resztę podczas wysyłania transakcji (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Stop running after importing blocks from disk (default: %u)</source>
-        <translation>Zatrzymaj działanie po zaimportowaniu bloków z dysku (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -5376,44 +4833,16 @@ Portfel CRYPTOSHARES</translation>
         <translation>Synchronizowanie sporks...</translation>
     </message>
     <message>
-        <source>Syncing zSHARES wallet...</source>
-        <translation>Synchronizuję portfel zSHARES ...</translation>
-    </message>
-    <message>
-        <source>This help message</source>
-        <translation>Ten komunikat pomocy</translation>
-    </message>
-    <message>
         <source>This is experimental software.</source>
         <translation>To jest oprogramowanie eksperymentalne.</translation>
     </message>
     <message>
-        <source>This is intended for regression testing tools and app development.</source>
-        <translation>Jest to przeznaczone do testowania regresji i tworzenia aplikacji.</translation>
+        <source>This is not a masternode. 'local' option disabled.</source>
+        <translation>To nie jest masternode. opcja „lokalna” wyłączona.</translation>
     </message>
     <message>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation>Próg odłączania niepoprawnie działających urządzeń równorzędnych (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Too many spends needed</source>
-        <translation>Zbyt wiele potrzebnych środków</translation>
-    </message>
-    <message>
-        <source>Tor control port password (default: empty)</source>
-        <translation>Hasło portu kontrolnego Tora (domyślnie: puste)</translation>
-    </message>
-    <message>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
-        <translation>Używany port kontrolny Tor, jeśli włączono nasłuch onion (domyślnie: %s)</translation>
-    </message>
-    <message>
-        <source>Transaction Created</source>
-        <translation>Utworzono transakcję</translation>
-    </message>
-    <message>
-        <source>Transaction Mint Started</source>
-        <translation>Rozpoczęto transakcję Mint</translation>
+        <source>This is not a masternode.</source>
+        <translation>To nie jest masternode.</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -5424,16 +4853,16 @@ Portfel CRYPTOSHARES</translation>
         <translation>Kwoty transakcji muszą być dodatnie</translation>
     </message>
     <message>
+        <source>Transaction canceled.</source>
+        <translation>Transakcja anulowana.</translation>
+    </message>
+    <message>
         <source>Transaction too large for fee policy</source>
         <translation>Transakcja zbyt duża dla zasad płatności</translation>
     </message>
     <message>
         <source>Transaction too large</source>
         <translation>Transakcja zbyt duża</translation>
-    </message>
-    <message>
-        <source>Trying to spend an already spent serial #, try again.</source>
-        <translation>Próbuj wydać już wydaną serie # , spróbuj ponownie.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
@@ -5452,60 +4881,16 @@ Portfel CRYPTOSHARES</translation>
         <translation>Nie można uruchomić serwera HTTP. Zobacz dziennik debugowania, aby uzyskać szczegółowe informacje.</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: '%s'</source>
-        <translation>Nieznana sieć określona w -onlynet: '%s'</translation>
-    </message>
-    <message>
         <source>Unsupported logging category %s=%s.</source>
         <translation>Nieobsługiwana kategoria rejestrowania %s = %s.</translation>
-    </message>
-    <message>
-        <source>Upgrade wallet to latest format</source>
-        <translation>Uaktualnij portfel do najnowszego formatu</translation>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation>Użyj UPnP do mapowania portu nasłuchującego (domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Use the test network</source>
-        <translation>Użyj sieci testowej</translation>
     </message>
     <message>
         <source>User Agent comment (%s) contains unsafe characters.</source>
         <translation>Komentarz agenta użytkownika (%s) zawiera niebezpieczne znaki.</translation>
     </message>
     <message>
-        <source>Username for JSON-RPC connections</source>
-        <translation>Nazwa użytkownika dla połączeń JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Value is below the smallest available denomination (= 1) of zSHARES</source>
-        <translation>Wartość jest mniejsza od najmniejszej dostępnej (= 1) zSHARES</translation>
-    </message>
-    <message>
         <source>Verifying blocks...</source>
         <translation>Weryfikuję bloki ...</translation>
-    </message>
-    <message>
-        <source>Verifying wallet...</source>
-        <translation>Weryfikuję portfel ...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation>Portfel %s znajduje się poza katalogiem danych %s</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart CRYPTOSHARES to complete</source>
-        <translation>Portfel musiał zostać przepisany: zrestartuj CRYPTOSHARES, aby zakończyć</translation>
-    </message>
-    <message>
-        <source>Wallet options:</source>
-        <translation>Opcje portfela:</translation>
-    </message>
-    <message>
-        <source>Wallet window title</source>
-        <translation>Tytuł okna portfela</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -5516,55 +4901,27 @@ Portfel CRYPTOSHARES</translation>
         <translation>Ostrzeżenie: ta wersja jest przestarzała, wymagana jest aktualizacja!</translation>
     </message>
     <message>
-        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation>Ostrzeżenie: Zignorowano nieobsługiwany argument -benchmark, użyj opcji -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation>Ostrzeżenie: Zignorowany nieobsługiwany argument -debugnet, użyj -debug=net.</translation>
-    </message>
-    <message>
-        <source>You don't have enough Zerocoins in your wallet</source>
-        <translation>Nie masz wystarczającej liczby Zerocoins w swoim portfelu</translation>
-    </message>
-    <message>
-        <source>You need to rebuild the database using -reindex to change -txindex</source>
-        <translation>Musisz przebudować bazę danych za pomocą -reindex, aby zmienić -txindeks</translation>
-    </message>
-    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>-Zapping- Łączenie wszystkich transakcji z portfela ...</translation>
-    </message>
-    <message>
-        <source>ZeroMQ notification options:</source>
-        <translation>Opcje powiadomień ZeroMQ:</translation>
-    </message>
-    <message>
-        <source>Zerocoin minting available only on regtest</source>
-        <translation>Zerocoin minting dostępne tylko podczas testu regtest</translation>
-    </message>
-    <message>
-        <source>Zerocoin options:</source>
-        <translation>Opcje Zerocoin:</translation>
-    </message>
-    <message>
-        <source>on startup</source>
-        <translation>na starcie</translation>
     </message>
 </context>
 <context>
     <name>send</name>
     <message>
-        <source>Form</source>
-        <translation>Formularz</translation>
-    </message>
-    <message>
         <source>Send</source>
         <translation>Wyślij</translation>
     </message>
     <message>
-        <source>SHARES address or contact label</source>
-        <translation>Adres SHARES lub etykieta kontaktowa</translation>
+        <source>Transparent</source>
+        <translation>Transparent</translation>
+    </message>
+    <message>
+        <source>Shielded</source>
+        <translation>Shielded</translation>
+    </message>
+    <message>
+        <source>Select which coins to spend</source>
+        <translation>Wybierz monety do wydania</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -5589,6 +4946,10 @@ Portfel CRYPTOSHARES</translation>
     <message>
         <source>Reset to default</source>
         <translation>Przywróć ustawienia domyślne</translation>
+    </message>
+    <message>
+        <source>Include delegated</source>
+        <translation>Uwzględnij delegowane</translation>
     </message>
 </context>
 </TS>

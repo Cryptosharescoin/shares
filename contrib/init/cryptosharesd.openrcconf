@@ -1,7 +1,7 @@
 # /etc/conf.d/cryptosharesd: config file for /etc/init.d/cryptosharesd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/cryptoshares/cryptoshares.conf"
+#BITCOIND_CONFIGFILE="/etc/cryptoshares/shares.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
 #BITCOIND_PIDDIR="/var/run/cryptosharesd"

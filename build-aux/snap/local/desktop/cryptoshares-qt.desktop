@@ -2,14 +2,14 @@
 
 [Desktop Entry]
 Encoding=UTF-8
-Name=CRYPTOSHARES Core
-Comment=CRYPTOSHARES Core QT main network
+Name=CRYPTOSHARES
+Comment=CRYPTOSHARES QT main network
 GenericName=CRYPTOSHARES Digital Currency QT client main network
-Exec=cryptoshares-core.qt %u
+Exec=cryptoshares.qt %u
 Terminal=false
 Type=Application
 Icon=${SNAP}/share/pixmaps/cryptoshares.png
 MimeType=x-scheme-handler/cryptoshares;
 Categories=X-Office;X-Finance;
-Keywords=internet;cryptoshares;zshares;shares;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Keywords=internet;cryptoshares;shares;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;
 Version=1.0

@@ -1,9 +1,11 @@
 // Copyright (c) 2017 Pieter Wuille
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "bech32.h"
+#include "util/vector.h"
+
+#include <assert.h>
 
 namespace
 {
@@ -24,13 +26,6 @@ const int8_t CHARSET_REV[128] = {
     -1, 29, -1, 24, 13, 25,  9,  8, 23, -1, 18, 22, 31, 27, 19, -1,
      1,  0,  3, 16, 11, 28, 12, 14,  6,  4,  2, -1, -1, -1, -1, -1
 };
-
-/** Concatenate two byte arrays. */
-data Cat(data x, const data& y)
-{
-    x.insert(x.end(), y.begin(), y.end());
-    return x;
-}
 
 /** This function will compute what 6 5-bit values to XOR into the last 6 input values, in order to
  *  make the checksum 0. These 6 values are packed together in a single 30-bit integer. The higher

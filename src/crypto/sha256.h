@@ -1,5 +1,4 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 

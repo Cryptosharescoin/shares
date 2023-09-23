@@ -1,7 +1,7 @@
 Translation Strings Policy
 ===========================
 
-This document provides guidelines for internationalization of the CRYPTOSHARES Core software.
+This document provides guidelines for internationalization of the CRYPTOSHARES software.
 
 How to translate?
 ------------------

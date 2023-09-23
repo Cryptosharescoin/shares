@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,12 +12,11 @@
 #include <QAbstractTableModel>
 #include <QStringList>
 
-#define SINGLE_THREAD_MAX_TXES_SIZE 4000
+#include <memory>
 
-// Maximum amount of loaded records in ram in the first load.
-// If the user has more and want to load them:
-// TODO, add load on demand in pages (not every tx loaded all the time into the records list).
-#define MAX_AMOUNT_LOADED_RECORDS 100000
+namespace interfaces {
+    class Handler;
+}
 
 class TransactionRecord;
 class TransactionTablePriv;
@@ -32,8 +31,9 @@ class TransactionTableModel : public QAbstractTableModel
     Q_OBJECT
 
 public:
-    explicit TransactionTableModel(CWallet* wallet, WalletModel* parent = 0);
-    ~TransactionTableModel();
+    explicit TransactionTableModel(CWallet* wallet, WalletModel* parent = nullptr);
+    ~TransactionTableModel() override;
+    void init();
 
     enum ColumnIndex {
         Status = 0,
@@ -62,8 +62,6 @@ public:
         LabelRole,
         /** Net amount of transaction */
         AmountRole,
-        /** Unique identifier */
-        TxIDRole,
         /** Transaction hash */
         TxHashRole,
         /** Is transaction confirmed? */
@@ -72,28 +70,36 @@ public:
         FormattedAmountRole,
         /** Transaction status (TransactionRecord::Status) */
         StatusRole,
+        /** Credit amount of transaction */
+        ShieldedCreditAmountRole,
         /** Transaction size in bytes */
         SizeRole
     };
 
-    int rowCount(const QModelIndex& parent) const;
-    int columnCount(const QModelIndex& parent) const;
+    int rowCount(const QModelIndex& parent) const override;
+    int columnCount(const QModelIndex& parent) const override;
     int size() const;
-    bool hasZcTxes();
-    QVariant data(const QModelIndex& index, int role) const;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
-    QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const;
-    bool processingQueuedTransactions() { return fProcessingQueuedTransactions; }
+    QVariant data(const QModelIndex& index, int role) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
+    bool processingQueuedTransactions() const { return fProcessingQueuedTransactions; }
 
 Q_SIGNALS:
-    void txArrived(const QString& hash, const bool& isCoinStake);
+    // Emitted only during startup when records gets parsed
+    void txLoaded(const QString& hash, const int txType, const int txStatus);
+    // Emitted when a transaction that belongs to this wallet gets connected to the chain and/or committed locally.
+    void txArrived(const QString& hash, const bool isCoinStake, const bool isMNReward, const bool isCSAnyType);
 
 private:
-    CWallet* wallet;
-    WalletModel* walletModel;
-    QStringList columns;
-    TransactionTablePriv* priv;
-    bool fProcessingQueuedTransactions;
+    // Listeners
+    std::unique_ptr<interfaces::Handler> m_handler_transaction_changed;
+    std::unique_ptr<interfaces::Handler> m_handler_show_progress;
+
+    CWallet* wallet{nullptr};
+    WalletModel* walletModel{nullptr};
+    QStringList columns{};
+    TransactionTablePriv* priv{nullptr};
+    bool fProcessingQueuedTransactions{false};
 
     void subscribeToCoreSignals();
     void unsubscribeFromCoreSignals();

@@ -62,7 +62,7 @@ child = Popen([XGETTEXT,'--output=-','-n','--keyword=_'] + files, stdout=PIPE)
 
 messages = parse_po(out.decode('utf-8'))
 
-f = open(OUT_CPP, 'w')
+f = open(OUT_CPP, 'w', encoding="utf8")
 f.write("""
 
 #include <QtGlobal>
@@ -78,6 +78,6 @@ f.write('static const char UNUSED *cryptoshares_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("cryptoshares-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("cryptoshares", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

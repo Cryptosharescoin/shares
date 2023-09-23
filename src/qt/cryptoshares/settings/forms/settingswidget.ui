@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">N/A</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
    <property name="spacing">
@@ -237,13 +237,13 @@
                        <number>0</number>
                       </property>
                       <property name="leftMargin">
-                       <number>0</number>
+                       <number>20</number>
                       </property>
                       <property name="topMargin">
                        <number>0</number>
                       </property>
                       <property name="rightMargin">
-                       <number>0</number>
+                       <number>20</number>
                       </property>
                       <property name="bottomMargin">
                        <number>0</number>
@@ -266,7 +266,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>  Wallet Data</string>
+                         <string>Wallet Data</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -321,35 +321,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Wallet</string>
-                        </property>
-                        <property name="checkable">
-                         <bool>true</bool>
-                        </property>
-                        <property name="autoExclusive">
-                         <bool>false</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="pushButtonFile3">
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="focusPolicy">
-                         <enum>Qt::NoFocus</enum>
-                        </property>
-                        <property name="text">
-                         <string>    Multisend</string>
+                         <string>Wallet</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -377,7 +349,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Export Accounting</string>
+                         <string>Export Accounting</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -403,13 +375,13 @@
                        <number>0</number>
                       </property>
                       <property name="leftMargin">
-                       <number>0</number>
+                       <number>20</number>
                       </property>
                       <property name="topMargin">
                        <number>0</number>
                       </property>
                       <property name="rightMargin">
-                       <number>0</number>
+                       <number>20</number>
                       </property>
                       <property name="bottomMargin">
                        <number>0</number>
@@ -432,7 +404,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>  Tools</string>
+                         <string>Tools</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -487,7 +459,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Sign/Verify Message</string>
+                         <string>Sign/Verify Message</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -515,7 +487,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    BIP38 Tool</string>
+                         <string>BIP38 Tool</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -534,10 +506,10 @@
                       <number>0</number>
                      </property>
                      <property name="leftMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <property name="rightMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
                       <widget class="QPushButton" name="pushButtonOptions">
@@ -557,7 +529,7 @@
                         <enum>Qt::NoFocus</enum>
                        </property>
                        <property name="text">
-                        <string>  Options</string>
+                        <string>Options</string>
                        </property>
                        <property name="checkable">
                         <bool>true</bool>
@@ -611,7 +583,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Main</string>
+                         <string>Main</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -642,7 +614,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Wallet</string>
+                         <string>Wallet</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -670,7 +642,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Display</string>
+                         <string>Display</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -689,10 +661,10 @@
                       <number>0</number>
                      </property>
                      <property name="leftMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <property name="rightMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
                       <widget class="QPushButton" name="pushButtonTools">
@@ -712,7 +684,7 @@
                         <enum>Qt::NoFocus</enum>
                        </property>
                        <property name="text">
-                        <string>  Debug</string>
+                        <string>Debug</string>
                        </property>
                        <property name="checkable">
                         <bool>true</bool>
@@ -766,7 +738,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Information</string>
+                         <string>Information</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -797,7 +769,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Console</string>
+                         <string>Console</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -825,7 +797,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    Wallet Repair</string>
+                         <string>Wallet Repair</string>
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -844,10 +816,10 @@
                       <number>0</number>
                      </property>
                      <property name="leftMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <property name="rightMargin">
-                      <number>0</number>
+                      <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
                       <widget class="QPushButton" name="pushButtonHelp">
@@ -867,7 +839,7 @@
                         <enum>Qt::NoFocus</enum>
                        </property>
                        <property name="text">
-                        <string>  Help</string>
+                        <string>Help</string>
                        </property>
                        <property name="checkable">
                         <bool>true</bool>
@@ -921,7 +893,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>    FAQ</string>
+                         <string>FAQ</string>
                         </property>
                         <property name="checkable">
                          <bool>false</bool>
@@ -952,7 +924,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string>     About SHARES</string>
+                         <string>About CRYPTOSHARES</string>
                         </property>
                         <property name="checkable">
                          <bool>false</bool>

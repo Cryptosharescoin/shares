@@ -1,13 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_NETMESSAGEMAKER_H
 #define BITCOIN_NETMESSAGEMAKER_H
 
-#include "net.h"
 #include "serialize.h"
 
 class CNetMsgMaker

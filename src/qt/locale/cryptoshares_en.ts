@@ -4,12 +4,7 @@
 <context>
     <name>AddNewAddressDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/addnewaddressdialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+39"/>
+        <location filename="../cryptoshares/forms/addnewaddressdialog.ui" line="+53"/>
         <source>New Address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19,12 +14,7 @@
         <translation type="unfinished">Address</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <source>PushButton</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+61"/>
         <source>CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -37,12 +27,7 @@
 <context>
     <name>AddNewContactDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/addnewcontactdialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+240"/>
+        <location filename="../cryptoshares/forms/addnewcontactdialog.ui" line="+254"/>
         <source>CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -152,12 +137,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your SHARES addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your CRYPTOSHARES addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your SHARES addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your CRYPTOSHARES addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -197,27 +182,9 @@
     </message>
 </context>
 <context>
-    <name>AddressLabelRow</name>
-    <message>
-        <location filename="../cryptoshares/forms/addresslabelrow.ui" line="+20"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+39"/>
-        <source>Bob Allen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+288"/>
+        <location filename="../addresstablemodel.cpp" line="+317"/>
         <source>Label</source>
         <translation>Label</translation>
     </message>
@@ -237,7 +204,7 @@
         <translation type="unfinished">Type</translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+40"/>
         <source>(no label)</source>
         <translation>(no label)</translation>
     </message>
@@ -245,12 +212,7 @@
 <context>
     <name>AddressesWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/addresseswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+342"/>
+        <location filename="../cryptoshares/forms/addresseswidget.ui" line="+356"/>
         <source>Contact name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -280,7 +242,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/addresseswidget.cpp" line="+87"/>
+        <location filename="../cryptoshares/addresseswidget.cpp" line="+89"/>
         <source>Add new contact</source>
         <translation type="unfinished"></translation>
     </message>
@@ -290,12 +252,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+98"/>
+        <location line="+103"/>
         <source>Invalid Contact Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+6"/>
         <source>Cannot store your own address as contact</source>
         <translation type="unfinished"></translation>
     </message>
@@ -305,7 +267,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+18"/>
         <source>New Contact Stored</source>
         <translation type="unfinished"></translation>
     </message>
@@ -330,7 +292,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="+1"/>
         <source>You are just about to remove the contact:
 
 %1
@@ -362,20 +324,7 @@ Are you sure?</source>
         <translation>Passphrase Dialog</translation>
     </message>
     <message>
-        <location line="+41"/>
-        <location line="+78"/>
-        <location line="+56"/>
-        <location line="+57"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+90"/>
-        <source>PushButton</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../askpassphrasedialog.cpp" line="+86"/>
+        <location filename="../askpassphrasedialog.cpp" line="+90"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
@@ -447,12 +396,7 @@ for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+161"/>
-        <source>SHARES will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SHARESs from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-162"/>
+        <location line="-1"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Are you sure you wish to encrypt your wallet?</translation>
     </message>
@@ -478,7 +422,12 @@ for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+18"/>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SHARESs from being stolen by malware infecting your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</translation>
     </message>
@@ -535,6 +484,19 @@ for staking</source>
     </message>
 </context>
 <context>
+    <name>BalanceBubble</name>
+    <message>
+        <location filename="../cryptoshares/forms/balancebubble.ui" line="+75"/>
+        <source>Transparent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BanTableModel</name>
     <message>
         <location filename="../bantablemodel.cpp" line="+90"/>
@@ -548,9 +510,32 @@ for staking</source>
     </message>
 </context>
 <context>
+    <name>CSRow</name>
+    <message>
+        <location filename="../cryptoshares/forms/csrow.ui" line="+85"/>
+        <source>Savings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Not Staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/csrow.cpp" line="+27"/>
+        <source>Own delegation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+83"/>
+        <location filename="../clientmodel.cpp" line="+82"/>
         <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -614,22 +599,14 @@ for staking</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location line="-393"/>
-        <location line="+124"/>
+        <location line="-269"/>
         <location line="+461"/>
         <source>0.00 SHARES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-523"/>
-        <location line="+385"/>
-        <location line="+92"/>
-        <source>0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-319"/>
-        <location filename="../coincontroldialog.cpp" line="+145"/>
+        <location line="-365"/>
+        <location filename="../coincontroldialog.cpp" line="+143"/>
         <source>Select all</source>
         <translation type="unfinished"></translation>
     </message>
@@ -705,12 +682,12 @@ for staking</source>
     </message>
     <message>
         <location line="+42"/>
-        <location line="+827"/>
+        <location line="+718"/>
         <source>Unselect all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-697"/>
+        <location line="-594"/>
         <source>Please switch to &quot;List mode&quot; to use this function.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -750,146 +727,476 @@ for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+83"/>
-        <source>highest</source>
-        <translation>highest</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>higher</source>
-        <translation>higher</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>high</source>
-        <translation>high</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>medium-high</source>
-        <translation>medium-high</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>medium</source>
-        <translation>medium</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>low-medium</source>
-        <translation>low-medium</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>low</source>
-        <translation>low</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>lower</source>
-        <translation>lower</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>lowest</source>
-        <translation>lowest</translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+73"/>
         <source>(%1 locked)</source>
         <translation>(%1 locked)</translation>
     </message>
     <message>
-        <location line="+56"/>
-        <source>none</source>
-        <translation>none</translation>
-    </message>
-    <message>
-        <location line="+132"/>
+        <location line="+142"/>
         <source>yes</source>
         <translation>yes</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+13"/>
+        <source>This label turns red, if recipient receives an amount smaller than %1 (transparent) / %2 (shield).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
         <source>Can vary +/- %1 u%2 per input.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+51"/>
+        <source>change in %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>delegated to %1 for cold staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>Delegated to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+77"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/coincontroldialog.ui" line="+77"/>
-        <location filename="../coincontroldialog.cpp" line="-263"/>
+        <location filename="../coincontroldialog.cpp" line="-241"/>
         <source>no</source>
         <translation>no</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+14"/>
-        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>This label turns red, if the transaction size is greater than 1000 bytes.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location line="+5"/>
-        <source>This means a fee of at least %1 per kB is required.</source>
-        <translation>This means a fee of at least %1 per kB is required.</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <source>Can vary +/- 1 byte per input.</source>
-        <translation>Can vary +/- 1 byte per input.</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation>Transactions with higher priority are more likely to get included into a block.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation>This label turns red, if the priority is smaller than &quot;medium&quot;.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation>This label turns red, if any recipient receives an amount smaller than %1.</translation>
-    </message>
-    <message>
-        <location line="+58"/>
-        <location line="+77"/>
+        <location filename="../coincontroldialog.cpp" line="+147"/>
         <source>(no label)</source>
         <translation>(no label)</translation>
     </message>
     <message>
-        <location line="-5"/>
-        <source>change from %1 (%2)</source>
-        <translation>change from %1 (%2)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="-73"/>
         <source>(change)</source>
         <translation>(change)</translation>
     </message>
 </context>
 <context>
-    <name>ContactDropdownRow</name>
+    <name>ColdStakingWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/contactdropdownrow.ui" line="+20"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <location filename="../cryptoshares/forms/coldstakingwidget.ui" line="+355"/>
+        <source>Owner address (optional, if empty a new address will be created)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+217"/>
+        <source>Total Staking:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-471"/>
+        <source>Cold Staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+90"/>
+        <source>Staker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Delegation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+279"/>
+        <source>Delegate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+340"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-378"/>
+        <source>Clear All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+89"/>
+        <source>Delegated balance history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+168"/>
+        <source>No delegations yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/coldstakingwidget.cpp" line="+806"/>
+        <source>Total Staking: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-508"/>
+        <source>Error loading delegations: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/forms/coldstakingwidget.ui" line="-603"/>
+        <source>You can delegate your SHARESs, letting a hot node (24/7 online node)
+stake on your behalf, while you keep the keys securely offline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+263"/>
+        <source>Enter owner address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-139"/>
+        <source>Accept SHARES delegation / Delegate SHARES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+65"/>
+        <source>Cold Staking address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/coldstakingwidget.cpp" line="+18"/>
+        <source>No receive addresses available, you can go to the receive screen and create some there!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No contacts available, you can go to the contacts screen and add some there!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+161"/>
+        <source>Cannot send delegation, wallet locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-49"/>
+        <source>Cold staking is networkely disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-298"/>
+        <source>Coin Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Select %1 outputs to delegate.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Create Cold Staking Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Creates an address to receive delegated coins
+and stake them on their owner&apos;s behalf.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>My Cold Staking Addresses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>List your own cold staking addresses.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+258"/>
+        <source>Invalid entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Invalid entry, minimum delegable amount is </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Owner address invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>ALERT!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Delegating to an external owner address!
+
+The delegated coins will NOT be spendable by this wallet.
+Spending these coins will need to be done from the wallet or
+device containing the owner address.
+
+Do you wish to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Staking address corresponds to this wallet, change it to an external node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>Cannot create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Coins delegated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>You don&apos;t have any %1 to select.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Cannot perform operation, wallet locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>URI copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Address copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Stake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Edit Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy owner
+address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>Address copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Edit Cold Address Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Whitelist failed, please check the logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source> staking!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Blacklist failed, please check the logs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source> blacklisted from staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Owner address copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Edit Owner Address Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Address label saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error storing address label</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateProposalDialog</name>
+    <message>
+        <location filename="../cryptoshares/forms/createproposaldialog.ui" line="+520"/>
+        <location line="+613"/>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <location line="-569"/>
+        <source>Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+124"/>
+        <source>Create New Proposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Make sure you have 50 SHARES for the proposal fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>Proposal Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <location line="+448"/>
+        <source>Proposal URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-355"/>
+        <source>Proposal Payee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Add the requested number of payments, the amount per payment, and the payee address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <location line="+256"/>
+        <source>Address</source>
+        <translation type="unfinished">Address</translation>
+    </message>
+    <message>
+        <location line="-237"/>
+        <location line="+206"/>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="-185"/>
+        <location line="+240"/>
+        <source>Months</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-121"/>
+        <source>Proposal Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+222"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/createproposaldialog.cpp" line="+60"/>
+        <source>NEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>BACK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+118"/>
+        <source>Proposal name cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Proposal name cannot contain non UTF-8 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Invalid amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Invalid payment address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>No contacts available, you can go to the contacts screen and add some there!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DashboardWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/dashboardwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+79"/>
+        <location filename="../cryptoshares/forms/dashboardwidget.ui" line="+93"/>
         <source>Transactions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -914,7 +1221,12 @@ for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+500"/>
+        <location line="+65"/>
+        <source>Amount of staking rewards received.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+435"/>
         <source>Sort by</source>
         <translation type="unfinished"></translation>
     </message>
@@ -939,17 +1251,12 @@ for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-558"/>
-        <source>Amount of SHARES and zSHARES staked.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../cryptoshares/dashboardwidget.cpp" line="+115"/>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/forms/dashboardwidget.ui" line="-100"/>
+        <location filename="../cryptoshares/forms/dashboardwidget.ui" line="-658"/>
         <source>No transactions yet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -961,23 +1268,23 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location filename="../cryptoshares/dashboardwidget.cpp" line="+36"/>
-        <location line="+278"/>
+        <location line="+274"/>
         <source>You have no staking rewards</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-276"/>
+        <location line="-272"/>
         <source>No charts library</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+276"/>
+        <location line="+272"/>
         <source>Loading chart..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+123"/>
-        <location line="+220"/>
+        <location line="+128"/>
+        <location line="+222"/>
         <location line="+88"/>
         <source>Error loading chart, invalid show option</source>
         <translation type="unfinished"></translation>
@@ -988,7 +1295,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+133"/>
+        <location line="+150"/>
         <source>Error loading chart: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -996,12 +1303,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
 <context>
     <name>DefaultDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/defaultdialog.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+228"/>
+        <location filename="../cryptoshares/forms/defaultdialog.ui" line="+242"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1060,7 +1362,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location line="+67"/>
-        <source>The entered address &quot;%1&quot; is not a valid SHARES address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid CRYPTOSHARES address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1080,17 +1382,9 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
 </context>
 <context>
-    <name>ExpandableButton</name>
-    <message>
-        <location filename="../cryptoshares/forms/expandablebutton.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-</context>
-<context>
     <name>FreespaceChecker</name>
     <message>
-        <location filename="../intro.cpp" line="+69"/>
+        <location filename="../intro.cpp" line="+73"/>
         <source>A new data directory will be created.</source>
         <translation>A new data directory will be created.</translation>
     </message>
@@ -1116,80 +1410,183 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
 </context>
 <context>
-    <name>HelpMessageDialog</name>
+    <name>GovernanceWidget</name>
     <message>
-        <location filename="../utilitydialog.cpp" line="+39"/>
-        <source>version</source>
-        <translation>version</translation>
+        <location filename="../cryptoshares/governancewidget.cpp" line="+44"/>
+        <source>Governance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>View, follow, vote and submit network budget proposals.
+Be part of the DAO.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Date</source>
+        <translation type="unfinished">Date</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>CRYPTOSHARES</source>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sort by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>All</source>
+        <translation type="unfinished">All</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Passing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Not Passing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Waiting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Please wait until the node is fully synced to see the correct information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Prepare and submit a new proposal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Please wait until the node is fully synced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+5"/>
+        <source>Cannot vote for the proposal yet, wait until it&apos;s confirmed by the network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Vote emitted successfully!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Cannot create proposal, wallet locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Cannot create proposal, need to have at least %1 to pay for the proposal fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Proposal transaction fee broadcasted!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Copy Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>More Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Proposal URL copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Open Proposal URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The following URL will be opened in the default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Are you sure?
+(Always verify the URL validity before opening it)
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Failed to open proposal URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Next superblock today!
+%2 blocks to go.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Next superblock in %1 days.
+%2 blocks to go.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HelpMessageDialog</name>
+    <message>
+        <location filename="../utilitydialog.cpp" line="+41"/>
+        <source>version</source>
+        <translation>version</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>About %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-8"/>
         <location line="+2"/>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>About CRYPTOSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
+        <location line="+26"/>
         <source>Command-line options</source>
         <translation>Command-line options</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Usage:</source>
-        <translation>Usage:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>command-line options</source>
-        <translation>command-line options</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>UI Options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Choose data directory on startup (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Show splash screen on startup (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Hide QT staking charts on startup (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation>Set language, for example &quot;de_DE&quot; (default: system locale)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Start minimized</source>
-        <translation>Start minimized</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation>Set SSL root certificates for payment request (default: -system-)</translation>
-    </message>
-    <message>
-        <location filename="../forms/helpmessagedialog.ui" line="+239"/>
+        <location filename="../forms/helpmessagedialog.ui" line="+236"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1203,17 +1600,17 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location line="+90"/>
-        <source>Welcome to CRYPTOSHARES.</source>
+        <source>Welcome to %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+35"/>
-        <source>As this is the first time the program is launched, you can choose where CRYPTOSHARES will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where %1 will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>CRYPTOSHARES will download and store a copy of the SHARES block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>%1 will download and store a copy of the CRYPTOSHARES block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1237,12 +1634,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../intro.cpp" line="+100"/>
-        <source>CRYPTOSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location filename="../intro.cpp" line="+106"/>
         <source>Error: Specified data directory &quot;%1&quot; cannot be created.</source>
         <translation>Error: Specified data directory &quot;%1&quot; cannot be created.</translation>
     </message>
@@ -1265,35 +1657,15 @@ It will start automatically as soon as the wallet has enough confirmations on an
 <context>
     <name>LoadingDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/loadingdialog.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+69"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+44"/>
+        <location filename="../cryptoshares/forms/loadingdialog.ui" line="+127"/>
         <source>Loading</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LockUnlock</name>
     <message>
-        <location filename="../cryptoshares/forms/lockunlock.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+90"/>
+        <location filename="../cryptoshares/forms/lockunlock.ui" line="+104"/>
         <source>Unlock Wallet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1311,12 +1683,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
 <context>
     <name>MNRow</name>
     <message>
-        <location filename="../cryptoshares/forms/mnrow.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/mnrow.cpp" line="+24"/>
+        <location filename="../cryptoshares/mnrow.cpp" line="+25"/>
         <source>Collateral tx not found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1329,12 +1696,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
 <context>
     <name>MasterNodeWizardDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/masternodewizarddialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+182"/>
+        <location filename="../cryptoshares/forms/masternodewizarddialog.ui" line="+196"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1369,12 +1731,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a SHARES Masternode you must dedicate a collateral amount of SHARES (the unit of SHARES) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+89"/>
+        <location line="+109"/>
         <source>Set Masternode Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1394,12 +1751,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+97"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of collateral amount will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node&apos;s name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
+        <location line="+148"/>
         <source>Address of the node that must always be online running the actual master node.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1419,7 +1771,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/masternodewizarddialog.cpp" line="+171"/>
+        <location filename="../cryptoshares/masternodewizarddialog.cpp" line="+192"/>
         <source>address label cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1434,7 +1786,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="+42"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1464,12 +1816,37 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-101"/>
+        <location line="-210"/>
+        <source>To create a CRYPTOSHARES Masternode you must dedicate %1 (the unit of CRYPTOSHARES) to the network (however, these coins are still yours and will never leave your possession).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>You can deactivate the node and unlock the coins at any time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>A transaction of %1 will be made</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>to a new empty address in your wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The Address is labeled under the master node&apos;s name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+100"/>
         <source>walletModel not set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+142"/>
+        <location line="+140"/>
         <source>Invalid masternode.conf file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1487,12 +1864,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
 <context>
     <name>MasterNodesWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/masternodeswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+281"/>
+        <location filename="../cryptoshares/forms/masternodeswidget.ui" line="+295"/>
         <source>Start All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1523,7 +1895,7 @@ and vote on the treasury system receiving a periodic reward.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/masternodeswidget.cpp" line="+174"/>
+        <location filename="../cryptoshares/masternodeswidget.cpp" line="+167"/>
         <source>Start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1565,7 +1937,7 @@ Please wait few more minutes (masternode collaterals require %1 confirmations).<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="+47"/>
         <source>Background task is being executed, please wait</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1605,17 +1977,12 @@ Please wait few more minutes (masternode collaterals require %1 confirmations).<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+118"/>
-        <source>Not enough balance to create a masternode, 10,000 %1 required.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-129"/>
+        <location line="-11"/>
         <source>Remote Masternode Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-246"/>
+        <location line="-248"/>
         <source>What is a Masternode?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1635,12 +2002,12 @@ Please wait few more minutes (masternode collaterals require %1 confirmations).<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+244"/>
+        <location line="+246"/>
         <source>You are just about to export the required data to run a Masternode
 on a remote server to your clipboard.
 
 
-You will only have to paste the data in the cryptoshares.conf file
+You will only have to paste the data in the shares.conf file
 of your remote server and start it, then start the Masternode using
 this controller wallet (select the Masternode in the list and press &quot;start&quot;).
 </source>
@@ -1680,7 +2047,12 @@ Are you sure?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+6"/>
+        <source>Not enough balance to create a masternode, %1 required.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
         <source>Error creating masternode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1688,12 +2060,7 @@ Are you sure?</source>
 <context>
     <name>MnInfoDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/mninfodialog.ui" line="+20"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+84"/>
+        <location filename="../cryptoshares/forms/mninfodialog.ui" line="+104"/>
         <source>Masternode Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1733,7 +2100,7 @@ Are you sure?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/mninfodialog.cpp" line="+27"/>
+        <location filename="../cryptoshares/mninfodialog.cpp" line="+25"/>
         <source>Masternode public key copied</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1744,22 +2111,88 @@ Are you sure?</source>
     </message>
 </context>
 <context>
-    <name>MyAddressRow</name>
+    <name>MnSelectionDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/myaddressrow.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <location filename="../cryptoshares/forms/mnselectiondialog.ui" line="+117"/>
+        <source>Select Masternodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Each Masternode refers to a single vote, you can select which one will vote for the proposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+113"/>
+        <source>Amount of votes:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <location filename="../cryptoshares/mnselectiondialog.cpp" line="+104"/>
+        <source>Select All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Status</source>
+        <translation type="unfinished">Status</translation>
+    </message>
+    <message>
+        <location line="+43"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>SELECT VOTES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/mnselectiondialog.cpp" line="+0"/>
+        <source>Unselect All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>The direction of the already broadcasted vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>No vote has been emitted from this Masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Time between votes is too soon, have to wait %1 minutes to change your vote</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NavMenuWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/navmenuwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+156"/>
+        <location filename="../cryptoshares/forms/navmenuwidget.ui" line="+170"/>
         <source>HOME
 </source>
         <translation type="unfinished"></translation>
@@ -1784,19 +2217,25 @@ Are you sure?</source>
     </message>
     <message>
         <location line="+26"/>
+        <source>DAO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
         <source>MASTER
 NODES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>SETTINGS
-</source>
+        <source>COLD
+STAKING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+46"/>
-        <source>V 1.0.0</source>
+        <location line="+26"/>
+        <source>SETTINGS
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1814,16 +2253,11 @@ NODES</source>
     </message>
     <message>
         <location line="+45"/>
-        <source>Open payment request from URI or file</source>
-        <translation>Open payment request from URI or file</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>TextLabel</source>
+        <source>Open CRYPTOSHARES URI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+90"/>
+        <location line="+91"/>
         <source>CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1832,404 +2266,11 @@ NODES</source>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location line="-75"/>
-        <source>Select payment request file</source>
-        <translation>Select payment request file</translation>
-    </message>
-    <message>
-        <location filename="../openuridialog.cpp" line="+64"/>
-        <source>Select payment request file to open</source>
-        <translation>Select payment request file to open</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>File not found</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Parsed data too large</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Invalid URI, not starting with &quot;cryptoshares&quot; prefix</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>OptionButton</name>
-    <message>
-        <location filename="../cryptoshares/forms/optionbutton.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-</context>
-<context>
-    <name>OptionsDialog</name>
-    <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
-        <source>Options</source>
-        <translation>Options</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>&amp;Main</source>
-        <translation>&amp;Main</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Size of &amp;database cache</source>
-        <translation>Size of &amp;database cache</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
-        <location line="+27"/>
-        <source>Number of script &amp;verification threads</source>
-        <translation>Number of script &amp;verification threads</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
-    </message>
-    <message>
-        <location line="+141"/>
-        <source>W&amp;allet</source>
-        <translation>W&amp;allet</translation>
-    </message>
-    <message>
-        <location line="+53"/>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
-        <translation>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Automatically open the SHARES client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Accept connections from outside</source>
-        <translation>Accept connections from outside</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Allow incoming connections</source>
-        <translation>Allow incoming connections</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>&amp;Connect through SOCKS5 proxy (default proxy):</translation>
-    </message>
-    <message>
-        <location line="-82"/>
-        <source>Expert</source>
-        <translation>Expert</translation>
-    </message>
-    <message>
-        <location line="-236"/>
-        <source>Automatically start SHARES after logging in to the system.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Start SHARES on system login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+239"/>
-        <source>Whether to show coin control features or not.</source>
-        <translation>Whether to show coin control features or not.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Enable coin &amp;control features</source>
-        <translation>Enable coin &amp;control features</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Show additional tab listing all your masternodes in first sub-tab&lt;br/&gt;and all masternodes on the network in second sub-tab.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Show Masternodes Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>&amp;Spend unconfirmed change</source>
-        <translation>&amp;Spend unconfirmed change</translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>&amp;Network</source>
-        <translation>&amp;Network</translation>
-    </message>
-    <message>
-        <location line="+192"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting SHARES.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-        https://discord.gg/T3CYMwTfjJ</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-204"/>
-        <source>Map port using &amp;UPnP</source>
-        <translation>Map port using &amp;UPnP</translation>
-    </message>
-    <message>
-        <location line="-187"/>
-        <source>Enable automatic minting of SHARES units to zSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Enable zSHARES Automint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Enable automatic zSHARES minting from specific addresses</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Enable Automint Addresses</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Percentage of incoming SHARES which get automatically converted to zSHARES via Zerocoin Protocol (min: 10%)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Percentage of autominted zSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+30"/>
-        <location line="+16"/>
-        <source>Wait with automatic conversion to Zerocoin until enough SHARES for this denomination is available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Preferred Automint zSHARES Denomination</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+40"/>
-        <source>Stake split threshold:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+98"/>
-        <source>Connect to the SHARES network through a SOCKS5 proxy.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Proxy &amp;IP:</source>
-        <translation>Proxy &amp;IP:</translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>&amp;Port:</source>
-        <translation>&amp;Port:</translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>Port of the proxy (e.g. 9050)</source>
-        <translation>Port of the proxy (e.g. 9050)</translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>&amp;Window</source>
-        <translation>&amp;Window</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Show only a tray icon after minimizing the window.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Minimize to the tray instead of the taskbar</source>
-        <translation>&amp;Minimize to the tray instead of the taskbar</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>M&amp;inimize on close</source>
-        <translation>M&amp;inimize on close</translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>&amp;Display</source>
-        <translation>&amp;Display</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>User Interface &amp;language:</source>
-        <translation>User Interface &amp;language:</translation>
-    </message>
-    <message>
-        <location line="+53"/>
-        <source>User Interface Theme:</source>
-        <translation>User Interface Theme:</translation>
-    </message>
-    <message>
-        <location line="+27"/>
-        <source>Unit to show amounts in:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Choose the default subdivision unit to show in the interface and when sending coins.</translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Decimal digits</source>
-        <translation>Decimal digits</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <location line="+6"/>
-        <source>Hide empty balances</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Hide orphan stakes in transaction lists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Hide orphan stakes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <location line="+10"/>
-        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
-    </message>
-    <message>
-        <location line="-7"/>
-        <source>Third party transaction URLs</source>
-        <translation>Third party transaction URLs</translation>
-    </message>
-    <message>
-        <location line="+41"/>
-        <source>Active command-line options that override above options:</source>
-        <translation>Active command-line options that override above options:</translation>
-    </message>
-    <message>
-        <location line="+43"/>
-        <source>Reset all client options to default.</source>
-        <translation>Reset all client options to default.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Reset Options</source>
-        <translation>&amp;Reset Options</translation>
-    </message>
-    <message>
-        <location line="+61"/>
-        <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Cancel</translation>
-    </message>
-    <message>
-        <location filename="../optionsdialog.cpp" line="+88"/>
-        <source>Any</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>default</source>
-        <translation>default</translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>none</source>
-        <translation>none</translation>
-    </message>
-    <message>
-        <location line="+95"/>
-        <source>Confirm options reset</source>
-        <translation>Confirm options reset</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location line="+29"/>
-        <source>Client restart required to activate changes.</source>
-        <translation>Client restart required to activate changes.</translation>
-    </message>
-    <message>
-        <location line="-29"/>
-        <source>Client will be shutdown, do you want to proceed?</source>
-        <translation>Client will be shutdown, do you want to proceed?</translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>This change would require a client restart.</source>
-        <translation>This change would require a client restart.</translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>The supplied proxy address is invalid.</source>
-        <translation>The supplied proxy address is invalid.</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>The supplied proxy port is invalid.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>The supplied proxy settings are invalid.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>CRYPTOSHARESGUI</name>
     <message>
-        <location filename="../cryptoshares/cryptosharesgui.cpp" line="+69"/>
-        <location line="+298"/>
-        <location line="+69"/>
-        <source>CRYPTOSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-366"/>
+        <location filename="../cryptoshares/cryptosharesgui.cpp" line="+70"/>
         <source>Wallet</source>
         <translation type="unfinished">Wallet</translation>
     </message>
@@ -2239,7 +2280,7 @@ NODES</source>
         <translation type="unfinished">Node</translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+102"/>
         <source>&amp;Show / Hide</source>
         <translation type="unfinished">&amp;Show / Hide</translation>
     </message>
@@ -2259,12 +2300,17 @@ NODES</source>
         <translation type="unfinished">Quit application</translation>
     </message>
     <message>
-        <location line="+39"/>
-        <source>CRYPTOSHARES client</source>
+        <location line="+41"/>
+        <source>%1 client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+166"/>
+        <location line="+48"/>
+        <source>Alert!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+131"/>
         <source>Error</source>
         <translation type="unfinished">Error</translation>
     </message>
@@ -2284,12 +2330,7 @@ NODES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+262"/>
-        <source>Sent MultiSend transaction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
+        <location line="+282"/>
         <source>Sent transaction</source>
         <translation type="unfinished">Sent transaction</translation>
     </message>
@@ -2315,123 +2356,30 @@ Address: %4
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+285"/>
-        <location line="+201"/>
-        <location line="+33"/>
-        <location line="+95"/>
-        <location line="+12"/>
-        <location line="+14"/>
+        <location filename="../paymentserver.cpp" line="+150"/>
         <source>Payment request error</source>
         <translation>Payment request error</translation>
     </message>
     <message>
-        <location line="-264"/>
-        <location line="+11"/>
+        <location line="+55"/>
         <location line="+5"/>
         <source>URI handling</source>
         <translation>URI handling</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>Payment request fetch URL is invalid: %1</translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Payment request file handling</source>
-        <translation>Payment request file handling</translation>
-    </message>
-    <message>
-        <location line="-18"/>
+        <location line="-5"/>
         <source>Invalid payment address %1</source>
         <translation>Invalid payment address %1</translation>
     </message>
     <message>
-        <location line="-101"/>
+        <location line="-54"/>
         <source>Cannot start cryptoshares: click-to-pay handler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+107"/>
-        <source>URI cannot be parsed! This can be caused by an invalid SHARES address or malformed URI parameters.</source>
+        <location line="+60"/>
+        <source>URI cannot be parsed! This can be caused by an invalid CRYPTOSHARES address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>Payment request file cannot be read! This can be caused by an invalid payment request file.</translation>
-    </message>
-    <message>
-        <location line="+66"/>
-        <location line="+8"/>
-        <location line="+30"/>
-        <source>Payment request rejected</source>
-        <translation>Payment request rejected</translation>
-    </message>
-    <message>
-        <location line="-38"/>
-        <source>Payment request network doesn&apos;t match client network.</source>
-        <translation>Payment request network doesn&apos;t match client network.</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Payment request has expired.</source>
-        <translation>Payment request has expired.</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Payment request is not initialized.</source>
-        <translation>Payment request is not initialized.</translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Unverified payment requests to custom payment scripts are unsupported.</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Requested payment amount of %1 is too small (considered dust).</translation>
-    </message>
-    <message>
-        <location line="+51"/>
-        <source>Refund from %1</source>
-        <translation>Refund from %1</translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Payment request DoS protection</source>
-        <translation>Payment request DoS protection</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error communicating with %1: %2</source>
-        <translation>Error communicating with %1: %2</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Payment request cannot be parsed!</source>
-        <translation>Payment request cannot be parsed!</translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Bad response from server %1</source>
-        <translation>Bad response from server %1</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Network request error</source>
-        <translation>Network request error</translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Payment acknowledged</source>
-        <translation>Payment acknowledged</translation>
     </message>
 </context>
 <context>
@@ -2458,19 +2406,135 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>ProposalCard</name>
+    <message>
+        <location filename="../cryptoshares/forms/proposalcard.ui" line="+355"/>
+        <source>Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/proposalcard.cpp" line="+43"/>
+        <source>Inactive proposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Last month in course</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>%1 of %2 months left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Waiting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>No Votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Not Passing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Passing</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProposalInfoDialog</name>
+    <message>
+        <location filename="../cryptoshares/forms/proposalinfodialog.ui" line="+116"/>
+        <source>Proposal Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+168"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Proposal Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+98"/>
+        <source>Recipient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <source>End Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Status</source>
+        <translation type="unfinished">Status</translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Start Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+85"/>
+        <source>Positive Votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>Negative Votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+280"/>
+        <location filename="../bitcoinunits.cpp" line="+281"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+138"/>
-        <source>Enter SHARES address (e.g. %1)</source>
+        <location filename="../guiutil.cpp" line="+137"/>
+        <source>Enter CRYPTOSHARES address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+SHARES"/>
+        <location line="+559"/>
         <source>%1 d</source>
         <translation>%1 d</translation>
     </message>
@@ -2521,20 +2585,12 @@ Address: %4
         <translation>%1 ms</translation>
     </message>
     <message>
-        <location filename="../cryptoshares.cpp" line="+518"/>
-        <source>A fatal error occurred. SHARES can no longer continue safely and will quit.</source>
+        <location filename="../cryptoshares.cpp" line="+544"/>
+        <source>A fatal error occurred. CRYPTOSHARES can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+73"/>
-        <location line="+7"/>
-        <location line="+13"/>
-        <location line="+19"/>
-        <source>CRYPTOSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-38"/>
+        <location line="+79"/>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2544,29 +2600,62 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
+        <location line="+14"/>
+        <source>Error: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+89"/>
+        <source>%1 didn&apos;t yet exit safely...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-69"/>
         <source>Error reading masternode configuration file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+64"/>
-        <source>CRYPTOSHARES didn&apos;t yet exit safely...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addresstablemodel.cpp" line="-232"/>
+        <location filename="../addresstablemodel.cpp" line="-248"/>
         <source>Contact</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <location filename="../cryptoshares/qtutils.cpp" line="+136"/>
+        <location filename="../cryptoshares/qtutils.cpp" line="+135"/>
         <source>Receiving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <location filename="../cryptoshares/qtutils.cpp" line="+3"/>
+        <source>Delegator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <location filename="../cryptoshares/qtutils.cpp" line="+1"/>
+        <source>Delegable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <location filename="../cryptoshares/qtutils.cpp" line="-2"/>
+        <source>Cold Staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Cold Staking Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Receiving Shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Contact Shielded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2581,18 +2670,28 @@ Address: %4
     </message>
     <message>
         <location filename="../cryptoshares/qtutils.cpp" line="-3"/>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>All</source>
         <translation type="unfinished">All</translation>
     </message>
     <message>
-        <location line="-20"/>
+        <location line="-22"/>
         <source>Contacts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Staking Contacts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Shielded Recv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Shielded Contact</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2621,12 +2720,17 @@ Address: %4
         <translation type="unfinished">Received</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Sent</source>
         <translation type="unfinished">Sent</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+5"/>
+        <source>Shield</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Mined</source>
         <translation type="unfinished">Mined</translation>
     </message>
@@ -2646,12 +2750,27 @@ Address: %4
         <translation type="unfinished">To yourself</translation>
     </message>
     <message>
+        <location line="+4"/>
+        <source>Cold stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
         <source>Hot stakes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+1"/>
+        <source>Delegated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Delegations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+74"/>
         <source>by Label</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2666,7 +2785,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/dashboardwidget.cpp" line="-507"/>
+        <location filename="../cryptoshares/dashboardwidget.cpp" line="-531"/>
         <source>Jan</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2725,6 +2844,11 @@ Address: %4
         <source>Dec</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../cryptoshares/coldstakingwidget.cpp" line="-716"/>
+        <source>Address with no label</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RPCConsole</name>
@@ -2744,54 +2868,17 @@ Address: %4
         <translation>General</translation>
     </message>
     <message>
-        <location line="+152"/>
+        <location line="+129"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location line="-145"/>
+        <location line="-122"/>
         <source>Client name</source>
         <translation>Client name</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <location line="+23"/>
-        <location line="+26"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+20"/>
-        <location line="+30"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+36"/>
-        <location line="+23"/>
-        <location line="+20"/>
-        <location line="+516"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+26"/>
-        <location line="+23"/>
-        <location line="+78"/>
-        <location line="+29"/>
-        <location line="+29"/>
-        <location line="+29"/>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <location line="-1164"/>
+        <location line="+145"/>
         <source>Number of connections</source>
         <translation>Number of connections</translation>
     </message>
@@ -2821,17 +2908,12 @@ Address: %4
         <translation>Debug log file</translation>
     </message>
     <message>
-        <location line="-234"/>
-        <source>Build date</source>
-        <translation>Build date</translation>
-    </message>
-    <message>
-        <location line="+155"/>
+        <location line="-79"/>
         <source>Current number of blocks</source>
         <translation>Current number of blocks</translation>
     </message>
     <message>
-        <location line="-204"/>
+        <location line="-181"/>
         <source>Client version</source>
         <translation>Client version</translation>
     </message>
@@ -2841,13 +2923,13 @@ Address: %4
         <translation>Using BerkeleyDB version</translation>
     </message>
     <message>
-        <location line="+174"/>
+        <location line="+151"/>
         <source>Block chain</source>
         <translation>Block chain</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Open the SHARES debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the CRYPTOSHARES debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2912,8 +2994,8 @@ Address: %4
     </message>
     <message>
         <location line="+59"/>
-        <location filename="../rpcconsole.cpp" line="+317"/>
-        <location line="+722"/>
+        <location filename="../rpcconsole.cpp" line="+109"/>
+        <location line="+717"/>
         <source>Select a peer to view detailed information.</source>
         <translation>Select a peer to view detailed information.</translation>
     </message>
@@ -2983,12 +3065,12 @@ Address: %4
         <translation>&amp;Wallet Repair</translation>
     </message>
     <message>
-        <location line="+347"/>
+        <location line="+260"/>
         <source>Delete local Blockchain Folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-309"/>
+        <location line="-222"/>
         <source>Wallet In Use:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3023,22 +3105,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+104"/>
-        <source>Custom Backup Path:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Custom zSHARES Backup Path:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Custom Backups Threshold:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+45"/>
+        <location line="+120"/>
         <source>Salvage wallet</source>
         <translation>Salvage wallet</translation>
     </message>
@@ -3088,17 +3155,12 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
-        <source>-resync:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
+        <location line="+30"/>
         <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-333"/>
+        <location line="-246"/>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
         <translation>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</translation>
     </message>
@@ -3108,7 +3170,7 @@ Address: %4
         <translation>Wallet repair options.</translation>
     </message>
     <message>
-        <location line="+286"/>
+        <location line="+199"/>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself!)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3128,12 +3190,12 @@ Address: %4
         <translation>Out:</translation>
     </message>
     <message>
-        <location line="-39"/>
-        <source>Welcome to the SHARES RPC console.</source>
+        <location line="-40"/>
+        <source>Welcome to the CRYPTOSHARES RPC console.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-209"/>
+        <location line="-203"/>
         <source>&amp;Disconnect Node</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3171,7 +3233,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+96"/>
+        <location line="+90"/>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3202,8 +3264,13 @@ Address: %4
     </message>
     <message>
         <location line="+1"/>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>For more information on using this console type %1.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3276,12 +3343,7 @@ Address: %4
 <context>
     <name>ReceiveDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/receivedialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+81"/>
+        <location filename="../cryptoshares/forms/receivedialog.ui" line="+95"/>
         <source>My Address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3299,22 +3361,28 @@ Address: %4
 <context>
     <name>ReceiveWidget</name>
     <message>
-        <location filename="../cryptoshares/forms/receivewidget.ui" line="+20"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/receivewidget.cpp" line="+240"/>
-        <source>No address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/forms/receivewidget.ui" line="+61"/>
+        <location filename="../cryptoshares/forms/receivewidget.ui" line="+81"/>
         <source>Scan the QR code or copy the address to receive SHARES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+188"/>
+        <location line="+76"/>
+        <source>Transparent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Accept transparent or shielded SHARES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+179"/>
+        <location filename="../cryptoshares/receivewidget.cpp" line="+185"/>
         <source>Add Label</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3329,12 +3397,17 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-215"/>
+        <location line="+134"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-463"/>
         <source>Receive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/receivewidget.cpp" line="-186"/>
+        <location filename="../cryptoshares/receivewidget.cpp" line="-127"/>
         <source>My Addresses</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3354,14 +3427,15 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+78"/>
-        <location line="+12"/>
-        <source>No available address, try unlocking the wallet</source>
+        <location line="+89"/>
+        <location line="+16"/>
+        <source>No available address
+try unlocking the wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-11"/>
-        <location line="+12"/>
+        <location line="-15"/>
+        <location line="+16"/>
         <source>Error generating address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3386,12 +3460,12 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Cannot create new address, wallet locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+14"/>
         <source>New address created</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3462,32 +3536,17 @@ Address: %4
 <context>
     <name>RequestDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/requestdialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+242"/>
+        <location filename="../cryptoshares/forms/requestdialog.ui" line="+256"/>
         <source>Amount</source>
         <translation type="unfinished">Amount</translation>
     </message>
     <message>
-        <location line="+74"/>
-        <source>SHARES</source>
+        <location line="-43"/>
+        <source>Instead of sharing only a CRYPTOSHARES address, you can create a payment request, bundling up more information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-117"/>
-        <source>Instead of sharing only a SHARES address, you can create a payment request, bundling up more information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+332"/>
-        <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+53"/>
+        <location line="+385"/>
         <source>COPY ADDRESS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3527,7 +3586,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/requestdialog.cpp" line="+49"/>
+        <location filename="../cryptoshares/requestdialog.cpp" line="+47"/>
         <source>Error</source>
         <translation type="unfinished">Error</translation>
     </message>
@@ -3537,35 +3596,45 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../cryptoshares/requestdialog.cpp" line="+28"/>
+        <source>Creates an address to receive coin delegations and be able to stake them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>New Cold Staking Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
         <source>Amount (optional)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+12"/>
         <source>Address label cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>Invalid amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+16"/>
         <source>Request for </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Cold Staking Address Generated</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/sendchangeaddressdialog.ui" line="+14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+238"/>
+        <location filename="../cryptoshares/forms/sendchangeaddressdialog.ui" line="+252"/>
         <location filename="../cryptoshares/sendchangeaddressdialog.cpp" line="+64"/>
         <source>CANCEL</source>
         <translation type="unfinished"></translation>
@@ -3577,7 +3646,7 @@ Address: %4
     </message>
     <message>
         <location line="+72"/>
-        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the &quot;change&quot; SHARES address</source>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the &quot;change&quot; CRYPTOSHARES address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3595,31 +3664,21 @@ Address: %4
         <source>Invalid address</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="+2"/>
+        <source>Cannot use cold staking addresses for change</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/sendcustomfeedialog.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+190"/>
+        <location filename="../cryptoshares/forms/sendcustomfeedialog.ui" line="+204"/>
         <source>Recommended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+86"/>
-        <source>SHARES/kilobyte</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-63"/>
-        <source>0.00 KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-69"/>
+        <location line="-46"/>
         <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3639,7 +3698,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/sendcustomfeedialog.cpp" line="+35"/>
+        <location filename="../cryptoshares/sendcustomfeedialog.cpp" line="+36"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3654,30 +3713,53 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+125"/>
+        <source>Invalid custom fee amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../cryptoshares/forms/sendcustomfeedialog.ui" line="+260"/>
         <source>SAVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/sendcustomfeedialog.cpp" line="+89"/>
+        <location filename="../cryptoshares/sendcustomfeedialog.cpp" line="-32"/>
         <source>Fee too high. Must be below: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+10"/>
         <source>Fee too low. Must be at least: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendMemoDialog</name>
+    <message>
+        <location filename="../cryptoshares/forms/sendmemodialog.ui" line="+151"/>
+        <source>Private message only visible for the recipient(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+117"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/sendmemodialog.cpp" line="+49"/>
+        <source>RESET</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SendMultiRow</name>
     <message>
-        <location filename="../cryptoshares/forms/sendmultirow.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+118"/>
+        <location filename="../cryptoshares/forms/sendmultirow.ui" line="+144"/>
         <source>Enter address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3691,16 +3773,42 @@ Address: %4
         <source>Enter label</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="+38"/>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less SHARES than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Subtract fee from amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/sendmultirow.cpp" line="+93"/>
+        <source>Update memo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Add encrypted memo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Memo field reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendWidget</name>
     <message>
-        <location filename="../cryptoshares/send.cpp" line="+137"/>
+        <location filename="../cryptoshares/send.cpp" line="+159"/>
         <source>Total remaining from the selected UTXO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+324"/>
+        <location line="+228"/>
+        <location line="+234"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3712,22 +3820,32 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+272"/>
+        <location line="+373"/>
         <source>Customize Fee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-491"/>
+        <location line="-694"/>
         <source>Maximum amount of outputs reached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="-225"/>
+        <source>Parse a CRYPTOSHARES URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+253"/>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+36"/>
+        <source>Possibly spend coins delegated for cold-staking (currently available: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
         <source>Invalid entry</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3737,22 +3855,24 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+22"/>
         <source>Cannot send, wallet locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+29"/>
-        <source>Cannot create transaction.</source>
+        <location line="+86"/>
+        <source>WARNING:
+Transaction spends a cold-stake delegation, voiding it.
+These coins will no longer be cold-staked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+20"/>
         <source>Transaction sent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+63"/>
         <source>Address label update failed for address: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3767,12 +3887,17 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+247"/>
+        <location line="+288"/>
+        <source>Memo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
         <source>Custom Fee %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-674"/>
+        <location line="-927"/>
         <source>Coin Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3797,37 +3922,108 @@ Do you want to continue?</source>
         <translation type="unfinished">Open URI</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Parse a payment request</source>
+        <location line="+4"/>
+        <location line="+656"/>
+        <source>Shield Coins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+73"/>
+        <location line="-655"/>
+        <source>Convert all transparent coins into shielded coins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+92"/>
         <source>Unlocked remaining</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+390"/>
+        <location line="+216"/>
+        <source>Cannot send memo to address
+%1
+
+Encrypted memo messages are available only for shielded recipients.
+
+Do you wish to proceed without memo?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <location line="+282"/>
+        <source>Sapling Protocol temporarily in maintenance. Shielded transactions disabled (SPORK 20)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-265"/>
+        <source>On going process being executed, please wait until it&apos;s finished to create a new transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Preparing transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>Processing full, refreshing amounts later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+115"/>
         <source>You don&apos;t have any %1 to select.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+42"/>
+        <source>You are just about to anonymize all of your balance!
+Available %1
+With fee %2
+
+Meaning that you will be able to perform completely
+anonymous transactions
+
+Do you want to continue?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Error generating address to shield SHARESs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>You don&apos;t have any transparent SHARESs to shield.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+58"/>
+        <source>Add Memo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Save contact</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+2"/>
+        <source>Subtract fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
         <source>Address field is empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+8"/>
         <source>Invalid address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3860,12 +4056,7 @@ Do you want to continue?</source>
 <context>
     <name>SettingsBackupWallet</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsbackupwallet.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+147"/>
+        <location filename="../cryptoshares/settings/forms/settingsbackupwallet.ui" line="+161"/>
         <source>Change Wallet Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3882,7 +4073,7 @@ This option creates a wallet.dat file that can be used to recover your whole bal
     </message>
     <message>
         <location line="+53"/>
-        <location filename="../cryptoshares/settings/settingsbackupwallet.cpp" line="+55"/>
+        <location filename="../cryptoshares/settings/settingsbackupwallet.cpp" line="+57"/>
         <source>Select folder...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3927,12 +4118,7 @@ Remember to write it down and store it safely, otherwise you might lose access t
 <context>
     <name>SettingsBitToolWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsbittoolwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+459"/>
+        <location filename="../cryptoshares/settings/forms/settingsbittoolwidget.ui" line="+473"/>
         <source>Import Address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3943,7 +4129,7 @@ Remember to write it down and store it safely, otherwise you might lose access t
     </message>
     <message>
         <location line="+7"/>
-        <source>Encrypt your SHARES addresses (key pair actually) using BIP38 encryption.
+        <source>Encrypt your CRYPTOSHARES addresses (key pair actually) using BIP38 encryption.
 Using this mechanism you can share your keys without middle-man risk, only need to store your passphrase safely</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3990,7 +4176,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
     </message>
     <message>
         <location line="+77"/>
-        <source>SHARES address</source>
+        <source>CRYPTOSHARES address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4057,12 +4243,12 @@ Using this mechanism you can share your keys without middle-man risk, only need 
     </message>
     <message>
         <location line="+7"/>
-        <location line="+113"/>
+        <location line="+120"/>
         <source>Wallet unlock was cancelled.</source>
         <translation type="unfinished">Wallet unlock was cancelled.</translation>
     </message>
     <message>
-        <location line="-106"/>
+        <location line="-113"/>
         <source>Private key for the entered address is not available.</source>
         <translation type="unfinished">Private key for the entered address is not available.</translation>
     </message>
@@ -4087,7 +4273,12 @@ Using this mechanism you can share your keys without middle-man risk, only need 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+16"/>
+        <source>Wallet is currently rescanning. Abort existing rescan or wait.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Data Not Valid.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4102,17 +4293,17 @@ Using this mechanism you can share your keys without middle-man risk, only need 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+7"/>
         <source>Cannot import address, key already held by the wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+6"/>
         <source>Error adding key to the wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+6"/>
         <source>Successfully added private key to the wallet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4120,17 +4311,12 @@ Using this mechanism you can share your keys without middle-man risk, only need 
 <context>
     <name>SettingsConsoleWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsconsolewidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+46"/>
+        <location filename="../cryptoshares/settings/forms/settingsconsolewidget.ui" line="+60"/>
         <source>Console</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsconsolewidget.cpp" line="+263"/>
+        <location filename="../cryptoshares/settings/settingsconsolewidget.cpp" line="+72"/>
         <source>Console input</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4156,8 +4342,8 @@ Verify that you have installed a predetermined text editor.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+148"/>
-        <source>Welcome to the SHARES RPC console.</source>
+        <location line="+138"/>
+        <source>Welcome to the CRYPTOSHARES RPC console.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4167,8 +4353,13 @@ Verify that you have installed a predetermined text editor.</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation type="unfinished">Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
+        <source>Type %1 for an overview of available commands.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>For more information on using this console type %1.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4179,12 +4370,7 @@ Verify that you have installed a predetermined text editor.</source>
 <context>
     <name>SettingsDisplayOptionsWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsdisplayoptionswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+194"/>
+        <location filename="../cryptoshares/settings/forms/settingsdisplayoptionswidget.ui" line="+208"/>
         <source>Hide stake charts in the dashboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4253,12 +4439,7 @@ Verify that you have installed a predetermined text editor.</source>
 <context>
     <name>SettingsExportCSV</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsexportcsv.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+41"/>
+        <location filename="../cryptoshares/settings/forms/settingsexportcsv.ui" line="+55"/>
         <source>Export Accounting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4269,44 +4450,31 @@ Verify that you have installed a predetermined text editor.</source>
     </message>
     <message>
         <location line="+35"/>
-        <source>Where</source>
+        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="+61"/>
+        <source>Export Transaction History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+58"/>
         <location line="+115"/>
-        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="+70"/>
+        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="+8"/>
         <location line="+7"/>
         <source>Select folder...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-48"/>
+        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="-15"/>
         <source>Export Address Book</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="-16"/>
-        <source>Export CSV</source>
-        <translation type="unfinished"></translation>
+        <location filename="../cryptoshares/settings/settingsexportcsv.cpp" line="+1"/>
+        <source>Comma separated file (*.csv)</source>
+        <translation type="unfinished">Comma separated file (*.csv)</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Export Address List</source>
-        <translation type="unfinished">Export Address List</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>CRYPTOSHARES_tx_csv_export(*.csv)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>CRYPTOSHARES_addresses_csv_export(*.csv)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
+        <location line="+22"/>
         <location line="+72"/>
         <source>Please select a folder to export the csv file first.</source>
         <translation type="unfinished"></translation>
@@ -4379,13 +4547,8 @@ There was an error trying to save the address list to %1. Please try again.</sou
 <context>
     <name>SettingsFaqWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsfaqwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+152"/>
-        <source>1) What is SHARES?</source>
+        <location filename="../cryptoshares/settings/forms/settingsfaqwidget.ui" line="+166"/>
+        <source>1) What is CRYPTOSHARES?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4394,40 +4557,17 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+148"/>
-        <source>https://cryptosharescoin.io/</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+135"/>
+        <location line="+283"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>What is SHARES?</source>
+        <source>What is CRYPTOSHARES?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           SHARES is a form of digital online money using blockchain technology
-                           that can be easily transferred globally, instantly, and with near
-                           zero fees.  SHARES incorporates market leading security &amp;
-                           privacy and is also the first PoS (Proof of Stake) Cryptocurrency
-                           to implement ZeroCoin(zSHARES) and Zerocoin staking.
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           SHARES utilizes a Proof of Stake (PoS) consensus system algorithm,
-                           allowing all owners of SHARES to participate in earning block rewards
-                           while securing the network with full node wallets, as well as to
-                           run Masternodes to create and vote on proposals.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+59"/>
+        <location line="+72"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4437,20 +4577,7 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           Newly received SHARES requires 6 confirmations on the network
-                           to become eligible for spending which can take ~6 minutes.
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           Your SHARES wallet also needs to be completely synchronized
-                           to see and spend balances on the network.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+54"/>
+        <location line="+72"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4460,108 +4587,47 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make sure your wallet is completely synchronized and you are using the latest release. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You must have a balance of SHARES with a minimum of 600 confirmations. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Your wallet must stay online and be unlocked for staking purposes. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Once all those steps are followed staking should be enabled. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &amp;quot;Staking Enabled&amp;quot; to indicate it is staking. Using the command line interface (cryptoshares-cli); the command &lt;span style=&quot; font-style:italic;&quot;&gt;getstakingstatus&lt;/span&gt; will confirm that staking is active. &lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
+        <location line="+72"/>
         <source>4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+99"/>
+        <location line="+90"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+131"/>
+        <location line="+90"/>
         <source>6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-212"/>
+        <location line="-162"/>
         <source>Where should I go if I need support?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style=&apos;color: #b088ff&apos; href=&apos;https://discord.gg/T3CYMwTfjJ&apos;&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+73"/>
+        <location line="+90"/>
         <source>What is a Masternode?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+131"/>
+        <location line="+90"/>
         <source>What is a Masternode Controller?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-131"/>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           A masternode is a computer running a full node SHARES wallet with a
-                           required amount of secured collateral to provide extra services
-                           to the network and in return, receive a portion of the block reward
-                           regularly.  These services include:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           &lt;ul&gt;
-                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
-                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
-                           &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
-                           &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
-                           &lt;/ul&gt;
-
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           For providing such services, masternodes are also paid a certain portion
-                           of reward for each block. This can serve as a passive income to the
-                           masternode owners minus their running cost.
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           Masternode Perks:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           &lt;ul&gt;
-                           &lt;li&gt;Participate in SHARES Governance&lt;/li&gt;
-                           &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
-                           &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the SHARES network&lt;/li&gt;
-                           &lt;/ul&gt;
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-
-                           Requirements:
-                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           &lt;ul&gt;
-                           &lt;li&gt;Enough collateral balance per single Masternode instance&lt;/li&gt;
-                           &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
-                           &lt;li&gt;Need dedicated IP address&lt;/li&gt;
-                           &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
-                           &lt;/ul&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-856"/>
+        <location line="-890"/>
         <source>Frequently Asked Questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+158"/>
+        <location line="+20"/>
+        <source>Close FAQ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+138"/>
         <source>3) How do I stake SHARES?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4586,20 +4652,150 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-238"/>
-        <source>Exit</source>
+        <location filename="../cryptoshares/settings/settingsfaqwidget.cpp" line="+78"/>
+        <source>CRYPTOSHARES is a form of digital online money using blockchain technology that can be easily transferred globally, instantly, and with near zero fees. CRYPTOSHARES incorporates market leading security &amp; privacy and is also the first PoS (Proof of Stake) Cryptocurrency to implement Sapling(SHIELD), a zk-SNARKs based privacy protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>CRYPTOSHARES utilizes a Proof of Stake (PoS) consensus system algorithm, allowing all owners of CRYPTOSHARES to participate in earning block rewards while securing the network with full node wallets, as well as to run Masternodes to create and vote on proposals.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Newly received CRYPTOSHARES requires 6 confirmations on the network to become eligible for spending which can take ~6 minutes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Your CRYPTOSHARES wallet also needs to be completely synchronized to see and spend balances on the network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Make sure your wallet is completely synchronized and you are using the latest release.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You must have a balance of CRYPTOSHARES with a minimum of 600 confirmations.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your wallet must stay online and be unlocked for staking purposes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Once all those steps are followed staking should be enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. The package will be lit up and will state &quot;Staking Enabled&quot; to indicate it is staking. Using the command line interface (%1); the command %2 will confirm that staking is active.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>We have support channels in most of our official chat groups, for example %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>#support in our Discord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>%1 per single Masternode instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>A Masternode Controller wallet is where the %1 collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-27"/>
+        <source>A decentralized governance (Proposal Voting)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7"/>
+        <source>A masternode is a computer running a full node %1 wallet with a requirement of %2 secured collateral to provide extra services to the network and in return, receive a portion of the block reward regularly. These services include:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>A decentralized budgeting system (Treasury)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Validation of transactions within each block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Act as an additional full node in the network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>For providing such services, masternodes are also paid a certain portion of reward for each block. This can serve as a passive income to the masternode owners minus their running cost.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Masternode Perks:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Participate in CRYPTOSHARES Governance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Earn Masternode Rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Commodity option for future sale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Help secure the CRYPTOSHARES network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Requirements:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Must be stored in a core wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Need dedicated IP address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Masternode wallet to remain online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsInformationWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsinformationwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+102"/>
+        <location filename="../cryptoshares/settings/forms/settingsinformationwidget.ui" line="+116"/>
         <source>Network Monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4689,7 +4885,7 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsinformationwidget.cpp" line="+72"/>
+        <location filename="../cryptoshares/settings/settingsinformationwidget.cpp" line="+74"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4704,7 +4900,7 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsinformationwidget.cpp" line="+22"/>
+        <location filename="../cryptoshares/settings/settingsinformationwidget.cpp" line="+21"/>
         <source>No information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4715,11 +4911,11 @@ There was an error trying to save the address list to %1. Please try again.</sou
     </message>
     <message>
         <location line="+4"/>
-        <source>Unable to open cryptoshares.conf with default application</source>
+        <source>Unable to open shares.conf with default application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>In:</source>
         <translation type="unfinished">In:</translation>
     </message>
@@ -4728,16 +4924,16 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <source>Out:</source>
         <translation type="unfinished">Out:</translation>
     </message>
+    <message>
+        <location line="+60"/>
+        <source>No available data</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsMainOptionsWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingsmainoptionswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+278"/>
+        <location filename="../cryptoshares/settings/forms/settingsmainoptionswidget.ui" line="+292"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4782,12 +4978,7 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsmainoptionswidget.cpp" line="+57"/>
-        <source>Start SHARES on system login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/settings/forms/settingsmainoptionswidget.ui" line="+130"/>
+        <location line="+130"/>
         <source>Minimize to the tray instead of the taskbar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4797,7 +4988,12 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingsmainoptionswidget.cpp" line="+30"/>
+        <location filename="../cryptoshares/settings/settingsmainoptionswidget.cpp" line="+54"/>
+        <source>Start %1 on system login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
         <source>Reset Options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4816,206 +5012,9 @@ Are you sure?
     </message>
 </context>
 <context>
-    <name>SettingsMultisendDialog</name>
-    <message>
-        <location filename="../cryptoshares/settings/forms/settingsmultisenddialog.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+81"/>
-        <source>Transaction Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+110"/>
-        <location line="+64"/>
-        <location line="+58"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+71"/>
-        <source>CANCEL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>SAVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/settings/settingsmultisenddialog.cpp" line="+24"/>
-        <source>New recipient for multisend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Address Label (optional)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Enter label to be saved with this address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Percentage</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsMultisendWidget</name>
-    <message>
-        <location filename="../cryptoshares/settings/forms/settingsmultisendwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+64"/>
-        <location line="+7"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+228"/>
-        <source>N/A</source>
-        <translation type="unfinished">N/A</translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <location line="+29"/>
-        <source>CheckBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/settings/settingsmultisendwidget.cpp" line="+164"/>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other SHARES addresses after it matures.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Disable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>No active recipient yet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Send stakes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send masternode rewards</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>ADD RECIPIENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>CLEAR ALL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
-        <source>Cannot perform operation, wallet locked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>Clear succeed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Clear all failed, could not locate address in wallet file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Cannot add multisend recipient, wallet locked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>The entered address: %1 is invalid.
-Please check the address and try again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Invalid percentage, please enter values from 1 to 100.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Error saving  MultiSend, failed saving properties to the database.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>Unable to activate MultiSend, no available recipients</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Unable to activate MultiSend
-Check one or both of the check boxes to send on stake and/or masternode rewards</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>MultiSend activated but writing settings to DB failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>MultiSend activated</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>First multiSend address invalid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>MultiSend deactivated but writing settings to DB failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>MultiSend deactivated</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SettingsSignMessageWidgets</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingssignmessagewidgets.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+64"/>
+        <location filename="../cryptoshares/settings/forms/settingssignmessagewidgets.ui" line="+78"/>
         <source>Sign/Verify Message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5035,7 +5034,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingssignmessagewidgets.cpp" line="+47"/>
+        <location filename="../cryptoshares/settings/settingssignmessagewidgets.cpp" line="+48"/>
         <source>Select mode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5046,7 +5045,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     </message>
     <message>
         <location line="-62"/>
-        <source>SHARES address or contact label</source>
+        <source>CRYPTOSHARES address or contact label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5088,26 +5087,26 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     </message>
     <message>
         <location line="+48"/>
-        <location line="+55"/>
+        <location line="+52"/>
         <source>The entered address is invalid.</source>
         <translation type="unfinished">The entered address is invalid.</translation>
     </message>
     <message>
-        <location line="-55"/>
+        <location line="-52"/>
         <location line="+8"/>
-        <location line="+47"/>
+        <location line="+44"/>
         <location line="+7"/>
         <source>Please check the address and try again.</source>
         <translation type="unfinished">Please check the address and try again.</translation>
     </message>
     <message>
-        <location line="-54"/>
-        <location line="+54"/>
+        <location line="-51"/>
+        <location line="+51"/>
         <source>The entered address does not refer to a key.</source>
         <translation type="unfinished">The entered address does not refer to a key.</translation>
     </message>
     <message>
-        <location line="-47"/>
+        <location line="-44"/>
         <source>Wallet unlock was cancelled.</source>
         <translation type="unfinished">Wallet unlock was cancelled.</translation>
     </message>
@@ -5117,7 +5116,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished">Private key for the entered address is not available.</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Message signing failed.</source>
         <translation type="unfinished">Message signing failed.</translation>
     </message>
@@ -5127,23 +5126,17 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished">Message signed.</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+33"/>
         <source>The signature could not be decoded.</source>
         <translation type="unfinished">The signature could not be decoded.</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+12"/>
         <source>Please check the signature and try again.</source>
         <translation type="unfinished">Please check the signature and try again.</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>The signature did not match the message digest.</source>
-        <translation type="unfinished">The signature did not match the message digest.</translation>
-    </message>
-    <message>
-        <location line="+6"/>
+        <location line="+9"/>
         <source>Message verification failed.</source>
         <translation type="unfinished">Message verification failed.</translation>
     </message>
@@ -5161,12 +5154,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
 <context>
     <name>SettingsWalletOptionsWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingswalletoptionswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+440"/>
+        <location filename="../cryptoshares/settings/forms/settingswalletoptionswidget.ui" line="+464"/>
         <source>Reset to default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5176,7 +5164,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-405"/>
+        <location line="-415"/>
         <source>Wallet</source>
         <translation type="unfinished">Wallet</translation>
     </message>
@@ -5197,7 +5185,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     </message>
     <message>
         <location line="+71"/>
-        <location filename="../cryptoshares/settings/settingswalletoptionswidget.cpp" line="+38"/>
+        <location filename="../cryptoshares/settings/settingswalletoptionswidget.cpp" line="+43"/>
         <source>Network</source>
         <translation type="unfinished">Network</translation>
     </message>
@@ -5207,7 +5195,17 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+58"/>
+        <source>Automatically open the CRYPTOSHARES client port on the router. This only works when your router supports NAT-PMP and it is enabled. The external port could be random.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Map port using NAT-PMP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
         <source>Connect through SOCKS5 proxy (default proxy)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5232,12 +5230,12 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-69"/>
+        <location line="-79"/>
         <source>Map port using UPnP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+17"/>
         <source>Allow incoming connections</source>
         <translation type="unfinished">Allow incoming connections</translation>
     </message>
@@ -5251,16 +5249,16 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <source>Options reset succeed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="+46"/>
+        <source>Stake Split too low, it shall be either &gt;= %1 or equal to 0 (to disable stake splitting)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsWalletRepairWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingswalletrepairwidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+94"/>
+        <location filename="../cryptoshares/settings/forms/settingswalletrepairwidget.ui" line="+108"/>
         <location filename="../cryptoshares/settings/settingswalletrepairwidget.cpp" line="+22"/>
         <source>Wallet Repair</source>
         <translation type="unfinished"></translation>
@@ -5369,28 +5367,18 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../cryptoshares/settings/forms/settingswidget.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+255"/>
+        <location filename="../cryptoshares/settings/forms/settingswidget.ui" line="+269"/>
         <source>Wallet Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+55"/>
-        <location line="+321"/>
+        <location line="+293"/>
         <source>Wallet</source>
         <translation type="unfinished">Wallet</translation>
     </message>
     <message>
-        <location line="-293"/>
-        <source>Multisend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+28"/>
+        <location line="-265"/>
         <source>Export Accounting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5456,16 +5444,16 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     </message>
     <message>
         <location line="+31"/>
-        <source>About SHARES</source>
+        <source>About CRYPTOSHARES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-870"/>
+        <location line="-842"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/settings/settingswidget.cpp" line="+220"/>
+        <location filename="../cryptoshares/settings/settingswidget.cpp" line="+211"/>
         <source>Confirm options reset</source>
         <translation type="unfinished">Confirm options reset</translation>
     </message>
@@ -5480,12 +5468,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished">Client will be shutdown, do you want to proceed?</translation>
     </message>
     <message>
-        <location line="+16"/>
-        <source>Stake Split too low, it shall be either &gt;= %1 or equal to 0 (to disable stake splitting)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+22"/>
         <source>Restart required</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5521,7 +5504,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+155"/>
+        <location line="+149"/>
         <source>Discard Unsaved Changes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5537,8 +5520,8 @@ Are you sure?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <location filename="../utilitydialog.cpp" line="+71"/>
-        <source>CRYPTOSHARES is shutting down...</source>
+        <location filename="../utilitydialog.cpp" line="+83"/>
+        <source>%1 is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5548,33 +5531,10 @@ Are you sure?
     </message>
 </context>
 <context>
-    <name>SnackBar</name>
-    <message>
-        <location filename="../cryptoshares/forms/snackbar.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+51"/>
-        <source>Contact Stored</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Splash</name>
     <message>
-        <location filename="../cryptoshares/forms/splash.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+143"/>
+        <location filename="../cryptoshares/forms/splash.ui" line="+169"/>
         <source>Loading…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../cryptoshares/splash.cpp" line="+30"/>
-        <source>CRYPTOSHARES</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5589,12 +5549,7 @@ Are you sure?
 <context>
     <name>TooltipMenu</name>
     <message>
-        <location filename="../cryptoshares/forms/tooltipmenu.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+60"/>
+        <location filename="../cryptoshares/forms/tooltipmenu.ui" line="+86"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5617,34 +5572,39 @@ Are you sure?
 <context>
     <name>TopBar</name>
     <message>
-        <location filename="../cryptoshares/forms/topbar.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <location filename="../cryptoshares/forms/topbar.ui" line="+129"/>
+        <source>transparent</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+309"/>
-        <location filename="../cryptoshares/topbar.cpp" line="+629"/>
+        <location line="+76"/>
+        <source>shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+213"/>
+        <location filename="../cryptoshares/topbar.cpp" line="+669"/>
         <source>Available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+107"/>
         <source>Pending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+54"/>
         <source>Immature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/topbar.cpp" line="-356"/>
-        <location line="+328"/>
+        <location filename="../cryptoshares/topbar.cpp" line="-370"/>
+        <location line="+342"/>
         <source>Wallet Unlocked for staking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-298"/>
+        <location line="-312"/>
         <source>Error generating address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5654,7 +5614,7 @@ Are you sure?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+99"/>
         <source>Staking active</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5664,7 +5624,7 @@ Are you sure?
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+31"/>
+        <location line="+32"/>
         <source>%n active connection(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -5672,12 +5632,12 @@ Are you sure?
         </translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+15"/>
         <source>Synchronized - Block: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+35"/>
+        <location line="+36"/>
         <source>%n hour(s)</source>
         <translation type="unfinished">
             <numerusform>%n hour</numerusform>
@@ -5720,7 +5680,7 @@ Are you sure?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+29"/>
         <source>Upgrading to HD wallet will improve
 the wallet&apos;s reliability and security.
 
@@ -5731,7 +5691,7 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-25"/>
         <source>Upgrade Wallet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5741,18 +5701,13 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+49"/>
-        <source>Tor Active: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-491"/>
-        <location line="+496"/>
+        <location line="-446"/>
+        <location line="+514"/>
         <source>Tor Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-506"/>
+        <location line="-524"/>
         <source>FAQ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5773,40 +5728,66 @@ backup will be created.
     </message>
     <message>
         <location line="+3"/>
+        <source>Cold Staking Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <source> %54 Synchronizing..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <location line="+43"/>
+        <location line="+47"/>
         <source>Light Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-40"/>
-        <location line="+43"/>
+        <location line="-44"/>
+        <location line="+47"/>
         <source>Dark Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-28"/>
+        <location line="-29"/>
         <source>Wallet Locked </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+118"/>
-        <location line="+363"/>
+        <location line="+119"/>
+        <location line="+377"/>
         <source>Wallet Locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-347"/>
-        <location line="+355"/>
+        <location line="-361"/>
+        <location line="+369"/>
         <source>Wallet Unlocked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-76"/>
+        <source>Upgrade to Sapling Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Upgrading to Sapling wallet will enable
+all of the privacy features!
+
+
+NOTE: after the upgrade, a new
+backup will be created.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Tor Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
         <source>Wallet Unencrypted</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5816,7 +5797,7 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+41"/>
         <source>The wallet has been successfully upgraded to HD.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5884,7 +5865,7 @@ backup will be created.
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+335"/>
+        <location filename="../transactiontablemodel.cpp" line="+311"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -5899,7 +5880,7 @@ backup will be created.
         <translation>Address</translation>
     </message>
     <message numerus="yes">
-        <location line="+69"/>
+        <location line="+68"/>
         <source>Open for %n more block(s)</source>
         <translation>
             <numerusform>Open for %n more block</numerusform>
@@ -5952,7 +5933,7 @@ backup will be created.
         <translation>Received from</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>%1 Stake</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5963,11 +5944,21 @@ backup will be created.
     </message>
     <message>
         <location line="+2"/>
+        <source>%1 Cold Stake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>%1 Stake on behalf of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-14"/>
+        <location line="+4"/>
+        <source>Stake delegation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-20"/>
         <source>Sent to</source>
         <translation>Sent to</translation>
     </message>
@@ -5980,6 +5971,26 @@ backup will be created.
         <location line="+44"/>
         <source>Payment to yourself</source>
         <translation>Payment to yourself</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Shielding coins to yourself</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Unshielding coins to yourself</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Shielded change, transfer between own shielded addresses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Stake delegation spent by</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6012,17 +6023,32 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+2"/>
+        <source>Received with shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Shielded send to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Burned SHARESs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+32"/>
         <source>watch-only</source>
         <translation>watch-only</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+26"/>
         <source>Anonymous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+19"/>
         <source>No information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6065,13 +6091,8 @@ backup will be created.
 <context>
     <name>TxDetailDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/sendconfirmdialog.ui" line="+26"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+90"/>
-        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="+72"/>
+        <location filename="../cryptoshares/forms/sendconfirmdialog.ui" line="+116"/>
+        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="+75"/>
         <source>Transaction Details</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6082,26 +6103,18 @@ backup will be created.
     </message>
     <message>
         <location line="+117"/>
+        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="+12"/>
         <source>Previous Transaction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-16"/>
+        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="+1"/>
         <source>Output Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+167"/>
-        <source>D7VFR83SQbie…BhjcWJtcfip5krte2Z </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+103"/>
-        <source>May 25, 2017</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-621"/>
+        <location line="-351"/>
         <source>ID</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6151,12 +6164,12 @@ backup will be created.
         <translation type="unfinished">Date</translation>
     </message>
     <message>
-        <location line="+55"/>
-        <source>TextLabel</source>
+        <location line="+68"/>
+        <source>Memo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+151"/>
         <source>CANCEL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6166,7 +6179,7 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="-21"/>
+        <location filename="../cryptoshares/sendconfirmdialog.cpp" line="-34"/>
         <source>Confirm Your Transaction</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6176,40 +6189,125 @@ backup will be created.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+34"/>
+        <source>Note From Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
         <source>ID copied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+8"/>
+        <source>Memo copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
         <source>Delegating to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+3"/>
+        <source>Shielding to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+153"/>
         <source>Unknown</source>
         <translation type="unfinished">Unknown</translation>
     </message>
 </context>
 <context>
-    <name>TxRow</name>
+    <name>VoteDialog</name>
     <message>
-        <location filename="../cryptoshares/forms/txrow.ui" line="+20"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <location filename="../cryptoshares/forms/votedialog.ui" line="+92"/>
+        <source>Vote For Proposal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>Select vote direction and the masternodes that will vote for it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+276"/>
+        <location filename="../cryptoshares/votedialog.cpp" line="+170"/>
+        <source>Select Voting Masternodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>VOTE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>You can change your vote later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../cryptoshares/votedialog.cpp" line="-110"/>
+        <source>%1 months remaining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Select a vote direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Missing voting masternodes selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Time between votes is too soon, have to wait %1 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+77"/>
+        <source>You have voted with %1 Masternodes for this proposal
+Change votes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>%1 Masternodes selected to vote</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+404"/>
-        <location line="+20"/>
-        <location line="+10"/>
+        <location filename="../walletmodel.cpp" line="+553"/>
         <source>Send Coins</source>
         <translation>Send Coins</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+0"/>
         <source>Transaction creation failed!
 %1</source>
         <translation type="unfinished"></translation>
@@ -6269,381 +6367,144 @@ Select fewer inputs with coin control.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+89"/>
-        <source>Welcome to
-CRYPTOSHARES Wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+27"/>
-        <source>SHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
+        <location line="+116"/>
+        <source>CRYPTOSHARES is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - SHARES believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - CRYPTOSHARES believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+83"/>
-        <source>The masternode network is SHARES&apos;s second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
+        <source>The masternode network is CRYPTOSHARES&apos;s second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-103"/>
-        <source>How SHARES respects your privacy?</source>
+        <source>How CRYPTOSHARES respects your privacy?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+80"/>
+        <location line="-100"/>
+        <source>Welcome to
+%1 Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+180"/>
         <source>What is a Masternode?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../cryptoshares/welcomecontentwidget.cpp" line="+178"/>
+        <location filename="../cryptoshares/welcomecontentwidget.cpp" line="+183"/>
         <source>default</source>
         <translation type="unfinished">default</translation>
     </message>
 </context>
 <context>
+    <name>governancewidget</name>
+    <message>
+        <location filename="../cryptoshares/forms/governancewidget.ui" line="+436"/>
+        <source>No active proposals yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <source>Budget Distribution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Funds accessible for the proposals&apos; implementation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+86"/>
+        <source>Allocated</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>cryptoshares</name>
     <message>
-        <location filename="../cryptosharesstrings.cpp" line="+12"/>
-        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
-        <translation type="unfinished">(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Accept connections from outside (default: %u if no -proxy or -connect/-noconnect)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
-        <translation type="unfinished">Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Bind to given address and always listen on it. Use [host]:port notation for IPv6</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished">Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
-        <translation type="unfinished">Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Cannot obtain a lock on data directory %s. CRYPTOSHARES is probably already running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
-        <translation type="unfinished">Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
-        <translation type="unfinished">Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
-        <translation type="unfinished">Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
-        <translation type="unfinished">Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
+        <location filename="../cryptosharesstrings.cpp" line="+25"/>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation type="unfinished">Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>Enable spork administration functionality with the appropriate private key.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
-        <translation type="unfinished">Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="+6"/>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation type="unfinished">Error: Listening for incoming connections failed (listen returned error %s)</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation type="unfinished">Error: Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished">Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished">Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished">Execute command when the best block changes (%s in cmd is replaced by block hash)</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished">Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
-        <translation type="unfinished">If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
-        <translation type="unfinished">In this mode -genproclimit controls how many blocks are generated immediately.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
-        <translation type="unfinished">Invalid amount for -maxtxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least the minrelay fee of %s to prevent stuck transactions)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
-        <translation type="unfinished">Log transaction priority and fee per kB when mining blocks (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
-        <translation type="unfinished">Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Maximum average size of an index occurrence in the block spam filter (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
-        <translation type="unfinished">Maximum size of data in data carrier transactions we relay and mine (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Maximum size of the list of indexes in the block spam filter (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
-        <translation type="unfinished">Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
-        <translation type="unfinished">Number of seconds to keep misbehaving peers from reconnecting (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished">Output debugging information (default: %u, supplying &lt;category&gt; is optional)</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
-        <translation type="unfinished">Require high priority for relaying free or low-fee transactions (default:%u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Send trace/debug info to console instead of debug.log file (default: %u)</source>
-        <translation type="unfinished">Send trace/debug info to console instead of debug.log file (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished">Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished">Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
-        <translation type="unfinished">Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
-        <translation type="unfinished">Show N confirmations for a successfully locked transaction (0-9999, default: %u)</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+26"/>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer&apos;s date and time being set incorrectly. Only rebuild the block database if you are sure that your computer&apos;s date and time are correct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished">This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Unable to bind to %s on this computer. CRYPTOSHARES is probably already running.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
-        <translation type="unfinished">Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
-        <translation type="unfinished">Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished">Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CRYPTOSHARES will not work properly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="+28"/>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
         <translation type="unfinished">Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</translation>
     </message>
     <message>
         <location line="+3"/>
+        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
         <translation type="unfinished">Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation type="unfinished">Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</translation>
+        <location line="+6"/>
+        <source>&quot;local&quot; vote is no longer available with DMNs. Use &quot;alias&quot; from the wallet with the voting key.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation type="unfinished">Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
-        <translation type="unfinished">You must specify a masternodeprivkey in the configuration. Please see documentation for help.</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>(default: %s)</source>
-        <translation type="unfinished">(default: %s)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished">Accept command line and JSON-RPC commands</translation>
+        <source>%s Invalid %s address or hostname: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Accept public REST requests (default: %u)</source>
-        <translation type="unfinished">Accept public REST requests (default: %u)</translation>
+        <source>%s corrupt, salvage failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>%s is not allowed in combination with enabled wallet functionality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>%s is only allowed with a single wallet file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Cannot downgrade wallet.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished">Add a node to connect to and attempt to keep the connection open</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
-        <translation type="unfinished">Always query for peer addresses via DNS lookup (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Append comment to the user agent string</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Automatically create Tor hidden service (default: %d)</source>
+        <source>Cannot set %s or %s together with %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Block creation options:</source>
-        <translation type="unfinished">Block creation options:</translation>
+        <source>Cannot upgrade a locked wallet.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Connect through SOCKS5 proxy</source>
-        <translation type="unfinished">Connect through SOCKS5 proxy</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished">Connect to a node to retrieve peer addresses, and disconnect</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Connection options:</source>
-        <translation type="unfinished">Connection options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation type="unfinished">Copyright (C) 2009-%i The Bitcoin Core Developers</translation>
     </message>
@@ -6653,44 +6514,24 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Copyright (C) 2015-%i The PIVX Core Developers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Corrupted block database detected</source>
         <translation type="unfinished">Corrupted block database detected</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
+        <source>Could not open debug log file %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Could not parse masternode.conf</source>
         <translation type="unfinished">Could not parse masternode.conf</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished">Debugging/Testing options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Delete blockchain folders and resync from scratch</source>
+        <source>Deterministic masternodes are not enforced yet</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Disable OS notifications for incoming transactions (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation type="unfinished">Discover own IP address (default: 1 when listening and no -externalip)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished">Do not load the wallet and disable wallet RPC calls</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6703,9 +6544,9 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Done loading</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation type="unfinished">Enable the client to act as a masternode (0-1, default: %u)</translation>
+        <location line="+1"/>
+        <source>Elliptic curve cryptography sanity check failure. Aborting.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6715,7 +6556,7 @@ CRYPTOSHARES Wallet</source>
     <message>
         <location line="+1"/>
         <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished">Error initializing wallet database environment %s!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
@@ -6723,7 +6564,7 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Error loading block database</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Error opening block database</source>
         <translation type="unfinished">Error opening block database</translation>
     </message>
@@ -6734,11 +6575,6 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>Error writing zerocoinDB to disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Error</source>
         <translation type="unfinished">Error</translation>
     </message>
@@ -6748,64 +6584,19 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Error: A fatal internal error occured, see debug.log for details</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Error: Disk space is low!</source>
         <translation type="unfinished">Error: Disk space is low!</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Error: Unsupported argument -tor found, use -onion.</source>
-        <translation type="unfinished">Error: Unsupported argument -tor found, use -onion.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation type="unfinished">Error: Wallet locked, unable to create transaction!</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished">Failed to listen on any port. Use -listen=0 if you want this.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+7"/>
         <source>Failed to parse host:port string</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Force safe mode (default: %u)</source>
-        <translation type="unfinished">Force safe mode (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Generate coins (default: %u)</source>
-        <translation type="unfinished">Generate coins (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
-        <translation type="unfinished">How many blocks to check at startup (default: %u, 0 = all)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation type="unfinished">If &lt;category&gt; is not supplied, output all debugging information.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Importing...</source>
         <translation type="unfinished">Importing...</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Imports blocks from external blk000??.dat file</source>
-        <translation type="unfinished">Imports blocks from external blk000??.dat file</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Include IP addresses in debug output (default: %u)</source>
-        <translation type="unfinished">Include IP addresses in debug output (default: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6818,239 +6609,142 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Information</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Initialization sanity check failed. CRYPTOSHARES is shutting down.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Insufficient funds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Insufficient funds.</source>
         <translation type="unfinished">Insufficient funds.</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Invalid -onion address or hostname: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+2"/>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</source>
-        <translation type="unfinished">Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos; (must be at least %s)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Invalid amount</source>
+        <source>Invalid -masternodeaddr port %d, isn&apos;t the same as the peer port %d</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Invalid masternodeprivkey. Please see documenation.</source>
-        <translation type="unfinished">Invalid masternodeprivkey. Please see documenation.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Invalid netmask specified in -whitelist: &apos;%s&apos;</source>
-        <translation type="unfinished">Invalid netmask specified in -whitelist: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Recalculating SHARES supply...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Reindexing zerocoin database...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Reindexing zerocoin failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Selected coins value is less than payment target</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Shutdown requested over the txs scan. Exiting.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Specify zk params directory (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-228"/>
+        <location line="-94"/>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-144"/>
-        <source>Disable all SHARES specific functionality (Masternodes, Zerocoin, Budgeting) (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+59"/>
-        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+41"/>
-        <source>Warning: error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Warning: wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>%s corrupt, salvage failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Attempt to force blockchain corruption recovery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Attempt to recover private keys from a corrupt wallet file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Cannot create public spend input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>Display the stake modifier calculations in the debug.log file.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Display verbose coin stake messages in the debug.log file.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enable staking functionality (0-1, default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location line="+77"/>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="-130"/>
+        <source>Cannot find the Sapling parameters in the following directory:
+%s
+Please run &apos;sapling-fetch-params&apos; or &apos;./util/fetch-params.sh&apos; and then restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Cannot upgrade to Sapling wallet (already running Sapling support). Version: %d</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>This file contains all of your private keys in plain text. DO NOT send this file to anyone!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of %s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+3"/>
-        <source>Error: No valid utxo!</source>
+        <source>Unable to replay blocks. You will need to rebuild the database using %s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Failed to parse public spend</source>
+        <location line="+5"/>
+        <source>Warning: %s is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning: %s is set very high! This is the transaction fee you will pay if you send a transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Warning: error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>A fatal internal error occurred, see debug.log for details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Calculating money supply...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Error loading %s: Wallet corrupted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error loading %s
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error loading wallet %s. Duplicate %s filename specified.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Error upgrading chainstate database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: %s must be at least %d MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Failed to select a zerocoin</source>
+        <source>Error: %s must be true if %s is set.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Error: Disk space is low for %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: Initializing networking failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Failed to wipe zerocoinDB</source>
+        <source>Error: Unsupported argument %s found, use %s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Failed to write coin serial number into wallet</source>
+        <source>Error: Unsupported argument %s found. Checklevel must be level 4.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+16"/>
         <source>Invalid amount for -%s=&lt;amount&gt;: &apos;%s&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation type="unfinished">Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</translation>
+        <location line="+1"/>
+        <source>Invalid masternodeprivkey. Please see the documentation.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+8"/>
         <source>Line: %d</source>
         <translation type="unfinished">Line: %d</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
-        <translation type="unfinished">Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7093,207 +6787,107 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Loading wallet...</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Location of the auth cookie (default: data dir)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Lock masternodes from masternode configuration file (default: %u)</source>
-        <translation type="unfinished">Lock masternodes from masternode configuration file (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Lookup(): Invalid -proxy address or hostname: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>MNs synchronization pending...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
-        <translation type="unfinished">Maintain at most &lt;n&gt; connections to peers (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Masternode options:</source>
-        <translation type="unfinished">Masternode options:</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
-        <translation type="unfinished">Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Mint did not make it into blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Need to specify a port with -whitebind: &apos;%s&apos;</source>
-        <translation type="unfinished">Need to specify a port with -whitebind: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Node relay options:</source>
-        <translation type="unfinished">Node relay options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Not enough file descriptors available.</source>
         <translation type="unfinished">Not enough file descriptors available.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Number of custom location backups to retain (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>On first run, create a legacy wallet instead of a HD wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
-        <translation type="unfinished">Only accept block chain matching built-in checkpoints (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
-        <translation type="unfinished">Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Options:</source>
-        <translation type="unfinished">Options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Password for JSON-RPC connections</source>
-        <translation type="unfinished">Password for JSON-RPC connections</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Peers are being disconnected due time differences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+72"/>
-        <source>Unable to find transaction containing mint %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Unable to find transaction containing mint, txHash: %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Use block spam filter (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>isValid(): Invalid -proxy address or hostname: &apos;%s&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-103"/>
-        <source>Preparing for resync...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-343"/>
-        <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Do not accept transactions if any ancestor would have &lt;n&gt; or more in-mempool descendants (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Do not accept transactions if any ancestor would have more than &lt;n&gt; kilobytes of in-mempool descendants (default: %u).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Do not accept transactions if number of in-mempool ancestors is &lt;n&gt; or more (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Do not accept transactions whose size with all in-mempool ancestors exceeds &lt;n&gt; kilobytes (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Fees (in %s/Kb) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Fees (in %s/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+37"/>
-        <source>Minimum positive amount (in SHARES) allowed by GUI and RPC for the stake split threshold (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong CRYPTOSHARES will not work properly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
+        <location line="+10"/>
+        <source>Specified blocks directory &quot;%s&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
+        <source>Unknown network specified in %s: &apos;%s&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>WARNING: The transaction has been signed and recorded, so the wallet will try to re-send it. Use &apos;abandontransaction&apos; to cancel it. (txid: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>(must be %d for %s-net)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Active Masternode not initialized.</source>
+        <location line="+2"/>
+        <source>Upgrading coins database if needed...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Allows deprecated RPC method(s) to be used</source>
+        <source>Verifying wallet(s)...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+1"/>
+        <source>Wallet %s resides outside data directory %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-40"/>
+        <source>Preparing for resync...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-173"/>
+        <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Cannot start deterministic masternode before enforcement. Remove %s to start as legacy masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Enabling Masternode support requires turning on transaction indexing.Please add %s to your configuration and start with %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Error: Unsupported argument %s found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Failed to create backup, file already exists! This could happen if you restarted wallet in less than 60 seconds. You can continue if you are ok with this.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Invalid amount for %s: &apos;%s&apos; (must be at least the minimum relay fee of %s to prevent stuck transactions)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Legacy masternode system disabled. Use %s to start as deterministic masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>System error while flushing the chainstate after pruning invalid entries. Possible corrupt database.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>WARNING: The transaction has been signed and recorded, so the wallet will try to re-send it. Use &apos;abandontransaction&apos; to cancel it. (txid: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>(must be %d for %s-net)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Active Masternode not initialized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Can&apos;t generate a change-address key. Please call keypoolrefill first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7303,74 +6897,78 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>Cannot write to data directory &apos;%s&apos;; check permissions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
         <source>Change index out of range</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Error loading %s: Wallet corrupted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error loading %s: Wallet requires newer version of CRYPTOSHARES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error loading %s
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Error upgrading chainstate database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Error: -listen must be true if -masternode is set.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error: -maxmempool must be at least %d MB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Error: Invalid port %d for running a masternode.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+33"/>
         <source>Failed to accept tx in the memory pool (reason: %s)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Failed to find Zerocoins in wallet database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Invalid -masternodeaddr address: %s</source>
+        <source>Failed to delete backup, error: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
+        <source>Failed to listen on any port. Use %s if you want this.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Failed to rescan the wallet during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Initialization sanity check failed. %s is shutting down.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Invalid -masternodeaddr address: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Invalid -masternodeaddr port %d, only %d is supported on %s-net.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+1"/>
+        <source>Invalid activation height (%s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid amount for %s: &apos;%s&apos; (must be at least %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Invalid mnoperatorprivatekey. Please see the documentation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid netmask specified in %s: &apos;%s&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid network upgrade (%s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Invalid port %d detected in masternode.conf</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7380,99 +6978,54 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+1"/>
         <source>Keypool ran out, please call keypoolrefill first, or unlock the wallet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Limit size of signature cache to &lt;n&gt; MiB (default: %u)</source>
+        <source>Legacy Masternode is obsolete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>Masternodes are required to run on port %d for %s-net</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Mining/Staking options:</source>
+        <location line="+10"/>
+        <source>Loading/Pruning invalid outputs...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Need destination or change address because change is not exact</source>
+        <source>Need to specify a port with %s: &apos;%s&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
+        <source>Network upgrade parameters malformed, expecting %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Network upgrade parameters may only be overridden on regtest.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>No error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Number of automatic wallet backups (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <source>Prepend debug output with timestamp (default: %u)</source>
-        <translation type="unfinished">Prepend debug output with timestamp (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Print version and exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Pubcoin not found in mint tx</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>RPC server options:</source>
-        <translation type="unfinished">RPC server options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
-        <translation type="unfinished">Randomly drop 1 of every &lt;n&gt; network messages</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
-        <translation type="unfinished">Randomly fuzz 1 of every &lt;n&gt; network messages</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation type="unfinished">Rebuild block chain index from current blk000??.dat files</translation>
-    </message>
-    <message>
         <location line="+2"/>
-        <source>Reindex the %s and z%s money supply statistics</source>
+        <source>OS cryptographic RNG sanity check failure. Aborting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Relay and mine data carrier transactions (default: %u)</source>
-        <translation type="unfinished">Relay and mine data carrier transactions (default: %u)</translation>
+        <source>Reaccepting wallet transactions...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Relay non-P2SH multisig (default: %u)</source>
-        <translation type="unfinished">Relay non-P2SH multisig (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Rescan the block chain for missing wallet transactions</source>
-        <translation type="unfinished">Rescan the block chain for missing wallet transactions</translation>
+        <source>Replaying blocks...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7481,131 +7034,16 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Run a thread to flush wallet periodically (default: %u)</source>
-        <translation type="unfinished">Run a thread to flush wallet periodically (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished">Run in the background as a daemon and accept commands</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
-        <translation type="unfinished">Send transactions as zero-fee transactions if possible (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished">Set database cache size in megabytes (%d to %d, default: %d)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set external address:port to get to this masternode (example: %s)</source>
-        <translation type="unfinished">Set external address:port to get to this masternode (example: %s)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
-        <translation type="unfinished">Set key pool size to &lt;n&gt; (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished">Set maximum block size in bytes (default: %d)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set minimum block size in bytes (default: %u)</source>
-        <translation type="unfinished">Set minimum block size in bytes (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set the Maximum reorg depth (default: %u)</source>
+        <source>Shutdown requested over the txs scan. Exiting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Set the masternode private key</source>
-        <translation type="unfinished">Set the masternode private key</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Set the number of threads to service RPC calls (default: %d)</source>
-        <translation type="unfinished">Set the number of threads to service RPC calls (default: %d)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
-        <translation type="unfinished">Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished">Show all debugging options (usage: --help -help-debug)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished">Shrink debug.log file on client startup (default: 1 when no -debug)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
         <source>Signing transaction failed</source>
         <translation type="unfinished">Signing transaction failed</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Specify configuration file (default: %s)</source>
-        <translation type="unfinished">Specify configuration file (default: %s)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
-        <translation type="unfinished">Specify connection timeout in milliseconds (minimum: 1, default: %d)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify data directory</source>
-        <translation type="unfinished">Specify data directory</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify masternode configuration file (default: %s)</source>
-        <translation type="unfinished">Specify masternode configuration file (default: %s)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify pid file (default: %s)</source>
-        <translation type="unfinished">Specify pid file (default: %s)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished">Specify wallet file (within data directory)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Specify your own public address</source>
-        <translation type="unfinished">Specify your own public address</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Spend Valid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
-        <translation type="unfinished">Spend unconfirmed change when sending transactions (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Stop running after importing blocks from disk (default: %u)</source>
-        <translation type="unfinished">Stop running after importing blocks from disk (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+2"/>
+        <location line="+5"/>
         <source>Synchronization failed</source>
         <translation type="unfinished">Synchronization failed</translation>
     </message>
@@ -7636,18 +7074,8 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Syncing zSHARES wallet...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>The threshold value cannot be less than %s</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>This help message</source>
-        <translation type="unfinished">This help message</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7656,8 +7084,8 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>This is intended for regression testing tools and app development.</source>
-        <translation type="unfinished">This is intended for regression testing tools and app development.</translation>
+        <source>This is not a deterministic masternode. &apos;local&apos; option disabled.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7671,36 +7099,61 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
-        <translation type="unfinished">Threshold for disconnecting misbehaving peers (default: %u)</translation>
+        <source>This product includes UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Too many spends needed</source>
+        <location line="-171"/>
+        <source>Invalid -wallet path &apos;%s&apos;. -wallet path should point to a directory where wallet.dat and database/log.?????????? files can be stored, a location where such a directory could be created or (for backwards compatibility) the name of an existing data file in -walletdir (%s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong %s will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong %s will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+36"/>
+        <source>Copyright (C) 2015-%i The %s Developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Could not find asmap file %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Could not parse asmap file %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Error loading %s: Wallet requires newer version of %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+65"/>
+        <source>Specified -walletdir &quot;%s&quot; does not exist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Tor control port password (default: empty)</source>
+        <source>Specified -walletdir &quot;%s&quot; is a relative path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Tor control port to use if onion listening enabled (default: %s)</source>
+        <source>Specified -walletdir &quot;%s&quot; is not a directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Transaction Created</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Transaction Mint Started</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+14"/>
         <source>Transaction amount too small</source>
         <translation type="unfinished">Transaction amount too small</translation>
     </message>
@@ -7716,6 +7169,11 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
+        <source>Transaction must have at least one recipient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Transaction too large for fee policy</source>
         <translation type="unfinished">Transaction too large for fee policy</translation>
     </message>
@@ -7726,16 +7184,21 @@ CRYPTOSHARES Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Trying to spend an already spent serial #, try again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
         <translation type="unfinished">Unable to bind to %s on this computer (bind returned error %s)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+1"/>
+        <source>Unable to bind to %s on this computer. %s is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unable to generate initial key!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Unable to generate keys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7750,48 +7213,38 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished">Unknown network specified in -onlynet: &apos;%s&apos;</translation>
+        <location line="+8"/>
+        <source>Wallet needed to be rewritten: restart %s to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning: Unsupported argument %s ignored, use %s</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
+        <source>Warning: Unsupported argument %s ignored, use %s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You can not start a masternode in litemode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You need to rebuild the database using %s to change %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-12"/>
         <source>Unsupported logging category %s=%s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Upgrade wallet to latest format</source>
-        <translation type="unfinished">Upgrade wallet to latest format</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Upgrading coins database...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Use UPnP to map the listening port (default: %u)</source>
-        <translation type="unfinished">Use UPnP to map the listening port (default: %u)</translation>
-    </message>
-    <message>
         <location line="+2"/>
-        <source>Use the test network</source>
-        <translation type="unfinished">Use the test network</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Username for JSON-RPC connections</source>
-        <translation type="unfinished">Username for JSON-RPC connections</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Value is below the smallest available denomination (= 1) of zSHARES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7800,37 +7253,7 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Verifying blocks...</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Verifying wallet...</source>
-        <translation type="unfinished">Verifying wallet...</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished">Wallet %s resides outside data directory %s</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet debugging/testing options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart CRYPTOSHARES to complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet options:</source>
-        <translation type="unfinished">Wallet options:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet window title</source>
-        <translation type="unfinished">Wallet window title</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Warning</source>
         <translation type="unfinished">Warning</translation>
     </message>
@@ -7840,72 +7263,42 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished">Warning: This version is obsolete, upgrade required!</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation type="unfinished">Warning: Unsupported argument -benchmark ignored, use -debug=bench.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation type="unfinished">Warning: Unsupported argument -debugnet ignored, use -debug=net.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>You don&apos;t have enough Zerocoins in your wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>You need to rebuild the database using -reindex to change -txindex</source>
-        <translation type="unfinished">You need to rebuild the database using -reindex to change -txindex</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Zapping all transactions from wallet...</source>
         <translation type="unfinished">Zapping all transactions from wallet...</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>ZeroMQ notification options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin minting available only on regtest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin options:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>on startup</source>
-        <translation type="unfinished">on startup</translation>
     </message>
 </context>
 <context>
     <name>send</name>
     <message>
-        <location filename="../cryptoshares/forms/send.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Form</translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <location line="+515"/>
+        <location filename="../cryptoshares/forms/send.ui" line="+74"/>
+        <location line="+629"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-505"/>
-        <source>Send public coins (SHARES)</source>
+        <location line="-619"/>
+        <source>Transfer coins publicly or privately</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
-        <source>SHARES address or contact label</source>
+        <location line="+71"/>
+        <source>Transparent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Shielded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Select which coins to spend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>Recipient address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7934,8 +7327,13 @@ CRYPTOSHARES Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+236"/>
+        <location line="+246"/>
         <source>Reset to default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-428"/>
+        <source>Include delegated</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

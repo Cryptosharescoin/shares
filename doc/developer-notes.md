@@ -22,7 +22,7 @@ Developer Notes
     - [Threads](#threads)
     - [Ignoring IDE/editor files](#ignoring-ideeditor-files)
 - [Development guidelines](#development-guidelines)
-    - [General CRYPTOSHARES Core](#general-cryptoshares-core)
+    - [General CRYPTOSHARES](#general-cryptoshares)
     - [Wallet](#wallet)
     - [General C++](#general-c)
     - [C++ data structures](#c-data-structures)
@@ -125,7 +125,7 @@ Refer to [/test/functional/README.md#style-guidelines](/test/functional/README.m
 Coding Style (Doxygen-compatible comments)
 ------------------------------------------
 
-CRYPTOSHARES Core uses [Doxygen](http://www.doxygen.nl/) to generate its official documentation.
+CRYPTOSHARES uses [Doxygen](http://www.doxygen.nl/) to generate its official documentation.
 
 Use Doxygen-compatible comment blocks for functions, methods, and fields.
 
@@ -224,7 +224,7 @@ that run in `-regtest` mode.
 
 ### DEBUG_LOCKORDER
 
-CRYPTOSHARES Core is a multi-threaded application, and deadlocks or other
+CRYPTOSHARES is a multi-threaded application, and deadlocks or other
 multi-threading bugs can be very difficult to track down. The `--enable-debug`
 configure option adds `-DDEBUG_LOCKORDER` to the compiler flags. This inserts
 run-time checks to keep track of which locks are held, and adds warnings to the
@@ -260,6 +260,48 @@ make cov
 
 # A coverage report will now be accessible at `./test_cryptoshares.coverage/index.html`.
 ```
+
+**Sanitizers**
+CRYPTOSHARES can be compiled with various "sanitizers" enabled, which add
+instrumentation for issues regarding things like memory safety, thread race
+conditions, or undefined behavior. This is controlled with the
+`--with-sanitizers` configure flag, which should be a comma separated list of
+sanitizers to enable. The sanitizer list should correspond to supported
+`-fsanitize=` options in your compiler. These sanitizers have runtime overhead,
+so they are most useful when testing changes or producing debugging builds.
+Some examples:
+ ```bash
+ # Enable both the address sanitizer and the undefined behavior sanitizer
+ ./configure --with-sanitizers=address,undefined
+ # Enable the thread sanitizer
+ ./configure --with-sanitizers=thread
+ ```
+If you are compiling with GCC you will typically need to install corresponding
+"san" libraries to actually compile with these flags, e.g. libasan for the
+address sanitizer, libtsan for the thread sanitizer, and libubsan for the
+undefined sanitizer. If you are missing required libraries, the configure script
+will fail with a linker error when testing the sanitizer flags.
+The test suite should pass cleanly with the `thread` and `undefined` sanitizers,
+but there are a number of known problems when using the `address` sanitizer. The
+address sanitizer is known to fail in
+[sha256_sse4::Transform](/src/crypto/sha256_sse4.cpp) which makes it unusable
+unless you also use `--disable-asm` when running configure. We would like to fix
+sanitizer issues, so please send pull requests if you can fix any errors found
+by the address sanitizer (or any other sanitizer).
+Not all sanitizer options can be enabled at the same time, e.g. trying to build
+with `--with-sanitizers=address,thread` will fail in the configure script as
+these sanitizers are mutually incompatible. Refer to your compiler manual to
+learn more about these options and which sanitizers are supported by your
+compiler.
+Additional resources:
+* [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html)
+* [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html)
+* [MemorySanitizer](https://clang.llvm.org/docs/MemorySanitizer.html)
+* [ThreadSanitizer](https://clang.llvm.org/docs/ThreadSanitizer.html)
+* [UndefinedBehaviorSanitizer](https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html)
+* [GCC Instrumentation Options](https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html)
+* [Google Sanitizers Wiki](https://github.com/google/sanitizers/wiki)
+* [Issue #12691: Enable -fsanitize flags in Travis](https://github.com/bitcoin/bitcoin/issues/12691)
 
 Locking/mutex usage notes
 -------------------------
@@ -301,8 +343,6 @@ Threads
 
 - DumpAddresses : Dumps IP addresses of nodes to peers.dat.
 
-- ThreadFlushWalletDB : Close the wallet.dat file if it hasn't been used in 500ms.
-
 - ThreadRPCServer : Remote procedure call handler, listens on port 8332 for connections and services them.
 
 - BitcoinMiner : Generates SHARESs (if wallet is enabled).
@@ -315,7 +355,7 @@ Ignoring IDE/editor files
 In closed-source environments in which everyone uses the same IDE it is common
 to add temporary files it produces to the project-wide `.gitignore` file.
 
-However, in open source software such as CRYPTOSHARES Core, where everyone uses
+However, in open source software such as CRYPTOSHARES, where everyone uses
 their own editors/IDE/tools, it is less common. Only you know what files your
 editor produces and this may change from version to version. The canonical way
 to do this is thus to create your local gitignore. Add this to `~/.gitconfig`:
@@ -345,9 +385,9 @@ Development guidelines
 ============================
 
 A few non-style-related recommendations for developers, as well as points to
-pay attention to for reviewers of CRYPTOSHARES Core code.
+pay attention to for reviewers of CRYPTOSHARES code.
 
-General CRYPTOSHARES Core
+General CRYPTOSHARES
 ----------------------
 
 - New features should be exposed on RPC first, then can be made available in the GUI
@@ -460,6 +500,12 @@ class A
   - *Rationale*: Easier to understand what is happening, thus easier to spot mistakes, even for those
   that are not language lawyers
 
+- Use `Span` as function argument when it can operate on any range-like container.
+
+  - *Rationale*: Compared to `Foo(const vector<int>&)` this avoids the need for a (potentially expensive)
+    conversion to vector if the caller happens to have the input stored in another type of container.
+    However, be aware of the pitfalls documented in [span.h](../src/span.h).
+
 Strings and formatting
 ------------------------
 
@@ -508,7 +554,7 @@ Strings and formatting
 
 - For `strprintf`, `LogPrint`, `LogPrintf` formatting characters don't need size specifiers
 
-  - *Rationale*: CRYPTOSHARES Core uses tinyformat, which is type safe. Leave them out to avoid confusion
+  - *Rationale*: CRYPTOSHARES uses tinyformat, which is type safe. Leave them out to avoid confusion
 
 Variable names
 --------------
@@ -659,10 +705,10 @@ directly upstream without being PRed directly against the project.  They will be
 subtree merge.
 
 Others are external projects without a tight relationship with our project.  Changes to these should also
-be sent upstream but bugfixes may also be prudent to PR against CRYPTOSHARES Core so that they can be integrated
+be sent upstream but bugfixes may also be prudent to PR against CRYPTOSHARES so that they can be integrated
 quickly.  Cosmetic changes should be purely taken upstream.
 
-There is a tool in `test/lint/git-subtree-check.sh` to check a subtree directory for consistency with
+There is a tool in `test/lint/git-subtree-check.sh` ([instructions](../test/lint#git-subtree-checksh)) to check a subtree directory for consistency with
 its upstream repository.
 
 Current subtrees include:
@@ -907,3 +953,16 @@ A few guidelines for introducing and reviewing new RPC interfaces:
   - *Exception*: Using RPC method aliases may be appropriate in cases where a
     new RPC is replacing a deprecated RPC, to avoid both RPCs confusingly
     showing up in the command list.
+
+- Wallet RPCs call BlockUntilSyncedToCurrentChain to maintain consistency with
+  `getblockchaininfo`'s state immediately prior to the call's execution. Wallet
+  RPCs whose behavior does *not* depend on the current chainstate may omit this
+  call.
+
+  - *Rationale*: In previous versions of Bitcoin Core, the wallet was always
+    in-sync with the chainstate (by virtue of them all being updated in the
+    same cs_main lock). In order to maintain the behavior that wallet RPCs
+    return results as of at least the highest best-known block an RPC
+    client may be aware of prior to entering a wallet RPC call, we must block
+    until the wallet is caught up to the chainstate as of the RPC call's entry.
+    This also makes the API much easier for RPC clients to reason about.

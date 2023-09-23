@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,21 +24,27 @@ TooltipMenu::TooltipMenu(CRYPTOSHARESGUI *_window, QWidget *parent) :
     connect(ui->btnLast, &QPushButton::clicked, this, &TooltipMenu::lastClicked);
 }
 
-void TooltipMenu::setEditBtnText(QString btnText){
+void TooltipMenu::setEditBtnText(const QString& btnText){
     ui->btnEdit->setText(btnText);
 }
 
-void TooltipMenu::setDeleteBtnText(QString btnText){
+void TooltipMenu::setDeleteBtnText(const QString& btnText){
     ui->btnDelete->setText(btnText);
 }
 
-void TooltipMenu::setCopyBtnText(QString btnText){
+void TooltipMenu::setCopyBtnText(const QString& btnText){
     ui->btnCopy->setText(btnText);
 }
 
-void TooltipMenu::setLastBtnText(QString btnText, int minHeight){
+void TooltipMenu::setLastBtnText(const QString& btnText, int minHeight){
     ui->btnLast->setText(btnText);
     ui->btnLast->setMinimumHeight(minHeight);
+}
+
+void TooltipMenu::setLastBtnCheckable(bool checkable, bool isChecked)
+{
+    ui->btnLast->setCheckable(checkable);
+    ui->btnLast->setChecked(isChecked);
 }
 
 void TooltipMenu::setCopyBtnVisible(bool visible){

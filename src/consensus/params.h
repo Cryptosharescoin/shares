@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +7,6 @@
 #define BITCOIN_CONSENSUS_PARAMS_H
 
 #include "amount.h"
-#include "libzerocoin/Params.h"
 #include "optional.h"
 #include "uint256.h"
 #include <map>
@@ -28,18 +26,16 @@ enum UpgradeIndex : uint32_t {
     BASE_NETWORK,
     UPGRADE_POS,
     UPGRADE_POS_V2,
-    UPGRADE_ZC,
-    UPGRADE_ZC_V2,
     UPGRADE_BIP65,
-    UPGRADE_ZC_PUBLIC,
-    UPGRADE_STAKE_MODIFIER_V2,
-    UPGRADE_TIME_PROTOCOL_V2,
-    UPGRADE_P2PKH_BLOCK_SIGNATURES,
-    UPGRADE_STAKE_MIN_DEPTH_V2,
-    UPGRADE_MASTERNODE_RANK_V2,
-    // NOTE: Also add new upgrades to NetworkUpgradeInfo in upgrades.cpp
+    UPGRADE_V3_4,
+    UPGRADE_V4_0,
+    UPGRADE_V5_0,
+    UPGRADE_V5_2,
+    UPGRADE_V5_3,
+    UPGRADE_V6_0,
     UPGRADE_TESTDUMMY,
-    MAX_NETWORK_UPGRADES,
+    // NOTE: Also add new upgrades to NetworkUpgradeInfo in upgrades.cpp
+    MAX_NETWORK_UPGRADES
 };
 
 struct NetworkUpgrade {
@@ -90,6 +86,7 @@ struct NetworkUpgrade {
 struct Params {
     uint256 hashGenesisBlock;
     bool fPowAllowMinDifficultyBlocks;
+    bool fPowNoRetargeting;
     uint256 powLimit;
     uint256 posLimitV1;
     uint256 posLimitV2;
@@ -99,21 +96,16 @@ struct Params {
     int nFutureTimeDriftPoW;
     int nFutureTimeDriftPoS;
     CAmount nMaxMoneyOut;
-    int nPoolMaxTransactions;
+    CAmount nMNCollateralAmt;
     int64_t nProposalEstablishmentTime;
     int nStakeMinAge;
     int nStakeMinDepth;
-    int nStakeMinDepthV2;
     int64_t nTargetTimespan;
     int64_t nTargetTimespanV2;
     int64_t nTargetSpacing;
     int nTimeSlotLength;
-
-    // dev addresses
-    std::string devAddress;
-
-    // burn addresses
-    std::map<std::string, int> mBurnAddresses = {};
+    int nMaxProposalPayments;
+    int nTreasuryStartHeight;
 
     // spork keys
     std::string strSporkPubKey;
@@ -121,21 +113,13 @@ struct Params {
     int64_t nTime_EnforceNewSporkKey;
     int64_t nTime_RejectOldSporkKey;
 
-    // height-based activations
-    int height_last_ZC_AccumCheckpoint;
-    int height_last_ZC_WrappedSerials;
-    int height_start_InvalidUTXOsCheck;
-    int height_start_ZC_InvalidSerials;
-    int height_start_ZC_SerialRangeCheck;
-    int height_ZC_RecalcAccumulators;
-
     // Map with network updates
     NetworkUpgrade vUpgrades[MAX_NETWORK_UPGRADES];
 
     int64_t TargetTimespan(const bool fV2 = true) const { return fV2 ? nTargetTimespanV2 : nTargetTimespan; }
     uint256 ProofOfStakeLimit(const bool fV2) const { return fV2 ? posLimitV2 : posLimitV1; }
     bool MoneyRange(const CAmount& nValue) const { return (nValue >= 0 && nValue <= nMaxMoneyOut); }
-    bool IsTimeProtocolV2(const int nHeight) const { return NetworkUpgradeActive(nHeight, UPGRADE_TIME_PROTOCOL_V2); }
+    bool IsTimeProtocolV2(const int nHeight) const { return NetworkUpgradeActive(nHeight, UPGRADE_V4_0); }
 
     int FutureBlockTimeDrift(const int nHeight) const
     {
@@ -157,45 +141,27 @@ struct Params {
             const int utxoFromBlockHeight, const uint32_t utxoFromBlockTime) const
     {
         // before stake modifier V2, we require the utxo to be nStakeMinAge old
-        if (!NetworkUpgradeActive(contextHeight, Consensus::UPGRADE_STAKE_MODIFIER_V2))
+        if (!NetworkUpgradeActive(contextHeight, Consensus::UPGRADE_V3_4))
             return (utxoFromBlockTime + nStakeMinAge <= contextTime);
         // with stake modifier V2+, we require the utxo to be nStakeMinDepth deep in the chain
-        return (
-            contextHeight - utxoFromBlockHeight 
-                >= 
-            NetworkUpgradeActive(contextHeight, Consensus::UPGRADE_STAKE_MIN_DEPTH_V2) ? 
-                nStakeMinDepthV2 : nStakeMinDepth
-        );
+        return (contextHeight - utxoFromBlockHeight >= nStakeMinDepth);
     }
 
-    bool IsBurnAddress(const std::string strAddress, const int nHeight) 
+    CAmount GetMNCollateral(int nHeight) const
     {
-        return 
-            mBurnAddresses.find(strAddress) != mBurnAddresses.end() &&
-            mBurnAddresses[strAddress] < nHeight;
-    }
+        CAmount nMNCollateral = 0;
 
-    /*
-     * (Legacy) Zerocoin consensus params
-     */
-    std::string ZC_Modulus;  // parsed in Zerocoin_Params (either as hex or dec string)
-    int ZC_MaxPublicSpendsPerTx;
-    int ZC_MaxSpendsPerTx;
-    int ZC_MinMintConfirmations;
-    CAmount ZC_MinMintFee;
-    int ZC_MinStakeDepth;
-    int ZC_TimeStart;
-    CAmount ZC_WrappedSerialsSupply;
+        if (nHeight > 0 && nHeight <= 200) {
+            nMNCollateral = 0;
+        } else if (nHeight > 201 && nHeight <= 100000) {
+            nMNCollateral = 50000000;
+        } else if (nHeight > 100000 && nHeight <= 36098004) {
+            nMNCollateral = 1000 * COIN;
+        } else {
+            nMNCollateral = 0;
+        }
 
-    libzerocoin::ZerocoinParams* Zerocoin_Params(bool useModulusV1) const
-    {
-        static CBigNum bnHexModulus = 0;
-        if (!bnHexModulus) bnHexModulus.SetHex(ZC_Modulus);
-        static libzerocoin::ZerocoinParams ZCParamsHex = libzerocoin::ZerocoinParams(bnHexModulus);
-        static CBigNum bnDecModulus = 0;
-        if (!bnDecModulus) bnDecModulus.SetDec(ZC_Modulus);
-        static libzerocoin::ZerocoinParams ZCParamsDec = libzerocoin::ZerocoinParams(bnDecModulus);
-        return (useModulusV1 ? &ZCParamsHex : &ZCParamsDec);
+        return nMNCollateral;
     }
 
     /**

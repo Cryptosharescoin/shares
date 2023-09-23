@@ -2,14 +2,14 @@
 
 [Desktop Entry]
 Encoding=UTF-8
-Name=CRYPTOSHARES Core Daemon SNAP
+Name=CRYPTOSHARES Daemon SNAP
 Comment=main
 GenericName=CRYPTOSHARES Digital Currency Daemon Client main network
-Exec=cryptoshares-core.daemon %u
+Exec=cryptoshares.daemon %u
 Terminal=true
 Type=Application
 Icon=${SNAP}/share/pixmaps/cryptoshares.png
 MimeType=x-scheme-handler/shares;
 Categories=X-Office;X-Finance;
-Keywords=internet;cryptoshares;zshares;core;wallet;daemon;main;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Keywords=internet;cryptoshares;core;wallet;daemon;main;snap;launchpad;crypto;digital;currency;coin;token;
 Version=1.0

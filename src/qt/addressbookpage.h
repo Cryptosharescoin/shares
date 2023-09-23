@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,14 +52,14 @@ public Q_SLOTS:
     void done(int retval);
 
 private:
-    Ui::AddressBookPage* ui;
-    AddressTableModel* model;
+    Ui::AddressBookPage* ui{nullptr};
+    AddressTableModel* model{nullptr};
     Mode mode;
     Tabs tab;
     QString returnValue;
-    QSortFilterProxyModel* proxyModel;
-    QMenu* contextMenu;
-    QAction* deleteAction; // to be able to explicitly disable it
+    QSortFilterProxyModel* proxyModel{nullptr};
+    QMenu* contextMenu{nullptr};
+    QAction* deleteAction{nullptr}; // to be able to explicitly disable it
     QString newAddressToSelect;
 
 private Q_SLOTS:

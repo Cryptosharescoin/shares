@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,34 +24,26 @@ class CBlockHeader
 {
 public:
     // header
-    static const int32_t CURRENT_VERSION=7;     //!> Version 7 removes nAccumulatorCheckpoint from serialization
+    static const int32_t CURRENT_VERSION=11;    // since v5.2.99
     int32_t nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
     uint32_t nTime;
     uint32_t nBits;
     uint32_t nNonce;
-    uint256 nAccumulatorCheckpoint;             // only for version 4, 5 and 6.
+    uint256 hashFinalSaplingRoot;               // only for version 8+
 
     CBlockHeader()
     {
         SetNull();
     }
 
-    ADD_SERIALIZE_METHODS;
+    SERIALIZE_METHODS(CBlockHeader, obj) {
+        READWRITE(obj.nVersion, obj.hashPrevBlock, obj.hashMerkleRoot, obj.nTime, obj.nBits, obj.nNonce);
 
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action) {
-        READWRITE(nVersion);
-        READWRITE(hashPrevBlock);
-        READWRITE(hashMerkleRoot);
-        READWRITE(nTime);
-        READWRITE(nBits);
-        READWRITE(nNonce);
-
-        //zerocoin active, header changes to include accumulator checksum
-        if(nVersion > 3 && nVersion < 7)
-            READWRITE(nAccumulatorCheckpoint);
+        // Sapling active
+        if (obj.nVersion >= 8)
+            READWRITE(obj.hashFinalSaplingRoot);
     }
 
     void SetNull()
@@ -63,7 +54,7 @@ public:
         nTime = 0;
         nBits = 0;
         nNonce = 0;
-        nAccumulatorCheckpoint.SetNull();
+        hashFinalSaplingRoot.SetNull();
     }
 
     bool IsNull() const
@@ -84,13 +75,13 @@ class CBlock : public CBlockHeader
 {
 public:
     // network and disk
-    std::vector<CTransaction> vtx;
+    std::vector<CTransactionRef> vtx;
 
     // ppcoin: block signature - signed by one of the coin base txout[N]'s owner
     std::vector<unsigned char> vchBlockSig;
 
     // memory only
-    mutable bool fChecked;
+    mutable bool fChecked{false};
 
     CBlock()
     {
@@ -100,17 +91,15 @@ public:
     CBlock(const CBlockHeader &header)
     {
         SetNull();
-        *((CBlockHeader*)this) = header;
+        *(static_cast<CBlockHeader*>(this)) = header;
     }
 
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action) {
-        READWRITE(*(CBlockHeader*)this);
-        READWRITE(vtx);
-	if(vtx.size() > 1 && vtx[1].IsCoinStake())
-		READWRITE(vchBlockSig);
+    SERIALIZE_METHODS(CBlock, obj)
+    {
+        READWRITEAS(CBlockHeader, obj);
+        READWRITE(obj.vtx);
+        if(obj.vtx.size() > 1 && obj.vtx[1]->IsCoinStake())
+            READWRITE(obj.vchBlockSig);
     }
 
     void SetNull()
@@ -130,14 +119,14 @@ public:
         block.nTime          = nTime;
         block.nBits          = nBits;
         block.nNonce         = nNonce;
-        if(nVersion > 3 && nVersion < 7)
-            block.nAccumulatorCheckpoint = nAccumulatorCheckpoint;
+        if (nVersion >= 8)
+            block.hashFinalSaplingRoot   = hashFinalSaplingRoot;
         return block;
     }
 
     bool IsProofOfStake() const
     {
-        return (vtx.size() > 1 && vtx[1].IsCoinStake());
+        return (vtx.size() > 1 && vtx[1]->IsCoinStake());
     }
 
     bool IsProofOfWork() const
@@ -165,14 +154,12 @@ struct CBlockLocator
         vHave = vHaveIn;
     }
 
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action) {
+    SERIALIZE_METHODS(CBlockLocator, obj)
+    {
         int nVersion = s.GetVersion();
         if (!(s.GetType() & SER_GETHASH))
             READWRITE(nVersion);
-        READWRITE(vHave);
+        READWRITE(obj.vHave);
     }
 
     void SetNull()
@@ -180,7 +167,7 @@ struct CBlockLocator
         vHave.clear();
     }
 
-    bool IsNull()
+    bool IsNull() const
     {
         return vHave.empty();
     }

@@ -5,9 +5,10 @@
 """Test the wallet accounts properly when there are cloned transactions with malleated scriptsigs."""
 
 import io
-from test_framework.test_framework import CryptosharesTestFramework
-from test_framework.util import *
+
 from test_framework.messages import CTransaction, COIN
+from test_framework.test_framework import CryptosharesTestFramework
+from test_framework.util import assert_equal, connect_nodes, disconnect_nodes
 
 
 class TxnMallTest(CryptosharesTestFramework):
@@ -79,7 +80,7 @@ class TxnMallTest(CryptosharesTestFramework):
         # Have node0 mine a block, if requested:
         if (self.options.mine_block):
             self.nodes[0].generate(1)
-            sync_blocks(self.nodes[0:2])
+            self.sync_blocks(self.nodes[0:2])
 
         tx1 = self.nodes[0].gettransaction(txid1)
         tx2 = self.nodes[0].gettransaction(txid2)
@@ -87,7 +88,8 @@ class TxnMallTest(CryptosharesTestFramework):
         # Node0's balance should be starting balance, plus 50BTC for another
         # matured block, minus tx1 and tx2 amounts, and minus transaction fees:
         expected = starting_balance + node0_tx1["fee"] + node0_tx2["fee"]
-        if self.options.mine_block: expected += 250
+        if self.options.mine_block:
+            expected += 250
         expected += tx1["amount"] + tx1["fee"]
         expected += tx2["amount"] + tx2["fee"]
         assert_equal(self.nodes[0].getbalance(), expected)
@@ -114,7 +116,7 @@ class TxnMallTest(CryptosharesTestFramework):
         self.nodes[2].sendrawtransaction(node0_tx2["hex"])
         self.nodes[2].sendrawtransaction(tx2["hex"])
         self.nodes[2].generate(1)  # Mine another block to make sure we sync
-        sync_blocks(self.nodes)
+        self.sync_blocks()
 
         # Re-fetch transaction info:
         tx1 = self.nodes[0].gettransaction(txid1)

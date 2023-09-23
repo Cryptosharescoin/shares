@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -76,9 +75,12 @@ void SendChangeAddressDialog::accept()
         QDialog::accept();
     } else {
         // validate address
-        dest = DecodeDestination(ui->lineEditAddress->text().toStdString());
+        bool isStakingAddr;
+        dest = DecodeDestination(ui->lineEditAddress->text().toStdString(), isStakingAddr);
         if (!IsValidDestination(dest)) {
             inform(tr("Invalid address"));
+        } else if (isStakingAddr) {
+            inform(tr("Cannot use cold staking addresses for change"));
         } else {
             QDialog::accept();
         }

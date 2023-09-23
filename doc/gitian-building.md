@@ -1,7 +1,7 @@
 Gitian building
 ================
 
-*Setup instructions for a gitian build of CRYPTOSHARES Core using a VM or physical system.*
+*Setup instructions for a gitian build of CRYPTOSHARES using a VM or physical system.*
 
 Gitian is the deterministic build process that is used to build the CRYPTOSHARES
 Core executables. It provides a way to be reasonably sure that the
@@ -23,7 +23,7 @@ Table of Contents
 - [Preparing the Gitian builder host](#preparing-the-gitian-builder-host)
   - [macOS Builds](#macos-builds)
 - [Initial Gitian Setup](#initial-gitian-setup)
-- [Building CRYPTOSHARES Core](#building-cryptoshares-core)
+- [Building CRYPTOSHARES](#building-cryptoshares)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
 
@@ -56,14 +56,14 @@ On Debian you might have to compile a suitable version of lxc or you can use Ubu
 
 #### macOS Builds
 
-In order to build and sign for macOS, you need to download the free SDK and extract a file. The steps are described [here](./gitian-building/gitian-building-mac-os-sdk.md). Alternatively, you can skip the macOS build by adding `--os=lw` below.
+In order to build and sign for macOS, you need to download the free SDK and extract a file. The steps are described [here](../contrib/macdeploy/README.md#sdk-extraction). Alternatively, you can skip the macOS build by adding `--os=lw` below.
 
 Initial Gitian Setup
 --------------------
 
 The `gitian-build.py` script is designed to checkout different release tags, commits, branches, or pull requests. The linked guides above cover the process of obtaining the script and doing the basic initial setup.
 
-Building CRYPTOSHARES Core
+Building CRYPTOSHARES
 --------------------
 
 The script allows you to build tags, commits, branches, and even pull requests. Below are some examples:

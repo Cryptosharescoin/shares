@@ -1,11 +1,14 @@
 // Copyright (c) 2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef GUIINTERFACEUTIL_H
 #define GUIINTERFACEUTIL_H
+
+#include "guiinterface.h"
+#include "tinyformat.h"
+#include "util/system.h"
 
 inline static bool UIError(const std::string &str)
 {

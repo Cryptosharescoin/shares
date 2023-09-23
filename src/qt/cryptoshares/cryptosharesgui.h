@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,11 +21,17 @@
 #include "qt/cryptoshares/send.h"
 #include "qt/cryptoshares/receivewidget.h"
 #include "qt/cryptoshares/addresseswidget.h"
+#include "qt/cryptoshares/coldstakingwidget.h"
+#include "qt/cryptoshares/governancewidget.h"
 #include "qt/cryptoshares/masternodeswidget.h"
 #include "qt/cryptoshares/snackbar.h"
 #include "qt/cryptoshares/settings/settingswidget.h"
+#include "qt/cryptoshares/settings/settingsfaqwidget.h"
 #include "qt/rpcconsole.h"
 
+namespace interfaces {
+    class Handler;
+}
 
 class ClientModel;
 class NetworkStyle;
@@ -67,11 +72,11 @@ public Q_SLOTS:
     void goToReceive();
     void goToAddresses();
     void goToMasterNodes();
+    void goToGovernance();
+    void goToColdStaking();
     void goToSettings();
     void goToSettingsInfo();
-    void goToDebugConsole();
     void openNetworkMonitor();
-	void showPeers();
 
     void connectActions();
 
@@ -89,11 +94,13 @@ public Q_SLOTS:
     void messageInfo(const QString& message);
     bool execDialog(QDialog *dialog, int xDiv = 3, int yDiv = 5);
     /** Open FAQ dialog **/
-    void openFAQ(int section = 0);
+    void openFAQ(SettingsFaqWidget::Section section = SettingsFaqWidget::Section::INTRO);
 
     /** Show incoming transaction notification for new transactions. */
     void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address);
 #ifdef ENABLE_WALLET
+    void setGovModel(GovernanceModel* govModel);
+    void setMNModel(MNModel* mnModel);
     /** Set the wallet model.
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
@@ -115,13 +122,15 @@ protected:
      */
 
 private:
+    // Handlers
+    std::unique_ptr<interfaces::Handler> m_handler_message_box;
+
     bool enableWallet;
     ClientModel* clientModel = nullptr;
 
     // Actions
     QAction* quitAction = nullptr;
     QAction* toggleHideAction = nullptr;
-
 
     // Frame
     NavMenuWidget *navMenu = nullptr;
@@ -133,6 +142,8 @@ private:
     ReceiveWidget *receiveWidget = nullptr;
     AddressesWidget *addressesWidget = nullptr;
     MasterNodesWidget *masterNodesWidget = nullptr;
+    ColdStakingWidget *coldStakingWidget = nullptr;
+    GovernanceWidget* governancewidget{nullptr};
     SettingsWidget* settingsWidget = nullptr;
 
     SnackBar *snackBar = nullptr;
@@ -163,7 +174,7 @@ private:
     void unsubscribeFromCoreSignals();
 
 public Q_SLOTS:
-    /** called by a timer to check if fRequestShutdown has been set **/
+    /** called by a timer to check if ShutdownRequested() **/
     void detectShutdown();
 
 private Q_SLOTS:

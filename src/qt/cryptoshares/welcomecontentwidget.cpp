@@ -1,7 +1,11 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#if defined(HAVE_CONFIG_H)
+#include "config/cryptoshares-config.h"
+#endif
 
 #include "qt/cryptoshares/welcomecontentwidget.h"
 #include "qt/cryptoshares/forms/ui_welcomecontentwidget.h"
@@ -61,9 +65,9 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
 
     // position
     backButton->move(backX, backY);
-    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#6b7f2d;color: #6b7f2d; border-radius:2px;");
+    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#D25257;color: #D25257; border-radius:2px;");
     nextButton->move(nextX, nextY);
-    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#6b7f2d;color: #6b7f2d; border-radius:2px;");
+    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#D25257;color: #D25257; border-radius:2px;");
 
     if (pos == 0) {
         backButton->setVisible(false);
@@ -105,6 +109,7 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     // Frame 2
     ui->page_2->setProperty("cssClass", "container-welcome-step2");
     ui->labelTitle2->setProperty("cssClass", "text-title-welcome");
+    ui->labelTitle2->setText(ui->labelTitle2->text().arg(PACKAGE_NAME));
     ui->labelMessage2->setProperty("cssClass", "text-main-white");
 
     // Frame 3
@@ -177,7 +182,7 @@ void WelcomeContentWidget::initLanguages()
     /* Language selector */
     QDir translations(":translations");
     ui->comboBoxLanguage->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
-    Q_FOREACH (const QString& langStr, translations.entryList()) {
+    for (const QString& langStr : translations.entryList()) {
         QLocale locale(langStr);
 
         /** check if the locale name consists of 2 parts (language_country) */
@@ -205,17 +210,18 @@ void WelcomeContentWidget::checkLanguage()
         settings.sync();
         Q_EMIT onLanguageSelected();
         ui->retranslateUi(this);
+        ui->labelTitle2->setText(ui->labelTitle2->text().arg(PACKAGE_NAME));
     }
 }
 
 void WelcomeContentWidget::onNextClicked()
 {
-    switch(pos){
+    switch(pos) {
         case 0:{
             ui->stackedWidget->setCurrentIndex(1);
             break;
         }
-        case 1:{
+        case 1: {
             backButton->setVisible(true);
             ui->stackedWidget->setCurrentIndex(2);
             ui->pushNumber2->setChecked(true);
@@ -226,7 +232,7 @@ void WelcomeContentWidget::onNextClicked()
             icConfirm1->setVisible(true);
             break;
         }
-        case 2:{
+        case 2: {
             ui->stackedWidget->setCurrentIndex(3);
             ui->pushNumber3->setChecked(true);
             ui->pushName4->setChecked(false);
@@ -260,12 +266,12 @@ void WelcomeContentWidget::onBackClicked()
 {
     if (pos == 0) return;
     pos--;
-    switch(pos){
+    switch(pos) {
         case 0:{
             ui->stackedWidget->setCurrentIndex(0);
             break;
         }
-        case 1:{
+        case 1: {
             ui->stackedWidget->setCurrentIndex(1);
             ui->pushNumber1->setChecked(true);
             ui->pushNumber4->setChecked(false);
@@ -280,7 +286,7 @@ void WelcomeContentWidget::onBackClicked()
 
             break;
         }
-        case 2:{
+        case 2: {
             ui->stackedWidget->setCurrentIndex(2);
             ui->pushNumber2->setChecked(true);
             ui->pushNumber4->setChecked(false);

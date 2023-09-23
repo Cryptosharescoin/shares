@@ -150,22 +150,89 @@
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item alignment="Qt::AlignTop">
-               <widget class="QLabel" name="labelAmountTopShares">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>36</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">padding:0px;margin:0px;</string>
-                </property>
-                <property name="text">
-                 <string notr="true">-- SHARES</string>
-                </property>
-               </widget>
-              </item>
+             <item>
+             <widget class="QLabel" name="labelTrans">
+              <property name="text">
+               <string>transparent</string>
+              </property>
+             </widget>
+            </item>
+		    <item>
+             <spacer name="horizontalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>15</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+			<item alignment="Qt::AlignVCenter">
+             <widget class="QLabel" name="typeSpacerTop">
+              <property name="minimumSize">
+               <size>
+                <width>1</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>1</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color:white;
+padding:0px;
+border:none;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+			<item>
+             <spacer name="horizontalSpacer_12">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>15</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+			<item alignment="Qt::AlignTop">
+             <widget class="QLabel" name="labelAmountTopShieldedshares">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>36</height>
+               </size>
+              </property>
+              <property name="text">
+               <string notr="true">1.000 SHARES </string>
+              </property>
+             </widget>
+            </item>
+			<item>
+             <widget class="QLabel" name="labelShield">
+              <property name="text">
+               <string>  shielded</string>
+              </property>
+             </widget>
+            </item>
              </layout>
             </widget>
            </item>
@@ -260,6 +327,16 @@
              </property>
             </widget>
            </item>
+			<item>
+            <widget class="ExpandableButton" name="pushButtonColdStaking" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>36</width>
+               <height>36</height>
+              </size>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="ExpandableButton" name="pushButtonConf" native="true">
              <property name="minimumSize">
@@ -278,22 +355,6 @@
            </item>
            <item>
             <widget class="ExpandableButton" name="pushButtonMasternodes" native="true">
-             <property name="minimumSize">
-              <size>
-               <width>36</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>36</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="ExpandableButton" name="pushButtonConsole" native="true">
              <property name="minimumSize">
               <size>
                <width>36</width>
@@ -378,17 +439,11 @@
              </property>
             </widget>
            </item>
-           <item>
+		    <item>
             <widget class="ExpandableButton" name="pushButtonFAQ" native="true">
              <property name="minimumSize">
               <size>
                <width>36</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
                <height>36</height>
               </size>
              </property>
@@ -588,31 +643,31 @@
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item>
-               <widget class="QLabel" name="labelNextMasternodesTitle">
+				 <item>
+               <widget class="QLabel" name="labelMNReward">
                 <property name="text">
-                 <string>Next Collateral</string>
+                 <string>MN Reward</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="labelNextCollateralValue">
+               <widget class="QLabel" name="labelMNRewardvalue">
                 <property name="text">
                  <string>-- SHARES</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="labelTitle9">
+               <widget class="QLabel" name="labelStakingReward">
                 <property name="text">
-                 <string>In</string>
+                 <string>Staking Reward</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="labelNextCollateralBlocks">
+               <widget class="QLabel" name="labelStakingRewardvalue">
                 <property name="text">
-                 <string notr="true">-- Blocks</string>
+                 <string notr="true">-- SHARES</string>
                 </property>
                </widget>
               </item>

@@ -1,14 +1,17 @@
 // Copyright (c) 2015 The Bitcoin developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_MEMUSAGE_H
 #define BITCOIN_MEMUSAGE_H
 
+#include "indirectmap.h"
+#include "prevector.h"
+
 #include <stdlib.h>
 
 #include <map>
+#include <memory>
 #include <set>
 #include <vector>
 #include <unordered_map>
@@ -79,6 +82,15 @@ private:
     void* left;
     void* right;
     X x;
+};
+
+struct stl_shared_counter
+{
+    /* Various platforms use different sized counters here.
+     * Conservatively assume that they won't be larger than size_t. */
+    void* class_type;
+    size_t use_count;
+    size_t weak_count;
 };
 
 template<typename X>
@@ -159,6 +171,35 @@ static inline size_t RecursiveDynamicUsage(const std::pair<X, Y>& v)
     return RecursiveDynamicUsage(v.first) + RecursiveDynamicUsage(v.second);
 }
 
+template<typename X>
+static inline size_t DynamicUsage(const std::unique_ptr<X>& p)
+{
+    return p ? MallocUsage(sizeof(X)) : 0;
+}
+
+template<typename X>
+static inline size_t DynamicUsage(const std::shared_ptr<X>& p)
+{
+    // A shared_ptr can either use a single continuous memory block for both
+    // the counter and the storage (when using std::make_shared), or separate.
+    // We can't observe the difference, however, so assume the worst.
+    return p ? MallocUsage(sizeof(X)) + MallocUsage(sizeof(stl_shared_counter)) : 0;
+}
+
+// indirectmap has underlying map with pointer as key
+
+template<typename X, typename Y>
+static inline size_t DynamicUsage(const indirectmap<X, Y>& m)
+{
+    return MallocUsage(sizeof(stl_tree_node<std::pair<const X*, Y> >)) * m.size();
+}
+
+template<typename X, typename Y>
+static inline size_t IncrementalDynamicUsage(const indirectmap<X, Y>& m)
+{
+    return MallocUsage(sizeof(stl_tree_node<std::pair<const X*, Y> >));
+}
+
 // Boost data structures
 
 template<typename X>
@@ -192,6 +233,12 @@ template<typename X>
 static inline size_t RecursiveDynamicUsage(const X& x)
 {
     return DynamicUsage(x);
+}
+
+template<typename X>
+static inline size_t RecursiveDynamicUsage(const std::shared_ptr<X>& p)
+{
+    return p ? memusage::DynamicUsage(p) + RecursiveDynamicUsage(*p) : 0;
 }
 
 }

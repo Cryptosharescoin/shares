@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,17 +9,20 @@
 #include <QAbstractTableModel>
 #include "masternode.h"
 #include "masternodeconfig.h"
+#include "qt/walletmodel.h"
 
 class MNModel : public QAbstractTableModel
 {
     Q_OBJECT
 
 public:
-    explicit MNModel(QObject *parent = nullptr);
+    explicit MNModel(QObject *parent);
     ~MNModel() override {
         nodes.clear();
         collateralTxAccepted.clear();
     }
+    void init();
+    void setWalletModel(WalletModel* _model) { walletModel = _model; };
 
     enum ColumnIndex {
         ALIAS = 0,  /**< User specified MN alias */
@@ -58,6 +60,7 @@ public:
 
 
 private:
+    WalletModel* walletModel;
     // alias mn node ---> pair <ip, master node>
     QMap<QString, std::pair<QString, CMasternode*>> nodes;
     QMap<std::string, bool> collateralTxAccepted;

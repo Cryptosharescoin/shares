@@ -1,13 +1,14 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "bitcoinunits.h"
 #include "chainparams.h"
+#include "logging.h"
+#include "policy/feerate.h"
 #include "primitives/transaction.h"
 
 #include <QSettings>
@@ -45,22 +46,21 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case SHARES:
-        return QString("SHARES");
+        return QString("cryptoshares");
     case mSHARES:
-        return QString("mSHARES");
+        return QString("mcryptoshares");
     case uSHARES:
-        return QString::fromUtf8("uSHARES");
+        return QString::fromUtf8("ucryptoshares");
     default:
         return QString("???");
     }
 }
 
-QString BitcoinUnits::name(int unit, bool isZshares)
+QString BitcoinUnits::name(int unit, bool iszshares)
 {
     const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
     QString z = "";
-    if(isZshares) z = "z";
-    if (Params().NetworkID() == CBaseChainParams::MAIN) {
+    if (Params().NetworkIDString() == CBaseChainParams::MAIN) {
         switch (unit) {
         case SHARES:
             return z + CURR_UNIT;
@@ -88,7 +88,7 @@ QString BitcoinUnits::name(int unit, bool isZshares)
 QString BitcoinUnits::description(int unit)
 {
     const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
-    if (Params().NetworkID() == CBaseChainParams::MAIN) {
+    if (Params().NetworkIDString() == CBaseChainParams::MAIN) {
         switch (unit) {
         case SHARES:
             return CURR_UNIT;
@@ -145,7 +145,7 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
-    if (!valid(unit)){
+    if (!valid(unit)) {
         return QString(); // Refuse to format invalid unit
     }
     qint64 n = (qint64)nIn;
@@ -173,7 +173,7 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
     if (num_decimals <= 0)
         return quotient_str;
 
-    if(cleanRemainderZeros) {
+    if (cleanRemainderZeros) {
         // Clean remainder
         QString cleanRemainder = remainder_str;
         for (int i = (remainder_str.length() - 1); i > 1; i--) {
@@ -219,10 +219,10 @@ QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool p
 QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZSHARES)
 {
     QSettings settings;
-    int digits = settings.value("digits").toInt();
+    int digits = settings.value("digits").toInt()+1;
 
     QString result = format(unit, amount, plussign, separators, cleanRemainderZeros);
-    if(decimals(unit) > digits) {
+    if (decimals(unit) > digits) {
         if (!cleanRemainderZeros) {
             result.chop(decimals(unit) - digits);
         } else {
@@ -233,12 +233,12 @@ QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussi
         }
     }
 
-    return result + QString(" ") + name(unit, isZSHARES);
+    return result + QString(" ") + name(unit, false);
 }
 
 QString BitcoinUnits::floorHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZSHARES)
 {
-    QString str(floorWithUnit(unit, amount, plussign, separators, cleanRemainderZeros, isZSHARES));
+    QString str(floorWithUnit(unit, amount, plussign, separators, cleanRemainderZeros, false));
     str.replace(QChar(THIN_SP_CP), QString(COMMA_HTML));
     return QString("<span style='white-space: nowrap;'>%1</span>").arg(str);
 }

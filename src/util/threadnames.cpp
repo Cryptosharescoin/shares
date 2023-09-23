@@ -1,5 +1,4 @@
 // Copyright (c) 2018-2019 The Bitcoin Core developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,6 +14,10 @@
 #endif
 
 #include <util/threadnames.h>
+
+#include "ctpl.h"
+#include "utiltime.h"
+#include "tinyformat.h"
 
 #ifdef HAVE_SYS_PRCTL_H
 #include <sys/prctl.h> // For prctl, PR_SET_NAME, PR_GET_NAME
@@ -64,4 +67,23 @@ void util::ThreadRename(std::string&& name)
 void util::ThreadSetInternalName(std::string&& name)
 {
     SetInternalName(std::move(name));
+}
+
+void RenameThreadPool(ctpl::thread_pool& tp, const char* baseName)
+{
+    auto cond = std::make_shared<std::condition_variable>();
+    auto mutex = std::make_shared<std::mutex>();
+    std::atomic<int> doneCnt(0);
+    for (int i = 0; i < tp.size(); i++) {
+        tp.push([baseName, i, cond, mutex, &doneCnt](int threadId) {
+            util::ThreadRename(strprintf("%s-%d", baseName, i).c_str());
+            doneCnt++;
+            std::unique_lock<std::mutex> l(*mutex);
+            cond->wait(l);
+        });
+    }
+    while (doneCnt != tp.size()) {
+        MilliSleep(10);
+    }
+    cond->notify_all();
 }

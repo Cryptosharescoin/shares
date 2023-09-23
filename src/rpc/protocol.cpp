@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,14 +10,9 @@
 
 #include "random.h"
 #include "tinyformat.h"
-#include "util.h"
+#include "util/system.h"
 #include "utilstrencodings.h"
 #include "utiltime.h"
-#include "version.h"
-
-#include <stdint.h>
-#include <fstream>
-
 
 /**
  * JSON-RPC protocol.  CRYPTOSHARES speaks version 1.0 for maximum compatibility,
@@ -32,9 +27,9 @@
 UniValue JSONRPCRequestObj(const std::string& strMethod, const UniValue& params, const UniValue& id)
 {
     UniValue request(UniValue::VOBJ);
-    request.push_back(Pair("method", strMethod));
-    request.push_back(Pair("params", params));
-    request.push_back(Pair("id", id));
+    request.pushKV("method", strMethod);
+    request.pushKV("params", params);
+    request.pushKV("id", id);
     return request;
 }
 
@@ -42,11 +37,11 @@ UniValue JSONRPCReplyObj(const UniValue& result, const UniValue& error, const Un
 {
     UniValue reply(UniValue::VOBJ);
     if (!error.isNull())
-        reply.push_back(Pair("result", NullUniValue));
+        reply.pushKV("result", NullUniValue);
     else
-        reply.push_back(Pair("result", result));
-    reply.push_back(Pair("error", error));
-    reply.push_back(Pair("id", id));
+        reply.pushKV("result", result);
+    reply.pushKV("error", error);
+    reply.pushKV("id", id);
     return reply;
 }
 
@@ -59,8 +54,8 @@ std::string JSONRPCReply(const UniValue& result, const UniValue& error, const Un
 UniValue JSONRPCError(int code, const std::string& message)
 {
     UniValue error(UniValue::VOBJ);
-    error.push_back(Pair("code", code));
-    error.push_back(Pair("message", message));
+    error.pushKV("code", code);
+    error.pushKV("message", message);
     return error;
 }
 
@@ -73,29 +68,30 @@ static const std::string COOKIEAUTH_FILE = ".cookie";
 
 fs::path GetAuthCookieFile()
 {
-    fs::path path(GetArg("-rpccookiefile", COOKIEAUTH_FILE));
+    fs::path path(gArgs.GetArg("-rpccookiefile", COOKIEAUTH_FILE));
     return AbsPathForConfigVal(path);
 }
 
 bool GenerateAuthCookie(std::string *cookie_out)
 {
-    unsigned char rand_pwd[32];
-    GetRandBytes(rand_pwd, 32);
-    std::string cookie = COOKIEAUTH_USER + ":" + EncodeBase64(&rand_pwd[0],32);
+    const size_t COOKIE_SIZE = 32;
+    unsigned char rand_pwd[COOKIE_SIZE];
+    GetRandBytes(rand_pwd, COOKIE_SIZE);
+    std::string cookie = COOKIEAUTH_USER + ":" + HexStr(rand_pwd);
 
     /** the umask determines what permissions are used to create this file -
      * these are set to 077 in init.cpp unless overridden with -sysperms.
      */
-    std::ofstream file;
-    fs::path filepath = GetAuthCookieFile();
-    file.open(filepath.string().c_str());
+    fsbridge::ofstream file;
+    fs::path filepath_tmp = GetAuthCookieFile();
+    file.open(filepath_tmp);
     if (!file.is_open()) {
-        LogPrintf("Unable to open cookie authentication file %s for writing\n", filepath.string());
+        LogPrintf("Unable to open cookie authentication file %s for writing\n", filepath_tmp.string());
         return false;
     }
     file << cookie;
     file.close();
-    LogPrintf("Generated RPC authentication cookie %s\n", filepath.string());
+    LogPrintf("Generated RPC authentication cookie %s\n", filepath_tmp.string());
 
     if (cookie_out)
         *cookie_out = cookie;
@@ -104,10 +100,10 @@ bool GenerateAuthCookie(std::string *cookie_out)
 
 bool GetAuthCookie(std::string *cookie_out)
 {
-    std::ifstream file;
+    fsbridge::ifstream file;
     std::string cookie;
     fs::path filepath = GetAuthCookieFile();
-    file.open(filepath.string().c_str());
+    file.open(filepath);
     if (!file.is_open())
         return false;
     std::getline(file, cookie);
@@ -123,6 +119,6 @@ void DeleteAuthCookie()
     try {
         fs::remove(GetAuthCookieFile());
     } catch (const fs::filesystem_error& e) {
-        LogPrintf("%s: Unable to remove random auth cookie file: %s\n", __func__, e.what());
+        LogPrintf("%s: Unable to remove random auth cookie file: %s\n", __func__, fsbridge::get_filesystem_error_message(e));
     }
 }

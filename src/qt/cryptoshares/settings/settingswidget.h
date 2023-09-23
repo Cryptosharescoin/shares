@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +16,6 @@
 #include "qt/cryptoshares/settings/settingswalletoptionswidget.h"
 #include "qt/cryptoshares/settings/settingsmainoptionswidget.h"
 #include "qt/cryptoshares/settings/settingsdisplayoptionswidget.h"
-#include "qt/cryptoshares/settings/settingsmultisendwidget.h"
 #include "qt/cryptoshares/settings/settingsinformationwidget.h"
 #include "qt/cryptoshares/settings/settingsconsolewidget.h"
 
@@ -45,7 +43,6 @@ public:
     void showDebugConsole();
     void showInformation();
     void openNetworkMonitor();
-	void showPeers();
 
 Q_SIGNALS:
     /** Get restart command-line parameters and handle restart */
@@ -60,7 +57,6 @@ private Q_SLOTS:
     // Wallet Configuration
     void onConfigurationClicked();
     void onBipToolClicked();
-    void onMultisendClicked();
     void onExportCSVClicked();
 
     // Options
@@ -84,22 +80,21 @@ private Q_SLOTS:
     void onSaveOptionsClicked();
 
 private:
-    Ui::SettingsWidget *ui;
+    Ui::SettingsWidget *ui{nullptr};
     int navAreaBaseHeight{0};
 
-    SettingsBackupWallet *settingsBackupWallet;
-    SettingsExportCSV *settingsExportCsvWidget;
-    SettingsBitToolWidget *settingsBitToolWidget;
-    SettingsSignMessageWidgets *settingsSingMessageWidgets;
-    SettingsWalletRepairWidget *settingsWalletRepairWidget;
-    SettingsWalletOptionsWidget *settingsWalletOptionsWidget;
-    SettingsMainOptionsWidget *settingsMainOptionsWidget;
-    SettingsDisplayOptionsWidget *settingsDisplayOptionsWidget;
-    SettingsMultisendWidget *settingsMultisendWidget;
-    SettingsInformationWidget *settingsInformationWidget;
-    SettingsConsoleWidget *settingsConsoleWidget;
+    SettingsBackupWallet *settingsBackupWallet{nullptr};
+    SettingsExportCSV *settingsExportCsvWidget{nullptr};
+    SettingsBitToolWidget *settingsBitToolWidget{nullptr};
+    SettingsSignMessageWidgets *settingsSingMessageWidgets{nullptr};
+    SettingsWalletRepairWidget *settingsWalletRepairWidget{nullptr};
+    SettingsWalletOptionsWidget *settingsWalletOptionsWidget{nullptr};
+    SettingsMainOptionsWidget *settingsMainOptionsWidget{nullptr};
+    SettingsDisplayOptionsWidget *settingsDisplayOptionsWidget{nullptr};
+    SettingsInformationWidget *settingsInformationWidget{nullptr};
+    SettingsConsoleWidget *settingsConsoleWidget{nullptr};
 
-    QDataWidgetMapper* mapper;
+    QDataWidgetMapper* mapper{nullptr};
 
     QList<QPushButton*> options;
     // Map of: menu button -> sub menu items

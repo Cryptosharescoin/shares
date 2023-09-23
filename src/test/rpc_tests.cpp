@@ -1,15 +1,15 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "rpc/server.h"
 #include "rpc/client.h"
 
-#include "base58.h"
+#include "key_io.h"
 #include "netbase.h"
-#include "util.h"
+#include "util/system.h"
 
 #include "test/test_cryptoshares.h"
 
@@ -222,14 +222,14 @@ BOOST_AUTO_TEST_CASE(rpc_ban)
     ar = r.get_array();
     BOOST_CHECK_EQUAL(ar.size(), 0);
 
-    BOOST_CHECK_NO_THROW(r = CallRPC(std::string("setban 127.0.0.0/24 add 1607731200 true")));
+    BOOST_CHECK_NO_THROW(r = CallRPC(std::string("setban 127.0.0.0/24 add 9907731200 true")));
     BOOST_CHECK_NO_THROW(r = CallRPC(std::string("listbanned")));
     ar = r.get_array();
     o1 = ar[0].get_obj();
     adr = find_value(o1, "address");
     UniValue banned_until = find_value(o1, "banned_until");
     BOOST_CHECK_EQUAL(adr.get_str(), "127.0.0.0/24");
-    BOOST_CHECK_EQUAL(banned_until.get_int64(), 1607731200); // absolute time check
+    BOOST_CHECK_EQUAL(banned_until.get_int64(), 9907731200); // absolute time check
 
     BOOST_CHECK_NO_THROW(CallRPC(std::string("clearbanned")));
 

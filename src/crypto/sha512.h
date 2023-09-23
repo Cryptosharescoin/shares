@@ -1,5 +1,4 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +17,7 @@ private:
     size_t bytes;
 
 public:
-    static const size_t OUTPUT_SIZE = 64;
+    static constexpr size_t OUTPUT_SIZE = 64;
 
     CSHA512();
     CSHA512& Write(const unsigned char* data, size_t len);

@@ -1,7 +1,6 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,9 +9,9 @@
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
-
 #include "net.h"
 #include "sync.h"
+#include "validation.h"  // cs_main
 
 #include <algorithm>
 
@@ -91,8 +90,8 @@ public:
         // build index map
         mapNodeRows.clear();
         int row = 0;
-        Q_FOREACH (const CNodeCombinedStats& stats, cachedNodeStats)
-            mapNodeRows.insert(std::pair<NodeId, int>(stats.nodeStats.nodeid, row++));
+        for (const CNodeCombinedStats& stats : cachedNodeStats)
+            mapNodeRows.emplace(stats.nodeStats.nodeid, row++);
     }
 
     int size()

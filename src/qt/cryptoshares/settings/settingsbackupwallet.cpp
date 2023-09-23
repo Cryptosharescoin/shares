@@ -1,17 +1,18 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/cryptoshares/settings/settingsbackupwallet.h"
+
 #include "qt/cryptoshares/settings/forms/ui_settingsbackupwallet.h"
-#include <QFile>
-#include <QGraphicsDropShadowEffect>
+
+#include "guiinterface.h"
 #include "guiutil.h"
 #include "qt/cryptoshares/qtutils.h"
-#include "guiinterface.h"
-#include "qt/cryptoshares/qtutils.h"
+
+#include <QGraphicsDropShadowEffect>
+
 SettingsBackupWallet::SettingsBackupWallet(CRYPTOSHARESGUI* _window, QWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SettingsBackupWallet)

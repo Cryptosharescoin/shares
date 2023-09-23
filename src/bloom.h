@@ -1,13 +1,12 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_BLOOM_H
 #define BITCOIN_BLOOM_H
 
-#include "libzerocoin/bignum.h"
 #include "serialize.h"
 
 #include <vector>
@@ -35,11 +34,11 @@ enum bloomflags {
 /**
  * BloomFilter is a probabilistic filter which SPV clients provide
  * so that we can filter the transactions we sends them.
- * 
+ *
  * This allows for significantly more efficient transaction and block downloads.
- * 
+ *
  * Because bloom filters are probabilistic, an SPV node can increase the false-
- * positive rate, making us send them transactions which aren't actually theirs, 
+ * positive rate, making us send them transactions which aren't actually theirs,
  * allowing clients to trade more bandwidth for more privacy by obfuscating which
  * keys are owned by them.
  */
@@ -55,10 +54,6 @@ private:
 
     unsigned int Hash(unsigned int nHashNum, const std::vector<unsigned char>& vDataToHash) const;
 
-    // Private constructor for CRollingBloomFilter, no restrictions on size
-    CBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak);
-    friend class CRollingBloomFilter;
-
 public:
     /**
      * Creates a new bloom filter which will provide the given fp rate when filled with the given number of elements
@@ -72,18 +67,7 @@ public:
     CBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak, unsigned char nFlagsIn);
     CBloomFilter() : isFull(true), isEmpty(false), nHashFuncs(0), nTweak(0), nFlags(0) {}
 
-    ADD_SERIALIZE_METHODS;
-
-    template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
-    {
-        READWRITE(vData);
-        READWRITE(nHashFuncs);
-        READWRITE(nTweak);
-        READWRITE(nFlags);
-    }
-
-    void setNotFull();
+    SERIALIZE_METHODS(CBloomFilter, obj) { READWRITE(obj.vData, obj.nHashFuncs, obj.nTweak, obj.nFlags); }
 
     void insert(const std::vector<unsigned char>& vKey);
     void insert(const COutPoint& outpoint);
@@ -118,8 +102,11 @@ public:
  * reset() is provided, which also changes nTweak to decrease the impact of
  * false-positives.
  *
- * contains(item) will always return true if item was one of the last N things
+ * contains(item) will always return true if item was one of the last N to 1.5*N
  * insert()'ed ... but may also return true for items that were not inserted.
+ *
+ * It needs around 1.8 bytes per element per factor 0.1 of false positive rate.
+ * (More accurately: 3/(log(256)*log(2)) * log(1/fpRate) * nElements bytes)
  */
 class CRollingBloomFilter
 {
@@ -137,10 +124,23 @@ public:
     void reset();
 
 private:
-    unsigned int nBloomSize;
-    unsigned int nInsertions;
-    CBloomFilter b1, b2;
-};
+    int nEntriesPerGeneration;
+    int nEntriesThisGeneration;
+    int nGeneration;
+    std::vector<uint32_t> data;
+    unsigned int nTweak;
+    int nHashFuncs;
 
+    unsigned int Hash(unsigned int nHashNum, const std::vector<unsigned char>& vDataToHash) const;
+
+    inline int get(uint32_t position) const {
+        return (data[(position >> 4) % data.size()] >> (2 * (position & 0xF))) & 0x3;
+    }
+
+    inline void put(uint32_t position, uint32_t val) {
+        uint32_t& cell = data[(position >> 4) % data.size()];
+        cell = (cell & ~(((uint32_t)3) << (2 * (position & 0xF)))) | (val << (2 * (position & 0xF)));
+    }
+};
 
 #endif // BITCOIN_BLOOM_H

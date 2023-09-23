@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +8,6 @@
 
 #include "qt/cryptoshares/pwidget.h"
 #include "qt/cryptoshares/furabstractlistitemdelegate.h"
-#include "qt/cryptoshares/mnmodel.h"
 #include "qt/cryptoshares/tooltipmenu.h"
 #include "walletmodel.h"
 
@@ -19,6 +17,7 @@
 #include <QWidget>
 
 class CRYPTOSHARESGUI;
+class MNModel;
 
 namespace Ui {
 class MasterNodesWidget;
@@ -36,8 +35,7 @@ public:
 
     explicit MasterNodesWidget(CRYPTOSHARESGUI *parent = nullptr);
     ~MasterNodesWidget();
-
-    void loadWalletModel() override;
+    void setMNModel(MNModel* _mnModel);
 
     void run(int type) override;
     void onError(QString error, int type) override;
@@ -47,6 +45,7 @@ public:
 
 private Q_SLOTS:
     void onCreateMNClicked();
+    void Reloadmnconfig();
     void onStartAllClicked(int type);
     void changeTheme(bool isLightTheme, QString &theme) override;
     void onMNClicked(const QModelIndex &index);
@@ -54,7 +53,7 @@ private Q_SLOTS:
     void onDeleteMNClicked();
     void onInfoMNClicked();
     void updateListState();
-    void updateModelAndInform(QString informText);
+    void updateModelAndInform(const QString& informText);
 
 private:
     Ui::MasterNodesWidget *ui;
@@ -67,9 +66,8 @@ private:
     std::atomic<bool> isLoading;
 
     bool checkMNsNetwork();
-    void startAlias(QString strAlias);
+    void startAlias(const QString& strAlias);
     bool startAll(QString& failedMN, bool onlyMissing);
-    bool startMN(CMasternodeConfig::CMasternodeEntry mne, std::string& strError);
 };
 
 #endif // MASTERNODESWIDGET_H

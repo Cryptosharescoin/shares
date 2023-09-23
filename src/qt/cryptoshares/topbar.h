@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,12 +7,14 @@
 #define TOPBAR_H
 
 #include <QWidget>
+#include "qt/askpassphrasedialog.h"
 #include "qt/cryptoshares/pwidget.h"
 #include "qt/cryptoshares/lockunlock.h"
 #include "amount.h"
 #include <QTimer>
 #include <QProgressBar>
 
+class BalanceBubble;
 class CRYPTOSHARESGUI;
 class WalletModel;
 class ClientModel;
@@ -38,7 +39,6 @@ public:
 
     void openPassPhraseDialog(AskPassphraseDialog::Mode mode, AskPassphraseDialog::Context ctx);
     void encryptWallet();
-    void showUpgradeDialog();
 
     void run(int type) override;
     void onError(QString error, int type) override;
@@ -52,16 +52,20 @@ public Q_SLOTS:
     void setNumBlocks(int count);
     void setStakingStatusActive(bool fActive);
     void updateStakingStatus();
-    void updateHDState(const bool& upgraded, const QString& upgradeError);
+    void updateHDState(const bool upgraded, const QString& upgradeError);
+    void showUpgradeDialog(const QString& message);
 
 Q_SIGNALS:
     void themeChanged(bool isLight);
     void walletSynced(bool isSync);
+    void tierTwoSynced(bool isSync);
+    void onShowHideColdStakingChanged(bool show);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
 private Q_SLOTS:
     void onBtnReceiveClicked();
+    void onBtnBalanceInfoClicked();
     void onThemeClicked();
     void onBtnLockClicked();
     void lockDropdownMouseLeave();
@@ -69,8 +73,9 @@ private Q_SLOTS:
     void refreshStatus();
     void refreshMasternodeStatus();
     void openLockUnlock();
-    void onBtnConfClicked();
     void onBtnMasternodesClicked();
+    void onBtnConfClicked();
+    void onColdStakingClicked();
     void refreshProgressBarSize();
     void expandSync();
 private:
@@ -82,7 +87,11 @@ private:
     QTimer* timerStakingIcon = nullptr;
     bool isInitializing = true;
 
+    // info popup
+    BalanceBubble* balanceBubble = nullptr;
+
     void updateTorIcon();
+    void connectUpgradeBtnAndDialogTimer(const QString& message);
 };
 
 #endif // TOPBAR_H

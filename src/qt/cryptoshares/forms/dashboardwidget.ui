@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">N/A</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,2">
    <property name="spacing">
@@ -512,14 +512,14 @@
                </size>
               </property>
               <property name="text">
-               <string>Rewards Chart</string>
+               <string>Staking/MN Rewards</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="labelMessage">
               <property name="text">
-               <string>Amount of SHARES staked.</string>
+               <string>Amount of SHARES stakes and masternodes rewards.</string>
               </property>
              </widget>
             </item>
@@ -560,31 +560,31 @@
          </spacer>
         </item>
         <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0">
-                <property name="spacing">
-                    <number>0</number>
-                </property>
-                <item>
-                    <widget class="QLabel" name="labelAmountShares">
-                        <property name="text">
-                            <string notr="true">0 SHARES</string>
-                        </property>
-                        <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                        </property>
-                    </widget>
-                </item>
-                <item>
-                    <widget class="QLabel" name="labelAmountMNRewards">
-                        <property name="text">
-                            <string>TextLabel</string>
-                        </property>
-                        <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                        </property>
-                    </widget>
-                </item>
-            </layout>
+         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelAmountShares">
+            <property name="text">
+             <string notr="true">0 Stakes</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelAmountMN">
+            <property name="text">
+             <string notr="true">0 MN</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer_6">
@@ -655,7 +655,7 @@
                 <item>
                  <widget class="QLabel" name="labelChart">
                   <property name="text">
-                   <string>Staking statistics</string>
+                   <string>Rewards statistics</string>
                   </property>
                  </widget>
                 </item>
@@ -694,7 +694,7 @@
                 <item>
                  <widget class="QLabel" name="labelShares">
                   <property name="text">
-                   <string notr="true">SHARES</string>
+                   <string notr="true">Stakes</string>
                   </property>
                  </widget>
                 </item>
@@ -715,30 +715,30 @@
                  </spacer>
                 </item>
                 <item>
-                    <widget class="QLabel" name="labelSquareMNRewards">
-                        <property name="minimumSize">
-                            <size>
-                                <width>14</width>
-                                <height>14</height>
-                            </size>
-                        </property>
-                        <property name="maximumSize">
-                            <size>
-                                <width>14</width>
-                                <height>14</height>
-                            </size>
-                        </property>
-                        <property name="text">
-                            <string/>
-                        </property>
-                    </widget>
+                 <widget class="QLabel" name="labelSquareMN">
+                  <property name="minimumSize">
+                   <size>
+                    <width>14</width>
+                    <height>14</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>14</width>
+                    <height>14</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                    <widget class="QLabel" name="labelMNRewards">
-                        <property name="text">
-                            <string>SHARES MN</string>
-                        </property>
-                    </widget>
+                 <widget class="QLabel" name="labelMN">
+                  <property name="text">
+                   <string>Masternode</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>

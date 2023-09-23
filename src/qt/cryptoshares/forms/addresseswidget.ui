@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">N/A</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,1">
    <property name="spacing">
@@ -397,7 +397,7 @@
              <item>
               <widget class="QLineEdit" name="lineEditAddress">
                <property name="placeholderText">
-                <string notr="true">e.g. P8snwVbpCdnuk2gFiT7hVjSsZxxT57PzVY</string>
+                <string notr="true">e.g. o8FpnBdmahyJNRsVzoKzyFHbGjcUbX43QN</string>
                </property>
               </widget>
              </item>

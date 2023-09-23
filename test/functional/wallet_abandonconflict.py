@@ -3,15 +3,13 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-
 from test_framework.test_framework import CryptosharesTestFramework
 from test_framework.util import (
     assert_equal,
+    assert_raises_rpc_error,
     connect_nodes,
     Decimal,
     disconnect_nodes,
-    sync_blocks,
-    sync_mempools
 )
 
 class AbandonConflictTest(CryptosharesTestFramework):
@@ -22,17 +20,22 @@ class AbandonConflictTest(CryptosharesTestFramework):
 
     def run_test(self):
         self.nodes[0].generate(5)
-        sync_blocks(self.nodes)
+        self.sync_blocks()
         self.nodes[1].generate(110)
-        sync_blocks(self.nodes)
+        self.sync_blocks()
         balance = self.nodes[0].getbalance()
         txA = self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(), 10)
         txB = self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(), 10)
         txC = self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(), 10)
-        sync_mempools(self.nodes)
+        self.sync_mempools()
         self.nodes[1].generate(1)
 
-        sync_blocks(self.nodes)
+        # Can not abandon non-wallet transaction
+        assert_raises_rpc_error(-5, 'Invalid or non-wallet transaction id', lambda: self.nodes[0].abandontransaction('ff' * 32))
+        # Can not abandon confirmed transaction
+        assert_raises_rpc_error(-5, 'Transaction not eligible for abandonment', lambda: self.nodes[0].abandontransaction(txA))
+
+        self.sync_blocks()
         newbalance = self.nodes[0].getbalance()
         assert(balance - newbalance < Decimal("0.001")) #no more than fees lost
         balance = newbalance
@@ -84,12 +87,12 @@ class AbandonConflictTest(CryptosharesTestFramework):
 
         # Restart the node with a higher min relay fee so the parent tx is no longer in mempool
         # TODO: redo with eviction
-        # Note had to make sure tx did not have AllowFree priority
-        self.stop_node(0)
-        self.start_node(0, extra_args=["-minrelaytxfee=0.0001"])
+        self.restart_node(0, extra_args=["-minrelaytxfee=0.0001"])
+        assert self.nodes[0].getmempoolinfo()['loaded']
 
-        # Verify txs no longer in mempool
+        # Verify txs no longer in either node's mempool
         assert_equal(len(self.nodes[0].getrawmempool()), 0)
+        assert_equal(len(self.nodes[1].getrawmempool()), 0)
 
         # Not in mempool txs from self should only reduce balance
         # inputs are still spent, but change not received
@@ -150,7 +153,7 @@ class AbandonConflictTest(CryptosharesTestFramework):
         self.nodes[1].generate(1)
 
         connect_nodes(self.nodes[0], 1)
-        sync_blocks(self.nodes)
+        self.sync_blocks()
 
         # Verify that B and C's 10 BTC outputs are available for spending again because AB1 is now conflicted
         newbalance = self.nodes[0].getbalance()

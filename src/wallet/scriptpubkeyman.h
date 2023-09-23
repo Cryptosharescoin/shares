@@ -1,7 +1,6 @@
 // Copyright (c) 2019 The Bitcoin Core developers
 // Copyright (c) 2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,10 +12,8 @@
 #include "wallet/walletdb.h"
 
 //! Default for -keypool
-static const uint32_t DEFAULT_KEYPOOL_SIZE      = 100;
-static const uint32_t BIP32_HARDENED_KEY_LIMIT  = 0x80000000;
-// see it on https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-static const uint32_t BIP32_HDCHAIN             = 0x348; 
+static const unsigned int DEFAULT_KEYPOOL_SIZE = 100;
+static const uint32_t BIP32_HARDENED_KEY_LIMIT = 0x80000000;
 
 /*
  * A class implementing ScriptPubKeyMan manages some (or all) scriptPubKeys used in a wallet.
@@ -39,10 +36,10 @@ public:
       * Returns false if already setup or setup fails, true if setup is successful
       * Set force=true to make it re-setup if already setup, used for upgrades
       */
-    bool SetupGeneration(bool newKeypool = true, bool force = false);
+    bool SetupGeneration(bool newKeypool = true, bool force = false, bool memOnly = false);
 
     /** Upgrades the wallet to the specified version */
-    bool Upgrade(const int& prev_version, std::string& error);
+    bool Upgrade(const int prev_version, std::string& error);
 
     /* Returns true if the wallet can generate new keys */
     bool CanGenerateKeys();
@@ -60,7 +57,7 @@ public:
     unsigned int GetKeyPoolSize() const;
 
     /* Staking key pool size */
-    unsigned int GetECommerceKeyPoolSize() const;
+    unsigned int GetStakingKeyPoolSize() const;
 
     /* Whether the wallet has or not keys in the pool */
     bool CanGetAddresses(const uint8_t& type = HDChain::ChangeType::EXTERNAL);
@@ -75,7 +72,7 @@ public:
       Sets the seed's version based on the current wallet version (so the
       caller must ensure the current wallet version is correct before calling
       this function). */
-    void SetHDSeed(const CPubKey& key, bool force = false);
+    void SetHDSeed(const CPubKey& key, bool force = false, bool memOnly = false);
 
     //! Load a keypool entry
     void LoadKeyPool(int64_t nIndex, const CKeyPool &keypool);
@@ -96,7 +93,7 @@ public:
     //! First wallet key time
     void UpdateTimeFirstKey(int64_t nCreateTime);
     //! Generate a new key
-    CPubKey GenerateNewKey(CWalletDB& batch, const uint8_t& type = HDChain::ChangeType::EXTERNAL);
+    CPubKey GenerateNewKey(WalletBatch& batch, const uint8_t& type = HDChain::ChangeType::EXTERNAL);
 
 
     //! Fetches a key from the keypool
@@ -134,12 +131,12 @@ private:
     CHDChain hdChain;
 
     /* TODO: This has not been implemented yet.. */
-    CWalletDB *encrypted_batch = nullptr;
+    WalletBatch *encrypted_batch = nullptr;
 
     // Key pool maps
     std::set<int64_t> setInternalKeyPool;
     std::set<int64_t> setExternalKeyPool;
-    std::set<int64_t> setECommerceKeyPool;
+    std::set<int64_t> setStakingKeyPool;
     int64_t m_max_keypool_index = 0;
     std::map<CKeyID, int64_t> m_pool_key_to_index;
     // Tracks keypool indexes to CKeyIDs of keys that have been taken out of the keypool but may be returned to it
@@ -149,13 +146,13 @@ private:
     bool AddKeyPubKeyInner(const CKey& key, const CPubKey &pubkey);
 
     //! Adds a key to the store, and saves it to disk.
-    bool AddKeyPubKeyWithDB(CWalletDB &batch,const CKey& key, const CPubKey &pubkey);
+    bool AddKeyPubKeyWithDB(WalletBatch &batch,const CKey& key, const CPubKey &pubkey);
     /* Complete me */
-    void AddKeypoolPubkeyWithDB(const CPubKey& pubkey, const uint8_t& type, CWalletDB& batch);
-    void GeneratePool(CWalletDB& batch, int64_t targetSize, const uint8_t& type);
+    void AddKeypoolPubkeyWithDB(const CPubKey& pubkey, const uint8_t& type, WalletBatch& batch);
+    void GeneratePool(WalletBatch& batch, int64_t targetSize, const uint8_t& type);
 
     /* HD derive new child key (on internal or external chain) */
-    void DeriveNewChildKey(CWalletDB &batch, CKeyMetadata& metadata, CKey& secret, const uint8_t& type = HDChain::ChangeType::EXTERNAL);
+    void DeriveNewChildKey(WalletBatch &batch, CKeyMetadata& metadata, CKey& secret, const uint8_t& type = HDChain::ChangeType::EXTERNAL);
 
     /**
      * Marks all keys in the keypool up to and including reserve_key as used.

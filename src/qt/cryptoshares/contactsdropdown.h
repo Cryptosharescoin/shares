@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,11 +29,13 @@ class ContactsDropdown : public PWidget
 {
     Q_OBJECT
 public:
-    explicit ContactsDropdown(int minWidth, int minHeight, PWidget *parent = nullptr);
+    explicit ContactsDropdown(int minWidth, int minHeight, PWidget* parent = nullptr);
+    ContactsDropdown(int minWidth, int minHeight, CRYPTOSHARESGUI* _window = nullptr,
+                     QWidget* parent = nullptr);
 
     void resizeList(int minWidth, int mintHeight);
-    void setWalletModel(WalletModel* _model, const QString& type);
-    void setType(const QString& type);
+    void setWalletModel(WalletModel* _model, const QStringList& type);
+    void setType(const QStringList& type);
     void changeTheme(bool isLightTheme, QString& theme) override;
 Q_SIGNALS:
     void contactSelected(QString address, QString label);
@@ -43,6 +45,7 @@ private:
     AddressFilterProxyModel *filter = nullptr;
     QListView *list;
     QFrame *frameList;
+    void init(int minWidth, int minHeight);
 private Q_SLOTS:
     void handleClick(const QModelIndex &index);
 };

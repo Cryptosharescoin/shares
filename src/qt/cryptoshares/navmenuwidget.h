@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,12 +28,14 @@ public:
 
 public Q_SLOTS:
     void selectSettings();
+    void onShowHideColdStakingChanged(bool show);
 
 private Q_SLOTS:
     void onSendClicked();
     void onDashboardClicked();
     void onAddressClicked();
     void onMasterNodesClicked();
+    void onColdStakingClicked();
     void onSettingsClicked();
     void onReceiveClicked();
     void updateButtonStyles();

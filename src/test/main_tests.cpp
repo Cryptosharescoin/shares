@@ -1,24 +1,26 @@
 // Copyright (c) 2014 The Bitcoin Core developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "test/test_cryptoshares.h"
+
 #include "blocksignature.h"
-#include "main.h"
+#include "net.h"
 #include "primitives/transaction.h"
 #include "script/sign.h"
-#include "test_cryptoshares.h"
+#include "validation.h"
+
 #include <boost/test/unit_test.hpp>
-#include "masternode.h"
 
 BOOST_FIXTURE_TEST_SUITE(main_tests, TestingSetup)
 
 enum BlockSignatureType{
     P2PK,
-    P2PKH
+    P2PKH,
+    P2CS
 };
 
 CScript GetScriptForType(CPubKey pubKey, BlockSignatureType type)
@@ -57,28 +59,23 @@ CBlock CreateDummyBlockWithSignature(CKey stakingKey, BlockSignatureType type, b
     // Add dummy input
     txCoinStake.vin.emplace_back(input);
     // Empty first output
-    txCoinStake.vout.emplace_back(CTxOut(0, CScript()));
+    txCoinStake.vout.emplace_back(0, CScript());
     // P2PK staking output
     CScript scriptPubKey = GetScriptForType(stakingKey.GetPubKey(), type);
-    txCoinStake.vout.emplace_back(CTxOut(0, scriptPubKey));
+    txCoinStake.vout.emplace_back(0, scriptPubKey);
 
     // Now the block.
     CBlock block;
-    block.vtx.emplace_back(CTransaction()); // dummy first tx
-    block.vtx.emplace_back(txCoinStake);
+    block.vtx.emplace_back(std::make_shared<const CTransaction>(CTransaction())); // dummy first tx
+    block.vtx.emplace_back(std::make_shared<const CTransaction>(txCoinStake));
     SignBlockWithKey(block, stakingKey);
 
     return block;
 }
 
-bool TestBlockSignaturePreEnforcementV5(const CBlock& block)
+bool TestBlockSignature(const CBlock& block)
 {
-    return CheckBlockSignature(block, false);
-}
-
-bool TestBlockSignaturePostEnforcementV5(const CBlock& block)
-{
-    return CheckBlockSignature(block, true);
+    return CheckBlockSignature(block);
 }
 
 BOOST_AUTO_TEST_CASE(block_signature_test)
@@ -88,27 +85,19 @@ BOOST_AUTO_TEST_CASE(block_signature_test)
         stakingKey.MakeNewKey(true);
         bool useInputP2PK = i % 2 == 0;
 
-        // Test P2PK block signature pre enforcement.
+        // Test P2PK block signature
         CBlock block = CreateDummyBlockWithSignature(stakingKey, BlockSignatureType::P2PK, useInputP2PK);
-        BOOST_CHECK(TestBlockSignaturePreEnforcementV5(block));
+        BOOST_CHECK(TestBlockSignature(block));
 
-        // Test P2PK block signature post enforcement
-        block = CreateDummyBlockWithSignature(stakingKey, BlockSignatureType::P2PK, useInputP2PK);
-        BOOST_CHECK(TestBlockSignaturePostEnforcementV5(block));
-
-        // Test P2PKH block signature pre enforcement ---> must fail.
-        block = CreateDummyBlockWithSignature(stakingKey, BlockSignatureType::P2PKH, useInputP2PK);
-        BOOST_CHECK(!TestBlockSignaturePreEnforcementV5(block));
-
-        // Test P2PKH block signature post enforcement
+        // Test P2PKH block signature
         block = CreateDummyBlockWithSignature(stakingKey, BlockSignatureType::P2PKH, useInputP2PK);
         if (useInputP2PK) {
             // If it's using a P2PK scriptsig as input and a P2PKH output
             // The block doesn't contain the public key to verify the sig anywhere.
             // Must fail.
-            BOOST_CHECK(!TestBlockSignaturePostEnforcementV5(block));
+            BOOST_CHECK(!TestBlockSignature(block));
         } else {
-            BOOST_CHECK(TestBlockSignaturePostEnforcementV5(block));
+            BOOST_CHECK(TestBlockSignature(block));
         }
     }
 }
@@ -120,28 +109,28 @@ BOOST_AUTO_TEST_CASE(subsidy_limit_test)
     CAmount nSum = 0;
     for (int nHeight = 0; nHeight < 1; nHeight += 1) {
         /* premine in block 1 (60,001 SHARES) */
-        CAmount nSubsidy = CMasternode::GetBlockValue(nHeight);
+        CAmount nSubsidy = GetBlockValue(nHeight + 1);
         BOOST_CHECK(nSubsidy <= 60001 * COIN);
         nSum += nSubsidy;
     }
 
     for (int nHeight = 1; nHeight < 86400; nHeight += 1) {
         /* PoW Phase One */
-        CAmount nSubsidy = CMasternode::GetBlockValue(nHeight);
+        CAmount nSubsidy = GetBlockValue(nHeight + 1);
         BOOST_CHECK(nSubsidy <= 250 * COIN);
         nSum += nSubsidy;
     }
 
     for (int nHeight = 86400; nHeight < 151200; nHeight += 1) {
         /* PoW Phase Two */
-        CAmount nSubsidy = CMasternode::GetBlockValue(nHeight);
+        CAmount nSubsidy = GetBlockValue(nHeight + 1);
         BOOST_CHECK(nSubsidy <= 225 * COIN);
         nSum += nSubsidy;
     }
 
     for (int nHeight = 151200; nHeight < 259200; nHeight += 1) {
         /* PoW Phase Two */
-        CAmount nSubsidy = CMasternode::GetBlockValue(nHeight);
+        CAmount nSubsidy = GetBlockValue(nHeight + 1);
         BOOST_CHECK(nSubsidy <= 45 * COIN);
         BOOST_CHECK(Params().GetConsensus().MoneyRange(nSubsidy));
         nSum += nSubsidy;

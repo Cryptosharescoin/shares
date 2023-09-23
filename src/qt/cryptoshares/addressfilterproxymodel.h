@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,8 +7,6 @@
 #define CRYPTOSHARES_CORE_NEW_GUI_ADDRESSFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
-#include "addresstablemodel.h"
-
 
 class AddressFilterProxyModel final : public QSortFilterProxyModel
 {

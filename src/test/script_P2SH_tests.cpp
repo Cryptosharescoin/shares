@@ -1,20 +1,20 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#include "test/test_cryptoshares.h"
 
 #include "consensus/tx_verify.h"
 #include "key.h"
 #include "keystore.h"
-#include "main.h"
 #include "policy/policy.h"
 #include "script/script.h"
 #include "script/script_error.h"
 #include "script/sign.h"
 #include "script/ismine.h"
-#include "test_cryptoshares.h"
+#include "validation.h"
 
 #include <vector>
 
@@ -45,7 +45,8 @@ Verify(const CScript& scriptSig, const CScript& scriptPubKey, bool fStrict, Scri
     txTo.vin[0].scriptSig = scriptSig;
     txTo.vout[0].nValue = 1;
 
-    return VerifyScript(scriptSig, scriptPubKey, fStrict ? SCRIPT_VERIFY_P2SH : SCRIPT_VERIFY_NONE, MutableTransactionSignatureChecker(&txTo, 0, txFrom.vout[0].nValue), &err);
+    return VerifyScript(scriptSig, scriptPubKey, fStrict ? SCRIPT_VERIFY_P2SH : SCRIPT_VERIFY_NONE,
+            MutableTransactionSignatureChecker(&txTo, 0, txFrom.vout[0].nValue), txTo.GetRequiredSigVersion(), &err);
 }
 
 BOOST_FIXTURE_TEST_SUITE(script_P2SH_tests, TestingSetup)
@@ -90,7 +91,7 @@ BOOST_AUTO_TEST_CASE(sign)
         txFrom.vout[i+4].scriptPubKey = standardScripts[i];
         txFrom.vout[i+4].nValue = COIN;
     }
-    BOOST_CHECK(IsStandardTx(txFrom, reason));
+    BOOST_CHECK(IsStandardTx(MakeTransactionRef(txFrom), 0, reason));
 
     CMutableTransaction txTo[8]; // Spending transactions
     for (int i = 0; i < 8; i++)
@@ -113,8 +114,7 @@ BOOST_AUTO_TEST_CASE(sign)
         for (int j = 0; j < 8; j++) {
             CScript sigSave = txTo[i].vin[0].scriptSig;
             txTo[i].vin[0].scriptSig = txTo[j].vin[0].scriptSig;
-            const CTxOut& output = txFrom.vout[txTo[i].vin[0].prevout.n];
-            bool sigOK = CScriptCheck(output.scriptPubKey, output.nValue, txTo[i], 0, SCRIPT_VERIFY_P2SH | SCRIPT_VERIFY_STRICTENC,
+            bool sigOK = CScriptCheck(txFrom.vout[txTo[i].vin[0].prevout.n], txTo[i], 0, SCRIPT_VERIFY_P2SH | SCRIPT_VERIFY_STRICTENC,
                                       false, &precomTxData)();
             if (i == j)
                 BOOST_CHECK_MESSAGE(sigOK, strprintf("VerifySignature %d %d", i, j));
@@ -187,7 +187,7 @@ BOOST_AUTO_TEST_CASE(set)
         txFrom.vout[i].scriptPubKey = outer[i];
         txFrom.vout[i].nValue = CENT;
     }
-    BOOST_CHECK(IsStandardTx(txFrom, reason));
+    BOOST_CHECK(IsStandardTx(MakeTransactionRef(txFrom), 0, reason));
 
     CMutableTransaction txTo[4]; // Spending transactions
     for (int i = 0; i < 4; i++)
@@ -203,7 +203,7 @@ BOOST_AUTO_TEST_CASE(set)
     for (int i = 0; i < 4; i++)
     {
         BOOST_CHECK_MESSAGE(SignSignature(keystore, txFrom, txTo[i], 0, SIGHASH_ALL), strprintf("SignSignature %d", i));
-        BOOST_CHECK_MESSAGE(IsStandardTx(txTo[i], reason), strprintf("txTo[%d].IsStandard", i));
+        BOOST_CHECK_MESSAGE(IsStandardTx(MakeTransactionRef(txTo[i]), 0, reason), strprintf("txTo[%d].IsStandard", i));
     }
 }
 
@@ -343,15 +343,6 @@ BOOST_AUTO_TEST_CASE(AreInputsStandard)
     BOOST_CHECK(::AreInputsStandard(txTo, coins));
     // 22 P2SH sigops for all inputs (1 for vin[0], 6 for vin[3], 15 for vin[4]
     BOOST_CHECK_EQUAL(GetP2SHSigOpCount(txTo, coins), 22U);
-
-    // Make sure adding crap to the scriptSigs makes them non-standard:
-    for (int i = 0; i < 3; i++)
-    {
-        CScript t = txTo.vin[i].scriptSig;
-        txTo.vin[i].scriptSig = (CScript() << 11) + t;
-        BOOST_CHECK(!::AreInputsStandard(txTo, coins));
-        txTo.vin[i].scriptSig = t;
-    }
 
     CMutableTransaction txToNonStd1;
     txToNonStd1.vout.resize(1);

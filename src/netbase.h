@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2015 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,14 +47,16 @@ bool GetProxy(enum Network net, proxyType& proxyInfoOut);
 bool IsProxy(const CNetAddr& addr);
 bool SetNameProxy(const proxyType &addrProxy);
 bool HaveNameProxy();
-bool LookupHost(const char* pszName, std::vector<CNetAddr>& vIP, unsigned int nMaxSolutions, bool fAllowLookup);
-bool LookupHost(const char* pszName, CNetAddr& addr, bool fAllowLookup);
-bool Lookup(const char* pszName, CService& addr, int portDefault, bool fAllowLookup);
-bool Lookup(const char* pszName, std::vector<CService>& vAddr, int portDefault, bool fAllowLookup, unsigned int nMaxSolutions);
-CService LookupNumeric(const char* pszName, int portDefault = 0);
-bool LookupSubNet(const char* pszName, CSubNet& subnet);
-bool ConnectSocket(const CService& addr, SOCKET& hSocketRet, int nTimeout, bool* outProxyConnectionFailed = 0);
-bool ConnectSocketByName(CService& addr, SOCKET& hSocketRet, const char* pszDest, int portDefault, int nTimeout, bool* outProxyConnectionFailed = 0);
+bool GetNameProxy(proxyType& nameProxyOut);
+bool LookupHost(const std::string& name, std::vector<CNetAddr>& vIP, unsigned int nMaxSolutions, bool fAllowLookup);
+bool LookupHost(const std::string& name, CNetAddr& addr, bool fAllowLookup);
+bool Lookup(const std::string& name, CService& addr, int portDefault, bool fAllowLookup);
+bool Lookup(const std::string& name, std::vector<CService>& vAddr, int portDefault, bool fAllowLookup, unsigned int nMaxSolutions);
+CService LookupNumeric(const std::string& name, int portDefault = 0);
+bool LookupSubNet(const std::string& name, CSubNet& subnet);
+SOCKET CreateSocket(const CService &addrConnect);
+bool ConnectSocketDirectly(const CService& addrConnect, const SOCKET& hSocketRet, int nTimeout);
+bool ConnectThroughProxy(const proxyType& proxy, const std::string& strDest, int port, const SOCKET& hSocketRet, int nTimeout, bool* outProxyConnectionFailed);
 /** Return readable error string for a network error code */
 std::string NetworkErrorString(int err);
 /** Close socket and set hSocket to INVALID_SOCKET */

@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2016-2019 The PIVX developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -47,7 +47,7 @@ public:
 };
 
 class MutableTransactionSignatureCreator : public TransactionSignatureCreator {
-    CTransaction tx;
+    const CTransaction tx;
 
 public:
     MutableTransactionSignatureCreator(const CKeyStore* keystoreIn, const CMutableTransaction* txToIn, unsigned int nInIn, const CAmount& amount, int nHashTypeIn) : TransactionSignatureCreator(keystoreIn, &tx, nInIn, amount, nHashTypeIn), tx(*txToIn) {}
@@ -69,11 +69,11 @@ struct SignatureData {
 };
 
 /** Produce a script signature using a generic signature creator. */
-bool ProduceSignature(const BaseSignatureCreator& creator, const CScript& fromPubKey, SignatureData& sigdata, ScriptError* serror = nullptr);
+bool ProduceSignature(const BaseSignatureCreator& creator, const CScript& fromPubKey, SignatureData& sigdata, SigVersion sigversion, bool fColdStake, ScriptError* serror = nullptr);
 
 /** Produce a script signature for a transaction. */
-bool SignSignature(const CKeyStore& keystore, const CScript& fromPubKey, CMutableTransaction& txTo, unsigned int nIn, const CAmount& amount, int nHashType);
-bool SignSignature(const CKeyStore& keystore, const CTransaction& txFrom, CMutableTransaction& txTo, unsigned int nIn, int nHashType);
+bool SignSignature(const CKeyStore& keystore, const CScript& fromPubKey, CMutableTransaction& txTo, unsigned int nIn, const CAmount& amount, int nHashType, bool fColdStake = false);
+bool SignSignature(const CKeyStore& keystore, const CTransaction& txFrom, CMutableTransaction& txTo, unsigned int nIn, int nHashType, bool fColdStake = false);
 
 /** Combine two script signatures using a generic signature checker, intelligently, possibly with OP_0 placeholders. */
 SignatureData CombineSignatures(const CScript& scriptPubKey, const BaseSignatureChecker& checker, const SignatureData& scriptSig1, const SignatureData& scriptSig2);
@@ -86,6 +86,6 @@ void UpdateTransaction(CMutableTransaction& tx, unsigned int nIn, const Signatur
   * have all private keys. While this function does not need private keys, the passed
   * keystore is used to look up public keys and redeemscripts by hash.
   * Solvability is unrelated to whether we consider this output to be ours. */
-bool IsSolvable(const CKeyStore& store, const CScript& script);
+bool IsSolvable(const CKeyStore& store, const CScript& script, bool fColdStaking);
 
 #endif // BITCOIN_SCRIPT_SIGN_H

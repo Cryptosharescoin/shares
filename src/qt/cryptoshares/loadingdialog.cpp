@@ -1,6 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +26,7 @@ void Worker::process(){
     Q_EMIT finished();
 };
 
-LoadingDialog::LoadingDialog(QWidget *parent) :
+LoadingDialog::LoadingDialog(QWidget *parent, QString loadingMsg) :
     QDialog(parent),
     ui(new Ui::LoadingDialog)
 {
@@ -44,6 +43,10 @@ LoadingDialog::LoadingDialog(QWidget *parent) :
 
     ui->labelMessage->setProperty("cssClass", "text-loading");
     ui->labelDots->setProperty("cssClass", "text-loading");
+
+    if (!loadingMsg.isEmpty()) {
+        ui->labelMessage->setText(loadingMsg);
+    }
 }
 
 void LoadingDialog::execute(Runnable *runnable, int type, std::unique_ptr<WalletModel::UnlockContext> pctx)

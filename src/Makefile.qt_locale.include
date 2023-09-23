@@ -3,13 +3,8 @@ QT_TS = \
   qt/locale/cryptoshares_en.ts \
   qt/locale/cryptoshares_en_US.ts \
   qt/locale/cryptoshares_es.ts \
-  qt/locale/cryptoshares_es_ES.ts \
   qt/locale/cryptoshares_fr_FR.ts \
   qt/locale/cryptoshares_hr_HR.ts \
-  qt/locale/cryptoshares_it.ts \
   qt/locale/cryptoshares_ko_KR.ts \
   qt/locale/cryptoshares_nl.ts \
-  qt/locale/cryptoshares_pl.ts \
-  qt/locale/cryptoshares_ru.ts \
-  qt/locale/cryptoshares_tr.ts \
-  qt/locale/cryptoshares_zh_CN.ts
+  qt/locale/cryptoshares_pl.ts

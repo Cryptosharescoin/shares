@@ -1,13 +1,12 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2022 The DECENOMY Core Developers
-// Copyright (c) 2022 The CRYPTOSHARES Core Developers
+// Copyright (c) 2022 The Cryptoshares developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef SENDCUSTOMFEEDIALOG_H
 #define SENDCUSTOMFEEDIALOG_H
 
-#include "amount.h"
+#include "policy/feerate.h"
 #include "qt/cryptoshares/focuseddialog.h"
 #include "qt/cryptoshares/snackbar.h"
 
