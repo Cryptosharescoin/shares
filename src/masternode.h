@@ -99,6 +99,7 @@ public:
     CService addr;
     CPubKey pubKeyCollateralAddress;
     CPubKey pubKeyMasternode;
+    int activeState;
     int64_t sigTime; //mnb message time
     int protocolVersion;
     int nScanningErrorCount;

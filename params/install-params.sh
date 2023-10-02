@@ -13,9 +13,9 @@ if [ -n "${1:-}" ]; then
     PARAMS_DIR="$1"
 else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        PARAMS_DIR="$HOME/Library/Application Support/CRYPTOSHARESParams"
+        PARAMS_DIR="$HOME/Library/Application Support/SHARESParams"
     else
-        PARAMS_DIR="$HOME/.cryptoshares-params"
+        PARAMS_DIR="$HOME/.shares-params"
     fi
 fi
 

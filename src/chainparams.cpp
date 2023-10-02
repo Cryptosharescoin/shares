@@ -72,12 +72,19 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
  */
 static MapCheckpoints mapCheckpoints = {
     {0, uint256S("0000016455b554d7eade9971bfc18d7fa6f0fd2c31e2bcbc0fabec36a8483444")},
+    {1105, uint256S("0d1fdd2f58b7b0d7e0c9999737a2f7cb34b266fdbb9cad0cc31b44bc7bf5751b")},
+    {2536, uint256S("5c70a77f9de4866b14d1f80eb9f5d1016c4c3acd2ae099d86842e2a4811bcec9")},
+    {4584, uint256S("c0218109768c296bead0469fd825641fbbaaee4a9c08d983fcd1c2f744be05d0")},
+    {7541, uint256S("a0a906586c411d3d2860af1670687d40c8c5893a2038bcc1ca904deadea324b3")},
+    {10250, uint256S("66a3f37172d5268db9968e30bd1707ddb892e00ab0c4d438398746902f7f8a33")},
+    {14330, uint256S("cf6e461af9d069ccf6878aa9e6b457581d3c0fda7b4643881464ccdefa8b5bae")},
+    {16874, uint256S("d9cc147655619a61c99afcca0ab34cab6d2abd9ff7ce75362612be8e2b2d6378")},
 };
 
 static const CCheckpointData data = {
     &mapCheckpoints,
-    1695185693, // * UNIX timestamp of last checkpoint block
-    36749,          // * total number of transactions between genesis and last checkpoint
+    1696230480, // * UNIX timestamp of last checkpoint block
+    28687,      // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };

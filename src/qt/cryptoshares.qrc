@@ -70,7 +70,8 @@
         <file alias="ic-check-tor">cryptoshares/res/img/ic-check-tor.png</file>
         <file alias="ic-check-dark">cryptoshares/res/img/ic-check-dark.png</file>
         <file alias="ic-check-liliac-on">cryptoshares/res/img/ic-check-liliac-on.png</file>
-        <file alias="ic-check-locked-off">cryptoshares/res/img/ic-check-locked-off.png</file>
+		<file alias="ic-check-locked-off">cryptoshares/res/img/ic-check-locked-off.png</file>
+		<file alias="ic-check-box-dark-active">cryptoshares/res/img/ic-check-box-dark-active.png</file>
         <file alias="ic-check-locked">cryptoshares/res/img/ic-check-locked.png</file>
         <file alias="ic-check-mint-off">cryptoshares/res/img/ic-check-mint-off.png</file>
         <file alias="ic-check-mint">cryptoshares/res/img/ic-check-mint.png</file>

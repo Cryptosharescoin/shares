@@ -123,6 +123,13 @@
                 </property>
                </widget>
               </item>
+			  <item>
+               <widget class="QLabel" name="labelTransparentShares">
+                <property name="text">
+                 <string notr="true">-- SHARES</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>

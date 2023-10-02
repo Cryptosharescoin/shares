@@ -3,6 +3,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php.
 
+#include "consensus/params.h"
 #include "qt/cryptoshares/topbar.h"
 #include "askpassphrasedialog.h"
 #include "qt/cryptoshares/forms/ui_topbar.h"
@@ -80,8 +81,9 @@ TopBar::TopBar(CRYPTOSHARESGUI* _mainWindow, QWidget* parent) : PWidget(_mainWin
 
     // Amount information top
     ui->widgetTopAmount->setVisible(false);
+    ui->labelTransparentShares->setVisible(false);
     setCssProperty({ui->labelAmountTopShieldedshares}, "amount-small-topbar");
-    setCssProperty({ui->labelAmountShares}, "amount-small-topbar");
+    setCssProperty({ui->labelAmountShares, ui->labelTransparentShares}, "amount-small-topbar");
     setCssProperty({ui->labelPendingShares, ui->labelImmatureShares, ui->labelAvailableShares, ui->labelLockedShares, ui->labelCollateralShares, ui->labelMasternodeCount,
                        ui->labelMNRewardvalue, ui->labelStakingRewardvalue},
         "amount-small-topbar");
@@ -400,6 +402,8 @@ void TopBar::showTop()
         ui->bottom_container->setVisible(false);
         ui->widgetTopAmount->setVisible(true);
         ui->labelTitle1->setVisible(false);
+        ui->labelAmountShares->setVisible(false);
+        ui->labelTransparentShares->setVisible(true);
         this->setFixedHeight(75);
     }
 }
@@ -409,6 +413,8 @@ void TopBar::showBottom()
     ui->widgetTopAmount->setVisible(false);
     ui->bottom_container->setVisible(true);
     ui->labelTitle1->setVisible(true);
+    ui->labelAmountShares->setVisible(true);
+    ui->labelTransparentShares->setVisible(false);
     this->setFixedHeight(200);
     this->adjustSize();
 }
@@ -606,16 +612,14 @@ void TopBar::refreshMasternodeStatus()
             if (!mne.castOutputIndex(nIndex))
                 continue;
 
-            uint256 txHash = uint256S(mne.getTxHash());
+            const uint256& txHash = uint256S(mne.getTxHash());
+            //uint256 txHash(mne.getTxHash());
             CTxIn txIn(txHash, uint32_t(nIndex));
-
-            /*uint256 txHash(mne.getTxHash());
-            ctxin txIn(txHash, uint32_t(nIndex));*/
             auto pmn = mnodeman.Find(txIn);
 
             if (!pmn) continue;
 
-            int activeState = pmn->GetActiveState();
+            int activeState = pmn->activeState;
 
             if (activeState == CMasternode::MASTERNODE_PRE_ENABLED || activeState == CMasternode::MASTERNODE_ENABLED) {
                 nMNActive++;
@@ -623,7 +627,7 @@ void TopBar::refreshMasternodeStatus()
         }
     }
 
-    ui->labelMasternodeCount->setText(tr("%1/0").arg(isSynced ? std::to_string(nMNActive).c_str() : "--"));
+    ui->labelMasternodeCount->setText(tr("%1").arg(nMNCount));
     ui->labelMasternodesTitle->setText(tr("Masternodes%1").arg(isSynced ? "" : " (Syncing)"));
 }
 
@@ -724,12 +728,6 @@ void TopBar::refreshStatus()
     ui->labelCollateralShares->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeCollateral(chainActive.Tip()->nHeight), nDisplayUnit));
     ui->labelStakingRewardvalue->setText(GUIUtil::formatBalance(CMasternode::GetStakingReward(chainActive.Tip()->nHeight), nDisplayUnit));
     ui->labelMNRewardvalue->setText(GUIUtil::formatBalance(CMasternode::GetMasternodeReward(chainActive.Tip()->nHeight), nDisplayUnit));
-
-    /*CAmount Blockvalue = GetBlockValue(chainActive.Tip()->nHeight);
-    CAmount MNReward = Blockvalue * 0.90;
-
-    ui->labelMNRewardvalue->setText(GUIUtil::formatBalance(MNReward));
-    ui->labelStakingRewardvalue->setText(GUIUtil::formatBalance(Blockvalue - MNReward));*/
 }
 
 void TopBar::updateDisplayUnit()
@@ -752,13 +750,16 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
 
     CAmount nAvailableBalance = newBalance.balance - nLockedBalance;
     QString totalShielded = GUIUtil::formatBalance(newBalance.shielded_balance);
+    QString TransparentShares = GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance - newBalance.shielded_balance);
 
     ui->labelAmountTopShieldedshares->setText(totalShielded);
+    ui->labelTransparentShares->setText(TransparentShares);
 
     // Top
     // ui->labelAmountTopShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     // Expanded
     ui->labelAmountShares->setText(GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance, nDisplayUnit));
+    ui->labelTransparentShares->setText(GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance - newBalance.shielded_balance, nDisplayUnit));
     ui->labelAvailableShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     ui->labelPendingShares->setText(GUIUtil::formatBalance(newBalance.unconfirmed_balance, nDisplayUnit));
     ui->labelImmatureShares->setText(GUIUtil::formatBalance(newBalance.immature_balance, nDisplayUnit));

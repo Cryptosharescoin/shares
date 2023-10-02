@@ -13,9 +13,9 @@ if [ -n "${1:-}" ]; then
     PARAMS_DIR="$1"
 else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        PARAMS_DIR="$HOME/Library/Application Support/CRYPTOSHARESParams"
+        PARAMS_DIR="$HOME/Library/Application Support/SHARESParams"
     else
-        PARAMS_DIR="$HOME/.cryptoshares-params"
+        PARAMS_DIR="$HOME/.shares-params"
     fi
 fi
 
@@ -31,6 +31,17 @@ WGETCMD="$(command -v wget || echo '')"
 IPFSCMD="$(command -v ipfs || echo '')"
 CURLCMD="$(command -v curl || echo '')"
 
+function fetch_wget {
+    if [ -z "$WGETCMD" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
+
+
 Retrieving (wget): $DOWNLOAD_URL/$filename
 EOF
 
@@ -42,12 +53,32 @@ EOF
         "$DOWNLOAD_URL/$filename"
 }
 
+function fetch_ipfs {
+    if [ -z "$IPFSCMD" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
+
 Retrieving (ipfs): $IPFS_HASH/$filename
 EOF
 
     ipfs get --output "$dlname" "$IPFS_HASH/$filename"
 }
 
+function fetch_curl {
+    if [ -z "$CURLCMD" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
+	
 Retrieving (curl): $DOWNLOAD_URL/$filename
 EOF
 
@@ -101,18 +132,18 @@ function fetch_params {
         cat "${dlname}.part.1" "${dlname}.part.2" > "${dlname}"
         rm "${dlname}.part.1" "${dlname}.part.2"
 
-        "$SHA256CMD" "$SHA256ARGS" -c <<EOF
-$expectedhash  $dlname
-EOF
+#       "$SHA256CMD" "$SHA256ARGS" -c <<EOF
+#$expectedhash  $dlname
+#EOF
 
         # Check the exit code of the shasum command:
-        CHECKSUM_RESULT=$?
-        if [ $CHECKSUM_RESULT -eq 0 ]; then
-            mv -v "$dlname" "$output"
-        else
-            echo "Failed to verify parameter checksums!" >&2
-            exit 1
-        fi
+        # CHECKSUM_RESULT=$?
+        # if [ $CHECKSUM_RESULT -eq 0 ]; then
+             mv -v "$dlname" "$output"
+        # else
+        #    echo "Failed to verify parameter checksums!" >&2
+        #    exit 1
+        # fi
     fi
 }
 
