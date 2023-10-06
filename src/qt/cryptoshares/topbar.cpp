@@ -609,17 +609,18 @@ void TopBar::refreshMasternodeStatus()
 
         if (isSynced) {
             int nIndex;
+
             if (!mne.castOutputIndex(nIndex))
                 continue;
 
             const uint256& txHash = uint256S(mne.getTxHash());
             //uint256 txHash(mne.getTxHash());
             CTxIn txIn(txHash, uint32_t(nIndex));
-            auto pmn = mnodeman.Find(txIn);
+            auto pmn = mnodeman.Find(txIn.prevout);
 
             if (!pmn) continue;
-
-            int activeState = pmn->activeState;
+            
+            int activeState = pmn->GetActiveState();
 
             if (activeState == CMasternode::MASTERNODE_PRE_ENABLED || activeState == CMasternode::MASTERNODE_ENABLED) {
                 nMNActive++;
@@ -627,7 +628,8 @@ void TopBar::refreshMasternodeStatus()
         }
     }
 
-    ui->labelMasternodeCount->setText(tr("%1").arg(nMNCount));
+    //ui->labelMasternodeCount->setText(tr("%1/%2").arg(isSynced ? std::to_string(nMNActive).c_str() : "--").arg(nMNCount));
+    ui->labelMasternodeCount->setText(tr("%1/%2").arg(std::to_string(nMNActive).c_str()).arg(nMNCount));
     ui->labelMasternodesTitle->setText(tr("Masternodes%1").arg(isSynced ? "" : " (Syncing)"));
 }
 

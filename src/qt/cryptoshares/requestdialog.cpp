@@ -96,10 +96,10 @@ void RequestDialog::accept()
         auto value = ui->lineEditAmount->text().isEmpty() ? -1 :
                 GUIUtil::parseValue(ui->lineEditAmount->text(), displayUnit);
 
-        if (value <= 0) {
+        /*if (value <= 0) {
             inform(tr("Invalid amount"));
             return;
-        }
+        }*/
 
         info = new SendCoinsRecipient();
         info->label = labelStr;
@@ -113,6 +113,9 @@ void RequestDialog::accept()
         CallResult<Destination> r;
         if (this->isPaymentRequest) {
             r = walletModel->getNewAddress(label);
+            if (info->amount < 0) {
+                info->amount = 0;
+            }
             title = tr("Request for ") + BitcoinUnits::format(displayUnit, info->amount, false, BitcoinUnits::separatorAlways) + " " + BitcoinUnits::name(displayUnit);
         } else {
             r = walletModel->getNewStakingAddress(label);

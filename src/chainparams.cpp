@@ -79,12 +79,15 @@ static MapCheckpoints mapCheckpoints = {
     {10250, uint256S("66a3f37172d5268db9968e30bd1707ddb892e00ab0c4d438398746902f7f8a33")},
     {14330, uint256S("cf6e461af9d069ccf6878aa9e6b457581d3c0fda7b4643881464ccdefa8b5bae")},
     {16874, uint256S("d9cc147655619a61c99afcca0ab34cab6d2abd9ff7ce75362612be8e2b2d6378")},
+    {18346, uint256S("0621dcc579b7702cece131cc1ff187a6e95cdffcd584a6d83aa029a73eae9353")},
+    {20978, uint256S("f3afa25f3f21c07d02b747613173793b0c85bdca3ef305328deca96e54513cde")},
+    {22602, uint256S("183304fbdcad07fcae0e24f961431fabab701bc5290b70d6a55a4ddaa4f926a3")},
 };
 
 static const CCheckpointData data = {
     &mapCheckpoints,
-    1696230480, // * UNIX timestamp of last checkpoint block
-    28687,      // * total number of transactions between genesis and last checkpoint
+    1696582275, // * UNIX timestamp of last checkpoint block
+    45458,      // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
