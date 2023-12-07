@@ -151,7 +151,7 @@ Converting cryptocurrency Usecase development into financial and Tradeable digit
 <td class="xl65" style="width: 120px; text-align: center;">0.0040000</td>
 <td class="xl65" style="width: 120px; text-align: center;">0.0025000</td>
 <td class="xl66" style="width: 120px; text-align: center;">0.00040000</td>
-<td class="xl66" style="width: 120px; text-align: center;">0.00210000</td>
+<td class="xl66" style="width: 120px; text-align: center;">0.00110000</td>
 </tr>
 </tbody>
 </table>

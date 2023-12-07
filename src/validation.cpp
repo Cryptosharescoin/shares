@@ -889,7 +889,7 @@ int64_t GetDevrewardValue(int nHeight)
     } else if (nHeight > 280000 && nHeight <= 330000) {
         return 0.00234375 * COIN;
     } else {
-        return 0.00210000 * COIN;
+        return 0.00110000 * COIN;
     }
 }
 
