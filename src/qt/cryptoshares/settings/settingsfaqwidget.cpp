@@ -76,11 +76,11 @@ SettingsFaqWidget::SettingsFaqWidget(CRYPTOSHARESGUI* parent, ClientModel* _mode
     // Set FAQ content strings
     QString introContent = formatFAQContent(
         formatFAQParagraph(
-            tr("CRYPTOSHARES is a form of digital online money using blockchain technology "
+            tr("Cryptoshares (currency ticker SHARES and currency ID CS$) is a form of digital online money using blockchain technology "
                "that can be easily transferred globally, instantly, and with near "
                "zero fees. CRYPTOSHARES incorporates market leading security & "
-               "privacy and is also the first PoS (Proof of Stake) Cryptocurrency "
-               "to implement Sapling(SHIELD), a zk-SNARKs based privacy protocol.")) +
+               "privacy. Cryptoshares (CS$) is a PoS (Proof of Stake) Cryptocurrency "
+               "that implements Sapling(SHIELD), a zk-SNARKs based privacy protocol.")) +
         formatFAQParagraph(
             tr("CRYPTOSHARES utilizes a Proof of Stake (PoS) consensus system algorithm, "
                "allowing all owners of CRYPTOSHARES to participate in earning block rewards "

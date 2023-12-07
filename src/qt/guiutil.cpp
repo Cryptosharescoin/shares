@@ -122,6 +122,11 @@ QString formatBalance(CAmount amount, int nDisplayUnit, bool Zshares)
     return (amount == 0) ? ("0.00" + BitcoinUnits::name(nDisplayUnit)) : BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, amount, false, BitcoinUnits::separatorAlways, true);
 }
 
+QString formatBalanceTransparant(CAmount amount, int nDisplayUnit, bool Zshares)
+{
+    return (amount == 0) ? (BitcoinUnits::name(nDisplayUnit) + "0.00") : BitcoinUnits::floorHtmlWithUnit(1, amount, false, BitcoinUnits::separatorAlways, true);
+}
+
 QString formatBalanceWithoutHtml(CAmount amount, int nDisplayUnit, bool Zshares)
 {
     return (amount == 0) ? ("0.00 " + BitcoinUnits::name(nDisplayUnit)) : BitcoinUnits::floorWithUnit(nDisplayUnit, amount, false, BitcoinUnits::separatorAlways, true);

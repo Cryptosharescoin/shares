@@ -64,7 +64,8 @@ public:
     enum Unit {
         SHARES,
         mSHARES,
-        uSHARES
+        uSHARES,
+        CS
     };
 
     enum SeparatorStyle {

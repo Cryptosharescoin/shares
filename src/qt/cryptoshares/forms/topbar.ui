@@ -119,14 +119,14 @@
               <item>
                <widget class="QLabel" name="labelAmountShares">
                 <property name="text">
-                 <string notr="true">-- SHARES</string>
+                 <string notr="true">-- CS$</string>
                 </property>
                </widget>
               </item>
 			  <item>
                <widget class="QLabel" name="labelTransparentShares">
                 <property name="text">
-                 <string notr="true">-- SHARES</string>
+                 <string notr="true">CS$ --</string>
                 </property>
                </widget>
               </item>
@@ -229,7 +229,7 @@ border:none;</string>
                </size>
               </property>
               <property name="text">
-               <string notr="true">1.000 SHARES </string>
+               <string notr="true">1.000 CS$ </string>
               </property>
              </widget>
             </item>

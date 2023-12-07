@@ -751,7 +751,7 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
     }
 
     CAmount nAvailableBalance = newBalance.balance - nLockedBalance;
-    QString totalShielded = GUIUtil::formatBalance(newBalance.shielded_balance);
+    QString totalShielded = GUIUtil::formatBalanceTransparant(newBalance.shielded_balance, 3);
     QString TransparentShares = GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance - newBalance.shielded_balance);
 
     ui->labelAmountTopShieldedshares->setText(totalShielded);
@@ -760,8 +760,8 @@ void TopBar::updateBalances(const interfaces::WalletBalances& newBalance)
     // Top
     // ui->labelAmountTopShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     // Expanded
-    ui->labelAmountShares->setText(GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance, nDisplayUnit));
-    ui->labelTransparentShares->setText(GUIUtil::formatBalance(newBalance.balance + newBalance.immature_balance - newBalance.shielded_balance, nDisplayUnit));
+    ui->labelAmountShares->setText(GUIUtil::formatBalanceTransparant(newBalance.balance + newBalance.immature_balance, 3));
+    ui->labelTransparentShares->setText(GUIUtil::formatBalanceTransparant(newBalance.balance + newBalance.immature_balance - newBalance.shielded_balance, 3)); //*
     ui->labelAvailableShares->setText(GUIUtil::formatBalance(nAvailableBalance, nDisplayUnit));
     ui->labelPendingShares->setText(GUIUtil::formatBalance(newBalance.unconfirmed_balance, nDisplayUnit));
     ui->labelImmatureShares->setText(GUIUtil::formatBalance(newBalance.immature_balance, nDisplayUnit));

@@ -826,10 +826,22 @@ CAmount GetBlockValue(int nHeight)
         return 10000 * COIN;
     } else if (nHeight >= 201 && nHeight <= 100000) {
         return 0.01 * COIN;
-    } else if (nHeight > 100000 && nHeight <= 36098004) {
-        return 0.50 * COIN;
+    } else if (nHeight > 100000 && nHeight <= 115000) {
+        return 0.5 * COIN;
+    } else if (nHeight > 115000 && nHeight <= 145000) {
+        return 0.25 * COIN;
+    } else if (nHeight > 145000 && nHeight <= 175000) {
+        return 0.125 * COIN;
+    } else if (nHeight > 175000 && nHeight <= 210000) {
+        return 0.0625 * COIN;
+    } else if (nHeight > 210000 && nHeight <= 250000) {
+        return 0.03125 * COIN;
+    } else if (nHeight > 250000 && nHeight <= 280000) {
+        return 0.015625 * COIN;
+    } else if (nHeight > 280000 && nHeight <= 330000) {
+        return 0.0078125 * COIN;
     } else {
-        return 0 * COIN;
+        return 0.0040000 * COIN;
     }
 }
 
@@ -839,10 +851,22 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
         return 0 * COIN;
     } else if (nHeight >= 201 && nHeight <= 100000) {
         return 0.005 * COIN;
-    } else if (nHeight > 100000 && nHeight <= 36098004) {
+    } else if (nHeight > 100000 && nHeight <= 115000) {
         return 0.3 * COIN;
+    } else if (nHeight > 115000 && nHeight <= 145000) {
+        return 0.15 * COIN;
+    } else if (nHeight > 145000 && nHeight <= 175000) {
+        return 0.075 * COIN;
+    } else if (nHeight > 175000 && nHeight <= 210000) {
+        return 0.0375 * COIN;
+    } else if (nHeight > 210000 && nHeight <= 250000) {
+        return 0.01875 * COIN;
+    } else if (nHeight > 250000 && nHeight <= 280000) {
+        return 0.009375 * COIN;
+    } else if (nHeight > 280000 && nHeight <= 330000) {
+        return 0.0046875 * COIN;
     } else {
-        return 0 * COIN;
+        return 0.0025000 * COIN;
     }
 }
 
@@ -850,10 +874,22 @@ int64_t GetDevrewardValue(int nHeight)
 {
     if (nHeight >= 201 && nHeight <= 100000) {
         return 0.003 * COIN; // Dev Reward
-    } else if (nHeight > 100000 && nHeight <= 36098004) {
+    } else if (nHeight > 100000 && nHeight <= 115000) {
         return 0.15 * COIN;
+    } else if (nHeight > 115000 && nHeight <= 145000) {
+        return 0.075 * COIN;
+    } else if (nHeight > 145000 && nHeight <= 175000) {
+        return 0.0375 * COIN;
+    } else if (nHeight > 175000 && nHeight <= 210000) {
+        return 0.01875 * COIN;
+    } else if (nHeight > 210000 && nHeight <= 250000) {
+        return 0.009375 * COIN;
+    } else if (nHeight > 250000 && nHeight <= 280000) {
+        return 0.0046875 * COIN;
+    } else if (nHeight > 280000 && nHeight <= 330000) {
+        return 0.00234375 * COIN;
     } else {
-        return 0 * COIN;
+        return 0.00210000 * COIN;
     }
 }
 

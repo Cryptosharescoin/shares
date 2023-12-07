@@ -27,6 +27,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(SHARES);
     unitlist.append(mSHARES);
     unitlist.append(uSHARES);
+    unitlist.append(CS);
     return unitlist;
 }
 
@@ -36,6 +37,7 @@ bool BitcoinUnits::valid(int unit)
     case SHARES:
     case mSHARES:
     case uSHARES:
+    case CS:
         return true;
     default:
         return false;
@@ -51,6 +53,8 @@ QString BitcoinUnits::id(int unit)
         return QString("mcryptoshares");
     case uSHARES:
         return QString::fromUtf8("ucryptoshares");
+    case CS:
+        return QString("CS$ ");
     default:
         return QString("???");
     }
@@ -68,6 +72,8 @@ QString BitcoinUnits::name(int unit, bool iszshares)
             return z + QString("m") + CURR_UNIT;
         case uSHARES:
             return z + QString::fromUtf8("μ") + CURR_UNIT;
+        case CS:
+            return QString("CS$ ");
         default:
             return QString("???");
         }
@@ -79,6 +85,8 @@ QString BitcoinUnits::name(int unit, bool iszshares)
             return z + QString("mt") + CURR_UNIT;
         case uSHARES:
             return z + QString::fromUtf8("μt") + CURR_UNIT;
+        case CS:
+            return QString("CS$ ");
         default:
             return QString("???");
         }
@@ -96,6 +104,8 @@ QString BitcoinUnits::description(int unit)
             return QString("Milli-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
         case uSHARES:
             return QString("Micro-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case CS:
+            return QString("CS$ ");
         default:
             return QString("???");
         }
@@ -107,6 +117,8 @@ QString BitcoinUnits::description(int unit)
             return QString("Milli-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
         case uSHARES:
             return QString("Micro-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case CS:
+            return QString("Test") + QString("CS$ ");
         default:
             return QString("???");
         }
@@ -136,6 +148,8 @@ int BitcoinUnits::decimals(int unit)
         return 5;
     case uSHARES:
         return 2;
+    case CS:
+        return 8;
     default:
         return 0;
     }
@@ -219,7 +233,13 @@ QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool p
 QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZSHARES)
 {
     QSettings settings;
-    int digits = settings.value("digits").toInt()+1;
+    int digits = settings.value("digits").toInt() + 8;
+    bool test = false;
+    if (unit)
+    {
+        test = true;
+        unit = 3;
+    }
 
     QString result = format(unit, amount, plussign, separators, cleanRemainderZeros);
     if (decimals(unit) > digits) {
@@ -232,7 +252,9 @@ QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussi
             }
         }
     }
-
+    if (test) {
+        return name(3, false) + result + QString(" ");
+    }
     return result + QString(" ") + name(unit, false);
 }
 

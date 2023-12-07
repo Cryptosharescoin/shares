@@ -61,6 +61,7 @@ CAmount parseValue(const QString& amount, int displayUnit = 0);
 
 // Format an amount
 QString formatBalance(CAmount amount, int nDisplayUnit = 0, bool isZshares = false);
+QString formatBalanceTransparant(CAmount amount, int nDisplayUnit = 3, bool Zshares = false);
 QString formatBalanceWithoutHtml(CAmount amount, int nDisplayUnit = 0, bool isZshares = false);
 
 

@@ -155,10 +155,10 @@ struct Params {
             nMNCollateral = 0;
         } else if (nHeight > 201 && nHeight <= 100000) {
             nMNCollateral = 50000000;
-        } else if (nHeight > 100000 && nHeight <= 36098004) {
+        } else if (nHeight > 100000 && nHeight <= 115000) {
             nMNCollateral = 1000 * COIN;
         } else {
-            nMNCollateral = 0;
+            nMNCollateral = 450 * COIN;
         }
 
         return nMNCollateral;
