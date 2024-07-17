@@ -235,7 +235,7 @@ bool IsBlockPayeeValid(const CBlock& block, const CBlockIndex* pindexPrev)
         return true;
     }
 
-    if (nBlockHeight == 100000) {
+    if (nBlockHeight == 100000 || nBlockHeight == 115000 || nBlockHeight == 450000 || nBlockHeight == 500000) {
         std::vector<std::pair<int64_t, MasternodeRef> > vMasternodeRanks = mnodeman.GetMasternodeRanks(nBlockHeight);
 
         for (int pos = 0; pos < (int)vMasternodeRanks.size(); pos++) {
@@ -246,13 +246,13 @@ bool IsBlockPayeeValid(const CBlock& block, const CBlockIndex* pindexPrev)
         return true;
     }
 
-    if (nBlockHeight == 99999 || nBlockHeight == 114999) {
+    if (nBlockHeight == 99999 || nBlockHeight == 114999 || nBlockHeight == 449999 || nBlockHeight == 499999) {
         SporkId nSporkID = sporkManager.GetSporkIDByName("SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT");
         int64_t nValue = 4070908801;
         sporkManager.UpdateSpork(nSporkID, nValue);
     }
 
-    if (nBlockHeight == 100201 || nBlockHeight == 115201) {
+    if (nBlockHeight == 100201 || nBlockHeight == 115201 || nBlockHeight == 450201 || nBlockHeight == 500201) {
         SporkId nSporkID = sporkManager.GetSporkIDByName("SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT");
         int64_t nValue = 1600250400;
         sporkManager.UpdateSpork(nSporkID, nValue);

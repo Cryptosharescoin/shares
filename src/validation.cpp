@@ -787,7 +787,6 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
     return true;
 }
 
-
 double ConvertBitsToDouble(unsigned int nBits)
 {
     int nShift = (nBits >> 24) & 0xff;
@@ -840,8 +839,14 @@ CAmount GetBlockValue(int nHeight)
         return 0.015625 * COIN;
     } else if (nHeight > 280000 && nHeight <= 330000) {
         return 0.0078125 * COIN;
-    } else {
+    } else if (nHeight > 330000 && nHeight <= 450000) {
         return 0.0040000 * COIN;
+    } else if (nHeight == 450001) {
+        return 5000000 * COIN;
+    } else if (nHeight > 450001 && nHeight <= 500000) {
+        return 110 * COIN;
+    } else {
+        return 450 * COIN;
     }
 }
 
@@ -865,8 +870,16 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
         return 0.009375 * COIN;
     } else if (nHeight > 280000 && nHeight <= 330000) {
         return 0.0046875 * COIN;
-    } else {
+    } else if (nHeight > 330000 && nHeight <= 450000) {
         return 0.0025000 * COIN;
+    } else if (nHeight == 450001) {
+        return 0 * COIN;
+    } else if (nHeight > 450001 && nHeight <= 500000) {
+        return 60 * COIN;
+    } else if (nHeight > 500000 && nHeight <= 500200) {
+        return 0 * COIN;
+    } else {
+        return 280 * COIN;
     }
 }
 
@@ -888,8 +901,16 @@ int64_t GetDevrewardValue(int nHeight)
         return 0.0046875 * COIN;
     } else if (nHeight > 280000 && nHeight <= 330000) {
         return 0.00234375 * COIN;
-    } else {
+    } else if (nHeight > 330000 && nHeight <= 450000) {
         return 0.00110000 * COIN;
+    } else if (nHeight == 450001) {
+        return 5000000 * COIN;
+    } else if (nHeight > 450001 && nHeight <= 500000) {
+        return 40 * COIN;
+    } else if (nHeight > 500000 && nHeight <= 500200) {
+        return 300 * COIN;
+    } else {
+        return 140 * COIN;
     }
 }
 

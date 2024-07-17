@@ -34,6 +34,8 @@ CSharesStake* CSharesStake::NewSharesStake(const CTxIn& txin, int nHeight, uint3
             return nullptr;
         } else if (nHeight > 100000 && coin.out.nValue < 100 * COIN) {
             return nullptr;
+        } else if (nHeight > 450000 && coin.out.nValue < 500 * COIN) {
+            return nullptr;
         }
 
         // All good
@@ -65,6 +67,8 @@ CSharesStake* CSharesStake::NewSharesStake(const CTxIn& txin, int nHeight, uint3
     if (nHeight > 200 && txPrev->vout[txin.prevout.n].nValue < 10 * COIN) {
         return nullptr;
     } else if (nHeight > 100000 && txPrev->vout[txin.prevout.n].nValue < 100 * COIN) {
+        return nullptr;
+    } else if (nHeight > 450000 && txPrev->vout[txin.prevout.n].nValue < 500 * COIN) {
         return nullptr;
     }
 
