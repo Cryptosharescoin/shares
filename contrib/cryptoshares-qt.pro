@@ -645,6 +645,10 @@ RESOURCES += src/qt/cryptoshares.qrc src/qt/cryptoshares_locale.qrc
 TRANSLATIONS += src/qt/locale/cryptoshares_bg.ts \
                 src/qt/locale/cryptoshares_de.ts \
                 src/qt/locale/cryptoshares_en.ts \
+                src/qt/locale/cryptoshares_zh_CN.ts \
+                src/qt/locale/cryptoshares_ar.ts \
+                src/qt/locale/cryptoshares_in.ts \
+                src/qt/locale/cryptoshares_hi_IN.ts \
                 src/qt/locale/cryptoshares_es.ts \
                 src/qt/locale/cryptoshares_fi.ts \
                 src/qt/locale/cryptoshares_fr.ts \

@@ -1,7 +1,11 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/translations">
         <file alias="de">locale/cryptoshares_de.qm</file>
-        <file alias="en">locale/cryptoshares_en.qm</file>
+		<file alias="en">locale/cryptoshares_en.qm</file>
+		<file alias="zh_CN">locale/cryptoshares_zh_CN.qm</file>
+		<file alias="ar">locale/cryptoshares_ar.qm</file>
+		<file alias="in">locale/cryptoshares_in.qm</file>
+		<file alias="hi_IN">locale/cryptoshares_hi_IN.qm</file>
         <file alias="en_US">locale/cryptoshares_en_US.qm</file>
         <file alias="es">locale/cryptoshares_es.qm</file>
         <file alias="fr_FR">locale/cryptoshares_fr_FR.qm</file>

@@ -94,12 +94,17 @@ static MapCheckpoints mapCheckpoints = {
     {398463, uint256S("d8568e4015aaa7becb0cce6be3794c72a6807b826a4e2126254a20b674f727f6")},
     {410526, uint256S("076c1c9240e8b28cf32649da213a1040b5a6737cc87bf54e973d4bc46ba74310")},
     {421371, uint256S("f3dcf09bde2d9b60bb87f2c542ffa2f8e00f0b03a27f107405e77e94d7eb63ba")},
+    {466255, uint256S("83bfbe2ae64b1204445cad2108c970cd3d404e9dd48d75966cf19aa5b58e724e")},
+    {498563, uint256S("f690a9cd7848b3944c76d60e9fbe18517b82cd494e5d14d109d8fc3bab51bec1")},
+    {504823, uint256S("713a4c064af681794c0b0d355483284220aaef16df7d156ce72bc8689b854bdc")},
+    {530631, uint256S("2107607df8b59ae4fb68e6b5ffb287035260ec7daf49c917fe99a8de72f9d312")},
+    {535126, uint256S("a84a37b3a6ed8e92f1f4b27eb1ada3f0bdbca1813ef22be37bbd56c114562710")},
 };
 
 static const CCheckpointData data = {
     &mapCheckpoints,
-    1721110845, // * UNIX timestamp of last checkpoint block
-    848959,     // * total number of transactions between genesis and last checkpoint
+    1728300255, // * UNIX timestamp of last checkpoint block
+    1079216,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -144,7 +149,6 @@ public:
         consensus.nFutureTimeDriftPoW = 7200;
         consensus.nFutureTimeDriftPoS = 180;
         consensus.nMaxMoneyOut = 20000000 * COIN;
-        //consensus.nMNCollateralAmt = 10000 * COIN;
         consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
         consensus.nStakeMinAge = 30 * 60;
         consensus.nStakeMinDepth = 60;

@@ -878,6 +878,54 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
         return 60 * COIN;
     } else if (nHeight > 500000 && nHeight <= 500200) {
         return 0 * COIN;
+    } else if (nHeight > 500200 && nHeight <= 560000) {
+        return 280 * COIN;
+    } else if (nHeight > 560000 && nHeight <= 560200) {
+        return 0 * COIN;
+    } else if (nHeight > 560200 && nHeight <= 600000) {
+        return 280 * COIN;
+    } else if (nHeight > 600000 && nHeight <= 600200) {
+        return 0 * COIN;
+    } else if (nHeight > 600200 && nHeight <= 700000) {
+        return 280 * COIN;
+    } else if (nHeight > 700000 && nHeight <= 700200) {
+        return 0 * COIN;
+    } else if (nHeight > 700200 && nHeight <= 800000) {
+        return 280 * COIN;
+    } else if (nHeight > 800000 && nHeight <= 800200) {
+        return 0 * COIN;
+    } else if (nHeight > 800200 && nHeight <= 900000) {
+        return 280 * COIN;
+    } else if (nHeight > 900000 && nHeight <= 900200) {
+        return 0 * COIN;
+    } else if (nHeight > 900200 && nHeight <= 1000000) {
+        return 280 * COIN;
+    } else if (nHeight > 1000000 && nHeight <= 1000200) {
+        return 0 * COIN;
+    } else if (nHeight > 1000200 && nHeight <= 1100000) {
+        return 280 * COIN;
+    } else if (nHeight > 1100000 && nHeight <= 1100200) {
+        return 0 * COIN;
+    } else if (nHeight > 1100200 && nHeight <= 1200000) {
+        return 280 * COIN;
+    } else if (nHeight > 1200000 && nHeight <= 1200200) {
+        return 0 * COIN;
+    } else if (nHeight > 1200200 && nHeight <= 1300000) {
+        return 280 * COIN;
+    } else if (nHeight > 1300000 && nHeight <= 1300200) {
+        return 0 * COIN;
+    } else if (nHeight > 1300200 && nHeight <= 1400000) {
+        return 280 * COIN;
+    } else if (nHeight > 1400000 && nHeight <= 1400200) {
+        return 0 * COIN;
+    } else if (nHeight > 1400200 && nHeight <= 1500000) {
+        return 280 * COIN;
+    } else if (nHeight > 1500000 && nHeight <= 1500200) {
+        return 0 * COIN;
+    } else if (nHeight > 1500200 && nHeight <= 1600000) {
+        return 280 * COIN;
+    } else if (nHeight > 1600000 && nHeight <= 1600200) {
+        return 0 * COIN;
     } else {
         return 280 * COIN;
     }
@@ -909,6 +957,54 @@ int64_t GetDevrewardValue(int nHeight)
         return 40 * COIN;
     } else if (nHeight > 500000 && nHeight <= 500200) {
         return 300 * COIN;
+    } else if (nHeight > 500200 && nHeight <= 560000) {
+        return 140 * COIN;
+    } else if (nHeight > 560000 && nHeight <= 560200) {
+        return 300 * COIN;
+    } else if (nHeight > 560200 && nHeight <= 600000) {
+        return 140 * COIN;
+    } else if (nHeight > 600000 && nHeight <= 600200) {
+        return 300 * COIN;
+    } else if (nHeight > 600200 && nHeight <= 700000) {
+        return 140 * COIN;
+    } else if (nHeight > 700000 && nHeight <= 700200) {
+        return 300 * COIN;
+    } else if (nHeight > 700200 && nHeight <= 800000) {
+        return 140 * COIN;
+    } else if (nHeight > 800000 && nHeight <= 800200) {
+        return 400 * COIN;
+    } else if (nHeight > 800200 && nHeight <= 900000) {
+        return 140 * COIN;
+    } else if (nHeight > 900000 && nHeight <= 900200) {
+        return 400 * COIN;
+    } else if (nHeight > 900200 && nHeight <= 1000000) {
+        return 140 * COIN;
+    } else if (nHeight > 1000000 && nHeight <= 1000200) {
+        return 400 * COIN;
+    } else if (nHeight > 1000200 && nHeight <= 1100000) {
+        return 140 * COIN;
+    } else if (nHeight > 1100000 && nHeight <= 1100200) {
+        return 400 * COIN;
+    } else if (nHeight > 1100200 && nHeight <= 1200000) {
+        return 140 * COIN;
+    } else if (nHeight > 1200000 && nHeight <= 1200200) {
+        return 400 * COIN;
+    } else if (nHeight > 1200200 && nHeight <= 1300000) {
+        return 140 * COIN;
+    } else if (nHeight > 1300000 && nHeight <= 1300200) {
+        return 400 * COIN;
+    } else if (nHeight > 1300200 && nHeight <= 1400000) {
+        return 140 * COIN;
+    } else if (nHeight > 1400000 && nHeight <= 1400200) {
+        return 400 * COIN;
+    } else if (nHeight > 1400200 && nHeight <= 1500000) {
+        return 140 * COIN;
+    } else if (nHeight > 1500000 && nHeight <= 1500200) {
+        return 400 * COIN;
+    } else if (nHeight > 1500200 && nHeight <= 1600000) {
+        return 140 * COIN;
+    } else if (nHeight > 1600000 && nHeight <= 1600200) {
+        return 400 * COIN;
     } else {
         return 140 * COIN;
     }
